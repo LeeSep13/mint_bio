@@ -11,6 +11,10 @@ export default new Router({
     mode: "history",
   routes: [
     {
+      path: '/',
+      redirect: '/vision'
+    },
+    {
       path: '/aminoAcid',
       name: 'aminoAcid',
       component: AminoAcid
