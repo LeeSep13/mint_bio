@@ -22,22 +22,14 @@
       <el-col :span="14" class="footer-right">
         <div class="footer-right-content">
           <div class="footer-right-content-menus footer-common">
-            <p class="footer-right-content-menus-item">
-              生物智造
-            </p>
-            <p class="footer-right-content-menus-item">
-              发展动态
-            </p>
-            <p class="footer-right-content-menus-item">
-              加入我们
-            </p>
-            <p class="footer-right-content-menus-item">
-              下载中心
-            </p>
+            <p class="footer-right-content-menus-item">生物智造</p>
+            <p class="footer-right-content-menus-item">发展动态</p>
+            <p class="footer-right-content-menus-item">加入我们</p>
+            <p class="footer-right-content-menus-item">下载中心</p>
           </div>
           <div class="footer-right-content-products footer-common">
-            <p class="footer-right-content-products-item-title ">产品</p>
-            <p class="footer-right-content-products-item ">生物降解新材料</p>
+            <p class="footer-right-content-products-item-title">产品</p>
+            <p class="footer-right-content-products-item">生物降解新材料</p>
             <p class="footer-right-content-products-item">生物合成氨基酸</p>
             <p class="footer-right-content-products-item">节豆粮解决方案</p>
           </div>
@@ -49,16 +41,23 @@
         </div>
         <div class="footer-right-info">
           <div class="footer-right-info-qrCode">
-            <img src="https://s3-alpha-sig.figma.com/img/a8b3/cc3c/75ee7ece7c623aa0b737ec85138f5819?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EdeWMtOpeY6QHeFLCWHcs4nd3NRdv-EmW1AYmXlYO1b6kAjH00wTUXoM7eI5aRvCHsI59f1UsLaN4gv-8Qi71eBAQ87KTTWMQZ~hznTu-nfsjs2CP0xuFA9g3EWQH68ahzAcgYIuXi660l89qSmSWFlHVOzBlbNFgCc1EUfll1eZbExa44MW~DVklpa90MnTZipX8GRE9BR~pu6p2yMi0zS0ryAP3vSJacBu0Hsdaqebj-Jnq7PfF2XP3xvmybbPvp7c5L~9fpmNUP8QPzNTHPxkngBdytFRAie61ocC4Bfl7dx43OPCB6VXpddrsS~f7yQLmmNQ6J7jE4wlN020HA__" alt="">
+            <img
+              src="https://s3-alpha-sig.figma.com/img/a8b3/cc3c/75ee7ece7c623aa0b737ec85138f5819?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EdeWMtOpeY6QHeFLCWHcs4nd3NRdv-EmW1AYmXlYO1b6kAjH00wTUXoM7eI5aRvCHsI59f1UsLaN4gv-8Qi71eBAQ87KTTWMQZ~hznTu-nfsjs2CP0xuFA9g3EWQH68ahzAcgYIuXi660l89qSmSWFlHVOzBlbNFgCc1EUfll1eZbExa44MW~DVklpa90MnTZipX8GRE9BR~pu6p2yMi0zS0ryAP3vSJacBu0Hsdaqebj-Jnq7PfF2XP3xvmybbPvp7c5L~9fpmNUP8QPzNTHPxkngBdytFRAie61ocC4Bfl7dx43OPCB6VXpddrsS~f7yQLmmNQ6J7jE4wlN020HA__"
+              alt=""
+            />
           </div>
           <div class="footer-right-info-address footer-common">
             <p class="mb26">总部地址</p>
-            <p>西投·云城犀谷3号楼<br/>
-            浙江省杭州市西湖区西园七路3号</p>
+            <p>
+              西投·云城犀谷3号楼<br />
+              浙江省杭州市西湖区西园七路3号
+            </p>
           </div>
           <div class="footer-right-info-copyright">
-            <p>© 2024 元素驱动(杭州)生物科技有限公司<br/>
-              浙ICP备08004136号 浙公网备案33021102000954</p>
+            <p>
+              © 2024 元素驱动(杭州)生物科技有限公司<br />
+              浙ICP备08004136号 浙公网备案33021102000954
+            </p>
           </div>
         </div>
       </el-col>
@@ -80,6 +79,17 @@ export default {
   background-color: #11161b;
   padding: 5rem 13rem 5rem 9.5rem;
   height: 27.8125rem;
+  border-width: 1px 0 0 0; /* 只设置上边框 */
+  border-style: solid;
+  border-image: linear-gradient(
+    to right,
+    rgba(53, 52, 74, 0.5) 0%,
+    rgba(53, 52, 74, 0.5) 10%,
+    rgba(255, 255, 255, 0.4) 30%,
+    rgba(255, 255, 255, 0.4) 70%,
+    rgba(53, 52, 74, 0.5) 90%,
+    rgba(53, 52, 74, 0.5) 100%
+  ) 1;
   &-common {
     font-weight: 500;
     font-size: 0.875rem;
@@ -136,7 +146,6 @@ export default {
     }
   }
   &-right {
-    
     &-content {
       display: flex;
       justify-content: space-between;
@@ -178,29 +187,29 @@ export default {
         }
       }
     }
-    &-info{
+    &-info {
       width: 100%;
       margin-top: 7.5625rem;
       display: flex;
       justify-content: space-between;
       align-items: end;
-      &-qrCode{
-        img{
+      &-qrCode {
+        img {
           width: 8.0625rem;
           height: 8.0625rem;
         }
       }
-      &-address{
+      &-address {
         margin-left: 3.1875rem;
       }
-      &-copyright{
+      &-copyright {
         margin-left: 6.9375rem;
         color: #ffffff;
       }
     }
   }
 }
-.mb26{
+.mb26 {
   margin-bottom: 1.625rem;
 }
 </style> 
