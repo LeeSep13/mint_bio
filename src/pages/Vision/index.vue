@@ -41,14 +41,16 @@
       </div>
       <div class="vision-module3-content">
         <div class="vision-module3-content-left">
-          <p class="vision-module3-content-left-text">据世界经合组织 (OECD) 的案例分析表明，<br/>生物技术的应用可以</p>
+          <p class="vision-module3-content-left-text">
+            据世界经合组织 (OECD) 的案例分析表明，<br />生物技术的应用可以
+          </p>
           <p class="vision-module3-content-left-more">了解更多</p>
           <div class="vision-module3-content-left-list">
-            <img src="./images/banner3_list_info.png" alt="banner3_list_info">
+            <img src="./images/banner3_list_info.png" alt="banner3_list_info" />
           </div>
         </div>
         <div class="vision-module3-content-right">
-          <img src="./images/trend.png" alt="">
+          <img src="./images/trend.png" alt="" />
         </div>
       </div>
     </div>
@@ -170,57 +172,85 @@ export default {
     }
   }
   &-module3 {
-    &-title{
+    &-title {
       display: flex;
       gap: 1rem;
       &-text1,
-      &-text2{
+      &-text2 {
         font-size: 3.75rem;
         font-weight: 500;
       }
-      &-text1{
-        color:#FF7200;
+      &-text1 {
+        color: #ff7200;
       }
-      &-text2{
-        color:#F1F3F7;
+      &-text2 {
+        color: #f1f3f7;
       }
     }
-    &-content{
+    &-content {
       display: flex;
       margin-top: 3.75rem;
-      &-left{
+      &-left {
         width: 524px;
         margin-right: 4.75rem;
-        &-list{
-          img{
+        &-list {
+          img {
             width: 532px;
             height: 418px;
           }
         }
-        &-text{
+        &-text {
           font-size: 1.5rem;
           color: #fff;
         }
-        &-more{
+        &-more {
           margin-top: 3.75rem;
           margin-bottom: 2.5rem;
-          width: 4rem;
-          height: .75rem;
-          line-height: .75rem;
-          padding: 1.4375rem 1.875rem;
+          width: 7.75rem;
+          height: 3.625rem;
+          line-height: 3.625rem;
+          text-align: center;
           font-size: 1rem;
           color: #fff;
-          border: 1px solid #FFFFFF66;
           border-radius: 13.0625rem;
+          border: 1px solid transparent;
+          background-image: linear-gradient(#181a1c, #121820),
+            // 跟背景色保持一致，根据实际情况修改
+            linear-gradient(
+                156.52deg,
+                rgba(255, 255, 255, 0.4) 2.12%,
+                rgba(255, 255, 255, 0.0001) 39%,
+                rgba(255, 255, 255, 0.0001) 54.33%,
+                rgba(255, 255, 255, 0.1) 93.02%
+              ); /* 使用你提供的边框渐变色 */
+          background-origin: border-box;
+          background-clip: content-box, border-box;
         }
       }
-      &-right{
-        img{
+      &-right {
+        img {
           width: 832px;
           height: 640px;
         }
       }
     }
+  }
+  &-module4 {
+    width: 100%;
+    border-width: 1px; /* 边框宽度 */
+    border-style: solid; /* 边框样式 */
+
+    /* 渐变的实现 */
+    border-image: linear-gradient(
+        30deg,
+        rgba(53, 52, 74, 1) 0%,
+        rgba(53, 52, 74, 0.5) 15%,
+        rgba(255, 255, 255, 1) 40%,
+        rgba(255, 255, 255, 1) 60%,
+        rgba(53, 52, 74, 0.5) 85%,
+        rgba(53, 52, 74, 1) 100%
+      )
+      1; /* 边框的渐变范围 */
   }
 }
 </style>
