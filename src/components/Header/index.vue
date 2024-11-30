@@ -1,13 +1,12 @@
 <template>
   <header class="header">
-    <el-row>
-      <el-col :span="8" class="header-left">
-        <div class="logo">
+      <div  class="header-left">
+        <div class="header-left-logo">
           <img src="@/assets/images/logo.png" alt="Logo" />
         </div>
-      </el-col>
+      </div>
 
-      <el-col :span="8" class="header-middle">
+      <div class="header-middle">
         <ul class="nav">
           <li
             class="nav-item"
@@ -33,6 +32,11 @@
               v-else
             >
               {{ item.name }}
+              <img 
+                :src="item.state? item.iconUp : item.iconDown" 
+                alt="Toggle Icon" 
+                class="submenu-icon"
+              />
             </span>
 
             <ul v-if="item.submenu && item.submenu.length" class="submenu">
@@ -53,14 +57,13 @@
             </ul>
           </li>
         </ul>
-      </el-col>
+      </div>
 
-      <el-col :span="8" class="header-right">
+      <div class="header-right">
         <div class="menu">
           <img src="./images/menu.png" alt="Menu" />
         </div>
-      </el-col>
-    </el-row>
+      </div>
   </header>
 </template>
 
@@ -86,7 +89,9 @@ export default {
           submenu: [
             { key: 2, name: '生物合成氨基酸', router: 'aminoAcid' },
             { key: 3, name: '节豆粮解决方案', router: 'knotWeed' }
-          ]
+          ],
+          iconUp: require('@/components/Header/images/arrow_up.png'),  
+          iconDown: require('@/components/Header/images/arrow_down.png'),
         },
         {
           key: 2,
@@ -95,7 +100,9 @@ export default {
           state: false,  
           submenu: [
             { key: 21, name: '愿景与责任', router: 'vision' }
-          ]
+          ],
+          iconUp: require('@/components/Header/images/arrow_up.png'),  
+          iconDown: require('@/components/Header/images/arrow_down.png'),
         },
         {
           key: 3,
@@ -140,13 +147,14 @@ export default {
 
 <style lang="less" scoped>
 .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: linear-gradient(0deg, #11161b, #11161b),
     radial-gradient(40.98% 38.14% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
   padding-top: 1rem;
-
   &-left {
     &-logo {
-      margin-left: 25%;
       img{
         width: 7.625rem;
         height:3.75rem;
@@ -155,6 +163,9 @@ export default {
   }
 
   &-middle {
+    width: 36.5rem;
+    margin-left: 19.5rem;
+    margin-right: 21.5625rem;
     .nav {
       width: 100%;
       display: flex;
@@ -233,6 +244,12 @@ export default {
           display: block;
           opacity: 1;
         }
+
+        .submenu-icon {
+          margin-left: .25rem;
+          width: .75rem; 
+          vertical-align: middle;
+        }
       }
 
       .submenu-item {
@@ -257,7 +274,6 @@ export default {
     .menu {
       width: 3.375rem;
       height: 3.375rem;
-      margin-left: 75%;
     }
   }
 }
