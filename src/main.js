@@ -8,7 +8,11 @@ Vue.use(ElementUI);
 
 Vue.config.productionTip = false
 
-new Vue({
+const { createApp } = Vue
+const app = createApp({
   render: h => h(App),
-  router,
-}).$mount('#app')
+})
+
+app.use(router)
+
+app.mount('#app')
