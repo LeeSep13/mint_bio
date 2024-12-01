@@ -1,8 +1,8 @@
 <template>
   <div class="vision">
     <div class="vision-title">
-      <img class="grid-image" src="./images/grid.png" alt="vision_grid" />
-      <img class="mint-image" src="./images/mint.png" alt="vision_mint" />
+      <img class="grid-image" src="@/assets/images/grid.png" alt="vision_grid" />
+      <img class="mint-image" src="@/assets/images/mint.png" alt="vision_mint" />
       <p class="vision-title-text">与合作伙伴共担ESG责任</p>
     </div>
     <div class="vision-module1">
