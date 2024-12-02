@@ -1,69 +1,115 @@
 <template>
   <header class="header">
-      <div  class="header-left">
-        <div class="header-left-logo">
-          <img src="@/assets/images/logo.png" alt="Logo" />
-        </div>
+    <div class="header-left">
+      <div class="header-left-logo">
+        <img src="@/assets/images/logo.png" alt="Logo" />
       </div>
+    </div>
 
-      <div class="header-middle">
-        <ul class="nav">
-          <li
-            class="nav-item"
-            v-for="item in navData"
-            :key="item.key"
-            :class="{
-              'nav-item_current': item.state, 
-              'has-submenu': item.submenu && item.submenu.length > 0
-            }"
-            @mouseover="setMouseOver(item)"
-            @mouseleave="setMouseLeave(item)"
-            @click.prevent="handleClick(item)"
+    <div class="header-middle">
+      <ul class="nav">
+        <li
+          class="nav-item"
+          v-for="item in navData"
+          :key="item.key"
+          :class="{
+            'nav-item_current': item.state,
+            'has-submenu': item.submenu && item.submenu.length > 0,
+          }"
+          @mouseover="setMouseOver(item)"
+          @mouseleave="setMouseLeave(item)"
+          @click.prevent="handleClick(item)"
+        >
+          <router-link
+            class="nav-item-link"
+            :to="
+              item.submenu.length ? 'javascript:void(0)' : { name: item.router }
+            "
+            v-if="!item.submenu.length"
           >
-            <router-link
-              class="nav-item-link"
-              :to="item.submenu.length ? 'javascript:void(0)' : { name: item.router }"
-              v-if="!item.submenu.length"
-            >
-              {{ item.name }}
-            </router-link>
-            <span
-              class="nav-item-link"
-              v-else
-            >
-              {{ item.name }}
-              <img 
-                :src="item.state? item.iconUp : item.iconDown" 
-                alt="Toggle Icon" 
-                class="submenu-icon"
-              />
-            </span>
+            {{ item.name }}
+          </router-link>
+          <span class="nav-item-link" v-else>
+            {{ item.name }}
+            <img
+              :src="item.state ? item.iconUp : item.iconDown"
+              alt="Toggle Icon"
+              class="submenu-icon"
+            />
+          </span>
 
-            <ul v-if="item.submenu && item.submenu.length" class="submenu">
-              <li
-                class="submenu-item"
-                v-for="subItem in item.submenu"
-                :key="subItem.key"
-                @mouseover="setMouseOver(subItem)"
-                @mouseleave="setMouseLeave(subItem)"
+          <ul v-if="item.submenu && item.submenu.length" class="submenu">
+            <li
+              class="submenu-item"
+              v-for="subItem in item.submenu"
+              :key="subItem.key"
+              @mouseover="setMouseOver(subItem)"
+              @mouseleave="setMouseLeave(subItem)"
+            >
+              <router-link
+                :to="{ name: subItem.router }"
+                class="submenu-item-link"
               >
-                <router-link
-                  :to="{ name: subItem.router }"
-                  class="submenu-item-link"
-                >
-                  {{ subItem.name }}
-                </router-link>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+                {{ subItem.name }}
+              </router-link>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
 
-      <div class="header-right">
-        <div class="menu">
+    <div class="header-right">
+      <el-popover
+        placement="bottom"
+        width="891"
+        trigger="manual"
+        v-model="visible"
+        :visible-arrow="false"
+        popper-class="header-popover"
+      >
+        <div class="popover-content">
+          <div class="popover-content-close" @click="visible = !visible">
+            <img src="./images/close.png" alt="close" />
+          </div>
+          <div class="popover-content-menu">
+            <div class="popover-content-menu-item">
+              <p>生物智造</p>
+            </div>
+            <div class="popover-content-menu-item">
+              <p>产品</p>
+              <p>生物降解新材料</p>
+              <p>生物合成氨基酸</p>
+              <p>节豆粮解决方案</p>
+            </div>
+            <div class="popover-content-menu-item">
+              <p>关于我们</p>
+              <p>企业介绍</p>
+              <p>愿景与责任</p>
+            </div>
+            <div class="popover-content-menu-item">
+              <p>发展动态</p>
+            </div>
+            <div class="popover-content-menu-item">
+              <p>加入我们</p>
+            </div>
+            <div class="popover-content-menu-item">
+              <p>下载中心</p>
+            </div>
+          </div>
+          <div class="popover-content-language">
+            <p class="popover-content-language-cn">简体中文</p>
+            <p class="popover-content-language-en">ENGLISH</p>
+            <div class="popover-content-download">
+              <p>下载品牌手册</p>
+              <img src="./images/download.png" alt="download">
+            </div>
+          </div>
+        </div>
+        <div class="menu" slot="reference" @click="visible = !visible">
           <img src="./images/menu.png" alt="Menu" />
         </div>
-      </div>
+      </el-popover>
+    </div>
   </header>
 </template>
 
@@ -75,89 +121,147 @@ export default {
       navData: [
         {
           key: 0,
-          name: '生物智造',
-          router: '/',
-          state: false,  
+          name: "生物智造",
+          router: "/",
+          state: false,
           submenu: [],
-          disabled: true 
+          disabled: true,
         },
         {
           key: 1,
-          name: '产品',
-          router: '/',
-          state: false,  
+          name: "产品",
+          router: "/",
+          state: false,
           submenu: [
-            { key: 2, name: '生物合成氨基酸', router: 'aminoAcid' },
-            { key: 3, name: '节豆粮解决方案', router: 'knotWeed' }
+            { key: 2, name: "生物合成氨基酸", router: "aminoAcid" },
+            { key: 3, name: "节豆粮解决方案", router: "knotWeed" },
+            { key: 4, name: "节豆粮解决方案", router: "knotWeed" },
           ],
-          iconUp: require('@/components/Header/images/arrow_up.png'),  
-          iconDown: require('@/components/Header/images/arrow_down.png'),
+          iconUp: require("@/components/Header/images/arrow_up.png"),
+          iconDown: require("@/components/Header/images/arrow_down.png"),
         },
         {
           key: 2,
-          name: '关于我们',
-          router: '/',
-          state: false,  
-          submenu: [
-            { key: 21, name: '愿景与责任', router: 'vision' }
-          ],
-          iconUp: require('@/components/Header/images/arrow_up.png'),  
-          iconDown: require('@/components/Header/images/arrow_down.png'),
+          name: "关于我们",
+          router: "/",
+          state: false,
+          submenu: [{ key: 21, name: "愿景与责任", router: "vision" }],
+          iconUp: require("@/components/Header/images/arrow_up.png"),
+          iconDown: require("@/components/Header/images/arrow_down.png"),
         },
         {
           key: 3,
-          name: '发展动态',
-          router: '/',
-          state: false,  
+          name: "发展动态",
+          router: "/",
+          state: false,
           submenu: [],
-          disabled: true 
+          disabled: true,
         },
-      ]
+      ],
+      visible: false,
     };
   },
   methods: {
-  setMouseOver(item) {
-    this.navData.forEach(navItem => navItem.state = false); 
-    item.state = true;  
+    setMouseOver(item) {
+      this.navData.forEach((navItem) => (navItem.state = false));
+      item.state = true;
+    },
+    setMouseLeave(item) {
+      item.state = false;
+    },
+    handleClick(item) {
+      // 如果菜单项被禁用，阻止点击
+      if (item.disabled) {
+        return;
+      }
+      // 如果主菜单项有子菜单，阻止点击事件
+      if (item.submenu && item.submenu.length > 0) {
+        return;
+      }
+      // 如果没有子菜单，正常跳转
+      const targetPath = item.router;
+      if (this.$route.path !== targetPath) {
+        // 只有在目标路径与当前路径不同时才导航
+        this.$router.push({ name: item.router });
+      }
+    },
   },
-  setMouseLeave(item) {
-    item.state = false;
-  },
-  handleClick(item) {
-    // 如果菜单项被禁用，阻止点击
-    if (item.disabled) {
-      return;
-    }
-    // 如果主菜单项有子菜单，阻止点击事件
-    if (item.submenu && item.submenu.length > 0) {
-      return;
-    }
-    // 如果没有子菜单，正常跳转
-    const targetPath = item.router;
-    if (this.$route.path !== targetPath) { // 只有在目标路径与当前路径不同时才导航
-      this.$router.push({ name: item.router });
-    }
-  }
-}
-
 };
 </script>
 
 
-
+<style lang="less">
+.el-popover.header-popover {
+  margin-right: 2.5rem;
+  padding: 24px 26px 95px 72px;
+  background-color: #2828289f;
+  border-radius: 20px;
+  border: 1px solid transparent;
+}
+.popover-content {
+  &-close {
+    margin-bottom: 62px;
+    text-align: right;
+    img {
+      width: 54px;
+      height: 54px;
+    }
+  }
+  &-menu {
+    display: flex;
+    gap: 80px;
+    &-item {
+      display: flex;
+      flex-direction: column;
+      gap: 39px;
+      p {
+        font-size: 16px;
+        font-weight: 500;
+        color: #f1f3f7;
+      }
+    }
+  }
+  &-language {
+    margin-top: 118px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    &-cn,
+    &-en {
+      font-size: 16px;
+      font-weight: 500;
+      color: #f1f3f7;
+    }
+  }
+  &-download{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 158px;
+    height: 67px;
+    color: #F1F3F7;
+    border: 1px solid #FFFFFF1A;
+    border-radius: 999px;
+  }
+}
+</style>
 <style lang="less" scoped>
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(0deg, #11161b, #11161b),
-    radial-gradient(40.98% 38.14% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
+    radial-gradient(
+      40.98% 38.14% at 50% 0%,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
   padding-top: 1rem;
   &-left {
     &-logo {
-      img{
+      img {
         width: 7.625rem;
-        height:3.75rem;
+        height: 3.75rem;
       }
     }
   }
@@ -222,7 +326,6 @@ export default {
           background-color: #ff7200;
         }
 
-        /* Submenu */
         .submenu {
           display: none;
           list-style: none;
@@ -231,32 +334,34 @@ export default {
           position: absolute;
           top: 100%;
           left: 0;
-          background-color: #222;
-          border-radius: 0.5rem;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          background-color: #2828289F;
+          border-radius: .75rem;
           opacity: 0;
           transition: opacity 0.3s ease;
-          z-index: 10; 
-          width: 100%;
+          z-index: 10;
+          white-space: nowrap;
         }
 
         &:hover .submenu {
-          display: block;
+          padding: 19px 26px;
+          display: flex;
+          box-sizing: border-box;
+          gap: .5rem;
           opacity: 1;
         }
 
         .submenu-icon {
-          margin-left: .25rem;
-          width: .75rem; 
+          margin-left: 0.25rem;
+          width: 0.75rem;
           vertical-align: middle;
         }
       }
 
       .submenu-item {
-        padding: 0.5rem 1rem;
-        font-size: .875rem;
-        background-color: rgba(255, 255, 255, 0.1);
-
+        padding: 1.875rem;
+        font-size: 1rem;
+        border-radius: .75rem;
+        background-color: #02030833;
         &-link {
           text-decoration: none;
           color: inherit;
