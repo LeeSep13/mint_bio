@@ -20,7 +20,7 @@
         <p class="aminoAcid-title-content-text3">生物造</p>
       </div>
     </div>
-
+    <Test />
     <div class="aminoAcid-module1">
       <div class="aminoAcid-module1-content">
         <div class="aminoAcid-module1-content-left">
@@ -51,15 +51,6 @@
         }"
         :modules="modules"
       >
-        <!-- <swiper-slide>
-          <aa-module-content></aa-module-content>
-        </swiper-slide>
-        <swiper-slide>
-          <aa-module-content></aa-module-content>
-        </swiper-slide>
-        <swiper-slide>
-          <aa-module-content></aa-module-content>
-        </swiper-slide> -->
         <swiper-slide v-for="(module, index) in module2Data" :key="index">
           <aa-module-content
             :title="module.title"
@@ -121,6 +112,7 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Mousewheel, Pagination } from "swiper/modules";
 import AaModuleContent from "./AaModuleContent";
+import Test from './test'
 import "swiper/css";
 
 export default {
@@ -129,6 +121,7 @@ export default {
     Swiper,
     SwiperSlide,
     AaModuleContent,
+    Test,
   },
   setup() {
     return {
