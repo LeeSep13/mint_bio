@@ -4,8 +4,8 @@
       placement="left-end"
       width="1285"
       trigger="manual"
-      v-model="visible"
-      :visible-arrow="false"
+      :visible="visible"
+      :show-arrow="false"
       popper-class="contact-popover-w"
     >
       <div class="contact-popover">
@@ -74,28 +74,23 @@
           </div>
         </div>
       </div>
-      <div class="contact-btn" slot="reference" @click="visible = !visible">
-        <img src="@/assets/images/contact.png" alt="contact" />
-      </div>
+      <template #reference>
+        <div class="contact-btn" @click="visible = !visible">
+          <img src="@/assets/images/contact.png" alt="contact" />
+        </div>
+      </template>
     </el-popover>
   </div>
 </template>
   
-  <script>
-export default {
-  name: "Contact",
-  components: {},
-  data() {
-    return {
-      visible: false,
-    };
-  },
-  methods: {},
-};
+<script setup>
+import { ref } from 'vue'
+
+const visible = ref(false)
 </script>
   
 <style lang="less">
-.el-popover.contact-popover-w {
+.el-popper.el-popover.contact-popover-w {
   margin-right: 2.5rem;
   padding: 24px 26px 95px 72px;
   background-color: #2828289f;

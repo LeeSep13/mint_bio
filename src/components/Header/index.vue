@@ -63,8 +63,8 @@
         placement="bottom"
         width="891"
         trigger="manual"
-        v-model="visible"
-        :visible-arrow="false"
+        :visible="visible"
+        :show-arrow="false"
         popper-class="header-popover"
       >
         <div class="popover-content">
@@ -105,93 +105,93 @@
             </div>
           </div>
         </div>
-        <div class="menu" slot="reference" @click="visible = !visible">
-          <img src="./images/menu.png" alt="Menu" />
-        </div>
+        <template #reference>
+          <div class="menu" @click="visible = !visible">
+            <img src="./images/menu.png" alt="Menu" />
+          </div>
+        </template>
       </el-popover>
     </div>
   </header>
 </template>
 
-<script>
-export default {
-  name: "Header",
-  data() {
-    return {
-      navData: [
-        {
-          key: 0,
-          name: "生物智造",
-          router: "/",
-          state: false,
-          submenu: [],
-          disabled: true,
-        },
-        {
-          key: 1,
-          name: "产品",
-          router: "/",
-          state: false,
-          submenu: [
-            { key: 2, name: "生物合成氨基酸", router: "aminoAcid" },
-            { key: 3, name: "节豆粮解决方案", router: "knotWeed" },
-            { key: 4, name: "节豆粮解决方案", router: "knotWeed" },
-          ],
-          iconUp: require("@/components/Header/images/arrow_up.png"),
-          iconDown: require("@/components/Header/images/arrow_down.png"),
-        },
-        {
-          key: 2,
-          name: "关于我们",
-          router: "/",
-          state: false,
-          submenu: [{ key: 21, name: "愿景与责任", router: "vision" }],
-          iconUp: require("@/components/Header/images/arrow_up.png"),
-          iconDown: require("@/components/Header/images/arrow_down.png"),
-        },
-        {
-          key: 3,
-          name: "发展动态",
-          router: "/",
-          state: false,
-          submenu: [],
-          disabled: true,
-        },
-      ],
-      visible: false,
-    };
+<script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const navData = ref([
+  {
+    key: 0,
+    name: "生物智造",
+    router: "/",
+    state: false,
+    submenu: [],
+    disabled: true,
   },
-  methods: {
-    setMouseOver(item) {
-      this.navData.forEach((navItem) => (navItem.state = false));
-      item.state = true;
-    },
-    setMouseLeave(item) {
-      item.state = false;
-    },
-    handleClick(item) {
-      // 如果菜单项被禁用，阻止点击
-      if (item.disabled) {
-        return;
-      }
-      // 如果主菜单项有子菜单，阻止点击事件
-      if (item.submenu && item.submenu.length > 0) {
-        return;
-      }
-      // 如果没有子菜单，正常跳转
-      const targetPath = item.router;
-      if (this.$route.path !== targetPath) {
-        // 只有在目标路径与当前路径不同时才导航
-        this.$router.push({ name: item.router });
-      }
-    },
+  {
+    key: 1,
+    name: "产品",
+    router: "/",
+    state: false,
+    submenu: [
+      { key: 2, name: "生物合成氨基酸", router: "aminoAcid" },
+      { key: 3, name: "节豆粮解决方案", router: "knotWeed" },
+    ],
+    iconUp: require("@/components/Header/images/arrow_up.png"),
+    iconDown: require("@/components/Header/images/arrow_down.png"),
   },
+  {
+    key: 2,
+    name: "关于我们",
+    router: "/",
+    state: false,
+    submenu: [{ key: 21, name: "愿景与责任", router: "vision" }],
+    iconUp: require("@/components/Header/images/arrow_up.png"),
+    iconDown: require("@/components/Header/images/arrow_down.png"),
+  },
+  {
+    key: 3,
+    name: "发展动态",
+    router: "/",
+    state: false,
+    submenu: [],
+    disabled: true,
+  },
+]);
+
+const visible = ref(false);
+
+const setMouseOver = (item) => {
+  navData.value.forEach((navItem) => (navItem.state = false));
+  item.state = true;
+};
+
+const setMouseLeave = (item) => {
+  item.state = false;
+};
+
+const handleClick = (item) => {
+  // 如果菜单项被禁用，阻止点击
+  if (item.disabled) {
+    return;
+  }
+  // 如果主菜单项有子菜单，阻止点击事件
+  if (item.submenu && item.submenu.length > 0) {
+    return;
+  }
+  // 如果没有子菜单，正常跳转
+  const targetPath = item.router;
+  if (router.currentRoute.value.path !== targetPath) {
+    // 只有在目标路径与当前路径不同时才导航
+    router.push({ name: item.router });
+  }
 };
 </script>
 
-
 <style lang="less">
-.el-popover.header-popover {
+.el-popper.el-popover.header-popover {
   margin-right: 2.5rem;
   padding: 24px 26px 95px 72px;
   background-color: #2828289f;
