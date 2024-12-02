@@ -40,29 +40,39 @@
       </div>
     </div>
 
-
-      <div class="aminoAcid-module2-swiper">
-        <swiper
-          :direction="'vertical'"
-          :slidesPerView="1"
-          :spaceBetween="30"
-          :mousewheel="true"
-          :pagination="{
-            clickable: true,
-          }"
-          :modules="modules"
-        >
-          <swiper-slide>
-            <aa-module-content></aa-module-content>
-          </swiper-slide>
-          <swiper-slide>
-            <aa-module-content></aa-module-content>
-          </swiper-slide>
-          <swiper-slide>
-            <aa-module-content></aa-module-content>
-          </swiper-slide>
-        </swiper>
-      </div>
+    <div class="aminoAcid-module2-swiper">
+      <swiper
+        :direction="'vertical'"
+        :slidesPerView="1"
+        :spaceBetween="30"
+        :mousewheel="true"
+        :pagination="{
+          clickable: true,
+        }"
+        :modules="modules"
+      >
+        <!-- <swiper-slide>
+          <aa-module-content></aa-module-content>
+        </swiper-slide>
+        <swiper-slide>
+          <aa-module-content></aa-module-content>
+        </swiper-slide>
+        <swiper-slide>
+          <aa-module-content></aa-module-content>
+        </swiper-slide> -->
+        <swiper-slide v-for="(module, index) in module2Data" :key="index">
+          <aa-module-content
+            :title="module.title"
+            :topItems="module.topItems"
+            :introductionTitle1="module.introductionTitle1"
+            :introductionTitle2="module.introductionTitle2"
+            :applyTexts="module.applyTexts"
+            :advantages="module.advantages"
+            :imageUrl="module.imageUrl"
+          ></aa-module-content>
+        </swiper-slide>
+      </swiper>
+    </div>
 
     <div class="aminoAcid-module3">
       <div class="aminoAcid-module3-title">
@@ -108,17 +118,17 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Mousewheel, Pagination } from 'swiper/modules';
-import AaModuleContent from './AaModuleContent'
-import 'swiper/css';
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Mousewheel, Pagination } from "swiper/modules";
+import AaModuleContent from "./AaModuleContent";
+import "swiper/css";
 
 export default {
   name: "AminoAcid",
   components: {
     Swiper,
     SwiperSlide,
-    AaModuleContent
+    AaModuleContent,
   },
   setup() {
     return {
@@ -126,7 +136,59 @@ export default {
     };
   },
   data() {
-    return {};
+    return {
+      module2Data: [
+        {
+          title: "生物合成 异亮氨酸",
+          topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
+          introductionTitle1: "生物合成",
+          introductionTitle2: "异亮氨酸",
+          applyTexts: ["医药", "化学试剂", "饲料添加剂"],
+          advantages: [
+            "添加于饲料中，减少大豆用量，降低养殖成本",
+            "相较同类产品，具有大幅成本优势",
+            "相较行业头部，发酵效率高200%",
+          ],
+          imageUrl: require("./images/module2_element.png"),
+        },
+        {
+          title: "生物合成 组氨酸",
+          topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
+          introductionTitle1: "生物合成",
+          introductionTitle2: "组氨酸",
+          applyTexts: ["食品", "饲料", "生化试剂制造制药"],
+          advantages: ["相较同类产品，具有成本优势", "相较行业头部，发酵效率快35%", "相较化学合成法，产品纯度高"],
+          imageUrl: require("./images/module2_element.png"),
+        },
+        {
+          title: "生物合成 色氨酸",
+          topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
+          introductionTitle1: "生物合成",
+          introductionTitle2: "色氨酸",
+          applyTexts: ["医药", "食品强化剂", "饲料添加剂"],
+          advantages: ["人体与动物必需氨基酸，应用场景广泛", "相较传统生产方法，效率更高、成本更低"],
+          imageUrl: require("./images/module2_element.png"),
+        },
+        {
+          title: "生物合成 亮氨酸",
+          topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
+          introductionTitle1: "生物合成",
+          introductionTitle2: "亮氨酸",
+          applyTexts: ["运动营养剂", "食品添加剂", "特殊医药用途食品"],
+          advantages: ["动物必需氨基酸之一", "相较传统水解法，生产过程更环保、更高效", "相较化学合成法，具有成本优势"],
+          imageUrl: require("./images/module2_element.png"),
+        },
+        {
+          title: "生物合成 缬氨酸",
+          topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
+          introductionTitle1: "生物合成",
+          introductionTitle2: "缬氨酸",
+          applyTexts: ["医药", "食品强化剂", "饲料添加剂"],
+          advantages: ["动物必需氨基酸之一", "提供饲料转化率，降低养殖成本", "相较化学合成法，具有成本优势"],
+          imageUrl: require("./images/module2_element.png"),
+        },
+      ],
+    };
   },
 };
 </script>
@@ -265,100 +327,101 @@ export default {
     }
   }
   &-module2 {
-    margin: 13.875rem 0;
-    width: 89rem;
-    height: 45.3125rem;
-    background-image: url("./images/module2_bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    &-swiper{
-      height: 750px;
+    // margin: 13.875rem 0;
+    // width: 89rem;
+    // height: 45.3125rem;
+    // background-image: url("./images/module2_bg.png");
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    &-swiper {
+      margin: 13.875rem 0;
+      height: 45.3125rem;
     }
-    &-title {
-      margin-left: 4.625rem;
-      width: 17.75rem;
-      height: 2.5rem;
-      line-height: 2.5rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: #f1f3f780;
-    }
-    &-content {
-      margin: 2.8125rem 4.625rem 3.75rem 4.625rem;
-      &-top {
-        margin-bottom: 2.75rem;
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: #f1f3f780;
-      }
-      &-bottom {
-        display: flex;
-        gap: 5.125rem;
-        &-introduction {
-          margin-top: 4.375rem;
-          &-title {
-            &-text1,
-            &-text2 {
-              font-size: 2.5rem;
-              font-weight: 500;
-            }
-            &-text1 {
-              color: #ff7200;
-            }
-            &-text2 {
-              color: #f1f3f7;
-            }
-          }
-          &-apply {
-            margin-top: 2.0625rem;
-            margin-bottom: 7.5625rem;
-            display: flex;
-            gap: 1.875rem;
-            &-text {
-              padding: 1.25rem;
-              font-size: 0.875rem;
-              font-weight: 500;
-              color: #f1f3f7;
-              border-radius: 3.125rem;
-              border: 1px solid #ffffff;
-            }
-          }
-          &-advantage {
-            li {
-              position: relative;
-              font-size: 1.25rem;
-              font-weight: 500;
-              color: #f1f3f7;
-              padding-left: 1.5rem;
+    // &-title {
+    //   margin-left: 4.625rem;
+    //   width: 17.75rem;
+    //   height: 2.5rem;
+    //   line-height: 2.5rem;
+    //   font-size: 0.875rem;
+    //   font-weight: 500;
+    //   color: #f1f3f780;
+    // }
+    // &-content {
+    //   margin: 2.8125rem 4.625rem 3.75rem 4.625rem;
+    //   &-top {
+    //     margin-bottom: 2.75rem;
+    //     display: flex;
+    //     justify-content: space-between;
+    //     font-size: 0.875rem;
+    //     font-weight: 500;
+    //     color: #f1f3f780;
+    //   }
+    //   &-bottom {
+    //     display: flex;
+    //     gap: 5.125rem;
+    //     &-introduction {
+    //       margin-top: 4.375rem;
+    //       &-title {
+    //         &-text1,
+    //         &-text2 {
+    //           font-size: 2.5rem;
+    //           font-weight: 500;
+    //         }
+    //         &-text1 {
+    //           color: #ff7200;
+    //         }
+    //         &-text2 {
+    //           color: #f1f3f7;
+    //         }
+    //       }
+    //       &-apply {
+    //         margin-top: 2.0625rem;
+    //         margin-bottom: 7.5625rem;
+    //         display: flex;
+    //         gap: 1.875rem;
+    //         &-text {
+    //           padding: 1.25rem;
+    //           font-size: 0.875rem;
+    //           font-weight: 500;
+    //           color: #f1f3f7;
+    //           border-radius: 3.125rem;
+    //           border: 1px solid #ffffff;
+    //         }
+    //       }
+    //       &-advantage {
+    //         li {
+    //           position: relative;
+    //           font-size: 1.25rem;
+    //           font-weight: 500;
+    //           color: #f1f3f7;
+    //           padding-left: 1.5rem;
 
-              &::before {
-                content: "";
-                position: absolute;
-                left: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 10px;
-                height: 10px;
-                background-color: #fff;
-                border-radius: 50%;
-              }
+    //           &::before {
+    //             content: "";
+    //             position: absolute;
+    //             left: 0;
+    //             top: 50%;
+    //             transform: translateY(-50%);
+    //             width: 10px;
+    //             height: 10px;
+    //             background-color: #fff;
+    //             border-radius: 50%;
+    //           }
 
-              &:not(:last-child) {
-                margin-bottom: 1rem; /* 每项之间的间隔 */
-              }
-            }
-          }
-        }
-        &-img {
-          img {
-            width: 764px;
-            height: 526px;
-          }
-        }
-      }
-    }
+    //           &:not(:last-child) {
+    //             margin-bottom: 1rem; /* 每项之间的间隔 */
+    //           }
+    //         }
+    //       }
+    //     }
+    //     &-img {
+    //       img {
+    //         width: 764px;
+    //         height: 526px;
+    //       }
+    //     }
+    //   }
+    // }
   }
   &-module3 {
     display: flex;
@@ -447,8 +510,8 @@ export default {
           background-clip: text;
           background-image: linear-gradient(
             90deg,
-            #6A3E1D 0%,
-            #3E0603 30%,
+            #6a3e1d 0%,
+            #3e0603 30%,
             #000 50%,
             #000 100%
           );
@@ -465,12 +528,12 @@ export default {
           background-clip: text;
           background-image: linear-gradient(
             200deg,
-            #C47C66 0%,
-            #FFFFFE 10%,
+            #c47c66 0%,
+            #fffffe 10%,
             #735546 40%,
-            #463C26 60%,
-            #605B34 80%,
-            #EFA085 90%,
+            #463c26 60%,
+            #605b34 80%,
+            #efa085 90%,
             #373020 100%
           );
         }

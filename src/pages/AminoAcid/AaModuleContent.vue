@@ -1,72 +1,66 @@
 <template>
-    <div class="aminoAcid-module2">
-      <div class="aminoAcid-module2-title">
-        <p>生物合成 异亮氨酸</p>
+  <div class="aminoAcid-module2">
+    <div class="aminoAcid-module2-title">
+      <p>{{ title }}</p>
+    </div>
+    <div class="aminoAcid-module2-content">
+      <div class="aminoAcid-module2-content-top">
+        <p v-for="(item, index) in topItems" :key="index">{{ item }}</p>
       </div>
-      <div class="aminoAcid-module2-content">
-        <div class="aminoAcid-module2-content-top">
-          <p>Brilliant</p>
-          <p>MiNT BiO</p>
-          <p>BioAmino</p>
-        </div>
-    <div class="aminoAcid-module2-content-bottom">
+      <div class="aminoAcid-module2-content-bottom">
         <div class="aminoAcid-module2-content-bottom-introduction">
-            <div class="aminoAcid-module2-content-bottom-introduction-title">
+          <div class="aminoAcid-module2-content-bottom-introduction-title">
             <p
-                class="aminoAcid-module2-content-bottom-introduction-title-text1"
+              class="aminoAcid-module2-content-bottom-introduction-title-text1"
             >
-                生物合成
+              {{ introductionTitle1 }}
             </p>
             <p
-                class="aminoAcid-module2-content-bottom-introduction-title-text2"
+              class="aminoAcid-module2-content-bottom-introduction-title-text2"
             >
-                异亮氨酸
+              {{ introductionTitle2 }}
             </p>
-            </div>
-            <div class="aminoAcid-module2-content-bottom-introduction-apply">
+          </div>
+          <div class="aminoAcid-module2-content-bottom-introduction-apply">
             <p
-                class="aminoAcid-module2-content-bottom-introduction-apply-text"
+              v-for="(applyText, index) in applyTexts"
+              :key="index"
+              class="aminoAcid-module2-content-bottom-introduction-apply-text"
             >
-                医药
+              {{ applyText }}
             </p>
-            <p
-                class="aminoAcid-module2-content-bottom-introduction-apply-text"
-            >
-                化学试剂
-            </p>
-            <p
-                class="aminoAcid-module2-content-bottom-introduction-apply-text"
-            >
-                饲料添加剂
-            </p>
-            </div>
-            <div
-            class="aminoAcid-module2-content-bottom-introduction-advantage"
-            >
+          </div>
+          <div class="aminoAcid-module2-content-bottom-introduction-advantage">
             <ul
-                class="aminoAcid-module2-content-bottom-introduction-advantage-text"
+              class="aminoAcid-module2-content-bottom-introduction-advantage-text"
             >
-                <li>添加于饲料中，减少大豆用量，降低养殖成本</li>
-                <li>相较同类产品，具有大幅成本优势</li>
-                <li>相较行业头部，发酵效率高200%</li>
+              <li v-for="(advantage, index) in advantages" :key="index">
+                {{ advantage }}
+              </li>
             </ul>
-            </div>
-            </div>
-            <div class="aminoAcid-module2-content-bottom-img">
-                <img src="./images/module2_element.png" alt="" />
-            </div>
+          </div>
         </div>
+        <div class="aminoAcid-module2-content-bottom-img">
+          <img :src="imageUrl" alt="" />
+        </div>
+      </div>
     </div>
-    </div>
+  </div>
 </template>
-
-<script>
+  
+  <script>
 export default {
-    name: 'AaModuleContent',
-    data() {
-        return {}
-    }
-}
+  name: "AaModuleContent",
+  props: {
+    title: String,
+    topItems: Array,
+    introductionTitle1: String,
+    introductionTitle2: String,
+    applyTexts: Array,
+    advantages: Array,
+    imageUrl: String,
+  },
+};
 </script>
 
 <style>
@@ -76,13 +70,114 @@ export default {
 }
 
 .swiper-slide {
-  text-align: center;
+  /* text-align: center;
   font-size: 18px;
   background: #fff;
 
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+}
+</style>
+
+<style lang="less" scoped>
+.aminoAcid {
+  &-module2 {
+    width: 89rem;
+    height: 45.3125rem;
+    background-image: url("./images/module2_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    &-swiper {
+      margin: 13.875rem 0;
+      height: 45.3125rem;
+    }
+    &-title {
+      margin-left: 4.625rem;
+      width: 17.75rem;
+      height: 2.5rem;
+      line-height: 2.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #f1f3f780;
+    }
+    &-content {
+      margin: 2.8125rem 4.625rem 3.75rem 4.625rem;
+      &-top {
+        margin-bottom: 2.75rem;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #f1f3f780;
+      }
+      &-bottom {
+        display: flex;
+        gap: 4.375rem;
+        &-introduction {
+          margin-top: 4.375rem;
+          width: 27.5rem;
+          &-title {
+            &-text1,
+            &-text2 {
+              font-size: 2.5rem;
+              font-weight: 500;
+            }
+            &-text1 {
+              color: #ff7200;
+            }
+            &-text2 {
+              color: #f1f3f7;
+            }
+          }
+          &-apply {
+            margin-top: 2.0625rem;
+            margin-bottom: 7.5625rem;
+            display: flex;
+            gap: 1.875rem;
+            &-text {
+              padding: 1.25rem;
+              font-size: 0.875rem;
+              font-weight: 500;
+              color: #f1f3f7;
+              border-radius: 3.125rem;
+              border: 1px solid #ffffff;
+            }
+          }
+          &-advantage {
+            li {
+              position: relative;
+              font-size: 1.25rem;
+              font-weight: 500;
+              color: #f1f3f7;
+              padding-left: 1.5rem;
+
+              &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 10px;
+                height: 10px;
+                background-color: #fff;
+                border-radius: 50%;
+              }
+
+              &:not(:last-child) {
+                margin-bottom: 1rem; /* 每项之间的间隔 */
+              }
+            }
+          }
+        }
+        &-img {
+          img {
+            width: 764px;
+            height: 526px;
+          }
+        }
+      }
+    }
+  }
 }
 </style>
