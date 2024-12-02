@@ -1,8 +1,16 @@
 <template>
   <div class="vision">
     <div class="vision-title">
-      <img class="grid-image" src="@/assets/images/grid.png" alt="vision_grid" />
-      <img class="mint-image" src="@/assets/images/mint.png" alt="vision_mint" />
+      <img
+        class="grid-image"
+        src="@/assets/images/grid.png"
+        alt="vision_grid"
+      />
+      <img
+        class="mint-image"
+        src="@/assets/images/mint.png"
+        alt="vision_mint"
+      />
       <p class="vision-title-text">与合作伙伴共担ESG责任</p>
     </div>
     <div class="vision-module1">
@@ -45,12 +53,28 @@
             据世界经合组织 (OECD) 的案例分析表明，<br />生物技术的应用可以
           </p>
           <p class="vision-module3-content-left-more">了解更多</p>
-          <div class="vision-module3-content-left-list">
-            <img src="./images/banner3_list_info.png" alt="banner3_list_info" />
+          <div class="vision-module3-content-left-list-w">
+            <ul class="vision-module3-content-left-list">
+              <li
+                v-for="(item,index) in declineData"
+                :key="item.title"
+                :class="{
+                  highlight: highlightedIndex === index,
+                }"
+                @mouseover="updateHoverData(item.rate, index)"
+              >
+                {{ item.name }}
+              </li>
+            </ul>
           </div>
         </div>
         <div class="vision-module3-content-right">
-          <img src="./images/trend.png" alt="" />
+          <img class="vision-module3-grid" src="./images/grid.png" alt="" />
+          <img class="vision-module3-trend" src="./images/trend.png" alt="" />
+          <div class="vision-module3-content-right-content">
+            <img src="./images/down.png" alt="down" />
+            <p>{{ hoverData }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -123,7 +147,7 @@
           <p class="vision-module5-content-img3-btn">匹配顾问</p>
         </div>
         <div class="vision-module5-content-img4">
-          <img src="./images/process.png" alt="">
+          <img src="./images/process.png" alt="" />
         </div>
       </div>
     </div>
@@ -162,10 +186,46 @@ export default {
             "到 2025 年，非粮生物基材料产业基本形成自主创新能力强、产品体系不断丰富、绿色循环低碳的创新发展生态，非粮生物质原料利用和应用技术基本成熟，部分非粮生物基产品竞争力与化石基产品相当，高质量、可持续的供给和消费体系初步建立。",
         },
       ],
+      declineData: [
+        {
+          key: 0,
+          name: "工业过程能耗 (下降)",
+          rate: "15%～88%",
+        },
+        {
+          key: 1,
+          name: "原料消耗 (下降)",
+          rate: "35%～75%",
+        },
+        {
+          key: 2,
+          name: "空气污染 (下降)",
+          rate: "50%～90%",
+        },
+        {
+          key: 3,
+          name: "水污染 (下降)",
+          rate: "33%～80%",
+        },
+        {
+          key: 4,
+          name: "生产成本 (下降)",
+          rate: "9%～90%",
+        },
+      ],
+      highlightedIndex: 0,
+      hoverData: "15%～88%",
     };
+  },
+  methods: {
+    updateHoverData(data, index) {
+      this.highlightedIndex = index;
+      this.hoverData = data;
+    },
   },
 };
 </script>
+
 <style lang="less" scoped>
 .vision {
   display: flex;
@@ -290,13 +350,44 @@ export default {
     &-content {
       display: flex;
       margin-top: 3.75rem;
+      color: transparent;
+      z-index: 1;
       &-left {
         width: 524px;
         margin-right: 4.75rem;
         &-list {
-          img {
-            width: 532px;
-            height: 418px;
+          padding: 0.5rem 3.875rem;
+          &-w {
+            text-align: center;
+            width: 32.75rem;
+            height: 25.625rem;
+            border-radius: 1.25rem;
+            border: 1px solid transparent;
+            background-image: linear-gradient(#181a1d, #12161b),
+              linear-gradient(
+                156.52deg,
+                rgba(255, 255, 255, 0.4) 2.12%,
+                rgba(255, 255, 255, 0.0001) 60%,
+                rgba(255, 255, 255, 0.0001) 54%,
+                rgba(255, 255, 255, 0.1) 93.02%
+              );
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+          }
+          li {
+            height: 4.9375rem;
+            line-height: 4.9375rem;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #5d5f61;
+            transition: color 0.3s ease;
+
+            &:not(:last-child) {
+              border-bottom: 0.4px solid #f1f3f7;
+            }
+          }
+          .highlight {
+            color: #ffffff;
           }
         }
         &-text {
@@ -327,11 +418,59 @@ export default {
         }
       }
       &-right {
-        img {
-          width: 832px;
-          height: 640px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 51.5rem;
+        height: 39.5rem;
+        border-radius: 1.25rem;
+        border: 1px solid transparent;
+        background-image: linear-gradient(#181a1d, #12161b),
+          linear-gradient(
+            156.52deg,
+            rgba(255, 255, 255, 0.4) 2.12%,
+            rgba(255, 255, 255, 0.0001) 60%,
+            rgba(255, 255, 255, 0.0001) 54%,
+            rgba(255, 255, 255, 0.1) 93.02%
+          );
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        &-content {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 34px;
+          img {
+            width: 6.25rem;
+            height: 6.25rem;
+          }
+          p {
+            font-size: 6.25rem;
+            font-weight: 500;
+            color: #ff7200;
+            transition: all 0.3s ease;
+          }
         }
       }
+    }
+    &-grid {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 41.4375rem;
+      height: 29.25rem;
+      z-index: 0; /* 确保网格图在下面 */
+    }
+    &-trend {
+      position: absolute;
+      top: 65%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 51.5rem;
+      height: 24.125rem;
+      z-index: 0; /* 确保Mint图在网格图下面 */
     }
   }
   &-module4 {
@@ -520,7 +659,7 @@ export default {
           height: 2.375rem;
           line-height: 2.375rem;
           text-align: center;
-          font-size: .875rem;
+          font-size: 0.875rem;
           font-weight: 500;
           color: #f1f3f7;
           background-color: rgba(255, 114, 0, 0.8);
@@ -544,8 +683,8 @@ export default {
           border-radius: 13.0625rem;
         }
       }
-      &-img4{
-        img{
+      &-img4 {
+        img {
           width: 464px;
           height: 460px;
         }
