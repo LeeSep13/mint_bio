@@ -178,8 +178,8 @@ export default {
         top: 0;
         left: 0;
         z-index: 3;
-        color: #fff;
-        font-size: 1.25rem;
+        color: #F1F3F780;
+        font-size: .875rem;
         font-weight: 500;
         border-radius: 30px 30px 0 0;
       }
