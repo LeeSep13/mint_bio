@@ -1,8 +1,15 @@
 <template>
   <div class="aminoAcid-module2">
-    <div class="aminoAcid-module2-title" :style="{ marginLeft: titleStyle }">
-      <p>{{ title }}</p>
-      <p class="aminoAcid-module2-title-radian"></p>
+    <div
+      class="aminoAcid-module2-radian"
+      :style="{ marginLeft: tabStyle.marginLeft, zIndex: tabStyle.zIndex }"
+    >
+      <div class="aminoAcid-module2-radian-inner"></div>
+      <div
+        class="aminoAcid-module2-radian-title"
+      >
+        <p>{{ title }}</p>
+      </div>
     </div>
     <div class="aminoAcid-module2-content">
       <div class="aminoAcid-module2-content-w">
@@ -64,7 +71,13 @@ export default {
     applyTexts: Array,
     advantages: Array,
     imageUrl: String,
-    titleStyle: String,
+    tabStyle: {
+      type: Object,
+      default: () => ({
+        marginLeft: "0px", // 默认值
+        zIndex: 1, // 默认值
+      }),
+    },
   },
 };
 </script>
@@ -100,26 +113,79 @@ export default {
       margin: 13.875rem 0;
       height: 45.3125rem;
     }
-    &-title {
+    &-radian {
+      margin-left: 0.875rem;
       position: relative;
-      top: 0px;
+      top: 1px;
       width: 17.75rem;
       height: 2.5rem;
-      line-height: 2.5rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: #f1f3f780;
-      background-color: #17191c;
-      text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      border-bottom: none;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      /* 保证伪元素的正常显示 */
-      z-index: 1;
+      overflow: hidden;
+      border-radius: 20px 20px 0 0;
+
+      &-inner {
+        // margin-left: 0.5rem;
+        position: absolute;
+        width: 14rem;
+        height: 2.5rem;
+        background: #17191c;
+        bottom: 0;
+        left: 24px;
+        border-radius: 20px 20px 0 0;
+        z-index: 2;
+        transform: perspective(40px) scaleX(1.2) scaleY(1.5) rotateX(24deg);
+        border: 1px solid #ffffff66;
+        border-bottom: none;
+        transform-origin: center bottom;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 8px;
+          height: 10px;
+          bottom: -8px;
+          left: -8px;
+          background: radial-gradient(
+            circle at 0% 0,
+            transparent,
+            transparent 9.5px,
+            #626568 10px,
+            #17191c
+          );
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          width: 8px;
+          height: 10px;
+          top: 40px;
+          right: -8px;
+          background: radial-gradient(
+            circle at 10px 0,
+            transparent,
+            transparent 9.5px,
+            #626568 10px,
+            #17191c
+          );
+        }
+      }
+
+      &-title {
+        margin-left: 25px;
+        position: absolute;
+        width: 14rem;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        text-align: center;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        color: #fff;
+        font-size: 1.25rem;
+        font-weight: 500;
+        border-radius: 30px 30px 0 0;
+      }
     }
     &-content {
-      border-radius: 1.25rem;
+      border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
       border: 1px solid transparent;
       background-image: linear-gradient(#181a1d, #12161b),
         linear-gradient(

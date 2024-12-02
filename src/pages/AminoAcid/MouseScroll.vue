@@ -14,13 +14,13 @@
         :applyTexts="module.applyTexts"
         :advantages="module.advantages"
         :imageUrl="module.imageUrl"
-        :titleStyle="getModuleMargin(index)"
+        :tabStyle="getTabStyleData(index)"
       ></aa-module-content>
     </div>
   </div>
 </template>
   
-  <script>
+<script>
 import AaModuleContent from "./AaModuleContent";
 
 export default {
@@ -131,8 +131,15 @@ export default {
         zIndex: zIndex, // 控制模块层级，使当前模块显示在最上层
       };
     },
-    getModuleMargin(index) {
-      return `${index * 284}px`;
+    getTabStyleData(index) {
+      const marginLeft = index === 0 ? "15px" : `${15 + index * 280}px`;
+      const offset = index * this.moduleHeight - this.scrollDistance;
+      const zIndex = offset >= 0 ? this.modules.length - index : 0;
+
+      return {
+        marginLeft: marginLeft,
+        zIndex: zIndex,
+      };
     },
   },
   mounted() {

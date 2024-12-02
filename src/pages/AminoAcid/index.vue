@@ -20,7 +20,6 @@
         <p class="aminoAcid-title-content-text3">生物造</p>
       </div>
     </div>
-    <Test />
     <div class="aminoAcid-module1">
       <div class="aminoAcid-module1-content">
         <div class="aminoAcid-module1-content-left">
@@ -39,8 +38,10 @@
         </div>
       </div>
     </div>
+    
+    <MouseScroll />
 
-    <div class="aminoAcid-module2-swiper">
+    <!-- <div class="aminoAcid-module2-swiper">
       <swiper
         :direction="'vertical'"
         :slidesPerView="1"
@@ -63,7 +64,7 @@
           ></aa-module-content>
         </swiper-slide>
       </swiper>
-    </div>
+    </div> -->
 
     <div class="aminoAcid-module3">
       <div class="aminoAcid-module3-title">
@@ -112,7 +113,7 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Mousewheel, Pagination } from "swiper/modules";
 import AaModuleContent from "./AaModuleContent";
-import Test from './test'
+import MouseScroll from './MouseScroll'
 import "swiper/css";
 
 export default {
@@ -121,7 +122,7 @@ export default {
     Swiper,
     SwiperSlide,
     AaModuleContent,
-    Test,
+    MouseScroll,
   },
   setup() {
     return {
