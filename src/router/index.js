@@ -1,10 +1,12 @@
 import Vue from 'vue'
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { createWebHashHistory, createRouter } from 'vue-router'
 
 
 import AminoAcid from '@/pages/AminoAcid'
 import KnotWeed from '@/pages/KnotWeed'
 import Vision from '@/pages/Vision'
+import MiNTNews from '@/pages/MiNTNews/MiNTNews.vue'
+import MiNTNewsDetail from '@/pages/MiNTNews/MiNTNewsDetail.vue'
 
 const routes =[
   {
@@ -27,10 +29,25 @@ const routes =[
     name: 'vision',
     component: Vision
   },
+  {
+    path: '/vision',
+    name: 'vision',
+    component: Vision
+  },
+  {
+    path: '/mintNews',
+    name: 'mintNews',
+    component: MiNTNews
+  },
+  {
+    path: '/mintNews/detail/:configId',
+    name: 'mintNewsDetail',
+    component: MiNTNewsDetail
+  }
 ]
 
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHashHistory(),
   routes,
 })
 

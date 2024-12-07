@@ -13,7 +13,7 @@
         </div>
         <div class="footer-left-download">
           <span>下载品牌手册</span>
-          <img src="./images/download.png" alt="" />
+          <img src="@/assets/images/download.png" alt="" />
         </div>
       </el-col>
       <el-col :span="2" class="footer-middle">

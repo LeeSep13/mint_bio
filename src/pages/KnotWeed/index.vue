@@ -51,19 +51,22 @@
         </div>
       </div>
     </div>
-    <div class="knotWeed-divider">+</div>
+    <MiNTDivider :content="'+'"></MiNTDivider>
+
     <div class="knotWeed-module3">
       <div class="knotWeed-module3-title">
         <p>节豆日粮助力</p>
         <p>解决粮食安全“卡脖子问题”</p>
       </div>
-      <div class="knotWeed-module3-data">'
-        <div 
+      <div class="knotWeed-module3-data">
+        <div
           class="knotWeed-module3-data-item"
           v-for="item in knotData"
           :key="item.key"
         >
-          <p class="knotWeed-module3-data-item-important">{{ item.important }}</p>
+          <p class="knotWeed-module3-data-item-important">
+            {{ item.important }}
+          </p>
           <p class="knotWeed-module3-data-item-content">{{ item.content }}</p>
         </div>
       </div>
@@ -72,38 +75,46 @@
 </template>
 
 <script>
+import { ref } from "vue";
+import MiNTDivider from "@/components/Divider";
+
 export default {
-  name: "KnotWeed",
-  components: {},
-  data() {
+  components: {
+    MiNTDivider,
+  },
+  setup() {
+    const knotData = ref([
+      {
+        key: 0,
+        important: "8类",
+        content: "合成8类养猪氨基酸",
+      },
+      {
+        key: 1,
+        important: "100%",
+        content: "有望实现100%豆粕代替",
+      },
+      {
+        key: 2,
+        important: "3亿",
+        content: "节省3亿亩大豆种植面积",
+      },
+      {
+        key: 3,
+        important: "4000万",
+        content: "减少进口4000万吨大豆",
+      },
+    ]);
+
     return {
-      knotData: [
-        {
-          key: 0,
-          important: "8类",
-          content: "合成8类养猪氨基酸",
-        },
-        {
-          key: 1,
-          important: "100%",
-          content: "有望实现100%豆粕代替",
-        },
-        {
-          key: 2,
-          important: "3亿",
-          content: "节省3亿亩大豆种植面积",
-        },
-        {
-          key: 3,
-          important: "4000万",
-          content: "减少进口4000万吨大豆",
-        },
-        ]
-      };
-    },
+      knotData,
+    };
+  },
 };
 </script>
+
 <style lang="less" scoped>
+/* 样式部分保持不变 */
 .knotWeed {
   display: flex;
   flex-direction: column;
@@ -305,7 +316,7 @@ export default {
     }
   }
   &-module3 {
-    margin-top: 8.25rem ;
+    margin-top: 8.25rem;
     margin-bottom: 18.75rem;
     &-title {
       margin-bottom: 12.5rem;
@@ -316,29 +327,28 @@ export default {
         margin-left: 15rem;
       }
     }
-    &-data{
+    &-data {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       row-gap: 9.3125rem;
       width: 71.75rem;
-      &-item{
+      &-item {
         width: 24.25rem;
         &:nth-child(1),
-        &:nth-child(3){
+        &:nth-child(3) {
           margin-right: 7.5rem;
         }
-        &-important{
+        &-important {
           font-size: 7.5rem;
           font-weight: 500;
           color: #ff7200;
         }
-        &-content{
+        &-content {
           font-size: 2rem;
-          color: #F1F3F7;
+          color: #f1f3f7;
         }
       }
-
     }
   }
 }
