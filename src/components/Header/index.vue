@@ -111,6 +111,11 @@
           </div>
         </template>
       </el-popover>
+      <div
+        v-if="visible"
+        class="popover-overlay"
+        @click="visible = false"
+      ></div>
     </div>
   </header>
 </template>
@@ -197,6 +202,7 @@ const handleClick = (item) => {
   background-color: #2828289f;
   border-radius: 20px;
   border: 1px solid transparent;
+  backdrop-filter: blur(10px);
 }
 .popover-content {
   &-close {
@@ -243,6 +249,15 @@ const handleClick = (item) => {
     border: 1px solid #FFFFFF1A;
     border-radius: 999px;
   }
+}
+.popover-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  z-index: 9; /* Ensure it's above the page content but below the popover */
 }
 </style>
 <style lang="less" scoped>

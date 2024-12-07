@@ -19,7 +19,7 @@
     </div>
   </div>
 </template>
-  
+
 <script>
 import AaModuleContent from "./AaModuleContent";
 
@@ -107,6 +107,18 @@ export default {
   },
   methods: {
     handleWheel(event) {
+      let target = event.target;
+      let isInsideModule = false;
+      while (target && target !== this.$el) {
+        if (target.classList.contains("module")) {
+          isInsideModule = true;
+          break;
+        }
+        target = target.parentElement;
+      }
+      if (!isInsideModule) {
+        return; // 如果不在 module 容器内，不处理滚轮事件
+      }
       event.preventDefault();
       const delta = event.deltaY;
       // 控制滚动的范围和步长
@@ -116,13 +128,14 @@ export default {
         this.scrollDistance -= 30; // 向上滚动时，减少30px
       }
     },
+    calculateOffset(index) {
+      return index * this.moduleHeight - this.scrollDistance;
+    },
     getModuleStyle(index) {
       // 计算每个模块相对于 scrollDistance 的偏移量
-      const offset = index * this.moduleHeight - this.scrollDistance;
-
+      const offset = this.calculateOffset(index);
       // 计算模块的 translateY，确保模块滑入
-      const translateY = offset >= 0 ? Math.min(offset, this.moduleHeight) : 0;
-
+      const translateY = Math.max(0, Math.min(offset, this.moduleHeight));
       // 动态调整模块的层级，确保当前模块处于上层
       const zIndex = offset >= 0 ? this.modules.length - index : 0;
 
@@ -133,8 +146,7 @@ export default {
     },
     getTabStyleData(index) {
       const marginLeft = index === 0 ? "15px" : `${15 + index * 280}px`;
-      const offset = index * this.moduleHeight - this.scrollDistance;
-      const zIndex = offset >= 0 ? this.modules.length - index : 0;
+      const zIndex = this.calculateOffset(index) >= 0 ? this.modules.length - index : 0;
 
       return {
         marginLeft: marginLeft,
@@ -148,24 +160,23 @@ export default {
   },
 };
 </script>
-  
-  <style scoped>
+
+<style scoped>
 .module-container {
   margin: 13.875rem 0;
   position: relative;
   width: 100%;
   height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 
 .module {
   position: absolute;
-  width: 100%;
-  height: 800px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 1424px;
+  height: 680px;
   transition: transform 0.3s ease-out;
 }
 </style>
-  
