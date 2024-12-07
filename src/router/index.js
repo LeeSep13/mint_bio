@@ -1,12 +1,12 @@
-import Vue from 'vue'
 import { createMemoryHistory, createRouter } from 'vue-router'
 
 
 import AminoAcid from '@/pages/AminoAcid'
 import KnotWeed from '@/pages/KnotWeed'
 import Vision from '@/pages/Vision'
+import Home from '@/pages/Home'
 
-const routes =[
+const routes = [
   {
     path: '/',
     name: '/',
@@ -26,6 +26,11 @@ const routes =[
     path: '/vision',
     name: 'vision',
     component: Vision
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: Home
   },
 ]
 
