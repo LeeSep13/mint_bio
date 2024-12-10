@@ -1,6 +1,6 @@
 <template>
   <div id="app" :class="isPc ? 'pc-layout' : 'mobile-layout'">
-    <Header />
+    <Header v-if="!$route.meta.unRequiresHeader" />
     <router-view />
     <Footer />
     <Contact />

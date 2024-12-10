@@ -226,13 +226,15 @@ const handleClick = (item) => {
 </style>
 <style lang="less" scoped>
 .header {
+  z-index: 4;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(0deg, #11161b, #11161b),
-    radial-gradient(40.98% 38.14% at 50% 0%,
-      rgba(255, 255, 255, 0.12) 0%,
-      rgba(255, 255, 255, 0) 100%);
+  // background: linear-gradient(0deg, #11161b, #11161b),
+  //   radial-gradient(40.98% 38.14% at 50% 0%,
+  //     rgba(255, 255, 255, 0.12) 0%,
+  //     rgba(255, 255, 255, 0) 100%);
   padding-top: 1rem;
 
   &-left {
