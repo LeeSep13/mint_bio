@@ -15,7 +15,7 @@ const routes = [
   {
     path: '/',
     name: '/',
-    component: Vision
+    component: Vision,
   },
   {
     path: '/aminoAcid',
@@ -50,7 +50,9 @@ const routes = [
   {
     path: '/home',
     name: 'home',
-    component: Home
+    component: Home,
+    meta: { unRequiresHeader: true }
+
   },
   {
     path: '/bioIntelligent',
@@ -60,7 +62,9 @@ const routes = [
   {
     path: '/corporate',
     name: 'corporate',
-    component: CorporateVision
+    component: CorporateVision,
+    meta: { unRequiresHeader: true }
+
   },
   {
     path: '/material',

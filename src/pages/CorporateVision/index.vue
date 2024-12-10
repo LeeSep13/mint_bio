@@ -1,15 +1,16 @@
 <template>
   <div class="corporate">
-    <BannerTitle :titleImage="require('@/assets/images/vision-title.png')" :titleStyle="titleStyle" />
+    <BannerTitleAnimation :titleImage="require('@/assets/images/vision-title.png')"
+      :backgroundImg="require('@/assets/images/corporateVision.png')" />
   </div>
 </template>
 
 <script>
-import BannerTitle from '@/components/BannerTitle'
+import BannerTitleAnimation from '@/components/BannerTitleAnimation'
 export default {
   name: "CorporateVision",
   components: {
-    BannerTitle
+    BannerTitleAnimation
   },
   setup() {
     return {
@@ -24,8 +25,5 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.corporate {
-  height: 700px;
-  font-size: 16px;
-}
+.corporate {}
 </style>

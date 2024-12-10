@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <BannerTitle :titleImage="require('@/assets/images/home-title.png')" />
+    <BannerTitleAnimation :titleImage="require('@/assets/images/home-title.png')"
+      :backgroundImg="require('@/assets/images/home-background.png')" />
     <div class="dna-section sector" @mouseover.once="expandMargin()">
       <div class="top-title">
         <div class="mint-text">MINT BIO</div>
@@ -86,11 +87,11 @@
 </template>
 
 <script>
-import BannerTitle from '@/components/BannerTitle'
+import BannerTitleAnimation from '@/components/BannerTitleAnimation'
 export default {
   name: "MintHome",
   components: {
-    BannerTitle
+    BannerTitleAnimation
   },
   setup() {
     return {

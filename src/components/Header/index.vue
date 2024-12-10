@@ -274,6 +274,8 @@ const handleClick = (item) => {
 </style>
 <style lang="less" scoped>
 .header {
+  z-index: 4;
+  position: relative;
   display: flex;
   padding: 16px 160px 0 160px;
   background: linear-gradient(0deg, #11161b, #11161b),

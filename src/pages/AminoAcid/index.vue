@@ -1,25 +1,5 @@
 <template>
   <div class="aminoAcid">
-    <!-- <div class="aminoAcid-title">
-      <img
-        class="grid-image"
-        src="@/assets/images/grid.png"
-        alt="aminoAcid_grid"
-      />
-      <img
-        class="mint-image"
-        src="@/assets/images/mint.png"
-        alt="aminoAcid_mint"
-      />
-      <div class="aminoAcid-title-content">
-        <p class="aminoAcid-title-content-text1">氨基酸</p>
-        <div class="aminoAcid-title-content-text2">
-          <p>Brilliant</p>
-          <p>BioAmino</p>
-        </div>
-        <p class="aminoAcid-title-content-text3">生物造</p>
-      </div>
-    </div> -->
     <BannerTitle :titleImage="require('./images/banner_title.png')" />
 
     <div class="aminoAcid-module1">
@@ -40,8 +20,8 @@
         </div>
       </div>
     </div>
-    
-    <MouseScroll />
+
+    <MouseScroll :modules="modules" />
 
     <div class="aminoAcid-module3">
       <div class="aminoAcid-module3-title">
@@ -89,8 +69,8 @@
 <script>
 import { ref } from 'vue';
 import BannerTitle from '@/components/BannerTitle'
-import AaModuleContent from "./AaModuleContent";
-import MouseScroll from './MouseScroll';
+import AaModuleContent from "@/components/AaModuleContent";
+import MouseScroll from '@/components/MouseScroll';
 
 export default {
   components: {
@@ -169,6 +149,7 @@ export default {
     line-height: 468px;
     text-align: center;
     position: relative;
+
     &-content {
       display: flex;
       justify-content: center;
@@ -181,20 +162,24 @@ export default {
       background-clip: text;
       color: transparent;
       z-index: 1;
+
       &-text1,
       &-text3 {
         font-size: 90px;
         font-weight: 500;
         color: #ececee;
       }
+
       &-text2 {
         font-size: 24px;
         font-weight: 600;
+
         p {
           height: 23px;
         }
       }
     }
+
     .grid-image {
       position: absolute;
       top: 50%;
@@ -215,6 +200,7 @@ export default {
       z-index: 0; /* 确保Mint图在网格图下面 */
     }
   }
+
   &-module1 {
     margin-top: 87px;
     display: flex;
@@ -239,6 +225,7 @@ export default {
           font-weight: 500;
           color: #ff7200;
         }
+
         &-text2 {
           margin-left: 120px;
           font-size: 60px;
@@ -246,21 +233,21 @@ export default {
           color: #fff;
         }
       }
+
       &-right {
         background-color: #2828289f;
         backdrop-filter: blur(68px);
         border-radius: 20px;
         border: 1px solid transparent;
         background-image: linear-gradient(#181a1d, #2828289f),
-          linear-gradient(
-            156.52deg,
+          linear-gradient(156.52deg,
             rgba(255, 255, 255, 0.4) 2.12%,
             rgba(255, 255, 255, 0.0001) 60%,
             rgba(255, 255, 255, 0.0001) 54%,
-            rgba(255, 255, 255, 0.1) 93.02%
-          );
+            rgba(255, 255, 255, 0.1) 93.02%);
         background-origin: border-box;
         background-clip: content-box, border-box;
+
         &-text {
           padding: 40px;
           li {
@@ -293,19 +280,24 @@ export default {
   &-module3 {
     display: flex;
     flex-direction: column;
+
     &-title {
+
       &-text1,
       &-text2 {
         font-size: 60px;
         font-weight: 500x;
       }
+
       &-text1 {
         color: #ff7200;
       }
+
       &-text2 {
         color: #f1f3f7;
       }
     }
+
     &-content {
       margin-top: 100px;
       margin-bottom: 60px;
@@ -316,6 +308,7 @@ export default {
         font-weight: 500;
         color: #f1f3f7;
       }
+
       &-solution {
         &-title {
           margin-bottom: 42px;
@@ -323,6 +316,7 @@ export default {
           font-weight: 500;
           color: #ff7200;
         }
+
         &-list {
           margin-left: 15px;
           li {
@@ -350,6 +344,7 @@ export default {
         }
       }
     }
+
     &-propagate {
       padding: 10% 14% 10% 10%;
       margin-bottom: 161px;
@@ -360,12 +355,14 @@ export default {
       background-repeat: no-repeat;
       border-radius: 20px;
       box-sizing: border-box;
+
       &-title {
         width: 5.6%;
         font-size: 96px;
         font-weight: 500;
         color: #fff;
       }
+
       &-target {
         margin-left: 15%;
         width: 100%;
@@ -375,36 +372,34 @@ export default {
           font-weight: 500;
           color: transparent;
           background-clip: text;
-          background-image: linear-gradient(
-            90deg,
-            #6a3e1d 0%,
-            #3e0603 30%,
-            #000 50%,
-            #000 100%
-          );
+          background-image: linear-gradient(90deg,
+              #6a3e1d 0%,
+              #3e0603 30%,
+              #000 50%,
+              #000 100%);
 
           p:last-child {
             margin-left: 148px;
           }
         }
+
         &-bottom {
           font-family: Montserrat;
           font-size: 55px;
           font-weight: 600;
           color: transparent;
           background-clip: text;
-          background-image: linear-gradient(
-            200deg,
-            #c47c66 0%,
-            #fffffe 10%,
-            #735546 40%,
-            #463c26 60%,
-            #605b34 80%,
-            #efa085 90%,
-            #373020 100%
-          );
+          background-image: linear-gradient(200deg,
+              #c47c66 0%,
+              #fffffe 10%,
+              #735546 40%,
+              #463c26 60%,
+              #605b34 80%,
+              #efa085 90%,
+              #373020 100%);
         }
       }
+
       &-more {
         display: flex;
         flex-direction: column;
@@ -422,13 +417,11 @@ export default {
           border-radius: 209px;
           border: 2.09px solid transparent;
           background-image: linear-gradient(#181a1d, #2828289f),
-            linear-gradient(
-              156.52deg,
+            linear-gradient(156.52deg,
               rgba(255, 255, 255, 0.4) 2.12%,
               rgba(255, 255, 255, 0.0001) 60%,
               rgba(255, 255, 255, 0.0001) 54%,
-              rgba(255, 255, 255, 0.1) 93.02%
-            );
+              rgba(255, 255, 255, 0.1) 93.02%);
           background-origin: border-box;
           background-clip: content-box, border-box;
         }
