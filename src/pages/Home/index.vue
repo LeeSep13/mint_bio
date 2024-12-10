@@ -1,15 +1,437 @@
 <template>
   <div class="home">
-    home
+    <BannerTitle :titleImage="require('@/assets/images/home-title.png')" />
+    <div class="dna-section sector" @mouseover.once="expandMargin()">
+      <div class="top-title">
+        <div class="mint-text">MINT BIO</div>
+        <div class="line-group">
+          <div v-for="(divide, index) in lineDivides" :key="index" class="line-divide"
+            :style="{ marginLeft: divide.marginLeft + 'px' }"></div>
+        </div>
+        <div class="dna-text">DNA</div>
+        <!-- <img src="@/assets/images/lines.png" class="line"> -->
+      </div>
+      <div class="advantage" v-if="advantageShow">
+        <div v-for="(advantage, index) in advantageArr" :key="index" class="advantage-item"
+          @mousemove="advantageMove(advantage)" @mouseleave="advantageLeave(advantage)">
+          <div class="title" :style="{ color: advantage.color }">
+            {{ advantage.title }}
+          </div>
+          <div class="sub-title" v-if="advantage.subTitle">
+            {{ advantage.subTitle }}
+          </div>
+          <div class="describe" v-if="advantage.isShow">{{ advantage.describe }}</div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="product-section sector border-gradient ">
+      <img src="@/assets/images/infinite.png" class="title">
+      <div class="product-list">
+        <div class="product-list-top">
+          <div class="product-list-top-item product">
+            产品
+          </div>
+          <div class="product-list-top-item advantage">
+            性能优势
+          </div>
+          <div class="product-list-top-item friends">
+            合作伙伴
+          </div>
+        </div>
+        <div class="product-list-content">
+          <div v-for="(item, index) in productList" :key="index" class="product-list-content-item"
+            :style="{ color: item.isShow ? '#fff' : '' }">
+
+            <div class="product">
+              <span class="product-text" @mousemove="productMove(item)" @mouseleave="productLeave(item)">{{ item.product
+                }}</span>
+              <transition name="fade">
+                <img :src="item.imgSrc" v-if="item.isShow" :style="{ top: item.top + 'px' }">
+              </transition>
+            </div>
+            <div class="advantage product-text">{{ item.advantage }}</div>
+            <div class="friends product-text">{{ item.friends }}</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="banner-section sector border-gradient">
+      <div class="title"><span>您的选择和 </span><span class="orange-text"> 他们 </span><span> 一样</span></div>
+      <img src="@/assets/images/banners.png" class="banner-img">
+    </div>
+    <div class="new-section sector border-gradient">
+      <div class="new-item" v-for="(item, index) in newList" :key="index">
+        <img :src="item.imgSrc" alt="" class="new-img">
+        <div class="overlay">
+          <div class="overlay-content">
+            <div class="button-more border-gradient">了解更多</div>
+          </div>
+        </div>
+        <div class="text-top"><span class="name " :style="{ color: item.color, marginRight: '16px' }">{{ item.title
+            }}</span>
+          <span class="date">{{ item.date }}</span>
+        </div>
+        <div class="text-bottom">{{ item.content }}</div>
+      </div>
+      <div class="new-item">
+        <div class="button-more border-gradient">更多动态</div>
+        <img class="line-bottom-img" src="@/assets/images/line-bottom.png" alt="">
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import BannerTitle from '@/components/BannerTitle'
+export default {
+  name: "MintHome",
+  components: {
+    BannerTitle
+  },
+  setup() {
+    return {
+
+
+    };
+  },
+  data() {
+    return {
+      lineDivides: [
+        { marginLeft: 0 },
+        { marginLeft: 1 },
+        { marginLeft: 1 },
+        { marginLeft: 2 },
+        { marginLeft: 4 },
+        { marginLeft: 8 },
+        { marginLeft: 16 },
+        { marginLeft: 32 }],
+      advantageArr: [
+        {
+          title: '前沿 科技力', describe: '与合作伙伴共担ESG责任共筑地球可持续未来', moveColor: '#dd716c', isShow: false
+        },
+        {
+          title: '平台 强赋能', describe: '独创 MiNT X Platform AI赋能生物智造', moveColor: '#1c358c', isShow: false
+        },
+        {
+          title: '卓越 产品力', subTitle: '生物降解新材料', describe: '低成本高性能的环保新材料', moveColor: '#3170d3', isShow: false
+        },
+        { title: '卓越 产品力', subTitle: '生物合成氨基酸', describe: '高效生物合成20+种氨基酸', moveColor: '#285caa', isShow: false },
+        {
+          title: '绿色 可持续', describe: '与合作伙伴共担ESG责任共筑地球可持续未来', moveColor: '#306e4a', isShow: false
+        },
+      ],
+      advantageShow: false,
+      productList: [{ isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放', top: 0 }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放', top: -144 },],
+      newList: [
+        { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/images/new-1.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/images/new-1.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/images/new-1.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/images/new-1.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/images/new-1.png') },
+      ]
+
+
+    };
+  },
+  methods: {
+    expandMargin() {
+      this.advantageShow = true;
+      this.lineDivides.forEach(element => {
+        element.marginLeft *= 2.5;
+      });
+    },
+    advantageMove(advantage) {
+      advantage.color = advantage.moveColor;
+      advantage.isShow = true;
+    },
+    advantageLeave(advantage) {
+      advantage.color = '#ffffff';
+      advantage.isShow = false;
+
+
+    },
+    productMove(product) {
+      product.isShow = true;
+
+    },
+    productLeave(product) {
+      product.isShow = false;
+
+    }
+  }
+};
 </script>
+
 <style lang="less" scoped>
+@import "@/style/variable.less";
+
+
+
 .home {
-  background: rgb(63, 132, 228);
-  height: 700px;
   font-size: 16px;
+  font: 400 20px MiSans;
+
+  .dna-section {
+    // padding: 100px 0;
+    height: 300px;
+
+    .top-title {
+
+      div,
+      span {
+        display: inline-block;
+      }
+
+      .mint-text {
+        font: 600 56px Montser;
+        color: #FFFFFF;
+        margin-right: 32px;
+      }
+
+      .dna-text {
+        font-weight: 600;
+        font-size: 56px;
+        color: @orange-color;
+        margin-left: 32px;
+      }
+
+      .line-group {
+        .line-divide {
+          background: @orange-color;
+          width: 2px;
+          height: 30px;
+          transition: margin-left 0.3s ease; // 添加过渡效果
+        }
+
+
+      }
+    }
+
+    .advantage {
+      margin: 40px auto;
+      display: flex;
+      justify-content: space-between;
+
+      &-item {
+        font: 600 32px MiSans;
+        width: 108px;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        color: rgba(241, 243, 247, 1);
+
+        &:hover {
+          cursor: pointer;
+          transition: all 0.5s ease;
+        }
+
+        .title {
+          margin-bottom: 4px;
+          width: 96px;
+        }
+
+        .sub-title {
+          font-size: 15px;
+          margin-bottom: 4px;
+        }
+
+        .describe {
+          font-size: 15px;
+          transition: all 1s ease;
+        }
+      }
+
+    }
+  }
+
+  .product-section {
+    // padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      width: 678px;
+      margin-bottom: 40px;
+    }
+
+    .product-list {
+      width: 100%;
+
+      .product {
+        width: 35%;
+      }
+
+      .advantage {
+        width: 50%;
+      }
+
+      .friends {
+        width: calc(15% - 16px);
+      }
+
+      &-top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+
+
+        &-item {
+          color: #FFFFFF;
+          margin-right: 8px;
+          height: 45px;
+          line-height: 45px;
+          padding: 10px 0;
+          font: 520 20px MiSans;
+          border-bottom: 1px solid rgba(241, 243, 247, 0.4);
+
+          &:nth-last-child {
+            margin-right: 0;
+
+          }
+
+        }
+
+      }
+
+      &-content {
+        width: 100%;
+        margin-top: 32px;
+
+        .product-text {
+          z-index: 2;
+        }
+
+        &-item {
+          padding: 16px 0;
+          margin-bottom: 8px;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: row;
+          position: relative;
+          width: 100%;
+          cursor: pointer;
+
+
+          img {
+            width: calc(35% - 200px);
+            position: absolute;
+            top: -68px;
+            left: 207px;
+            z-index: 0;
+            transition: all 0.5s ease;
+          }
+        }
+      }
+
+
+
+
+
+
+    }
+  }
+
+  .banner-section {
+    // padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    .title {
+      text-align: center;
+      font: 600 60px MiSans;
+      margin-bottom: 50px;
+      color: #FFFFFF;
+
+      .orange-text {
+        margin: 0 10px;
+      }
+
+    }
+
+    img {
+      width: 90%;
+    }
+  }
+
+  .new-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .new-item {
+      width: 32%;
+      margin-bottom: 16px;
+      position: relative;
+
+      .new-img {
+        width: 100%;
+        height: 367px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: opacity 0.3s ease;
+        cursor: pointer;
+      }
+
+      &:hover .new-img {
+        opacity: 0.5;
+        /* 图片悬停时的透明度 */
+      }
+
+      &:hover .overlay {
+        opacity: 1;
+        /* 蒙层悬停时的透明度 */
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        /* 蒙层背景色 */
+        border-radius: 12px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .overlay-content {
+        text-align: center;
+      }
+
+      .tetx-top {
+        margin: 16px 0;
+        text-align: left;
+      }
+
+      .button-more {
+        width: 140px;
+        border-radius: 99px;
+        height: 84px;
+        line-height: 84px;
+        text-align: center;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+      }
+
+      .line-bottom-img {
+        width: 100%;
+        position: absolute;
+        top: 367px;
+        transform: translateY(-100%);
+      }
+    }
+  }
 }
 </style>

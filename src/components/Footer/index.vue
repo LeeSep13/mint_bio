@@ -3,11 +3,7 @@
     <el-row>
       <el-col :span="8" class="footer-left">
         <div class="footer-left-logo">
-          <img
-            class="footer-left-logo-img"
-            src="@/assets/images/logo.png"
-            alt=""
-          />
+          <img class="footer-left-logo-img" src="@/assets/images/logo.png" alt="" />
           <div class="footer-left-logo-text1">生物智造惠及</div>
           <div class="footer-left-logo-text2">每一个生命</div>
         </div>
@@ -43,8 +39,7 @@
           <div class="footer-right-info-qrCode">
             <img
               src="https://s3-alpha-sig.figma.com/img/a8b3/cc3c/75ee7ece7c623aa0b737ec85138f5819?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EdeWMtOpeY6QHeFLCWHcs4nd3NRdv-EmW1AYmXlYO1b6kAjH00wTUXoM7eI5aRvCHsI59f1UsLaN4gv-8Qi71eBAQ87KTTWMQZ~hznTu-nfsjs2CP0xuFA9g3EWQH68ahzAcgYIuXi660l89qSmSWFlHVOzBlbNFgCc1EUfll1eZbExa44MW~DVklpa90MnTZipX8GRE9BR~pu6p2yMi0zS0ryAP3vSJacBu0Hsdaqebj-Jnq7PfF2XP3xvmybbPvp7c5L~9fpmNUP8QPzNTHPxkngBdytFRAie61ocC4Bfl7dx43OPCB6VXpddrsS~f7yQLmmNQ6J7jE4wlN020HA__"
-              alt=""
-            />
+              alt="" />
           </div>
           <div class="footer-right-info-address footer-common">
             <p class="mb26">总部地址</p>
@@ -79,51 +74,58 @@ export default {
   background-color: #11161b;
   padding: 5rem 13rem 5rem 9.5rem;
   height: 27.8125rem;
-  border-width: 1px 0 0 0; /* 只设置上边框 */
+  border-width: 1px 0 0 0;
+  /* 只设置上边框 */
   border-style: solid;
-  border-image: linear-gradient(
-    to right,
-    rgba(53, 52, 74, 0.5) 0%,
-    rgba(53, 52, 74, 0.5) 10%,
-    rgba(255, 255, 255, 0.4) 30%,
-    rgba(255, 255, 255, 0.4) 70%,
-    rgba(53, 52, 74, 0.5) 90%,
-    rgba(53, 52, 74, 0.5) 100%
-  ) 1;
+  border-image: linear-gradient(to right,
+      rgba(53, 52, 74, 0.5) 0%,
+      rgba(53, 52, 74, 0.5) 10%,
+      rgba(255, 255, 255, 0.4) 30%,
+      rgba(255, 255, 255, 0.4) 70%,
+      rgba(53, 52, 74, 0.5) 90%,
+      rgba(53, 52, 74, 0.5) 100%) 1;
+
   &-common {
     font-weight: 500;
     font-size: 0.875rem;
     color: #ffffff;
   }
+
   &-left {
     height: 27.8125rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     &-logo {
       display: flex;
       align-items: center;
+
       &-img {
         width: 6.375rem;
         height: 3.125rem;
       }
+
       &-text1,
       &-text2 {
         font-weight: 500;
         color: #ffffff;
       }
+
       &-text1 {
         width: 3.5625rem;
         height: 1.8125rem;
         margin-left: 2.625rem;
         text-align: right;
       }
+
       &-text2 {
         width: 4.375rem;
         height: 0.625rem;
         margin-left: 0.9375rem;
       }
     }
+
     &-download {
       display: flex;
       justify-content: center;
@@ -134,17 +136,20 @@ export default {
       border-radius: 2.3438rem;
       font-size: 0.75rem;
       color: #ffffff;
+
       img {
         width: 1.125rem;
         height: 1.125rem;
       }
     }
   }
+
   &-middle {
     &-divider {
       width: 1rem;
     }
   }
+
   &-right {
     &-content {
       display: flex;
@@ -156,17 +161,21 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
         &-item {
           width: 3.5rem;
           height: 0.625rem;
           color: #ffffff;
+          cursor: pointer;
         }
       }
+
       &-products {
         &-item {
           width: 6.125rem;
           height: 3rem;
           color: #8a8f98;
+
           &-title {
             width: 6.125rem;
             color: #ffffff;
@@ -174,11 +183,13 @@ export default {
           }
         }
       }
+
       &-about {
         &-item {
           width: 6.125rem;
           height: 3rem;
           color: #8a8f98;
+
           &-title {
             width: 6.125rem;
             color: #ffffff;
@@ -187,21 +198,25 @@ export default {
         }
       }
     }
+
     &-info {
       width: 100%;
       margin-top: 7.5625rem;
       display: flex;
       justify-content: space-between;
       align-items: end;
+
       &-qrCode {
         img {
           width: 8.0625rem;
           height: 8.0625rem;
         }
       }
+
       &-address {
         margin-left: 3.1875rem;
       }
+
       &-copyright {
         margin-left: 6.9375rem;
         color: #ffffff;
@@ -209,7 +224,8 @@ export default {
     }
   }
 }
+
 .mb26 {
   margin-bottom: 1.625rem;
 }
-</style> 
+</style>

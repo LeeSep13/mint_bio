@@ -1,10 +1,12 @@
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { createWebHashHistory, createRouter } from 'vue-router'
 
 
 import AminoAcid from '@/pages/AminoAcid'
 import KnotWeed from '@/pages/KnotWeed'
 import Vision from '@/pages/Vision'
 import Home from '@/pages/Home'
+import CorporateVision from '@/pages/CorporateVision'
+import NewMaterial from '@/pages/NewMaterial'
 
 const routes = [
   {
@@ -32,10 +34,20 @@ const routes = [
     name: 'home',
     component: Home
   },
+  {
+    path: '/corporate',
+    name: 'corporate',
+    component: CorporateVision
+  },
+  {
+    path: '/material',
+    name: 'material',
+    component: NewMaterial
+  },
 ]
 
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHashHistory(),
   routes,
 })
 

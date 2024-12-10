@@ -8,48 +8,23 @@
 
     <div class="header-middle">
       <ul class="nav">
-        <li
-          class="nav-item"
-          v-for="item in navData"
-          :key="item.key"
-          :class="{
-            'nav-item_current': item.state,
-            'has-submenu': item.submenu && item.submenu.length > 0,
-          }"
-          @mouseover="setMouseOver(item)"
-          @mouseleave="setMouseLeave(item)"
-          @click.prevent="handleClick(item)"
-        >
-          <router-link
-            class="nav-item-link"
-            :to="
-              item.submenu.length ? 'javascript:void(0)' : { name: item.router }
-            "
-            v-if="!item.submenu.length"
-          >
+        <li class="nav-item" v-for="item in navData" :key="item.key" :class="{
+          'nav-item_current': item.state,
+          'has-submenu': item.submenu && item.submenu.length > 0,
+        }" @mouseover="setMouseOver(item)" @mouseleave="setMouseLeave(item)" @click.prevent="handleClick(item)">
+          <router-link class="nav-item-link" :to="item.submenu.length ? 'javascript:void(0)' : { name: item.router }
+            " v-if="!item.submenu.length">
             {{ item.name }}
           </router-link>
           <span class="nav-item-link" v-else>
             {{ item.name }}
-            <img
-              :src="item.state ? item.iconUp : item.iconDown"
-              alt="Toggle Icon"
-              class="submenu-icon"
-            />
+            <img :src="item.state ? item.iconUp : item.iconDown" alt="Toggle Icon" class="submenu-icon" />
           </span>
 
           <ul v-if="item.submenu && item.submenu.length" class="submenu">
-            <li
-              class="submenu-item"
-              v-for="subItem in item.submenu"
-              :key="subItem.key"
-              @mouseover="setMouseOver(subItem)"
-              @mouseleave="setMouseLeave(subItem)"
-            >
-              <router-link
-                :to="{ name: subItem.router }"
-                class="submenu-item-link"
-              >
+            <li class="submenu-item" v-for="subItem in item.submenu" :key="subItem.key"
+              @mouseover="setMouseOver(subItem)" @mouseleave="setMouseLeave(subItem)">
+              <router-link :to="{ name: subItem.router }" class="submenu-item-link">
                 {{ subItem.name }}
               </router-link>
             </li>
@@ -59,14 +34,8 @@
     </div>
 
     <div class="header-right">
-      <el-popover
-        placement="bottom"
-        width="891"
-        trigger="manual"
-        :visible="visible"
-        :show-arrow="false"
-        popper-class="header-popover"
-      >
+      <el-popover placement="bottom" width="891" trigger="manual" :visible="visible" :show-arrow="false"
+        popper-class="header-popover">
         <div class="popover-content">
           <div class="popover-content-close" @click="visible = !visible">
             <img src="./images/close.png" alt="close" />
@@ -136,8 +105,10 @@ const navData = ref([
     router: "/",
     state: false,
     submenu: [
+      { key: 1, name: "生物降解新材料", router: "material" },
       { key: 2, name: "生物合成氨基酸", router: "aminoAcid" },
       { key: 3, name: "节豆粮解决方案", router: "knotWeed" },
+
     ],
     iconUp: require("@/components/Header/images/arrow_up.png"),
     iconDown: require("@/components/Header/images/arrow_down.png"),
@@ -147,7 +118,7 @@ const navData = ref([
     name: "关于我们",
     router: "/",
     state: false,
-    submenu: [{ key: 21, name: "愿景与责任", router: "vision" }],
+    submenu: [{ key: 21, name: "企业介绍", router: "corporate" }, { key: 22, name: "愿景与责任", router: "vision" }],
     iconUp: require("@/components/Header/images/arrow_up.png"),
     iconDown: require("@/components/Header/images/arrow_down.png"),
   },
@@ -198,22 +169,27 @@ const handleClick = (item) => {
   border-radius: 20px;
   border: 1px solid transparent;
 }
+
 .popover-content {
   &-close {
     margin-bottom: 62px;
     text-align: right;
+
     img {
       width: 54px;
       height: 54px;
     }
   }
+
   &-menu {
     display: flex;
     gap: 80px;
+
     &-item {
       display: flex;
       flex-direction: column;
       gap: 39px;
+
       p {
         font-size: 16px;
         font-weight: 500;
@@ -221,11 +197,13 @@ const handleClick = (item) => {
       }
     }
   }
+
   &-language {
     margin-top: 118px;
     display: flex;
     align-items: center;
     gap: 80px;
+
     &-cn,
     &-en {
       font-size: 16px;
@@ -233,7 +211,8 @@ const handleClick = (item) => {
       color: #f1f3f7;
     }
   }
-  &-download{
+
+  &-download {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -251,12 +230,11 @@ const handleClick = (item) => {
   justify-content: center;
   align-items: center;
   background: linear-gradient(0deg, #11161b, #11161b),
-    radial-gradient(
-      40.98% 38.14% at 50% 0%,
+    radial-gradient(40.98% 38.14% at 50% 0%,
       rgba(255, 255, 255, 0.12) 0%,
-      rgba(255, 255, 255, 0) 100%
-    );
+      rgba(255, 255, 255, 0) 100%);
   padding-top: 1rem;
+
   &-left {
     &-logo {
       img {
@@ -270,6 +248,7 @@ const handleClick = (item) => {
     width: 36.5rem;
     margin-left: 19.5rem;
     margin-right: 21.5625rem;
+
     .nav {
       width: 100%;
       display: flex;
@@ -291,6 +270,7 @@ const handleClick = (item) => {
         padding: 1rem 0;
         position: relative;
         transition: background-color 0.3s ease, color 0.3s ease;
+        cursor: pointer;
 
         &-link {
           text-decoration: none;
@@ -362,6 +342,7 @@ const handleClick = (item) => {
         font-size: 1rem;
         border-radius: .75rem;
         background-color: #02030833;
+
         &-link {
           text-decoration: none;
           color: inherit;

@@ -1,0 +1,38 @@
+@primary-color: #F1F3F7;
+@orange-color: #FF7200;
+@blue-color: #144BE1;
+@green-color: #007D30;
+
+.orange-text {
+  color: @orange-color;
+}
+
+.sector {
+  padding: 80px;
+}
+
+.border-gradient {
+  border: 1px solid transparent;
+  border-image: linear-gradient(to right, rgba(53, 52, 74, 0.5) 0%, rgba(53, 52, 74, 0.5) 10%, rgba(255, 255, 255, 0.4) 30%, rgba(255, 255, 255, 0.4) 70%, rgba(53, 52, 74, 0.5) 90%, rgba(53, 52, 74, 0.5) 100%) 1;
+}
+
+.border-bottom-gradient {
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(to right, rgba(53, 52, 74, 0.5) 0%, rgba(53, 52, 74, 0.5) 10%, rgba(255, 255, 255, 0.4) 30%, rgba(255, 255, 255, 0.4) 70%, rgba(53, 52, 74, 0.5) 90%, rgba(53, 52, 74, 0.5) 100%) 1;
+}
+
+/* 淡入淡出效果 */
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
