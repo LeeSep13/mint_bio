@@ -101,7 +101,7 @@
             <p class="popover-content-language-en">ENGLISH</p>
             <div class="popover-content-download">
               <p>下载品牌手册</p>
-              <img src="./images/download.png" alt="download">
+              <img src="./images/download.png" alt="download" />
             </div>
           </div>
         </div>
@@ -121,8 +121,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
 const router = useRouter();
 
@@ -141,7 +141,7 @@ const navData = ref([
     router: "/",
     state: false,
     submenu: [
-      { key: 1, name: "生物降解新材料", router: "/" },
+      { key: 1, name: "生物降解新材料", router: "material" },
       { key: 2, name: "生物合成氨基酸", router: "aminoAcid" },
       { key: 3, name: "节豆粮解决方案", router: "knotWeed" },
     ],
@@ -154,7 +154,7 @@ const navData = ref([
     router: "/",
     state: false,
     submenu: [
-      { key: 21, name: "企业介绍", router: "/" },
+      { key: 21, name: "企业介绍", router: "corporate" },
       { key: 22, name: "愿景与责任", router: "vision" },
     ],
     iconUp: require("@/components/Header/images/arrow_up.png"),
@@ -208,22 +208,27 @@ const handleClick = (item) => {
   border: 1px solid transparent;
   backdrop-filter: blur(10px);
 }
+
 .popover-content {
   &-close {
     margin-bottom: 62px;
     text-align: right;
+
     img {
       width: 54px;
       height: 54px;
     }
   }
+
   &-menu {
     display: flex;
     gap: 80px;
+
     &-item {
       display: flex;
       flex-direction: column;
       gap: 39px;
+
       p {
         font-size: 16px;
         font-weight: 500;
@@ -231,11 +236,13 @@ const handleClick = (item) => {
       }
     }
   }
+
   &-language {
     margin-top: 118px;
     display: flex;
     align-items: center;
     gap: 80px;
+
     &-cn,
     &-en {
       font-size: 16px;
@@ -243,14 +250,15 @@ const handleClick = (item) => {
       color: #f1f3f7;
     }
   }
-  &-download{
+
+  &-download {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 158px;
     height: 67px;
-    color: #F1F3F7;
-    border: 1px solid #FFFFFF1A;
+    color: #f1f3f7;
+    border: 1px solid #ffffff1a;
     border-radius: 999px;
   }
 }
@@ -276,6 +284,7 @@ const handleClick = (item) => {
       rgba(255, 255, 255, 0) 100%
     );
   padding-top: 1rem;
+
   &-left {
     &-logo {
       img {
@@ -289,6 +298,7 @@ const handleClick = (item) => {
     width: 36.5rem;
     margin-left: 19.5rem;
     margin-right: 21.5625rem;
+
     .nav {
       width: 100%;
       display: flex;
@@ -310,6 +320,7 @@ const handleClick = (item) => {
         padding: 1rem 0;
         position: relative;
         transition: background-color 0.3s ease, color 0.3s ease;
+        cursor: pointer;
 
         &-link {
           text-decoration: none;
@@ -353,8 +364,8 @@ const handleClick = (item) => {
           position: absolute;
           top: 100%;
           left: 0;
-          background-color: #2828289F;
-          border-radius: .75rem;
+          background-color: #2828289f;
+          border-radius: 0.75rem;
           opacity: 0;
           transition: opacity 0.3s ease;
           z-index: 10;
@@ -365,7 +376,7 @@ const handleClick = (item) => {
           padding: 19px 26px;
           display: flex;
           box-sizing: border-box;
-          gap: .5rem;
+          gap: 0.5rem;
           opacity: 1;
         }
 
@@ -379,8 +390,9 @@ const handleClick = (item) => {
       .submenu-item {
         padding: 1.875rem;
         font-size: 1rem;
-        border-radius: .75rem;
+        border-radius: 0.75rem;
         background-color: #02030833;
+
         &-link {
           text-decoration: none;
           color: inherit;

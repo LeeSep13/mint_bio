@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import { createWebHashHistory, createRouter } from 'vue-router'
 
 
@@ -9,6 +8,8 @@ import MiNTNews from '@/pages/MiNTNews/MiNTNews.vue'
 import MiNTNewsDetail from '@/pages/MiNTNews/MiNTNewsDetail.vue'
 import Home from '@/pages/Home'
 import BioIntelligent from '@/pages/BioIntelligent'
+import CorporateVision from '@/pages/CorporateVision'
+import NewMaterial from '@/pages/NewMaterial'
 
 const routes = [
   {
@@ -55,6 +56,16 @@ const routes = [
     path: '/bioIntelligent',
     name: 'bioIntelligent',
     component: BioIntelligent
+  },
+  {
+    path: '/corporate',
+    name: 'corporate',
+    component: CorporateVision
+  },
+  {
+    path: '/material',
+    name: 'material',
+    component: NewMaterial
   },
 ]
 
