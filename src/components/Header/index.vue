@@ -409,7 +409,10 @@ const handleClick = (item) => {
   &-right {
     .menu {
       width: 54px;
-      height: 54px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }

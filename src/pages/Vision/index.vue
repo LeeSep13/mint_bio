@@ -1,22 +1,10 @@
 <template>
   <div class="vision">
-    <div class="vision-title">
-      <img
-        class="grid-image"
-        src="@/assets/images/grid.png"
-        alt="vision_grid"
-      />
-      <img
-        class="mint-image"
-        src="@/assets/images/mint.png"
-        alt="vision_mint"
-      />
-      <p class="vision-title-text">与合作伙伴共担ESG责任</p>
-    </div>
-    <div class="vision-module1">
+    <BannerTitle :titleImage="require('./images/banner_title.png')" />
+    <div class="vision-module1 sector">
       <img src="./images/banner1.png" alt="vision_banner1" />
     </div>
-    <div class="vision-module2">
+    <div class="vision-module2 sector">
       <div class="vision-module2-left">
         <p class="vision-module2-left-title">白色污染</p>
         <img
@@ -42,7 +30,7 @@
         </ul>
       </div>
     </div>
-    <div class="vision-module3">
+    <div class="vision-module3 sector">
       <div class="vision-module3-title">
         <p class="vision-module3-title-text1">生物智造</p>
         <p class="vision-module3-title-text2">势在必行</p>
@@ -111,46 +99,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="vision-module5">
-      <div class="vision-module5-title">
-        <p class="vision-module5-title-text1">60%</p>
-        <p class="vision-module5-title-text2">
-          未来60%的物质<br />可以通过生物制造生产
-        </p>
-      </div>
-      <div class="vision-module5-content">
-        <div class="vision-module5-content-img1">
-          <p class="vision-module5-content-img1-title">
-            生物智造 [ 产品解决方案 ]
-          </p>
-          <p class="vision-module5-content-img1-desc">
-            匹配元素驱动现有产品，并针对性您的应用领域针对性优化。
-          </p>
-        </div>
-        <div class="vision-module5-content-img2">
-          <div class="vision-module5-content-img2-item1">
-            <p class="vision-module5-content-img2-item1-text">生物降解新材料</p>
-            <p class="learn-more-btn">了解更多</p>
-          </div>
-          <div class="vision-module5-content-img2-item2">
-            <p class="vision-module5-content-img2-item2-text">生物合成氨基酸</p>
-            <p class="learn-more-btn">了解更多</p>
-          </div>
-        </div>
-        <div class="vision-module5-content-img3">
-          <p class="vision-module5-content-img3-title">
-            生物智造 [ 定制解决方案 ]
-          </p>
-          <p class="vision-module5-content-img3-desc">
-            元素驱动将针对您的需求，进行菌种定制、优化、产品延展等<br />生物智造全流程服务。
-          </p>
-          <p class="vision-module5-content-img3-btn">匹配顾问</p>
-        </div>
-        <div class="vision-module5-content-img4">
-          <img src="./images/process.png" alt="" />
-        </div>
-      </div>
-    </div> -->
     <VisionModule5 />
   </div>
 </template>
@@ -158,6 +106,7 @@
 <script setup>
 import { ref } from "vue";
 import VisionModule5 from "./VisionModule5.vue";
+import BannerTitle from '@/components/BannerTitle'
 
 const cardData = ref([
   {
@@ -225,50 +174,9 @@ function updateHoverData(data, index) {
 </script>
 
 <style lang="less" scoped>
-.vision {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #11161b;
-  &-title {
-    width: 61.75rem;
-    height: 29.25rem;
-    line-height: 29.25rem;
-    text-align: center;
-    position: relative;
-    &-text {
-      font-size: 4.375rem;
-      font-weight: 500;
-      background: radial-gradient(
-        123.44% 123.44% at 56.63% 100%,
-        #ececee 6.77%,
-        rgba(255, 255, 255, 0.45) 100%
-      );
-      background-clip: text;
-      color: transparent;
-      z-index: 1;
-    }
-    .grid-image {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 41.5625rem;
-      height: 29.375rem;
-      z-index: 0; /* 确保网格图在下面 */
-    }
+@import "@/style/variable.less";
 
-    .mint-image {
-      position: absolute;
-      top: 55%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 61.75rem;
-      height: 10.8125rem;
-      z-index: 0; /* 确保Mint图在网格图下面 */
-    }
-  }
+.vision {
   &-module1 {
     margin-top: 5.4375rem;
     img {
@@ -276,27 +184,27 @@ function updateHoverData(data, index) {
     }
   }
   &-module2 {
+    padding: 70px 0 170px 160px;
     display: flex;
-    margin: 10.625rem 0 10.625rem 9.5rem;
     &-left-title,
     &-right-title {
-      margin-bottom: 1.875rem;
-      padding: 1.25rem;
-      width: 3.5rem;
+      margin-bottom: 30px;
+      padding: 20px;
+      width: 56px;
       color: #fff;
       border: 1px solid #fff;
-      border-radius: 6.25rem;
+      border-radius: 100px;
     }
     &-left-text,
     &-right-text {
-      margin-top: 1.8125rem;
-      margin-left: 0.9375rem;
+      margin-top: 29px;
+      margin-left: 15px;
       li {
         position: relative;
-        font-size: 1.5rem;
+        font-size: 24px;
         font-weight: 500;
         color: #fff;
-        padding-left: 2rem;
+        padding-left: 32px;
 
         &::before {
           content: "";
@@ -311,12 +219,12 @@ function updateHoverData(data, index) {
         }
 
         &:not(:last-child) {
-          margin-bottom: 1rem; /* 每项之间的间隔 */
+          margin-bottom: 16px; /* 每项之间的间隔 */
         }
       }
     }
     &-left {
-      margin-right: 1rem;
+      margin-right: 16px;
       &-img {
         width: 824px;
         height: 450px;
@@ -324,7 +232,7 @@ function updateHoverData(data, index) {
     }
     &-right {
       &-img {
-        width: 736px;
+        width: 780px;
         height: 450px;
       }
     }
@@ -332,10 +240,10 @@ function updateHoverData(data, index) {
   &-module3 {
     &-title {
       display: flex;
-      gap: 1rem;
+      gap: 16px;
       &-text1,
       &-text2 {
-        font-size: 3.75rem;
+        font-size: 60px;
         font-weight: 500;
       }
       &-text1 {
@@ -347,19 +255,19 @@ function updateHoverData(data, index) {
     }
     &-content {
       display: flex;
-      margin-top: 3.75rem;
+      margin-top: 60px;
       color: transparent;
       z-index: 1;
       &-left {
         width: 524px;
-        margin-right: 4.75rem;
+        margin-right: 76px;
         &-list {
-          padding: 0.5rem 3.875rem;
+          padding: 8px 62px;
           &-w {
             text-align: center;
-            width: 32.75rem;
-            height: 25.625rem;
-            border-radius: 1.25rem;
+            width: 524px;
+            height: 410px;
+            border-radius: 20px;
             border: 1px solid transparent;
             background-image: linear-gradient(#181a1d, #12161b),
               linear-gradient(
@@ -373,9 +281,9 @@ function updateHoverData(data, index) {
             background-clip: content-box, border-box;
           }
           li {
-            height: 4.9375rem;
-            line-height: 4.9375rem;
-            font-size: 1.25rem;
+            height: 79px;
+            line-height: 79px;
+            font-size: 20px;
             font-weight: 500;
             color: #5d5f61;
             transition: color 0.3s ease;
@@ -389,19 +297,19 @@ function updateHoverData(data, index) {
           }
         }
         &-text {
-          font-size: 1.5rem;
+          font-size: 24px;
           color: #fff;
         }
         &-more {
-          margin-top: 3.75rem;
-          margin-bottom: 2.5rem;
-          width: 7.75rem;
-          height: 3.625rem;
-          line-height: 3.625rem;
+          margin-top: 60px;
+          margin-bottom: 40px;
+          width: 124px;
+          height: 58px;
+          line-height: 58px;
           text-align: center;
-          font-size: 1rem;
+          font-size: 16px;
           color: #fff;
-          border-radius: 13.0625rem;
+          border-radius: 209px;
           border: 1px solid transparent;
           background-image: linear-gradient(#181a1d, #12161b),
             linear-gradient(
@@ -420,9 +328,9 @@ function updateHoverData(data, index) {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 51.5rem;
-        height: 39.5rem;
-        border-radius: 1.25rem;
+        width: 824px;
+        height: 632px;
+        border-radius: 20px;
         border: 1px solid transparent;
         background-image: linear-gradient(#181a1d, #12161b),
           linear-gradient(
@@ -440,11 +348,11 @@ function updateHoverData(data, index) {
           align-items: center;
           gap: 34px;
           img {
-            width: 6.25rem;
-            height: 6.25rem;
+            width: 100px;
+            height: 100px;
           }
           p {
-            font-size: 6.25rem;
+            font-size: 100px;
             font-weight: 500;
             color: #ff7200;
             transition: all 0.3s ease;
@@ -457,8 +365,8 @@ function updateHoverData(data, index) {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 41.4375rem;
-      height: 29.25rem;
+      width: 663px;
+      height: 468px;
       z-index: 0; /* 确保网格图在下面 */
     }
     &-trend {
@@ -466,13 +374,13 @@ function updateHoverData(data, index) {
       top: 65%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 51.5rem;
-      height: 24.125rem;
+      width: 824px;
+      height: 386px;
       z-index: 0; /* 确保Mint图在网格图下面 */
     }
   }
   &-module4 {
-    margin-top: 10.625rem;
+    margin-top: 170px;
     width: 100%;
     border-width: 1px;
     border-style: solid;
@@ -487,50 +395,50 @@ function updateHoverData(data, index) {
       )
       1;
     &-top {
-      margin: 10.625rem 0 7.875rem 9.5rem;
+      margin: 170px 0 126px 152px;
       display: flex;
       &-title-text1,
       &-title-text2 {
-        font-size: 3.75rem;
+        font-size: 60px;
       }
       &-title {
         display: flex;
         &-text1 {
           color: #ff7200;
-          margin-right: 1rem;
+          margin-right: 16px;
         }
         &-text2 {
           color: #f1f3f7;
         }
       }
       &-description {
-        margin-left: 9.5rem;
+        margin-left: 152px;
         img {
-          width: 2.875rem;
-          height: 2.8125rem;
+          width: 46px;
+          height: 45px;
         }
         &-text {
-          margin-left: 4.5rem;
+          margin-left: 72px;
           font-size: 24px;
           color: #fff;
         }
       }
     }
     &-bottom {
-      margin-bottom: 10.625rem;
+      margin-bottom: 170px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 0.875rem;
+      gap: 14px;
       &-card {
         display: flex;
-        width: 44rem;
-        height: 20.625rem;
-        font-size: 1rem;
+        width: 704px;
+        height: 330px;
+        font-size: 16px;
         color: #fff;
-        border-radius: 1.25rem;
+        border-radius: 20px;
         border: 1px solid transparent;
         background-image: linear-gradient(#181a1d, #12161b),
           linear-gradient(
@@ -543,23 +451,23 @@ function updateHoverData(data, index) {
         background-origin: border-box;
         background-clip: content-box, border-box;
         img {
-          width: 2rem;
-          height: 2.5rem;
-          margin-top: 2.25rem;
-          margin-left: 2.25rem;
+          width: 32px;
+          height: 40px;
+          margin-top: 36px;
+          margin-left: 36px;
         }
         &-content {
-          margin-left: 2.0625rem;
+          margin-left: 33px;
           &-text1 {
-            margin: 3rem 3.25rem 3.75rem 0;
-            font-size: 1.5rem;
+            margin: 48px 52px 60px 0;
+            font-size: 24px;
             font-weight: 500;
             color: #f1f3f7;
           }
           &-text2 {
-            margin-right: 6.375rem;
-            margin-bottom: 3.5rem;
-            font-size: 1.25rem;
+            margin-right: 102px;
+            margin-bottom: 56px;
+            font-size: 20px;
             color: #f1f3f7;
           }
         }

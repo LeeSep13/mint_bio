@@ -23,51 +23,58 @@
         </p>
       </div>
     </div>
-    <div class="knotWeed-module1">
-      <div class="knotWeed-module1-title">
-        <p>节豆日粮</p>
-        <p class="knotWeed-module1-title-replace">替代</p>
-        <p>大豆</p>
-      </div>
-      <div class="knotWeed-module1-desc">
-        <p>提供动物生长的必要氨基酸</p>
-      </div>
-    </div>
-    <div class="knotWeed-module2">
-      <div class="knotWeed-module2-propagate">
-        <div class="knotWeed-module2-propagate-title">节豆日粮</div>
-        <div class="knotWeed-module2-propagate-target">
-          <p>生物智造</p>
-          <p>惠及每一个生命</p>
+
+    <div class="knotWeed-module1-w sector">
+      <div class="knotWeed-module1">
+        <div class="knotWeed-module1-title">
+          <p>节豆日粮</p>
+          <p class="knotWeed-module1-title-replace">替代</p>
+          <p>大豆</p>
+        </div>
+        <div class="knotWeed-module1-desc">
+          <p>提供动物生长的必要氨基酸</p>
         </div>
       </div>
-      <div class="knotWeed-module2-advantage">
-        <div class="knotWeed-module2-advantage-content">
-          <ul class="knotWeed-module2-advantage-content-text">
-            <li>合成8种氨基酸</li>
-            <li>营养供给精准高效</li>
-            <li>节约饲养成本</li>
-          </ul>
+    </div>
+    <div class="knotWeed-module2-w sector">
+      <div class="knotWeed-module2">
+        <div class="knotWeed-module2-propagate">
+          <div class="knotWeed-module2-propagate-title">节豆日粮</div>
+          <div class="knotWeed-module2-propagate-target">
+            <p>生物智造</p>
+            <p>惠及每一个生命</p>
+          </div>
+        </div>
+        <div class="knotWeed-module2-advantage">
+          <div class="knotWeed-module2-advantage-content">
+            <ul class="knotWeed-module2-advantage-content-text">
+              <li>合成8种氨基酸</li>
+              <li>营养供给精准高效</li>
+              <li>节约饲养成本</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
     <MiNTDivider :content="'+'"></MiNTDivider>
 
-    <div class="knotWeed-module3">
-      <div class="knotWeed-module3-title">
-        <p>节豆日粮助力</p>
-        <p>解决粮食安全“卡脖子问题”</p>
-      </div>
-      <div class="knotWeed-module3-data">
-        <div
-          class="knotWeed-module3-data-item"
-          v-for="item in knotData"
-          :key="item.key"
-        >
-          <p class="knotWeed-module3-data-item-important">
-            {{ item.important }}
-          </p>
-          <p class="knotWeed-module3-data-item-content">{{ item.content }}</p>
+    <div class="knotWeed-module3-w sector">
+      <div class="knotWeed-module3">
+        <div class="knotWeed-module3-title">
+          <p>节豆日粮助力</p>
+          <p>解决粮食安全“卡脖子问题”</p>
+        </div>
+        <div class="knotWeed-module3-data">
+          <div
+            class="knotWeed-module3-data-item"
+            v-for="item in knotData"
+            :key="item.key"
+          >
+            <p class="knotWeed-module3-data-item-important">
+              {{ item.important }}
+            </p>
+            <p class="knotWeed-module3-data-item-content">{{ item.content }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -114,33 +121,29 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import "@/style/variable.less";
+
 /* 样式部分保持不变 */
 .knotWeed {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #11161b;
   &-title {
-    height: 29.25rem;
-    line-height: 29.25rem;
+    height: 468px;
+    line-height: 468px;
     text-align: center;
     position: relative;
     &-text {
-      font-family: MiSans VF;
-      font-size: 4.375rem;
+      font-size: 70px;
       font-weight: 500;
       &-top {
-        height: 8.125rem;
+        height: 130px;
         color: #ffffff73;
         span {
-          font-size: 8rem;
+          font-size: 128px;
         }
       }
       &-bottom {
         color: rgba(236, 236, 238, 0.8);
         span {
-          font-size: 8rem;
+          font-size: 128px;
         }
       }
     }
@@ -149,8 +152,7 @@ export default {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 41.5625rem;
-      height: 29.375rem;
+      width: 34.5%;
       z-index: 0; /* 确保网格图在下面 */
     }
 
@@ -159,26 +161,27 @@ export default {
       top: 60%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 61.75rem;
-      height: 10.8125rem;
+      width: 52%;
       z-index: 0; /* 确保Mint图在网格图下面 */
     }
   }
   &-module1 {
-    margin-top: 5.4375rem;
-    width: 89rem;
-    height: 52.6875rem;
-    background-image: url("https://s3-alpha-sig.figma.com/img/f1ee/a79e/759d87331235271b5da8916134e51224?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=YtG9cYOQWsxucn1Puv2R19PYEy5XMWsxQqPYVPOCl4oJBpbBeuWcWpJYhVnciUXjkx8fE79RpnLaAOVcf94SaOo~7-GB0zOSJebIRtBsES1oPsBZOiUTMSXvmW9m8Ca8Muzet2FT25Szqqz6rzh909bOIoAxvOoG4lhrj821nxv1zeIyMJsfua~0WtudYGKpI4NoNYoaNrtkuZObD-xLyUGA1XCtel8gShRyHf7VQ327cHKkMPOMYmxnmM~yAdrbs2e9UW2ml88Ok8honI7XRyGAO5elzDa67fcXJUbedjRh6td5jy67uhfCEX8lxGUMIVxZnkpYbQ-rtkD3MM0PYg__");
+    height: 100%;
+    background-image: url("@/assets/KnotWeed/banner1.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 1.25rem;
     border: 1px solid #ffffff33;
+    &-w {
+      padding-bottom: 70px;
+      height: 843px;
+    }
     &-title {
-      margin-top: 9rem;
-      margin-left: 3.75rem;
+      margin-top: 144px;
+      margin-left: 60px;
       display: flex;
       align-items: center;
-      font-size: 5.625rem;
+      font-size: 90px;
       font-weight: 500;
       color: #fff;
       &-replace {
@@ -188,36 +191,37 @@ export default {
       }
     }
     &-desc {
-      margin-left: 3.75rem;
-      margin-top: 1.25rem;
-      font-size: 4.125rem;
+      margin-left: 60px;
+      margin-top: 20px;
+      font-size: 66px;
       font-weight: 500;
       color: #fff;
     }
   }
   &-module2 {
-    margin-top: 10.625rem;
-    margin-bottom: 9.375rem;
-    padding: 8.4375rem 10.25rem 8.375rem 5.9375rem;
+    padding: 135px 164px 134px 95px;
+    height: 100%;
     display: flex;
-    width: 89rem;
-    height: 52.6875rem;
-    background-image: url("https://s3-alpha-sig.figma.com/img/67a3/33be/13fc3f7d5ea406718a58c2f167b5fc36?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=gV-r9UdjryuoX~CFUUAB7Jl1~E1IUAvYlYQtMkwcocut8MuYNKOmiJb7OWa2HlKT6P~57D-YJZ08h3lDofwppqaHk-klYXDcfTr-owBEhvffF9H0IfxbITMO6SvMj70Ltak~khAQChiuoXHJoo3ClGZzsQTikhYJw0ytSH0M1G2Ne2jEWXuQx8amzdzRkvZ8nPFtrVVxm9zGN17LgKO~eZgKgX8L8LvUcZUSA8vZFFe5TujIsiXU3DFP9xRgfw3koONCr4rw6hFurcynFAL6HViRjE2H-29OSB4yYsNmrNQb6jZgnDlvQedJPY5KmaKbIacfAv8VfvNtcVVAEQLtXQ__");
+    background-image: url("@/assets/AminoAcid/module3_bg.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
-    border-radius: 1.25rem;
+    border-radius: 20px;
     box-sizing: border-box;
+    &-w {
+      padding-bottom: 150px;
+      height: 843px;
+    }
     &-propagate {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       &-title {
-        font-size: 6rem;
+        font-size: 96px;
         font-weight: 500;
         color: #fff;
       }
       &-target {
-        font-size: 4.625rem;
+        font-size: 74px;
         font-weight: 500;
         color: transparent;
         background-clip: text;
@@ -232,7 +236,7 @@ export default {
         );
 
         p:last-child {
-          margin-left: 9.25rem;
+          margin-left: 148px;
         }
       }
     }
@@ -287,65 +291,41 @@ export default {
       }
     }
   }
-  &-divider {
-    width: 99%;
-    height: 1rem;
-    text-align: center;
-    color: #ff7200;
-    font-size: 1rem; // 字体大小可以根据需要调整
-    position: relative;
-    &::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 1px; // 分割线的高度
-      background-color: #f1f3f71a;
-      z-index: 1;
-    }
-    &::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 1px; // 分割线的高度
-      background-color: #f1f3f71a;
-      z-index: 1;
-    }
-  }
   &-module3 {
-    margin-top: 8.25rem;
-    margin-bottom: 18.75rem;
+    &-w{
+      padding-top: 132px;
+      padding-bottom: 300px;
+    }
     &-title {
-      margin-bottom: 12.5rem;
-      font-size: 3.75rem;
+      margin-bottom: 200px;
+      font-size: 60px;
       font-weight: 500;
       color: #f1f3f7;
       p:last-child {
-        margin-left: 15rem;
+        margin-left: 240px;
       }
     }
     &-data {
+      padding-left: 125px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      row-gap: 9.3125rem;
-      width: 71.75rem;
+      row-gap: 149px;
+      column-gap: 369px;
+      width: 87%;
       &-item {
-        width: 24.25rem;
+        width: 388px;
         &:nth-child(1),
         &:nth-child(3) {
-          margin-right: 7.5rem;
+          margin-right: 120px;
         }
         &-important {
-          font-size: 7.5rem;
+          font-size: 120px;
           font-weight: 500;
           color: #ff7200;
         }
         &-content {
-          font-size: 2rem;
+          font-size: 32px;
           color: #f1f3f7;
         }
       }

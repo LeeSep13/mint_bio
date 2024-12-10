@@ -114,14 +114,14 @@ export default {
       }
 
       &-text1 {
-        width: 10.6%;
+        width: 12%;
         height: 55%;
         margin-left: 9%;
         text-align: right;
       }
 
       &-text2 {
-        width: 13.6%;
+        width: 17%;
         height: 19%;
         margin-left: 3%;
       }

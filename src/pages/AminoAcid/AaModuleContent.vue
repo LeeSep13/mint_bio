@@ -103,16 +103,6 @@ export default {
 .aminoAcid {
   &-module2 {
     width: 100%;
-    // height: 700px;
-    // height: 45.3125rem;
-
-    // background-image: url("./images/module2_bg.png");
-    // background-size: cover;
-    // background-repeat: no-repeat;
-    // &-swiper {
-    //   margin: 13.875rem 0;
-    //   height: 45.3125rem;
-    // }
     &-radian {
       margin-left: 14px;
       position: relative;
