@@ -102,31 +102,30 @@ export default {
 <style lang="less" scoped>
 .aminoAcid {
   &-module2 {
-    width: 89rem;
+    width: 100%;
+    // height: 700px;
     // height: 45.3125rem;
-    height: 42.8125rem;
 
     // background-image: url("./images/module2_bg.png");
     // background-size: cover;
     // background-repeat: no-repeat;
-    &-swiper {
-      margin: 13.875rem 0;
-      height: 45.3125rem;
-    }
+    // &-swiper {
+    //   margin: 13.875rem 0;
+    //   height: 45.3125rem;
+    // }
     &-radian {
-      margin-left: 0.875rem;
+      margin-left: 14px;
       position: relative;
       top: 1px;
-      width: 17.75rem;
-      height: 2.5rem;
+      width: 20%;
+      height: 40px;
       overflow: hidden;
       border-radius: 20px 20px 0 0;
 
       &-inner {
-        // margin-left: 0.5rem;
         position: absolute;
-        width: 14rem;
-        height: 2.5rem;
+        width: 224px;
+        height: 40px;
         background: #17191c;
         bottom: 0;
         left: 24px;
@@ -171,21 +170,21 @@ export default {
       &-title {
         margin-left: 25px;
         position: absolute;
-        width: 14rem;
-        height: 2.5rem;
-        line-height: 2.5rem;
+        width: 224px;
+        height: 40px;
+        line-height: 40px;
         text-align: center;
         top: 0;
         left: 0;
         z-index: 3;
         color: #F1F3F780;
-        font-size: .875rem;
+        font-size: 14px;
         font-weight: 500;
         border-radius: 30px 30px 0 0;
       }
     }
     &-content {
-      border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
+      border-radius: 20px;
       border: 1px solid transparent;
       background-image: linear-gradient(#181a1d, #12161b),
         linear-gradient(
@@ -198,26 +197,26 @@ export default {
       background-origin: border-box;
       background-clip: content-box, border-box;
       &-w {
-        margin: 2.8125rem 4.625rem 3.75rem 4.625rem;
+        margin: 45px 74px 60px 74px;
       }
       &-top {
-        margin-bottom: 2.75rem;
+        margin-bottom: 44px;
         display: flex;
         justify-content: space-between;
-        font-size: 0.875rem;
+        font-size: 14px;
         font-weight: 500;
         color: #f1f3f780;
       }
       &-bottom {
         display: flex;
-        gap: 4.375rem;
+        gap: 70px;
         &-introduction {
-          margin-top: 4.375rem;
-          width: 27.5rem;
+          margin-top: 70px;
+          width: 440px;
           &-title {
             &-text1,
             &-text2 {
-              font-size: 2.5rem;
+              font-size: 40px;
               font-weight: 500;
             }
             &-text1 {
@@ -228,26 +227,26 @@ export default {
             }
           }
           &-apply {
-            margin-top: 2.0625rem;
-            margin-bottom: 7.5625rem;
+            margin-top: 33px;
+            margin-bottom: 121px;
             display: flex;
-            gap: 1.875rem;
+            gap: 30px;
             &-text {
-              padding: 1.25rem;
-              font-size: 0.875rem;
+              padding: 20px;
+              font-size: 14px;
               font-weight: 500;
               color: #f1f3f7;
-              border-radius: 3.125rem;
+              border-radius: 50px;
               border: 1px solid #ffffff;
             }
           }
           &-advantage {
             li {
               position: relative;
-              font-size: 1.25rem;
+              font-size: 20px;
               font-weight: 500;
               color: #f1f3f7;
-              padding-left: 1.5rem;
+              padding-left: 24px;
 
               &::before {
                 content: "";
@@ -262,7 +261,7 @@ export default {
               }
 
               &:not(:last-child) {
-                margin-bottom: 1rem; /* 每项之间的间隔 */
+                margin-bottom: 16px; /* 每项之间的间隔 */
               }
             }
           }

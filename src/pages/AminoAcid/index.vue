@@ -1,6 +1,6 @@
 <template>
   <div class="aminoAcid">
-    <div class="aminoAcid-title">
+    <!-- <div class="aminoAcid-title">
       <img
         class="grid-image"
         src="@/assets/images/grid.png"
@@ -19,8 +19,10 @@
         </div>
         <p class="aminoAcid-title-content-text3">生物造</p>
       </div>
-    </div>
-    <div class="aminoAcid-module1 sector">
+    </div> -->
+    <BannerTitle :titleImage="require('./images/banner_title.png')" />
+
+    <div class="aminoAcid-module1">
       <div class="aminoAcid-module1-content">
         <div class="aminoAcid-module1-content-left">
           <p class="aminoAcid-module1-content-left-text1">生物合成</p>
@@ -86,11 +88,13 @@
 
 <script>
 import { ref } from 'vue';
+import BannerTitle from '@/components/BannerTitle'
 import AaModuleContent from "./AaModuleContent";
 import MouseScroll from './MouseScroll';
 
 export default {
   components: {
+    BannerTitle,
     AaModuleContent,
     MouseScroll,
   },
@@ -158,10 +162,7 @@ export default {
 @import "@/style/variable.less";
 
 .aminoAcid {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 0 160px;
   &-title {
     width: 988px;
     height: 468px;
@@ -215,21 +216,22 @@ export default {
     }
   }
   &-module1 {
+    margin-top: 87px;
     display: flex;
     justify-content: center;
     align-items: center;
-    // width: 100%;
     height: 700px;
-    // background-image: url("./images/banner1.png");
-    // background-size: cover;
-    // background-repeat: no-repeat;
-    // border-radius: 20px;
+    background-image: url("./images/banner1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
     border: 1px solid #ffffff33;
+
     &-content {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      // padding: 0 20px;
+      padding: 0 80px;
       &-left {
         margin-top: 60px;
         &-text1 {
@@ -288,19 +290,13 @@ export default {
       }
     }
   }
-  &-module2 {
-    &-swiper {
-      margin: 13.875rem 0;
-      height: 45.3125rem;
-    }
-  }
   &-module3 {
     display: flex;
     flex-direction: column;
     &-title {
       &-text1,
       &-text2 {
-        font-size: 3.75rem;
+        font-size: 60px;
         font-weight: 500x;
       }
       &-text1 {
@@ -311,29 +307,29 @@ export default {
       }
     }
     &-content {
-      margin-top: 6.25rem;
-      margin-bottom: 3.75rem;
+      margin-top: 100px;
+      margin-bottom: 60px;
       display: flex;
-      gap: 13.5625rem;
+      gap: 217px;
       &-name {
-        font-size: 2.5rem;
+        font-size: 40px;
         font-weight: 500;
         color: #f1f3f7;
       }
       &-solution {
         &-title {
-          margin-bottom: 2.625rem;
-          font-size: 2.5rem;
+          margin-bottom: 42px;
+          font-size: 40px;
           font-weight: 500;
           color: #ff7200;
         }
         &-list {
-          margin-left: 0.9375rem;
+          margin-left: 15px;
           li {
             position: relative;
-            font-size: 1.25rem;
+            font-size: 20px;
             color: #f1f3f7;
-            padding-left: 1.25rem;
+            padding-left: 20px;
 
             &::before {
               content: "";
@@ -348,34 +344,34 @@ export default {
             }
 
             &:not(:last-child) {
-              margin-bottom: 1rem; /* 每项之间的间隔 */
+              margin-bottom: 16px; /* 每项之间的间隔 */
             }
           }
         }
       }
     }
     &-propagate {
-      padding: 6.5625rem 10.125rem 6.625rem 7.0625rem;
-      margin-bottom: 10.0625rem;
+      padding: 10% 14% 10% 10%;
+      margin-bottom: 161px;
       display: flex;
-      width: 89rem;
-      height: 52.6875rem;
-      background-image: url("https://s3-alpha-sig.figma.com/img/67a3/33be/13fc3f7d5ea406718a58c2f167b5fc36?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=gV-r9UdjryuoX~CFUUAB7Jl1~E1IUAvYlYQtMkwcocut8MuYNKOmiJb7OWa2HlKT6P~57D-YJZ08h3lDofwppqaHk-klYXDcfTr-owBEhvffF9H0IfxbITMO6SvMj70Ltak~khAQChiuoXHJoo3ClGZzsQTikhYJw0ytSH0M1G2Ne2jEWXuQx8amzdzRkvZ8nPFtrVVxm9zGN17LgKO~eZgKgX8L8LvUcZUSA8vZFFe5TujIsiXU3DFP9xRgfw3koONCr4rw6hFurcynFAL6HViRjE2H-29OSB4yYsNmrNQb6jZgnDlvQedJPY5KmaKbIacfAv8VfvNtcVVAEQLtXQ__");
+      width: 100%;
+      background-image: url("./images/module3_bg.jpeg");
       background-size: cover;
       background-repeat: no-repeat;
-      border-radius: 1.25rem;
+      border-radius: 20px;
       box-sizing: border-box;
       &-title {
-        width: 5.625rem;
-        font-size: 6rem;
+        width: 5.6%;
+        font-size: 96px;
         font-weight: 500;
         color: #fff;
       }
       &-target {
-        margin-left: 10rem;
+        margin-left: 15%;
+        width: 100%;
         &-top {
-          margin-bottom: 320px;
-          font-size: 4.625rem;
+          margin-bottom: 37%;
+          font-size: 74px;
           font-weight: 500;
           color: transparent;
           background-clip: text;
@@ -388,12 +384,12 @@ export default {
           );
 
           p:last-child {
-            margin-left: 9.25rem;
+            margin-left: 148px;
           }
         }
         &-bottom {
           font-family: Montserrat;
-          font-size: 3.4375rem;
+          font-size: 55px;
           font-weight: 600;
           color: transparent;
           background-clip: text;
@@ -413,15 +409,17 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        width: 29%;
         p {
-          width: 13.125rem;
-          height: 6.375rem;
-          line-height: 6.375rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 13%;
           color: #f1f3f7;
-          font-size: 1.5625rem;
+          font-size: 25px;
           font-weight: 500;
-          text-align: center;
-          border-radius: 13.0625rem;
+          border-radius: 209px;
           border: 2.09px solid transparent;
           background-image: linear-gradient(#181a1d, #2828289f),
             linear-gradient(

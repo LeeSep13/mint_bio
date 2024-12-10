@@ -163,10 +163,10 @@ export default {
 
 <style scoped>
 .module-container {
-  margin: 13.875rem 0;
+  margin: 147px 0 222px 0;
   position: relative;
   width: 100%;
-  height: 800px;
+  height: 740px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,8 +175,8 @@ export default {
 
 .module {
   position: absolute;
-  width: 1424px;
-  height: 680px;
+  width: 100%;
+  /* height: 680px; */
   transition: transform 0.3s ease-out;
 }
 </style>

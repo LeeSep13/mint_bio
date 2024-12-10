@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header ">
     <div class="header-left">
       <div class="header-left-logo">
         <img src="@/assets/images/logo.png" alt="Logo" />
@@ -201,7 +201,7 @@ const handleClick = (item) => {
 
 <style lang="less">
 .el-popper.el-popover.header-popover {
-  margin-right: 2.5rem;
+  margin-right: 40px;
   padding: 24px 26px 95px 72px;
   background-color: #2828289f;
   border-radius: 20px;
@@ -275,29 +275,29 @@ const handleClick = (item) => {
 <style lang="less" scoped>
 .header {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 16px 160px 0 160px;
   background: linear-gradient(0deg, #11161b, #11161b),
     radial-gradient(
       40.98% 38.14% at 50% 0%,
       rgba(255, 255, 255, 0.12) 0%,
       rgba(255, 255, 255, 0) 100%
     );
-  padding-top: 1rem;
 
   &-left {
     &-logo {
+      width: 122px;
+      height: 60px;
       img {
-        width: 7.625rem;
-        height: 3.75rem;
+        width: 100%;
+        height: 100%;
       }
     }
   }
 
   &-middle {
-    width: 36.5rem;
-    margin-left: 19.5rem;
-    margin-right: 21.5625rem;
+    width: 100%;
+    margin-left: 21.5%;
+    margin-right: 23.6%;
 
     .nav {
       width: 100%;
@@ -308,16 +308,16 @@ const handleClick = (item) => {
       margin: 0;
       list-style: none;
       border: 1px solid #fff;
-      border-radius: 1rem;
+      border-radius: 16px;
       background-color: rgba(255, 255, 255, 0.1);
 
       .nav-item {
         width: 25%;
         text-align: center;
-        font-size: 1rem;
+        font-size: 16px;
         font-weight: 500;
         color: #fff;
-        padding: 1rem 0;
+        padding: 16px 0;
         position: relative;
         transition: background-color 0.3s ease, color 0.3s ease;
         cursor: pointer;
@@ -338,13 +338,13 @@ const handleClick = (item) => {
         }
 
         &:first-child {
-          border-top-left-radius: 1rem;
-          border-bottom-left-radius: 1rem;
+          border-top-left-radius: 16px;
+          border-bottom-left-radius: 16px;
         }
 
         &:last-child {
-          border-top-right-radius: 1rem;
-          border-bottom-right-radius: 1rem;
+          border-top-right-radius: 16px;
+          border-bottom-right-radius: 16px;
         }
 
         &.nav-item_current {
@@ -365,7 +365,7 @@ const handleClick = (item) => {
           top: 100%;
           left: 0;
           background-color: #2828289f;
-          border-radius: 0.75rem;
+          border-radius: 12px;
           opacity: 0;
           transition: opacity 0.3s ease;
           z-index: 10;
@@ -376,21 +376,21 @@ const handleClick = (item) => {
           padding: 19px 26px;
           display: flex;
           box-sizing: border-box;
-          gap: 0.5rem;
+          gap: 8px;
           opacity: 1;
         }
 
         .submenu-icon {
-          margin-left: 0.25rem;
-          width: 0.75rem;
+          margin-left: 4px;
+          width: 12px;
           vertical-align: middle;
         }
       }
 
       .submenu-item {
-        padding: 1.875rem;
-        font-size: 1rem;
-        border-radius: 0.75rem;
+        padding: 30px;
+        font-size: 16px;
+        border-radius: 12px;
         background-color: #02030833;
 
         &-link {
@@ -408,8 +408,8 @@ const handleClick = (item) => {
 
   &-right {
     .menu {
-      width: 3.375rem;
-      height: 3.375rem;
+      width: 54px;
+      height: 54px;
     }
   }
 }
