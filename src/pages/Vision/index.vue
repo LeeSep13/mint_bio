@@ -56,7 +56,7 @@
           <div class="vision-module3-content-left-list-w">
             <ul class="vision-module3-content-left-list">
               <li
-                v-for="(item,index) in declineData"
+                v-for="(item, index) in declineData"
                 :key="item.title"
                 :class="{
                   highlight: highlightedIndex === index,
@@ -111,7 +111,7 @@
         </div>
       </div>
     </div>
-    <div class="vision-module5">
+    <!-- <div class="vision-module5">
       <div class="vision-module5-title">
         <p class="vision-module5-title-text1">60%</p>
         <p class="vision-module5-title-text2">
@@ -150,43 +150,43 @@
           <img src="./images/process.png" alt="" />
         </div>
       </div>
-    </div>
+    </div> -->
+    <VisionModule5 />
   </div>
 </template>
   
-  <script>
-export default {
-  name: "Vision",
-  components: {},
-  data() {
-    return {
-      cardData: [
-        {
-          key: 0,
-          title: "《“十四五”塑料污染治理行动方案》",
-          content:
-            "科学稳妥推广塑料替代产品。加大可降解塑料关键核心技术攻关和成果转化，不断提升产品质量和性能，降低应用成本。",
-        },
-        {
-          key: 1,
-          title: "《“十四五”生物经济发展规划》",
-          content:
-            "培育壮大生物经济支柱产业。加快生物技术广泛赋能健康、农业、能源、环保等产业，促进生物技术与信息技术深度融合，全面提升生物产业多样化水平，推动生物经济高质量发展。",
-        },
-        {
-          key: 2,
-          title: "《新产业标准化领航工程实施方案(2023-2035年)》",
-          content:
-            "聚焦元宇宙、脑机接口、量子信息、人形机器人、生成式人工智能、生物制造、未来显示、未来网络、新型储能等9大未来产业。",
-        },
-        {
-          key: 3,
-          title: "《加快非粮生物基材料创新发展三年行动方案》",
-          content:
-            "到 2025 年，非粮生物基材料产业基本形成自主创新能力强、产品体系不断丰富、绿色循环低碳的创新发展生态，非粮生物质原料利用和应用技术基本成熟，部分非粮生物基产品竞争力与化石基产品相当，高质量、可持续的供给和消费体系初步建立。",
-        },
-      ],
-      declineData: [
+<script setup>
+import { ref } from "vue";
+import VisionModule5 from "./VisionModule5.vue";
+
+const cardData = ref([
+  {
+    key: 0,
+    title: "《“十四五”塑料污染治理行动方案》",
+    content:
+      "科学稳妥推广塑料替代产品。加大可降解塑料关键核心技术攻关和成果转化，不断提升产品质量和性能，降低应用成本。",
+  },
+  {
+    key: 1,
+    title: "《“十四五”生物经济发展规划》",
+    content:
+      "培育壮大生物经济支柱产业。加快生物技术广泛赋能健康、农业、能源、环保等产业，促进生物技术与信息技术深度融合，全面提升生物产业多样化水平，推动生物经济高质量发展。",
+  },
+  {
+    key: 2,
+    title: "《新产业标准化领航工程实施方案(2023-2035年)》",
+    content:
+      "聚焦元宇宙、脑机接口、量子信息、人形机器人、生成式人工智能、生物制造、未来显示、未来网络、新型储能等9大未来产业。",
+  },
+  {
+    key: 3,
+    title: "《加快非粮生物基材料创新发展三年行动方案》",
+    content:
+      "到 2025 年，非粮生物基材料产业基本形成自主创新能力强、产品体系不断丰富、绿色循环低碳的创新发展生态，非粮生物质原料利用和应用技术基本成熟，部分非粮生物基产品竞争力与化石基产品相当，高质量、可持续的供给和消费体系初步建立。",
+  },
+]);
+const declineData = ref(
+  [
         {
           key: 0,
           name: "工业过程能耗 (下降)",
@@ -212,18 +212,16 @@ export default {
           name: "生产成本 (下降)",
           rate: "9%～90%",
         },
-      ],
-      highlightedIndex: 0,
-      hoverData: "15%～88%",
-    };
-  },
-  methods: {
-    updateHoverData(data, index) {
+      ]
+)
+const highlightedIndex = ref(0);
+const hoverData = ref("15%～88%");
+
+function updateHoverData(data, index) {
       this.highlightedIndex = index;
       this.hoverData = data;
-    },
-  },
-};
+}
+
 </script>
 
 <style lang="less" scoped>
@@ -564,129 +562,6 @@ export default {
             font-size: 1.25rem;
             color: #f1f3f7;
           }
-        }
-      }
-    }
-  }
-  &-module5 {
-    &-title {
-      margin-top: 10.625rem;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      &-text1 {
-        font-size: 12.5rem;
-        font-weight: 500;
-        color: #ff7200;
-        line-height: 0.8;
-        margin: 0;
-      }
-      &-text2 {
-        font-size: 3rem;
-        font-weight: 500;
-        color: #f1f3f7;
-        line-height: 1;
-        margin: 0;
-      }
-    }
-    &-content {
-      margin-top: 10rem;
-      margin-bottom: 10.625rem;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      column-gap: 1rem;
-      row-gap: 6.25rem;
-      &-img1,
-      &-img3 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 3.75rem;
-        width: 944px;
-        height: 460px;
-        border-radius: 1.25rem;
-        &-title {
-          font-size: 1.875rem;
-          font-weight: 500;
-          color: #f1f3f7;
-          margin-bottom: 2.5rem;
-        }
-        &-desc {
-          font-size: 1.25rem;
-          color: #f1f3f7;
-        }
-      }
-      &-img1 {
-        background: url("https://s3-alpha-sig.figma.com/img/c0f7/b496/7fe8994ebf060f1e6900ff576868c2f4?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XqSf0~rJWuxvtx6935k-OG3E00dzm6xd1zrifsn~aOk1zhe-YUVx2PJKJB72YFOI1gvLaC5cw3D8kkxDol-gHlvTnrYTVEPwlMuL5cM7Eiy3lphyqSouoqgONWyKAb80FumIxLeDd~Bu0Ej6iy84kT1BKBh7iwdA0O226PT9XJKicqE2f9iM~L9uWFZ~N5Bbe1f8TwQSMgx7BoPstfBG1lBoT5SHG7dP2rz5REN7b6ixrrmcxcux6J60thixqfRz6KGHXylgtzkpDhu3GmUVHWwU1NMMhxdsRLZ~804UNsQfxzwCOxlKZuAjl-VozG6vdqUDRDbVeEOOCAT7ELIw4g__");
-        background-size: cover;
-        background-repeat: no-repeat;
-      }
-      &-img2 {
-        &-item1,
-        &-item2 {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 3.1875rem;
-          border-radius: 1.25rem;
-          &-text {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: #fff;
-          }
-        }
-        &-item1 {
-          margin-bottom: 1rem;
-          width: 464px;
-          height: 222px;
-          background: url("https://s3-alpha-sig.figma.com/img/4be7/4b07/3806fcc7d5bb5d541335afb18f7ecd96?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TFfNKqEqYW3WAlP9t0AHuexcTL5cD0KNE7WdBKjHmSk93mMOTpm9DQTkXaOrt4prcGfOP~8zh~fyRc~~pMgy5B6b7otdhQxKaBvIVq8RMq9cw2nLjd-2Mkqxk8QWgVHnX9wUmXxi7B1omnASRhP66Yf2CbKwRbwoQr1qSZ2fluc1ATHwes~c4XBmE8jM-XOU4kjHQqaQVw3X2qiTSntiFFd3XQ6Wzl24-trFcQ8RlAWy-hUVxnC5a3YVUJlJD2TsRihnbpSGeuSTiQ9uLepQg1pJ5cXuG8J558TUbIhuo5TknIryE~920IuG4CFo9dS9O-ORKiwx1bKeic8wg~GZOQ__");
-          background-size: cover;
-          background-repeat: no-repeat;
-        }
-        &-item2 {
-          width: 464px;
-          height: 222px;
-          background: url("https://s3-alpha-sig.figma.com/img/3106/fe29/d57f2f5d48fc718d04be11725c94147d?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cpMAT6MNMQKFbp4ITRMytXhsrhCH8xQEL3iQB4npjvCB7uan444ItmQiPe9pcOPRV1PP1L3oHB5iRCTUSkpb85f42XgvQkkfzrzAEBKEIPtw5enSZCMdPIM0eqFcvOT2o9cCPKrZfpbGLBMDavI6b4h8eUrVfLFPbauCTQTA4ME7C0Jng0f4SoN2lQEnkkR8WCSptZ3Knqu42o4oHNjI~Yg1PsIR-wFbeoDSJPypQt2UADml2O42hzV3ZWQQX~PyzAZkt-FntODIM1eq9yt00IjSexEoof9TISjx9OmwRc0vBg1IslxRzXY8R~7FCNzqLuDbBXo4Y3fnzzJIP48dHw__");
-          background-size: cover;
-          background-repeat: no-repeat;
-        }
-        .learn-more-btn {
-          width: 6rem;
-          height: 2.375rem;
-          line-height: 2.375rem;
-          text-align: center;
-          font-size: 0.875rem;
-          font-weight: 500;
-          color: #f1f3f7;
-          background-color: rgba(255, 114, 0, 0.8);
-          border-radius: 13.0625rem;
-        }
-      }
-      &-img3 {
-        background: url("https://s3-alpha-sig.figma.com/img/cdcc/d8cd/4480e0f4dc2b4f560139f9ebe59dd9d1?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=n6eXRIrMwMOs2g~PyCeH~6gpL1Kl9q2unSvy1TJM5h-d7q6QTNK2rTe0USvmtVlRwkmW2lmU44PRmc2M5t~PZ6ODYEfaB45DsiQcAmk4FAXjcQVC8hNwtbZiAjCgYpI-WYBFBa8DIanqXSZ7cYzDnJVszm4K59AOJKhWmlQB-u9rI2iRRvIJKIl4kb9YMGBZKHCGq~jeup4cOVFduQ5egHCqaQCxM0t2a~G2QRAhoeM61eFIdRUjE4i7WTVA6GgHZ4nYeUl4wLz-1EtNrnUD3HSDZx05Z0Bg~gtMTVFHLiEFO6P~OeZ6LJmDGRHPXZhNWNb4C398fVdUftTFk8BU6w__");
-        background-size: cover;
-        background-repeat: no-repeat;
-        &-btn {
-          margin-top: 5.4375rem;
-          width: 7.75rem;
-          height: 3.625rem;
-          line-height: 3.625rem;
-          text-align: center;
-          font-size: 1rem;
-          font-weight: 500;
-          color: #f1f3f7;
-          background-color: rgba(40, 40, 40, 0.62);
-          border-radius: 13.0625rem;
-        }
-      }
-      &-img4 {
-        img {
-          width: 464px;
-          height: 460px;
         }
       }
     }

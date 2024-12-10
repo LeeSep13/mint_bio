@@ -130,7 +130,7 @@ const navData = ref([
   {
     key: 0,
     name: "生物智造",
-    router: "/",
+    router: "bioIntelligent",
     state: false,
     submenu: [],
     disabled: true,
@@ -141,6 +141,7 @@ const navData = ref([
     router: "/",
     state: false,
     submenu: [
+      { key: 1, name: "生物降解新材料", router: "/" },
       { key: 2, name: "生物合成氨基酸", router: "aminoAcid" },
       { key: 3, name: "节豆粮解决方案", router: "knotWeed" },
     ],
@@ -152,14 +153,17 @@ const navData = ref([
     name: "关于我们",
     router: "/",
     state: false,
-    submenu: [{ key: 21, name: "愿景与责任", router: "vision" }],
+    submenu: [
+      { key: 21, name: "企业介绍", router: "/" },
+      { key: 22, name: "愿景与责任", router: "vision" },
+    ],
     iconUp: require("@/components/Header/images/arrow_up.png"),
     iconDown: require("@/components/Header/images/arrow_down.png"),
   },
   {
     key: 3,
     name: "发展动态",
-    router: "/",
+    router: "mintNews",
     state: false,
     submenu: [],
     disabled: true,

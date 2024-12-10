@@ -7,8 +7,10 @@ import KnotWeed from '@/pages/KnotWeed'
 import Vision from '@/pages/Vision'
 import MiNTNews from '@/pages/MiNTNews/MiNTNews.vue'
 import MiNTNewsDetail from '@/pages/MiNTNews/MiNTNewsDetail.vue'
+import Home from '@/pages/Home'
+import BioIntelligent from '@/pages/BioIntelligent'
 
-const routes =[
+const routes = [
   {
     path: '/',
     name: '/',
@@ -43,7 +45,17 @@ const routes =[
     path: '/mintNews/detail/:configId',
     name: 'mintNewsDetail',
     component: MiNTNewsDetail
-  }
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: Home
+  },
+  {
+    path: '/bioIntelligent',
+    name: 'bioIntelligent',
+    component: BioIntelligent
+  },
 ]
 
 const router = createRouter({
