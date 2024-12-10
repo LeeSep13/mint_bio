@@ -57,7 +57,8 @@ const routes = [
   {
     path: '/bioIntelligent',
     name: 'bioIntelligent',
-    component: BioIntelligent
+    component: BioIntelligent,
+    meta: { unRequiresHeader: true }
   },
   {
     path: '/corporate',

@@ -1,103 +1,103 @@
 <template>
-	<div class="part4layout">
-		<div class="content">
-			<div class="columnbox">
-				<div class="title">
-					<span class="label"> [ 原料 ] </span>
-				</div>
+	<div class="part4layout-w">
+		<div class="part4layout">
 
-				<div class="detail">
-					<div class="detail-list1">
-						<span class="label">底盘微生物</span>
+			<div class="content">
+				<div class="columnbox">
+					<div class="title">
+						<span class="label"> [ 原料 ] </span>
 					</div>
-
-					<div class="detail-list2">
-						<span class="label">菲粮生物质</span>
+	
+					<div class="detail">
+						<div class="detail-list1">
+							<span class="label">底盘微生物</span>
+						</div>
+	
+						<div class="detail-list2">
+							<span class="label">菲粮生物质</span>
+						</div>
+					</div>
+	
+				</div>
+				<div class="columnbox">
+					<div class="title">
+						<span class="label">[ 发动机 ]<br />MiNT X Platform<br/>合成生物技术平台</span>
+					</div>
+	
+					<div class="detail">
+						<div class="detail-list3">
+							<span class="label">菌种优化</span>
+						</div>
+	
+						<div class="detail-list4">
+							<span class="label">AI蛋白设计</span>
+						</div>
+	
+						<div class="detail-list5">
+							<span class="label">分析筛选</span>
+						</div>
+					</div>
+	
+				</div>
+				<div class="columnbox">
+					<div class="title">
+						<span class="label"> [ 生物智造基地 ] </span>
+					</div>
+	
+					<div class="detail">
+						<div class="detail-list6">
+							<span class="label">提取纯化</span>
+						</div>
+	
+						<div class="detail-list7">
+							<span class="label">发酵量产</span>
+						</div>
+	
 					</div>
 				</div>
-
+				<div class="columnbox">
+					<div class="title">
+						<span class="label"> [ 应用 ] </span>
+					</div>
+					
+					<div class="detail">
+						<BioIntelligentApplication class="applicationlist1" labeltext="饲料" picsrc="assets/Application/pig.png"></BioIntelligentApplication>
+						<BioIntelligentApplication class="applicationlist2" labeltext="包装" picsrc="assets/Application/package.png"></BioIntelligentApplication>
+						<BioIntelligentApplication class="applicationlist3" labeltext="地膜" picsrc="assets/Application/farm.png"></BioIntelligentApplication>
+						<BioIntelligentApplication class="applicationlist4" labeltext="家电" picsrc="assets/Application/electric.png"></BioIntelligentApplication>
+						<BioIntelligentApplication class="applicationlist5" labeltext="文具" picsrc="assets/Application/package.png"></BioIntelligentApplication>
+						<BioIntelligentApplication class="applicationlist6" labeltext="玩具" picsrc="assets/Application/toy.png"></BioIntelligentApplication>
+					</div>
+				</div>
+	
 			</div>
-			<div class="columnbox">
-				<div class="title">
-					<span class="label">[ 发动机 ]<br />MiNT X Platform<br/>合成生物技术平台</span>
-				</div>
-
-				<div class="detail">
-					<div class="detail-list3">
-						<span class="label">菌种优化</span>
-					</div>
-
-					<div class="detail-list4">
-						<span class="label">AI蛋白设计</span>
-					</div>
-
-					<div class="detail-list5">
-						<span class="label">分析筛选</span>
-					</div>
-				</div>
-
+	
+	
+			<div class="progress">
+	
+				<MiNTProgress :coordinates="coordinates1" :uniqueId="'linearGradient1'" :widthheight="box"
+					:strokeWidth="44.75" :axis="true" startcolor="#0082FB" endcolor="#FF7200" :startlinewidth="10">
+				</MiNTProgress>
+				<MiNTProgress :coordinates="coordinates2" :uniqueId="'linearGradient2'" :widthheight="box"
+					:strokeWidth="44.75" :axis="true" startcolor="#0082FB" endcolor="#FF7200" :startlinewidth="10">
+				</MiNTProgress>
+				<MiNTProgress :coordinates="coordinates3" :uniqueId="'linearGradient3'" :widthheight="box"
+					:strokeWidth="44.75" :axis="true" startcolor="#FF7200" endcolor="#64DD64"></MiNTProgress>
+				<MiNTProgress :coordinates="coordinates4" :uniqueId="'linearGradient4'" :widthheight="box"
+					:strokeWidth="44.75" :axis="true" startcolor="#64DD64" endcolor="#6E78DB"></MiNTProgress>
+				<MiNTProgress :coordinates="coordinates5" :uniqueId="'linearGradient5'" :widthheight="box"
+					:strokeWidth="44.75" :axis="true" startcolor="#64DD64" endcolor="#6E78DB"></MiNTProgress>
+				<MiNTProgress :coordinates="coordinates6" :uniqueId="'linearGradient6'" :widthheight="box"
+					:strokeWidth="44.75" :axis="true" startcolor="#64DD64" endcolor="#6E78DB"></MiNTProgress>
+				<MiNTProgress :coordinates="coordinates7" :uniqueId="'linearGradient7'" :widthheight="box"
+					:strokeWidth="44.75" :axis="true" startcolor="#64DD64" endcolor="#6E78DB"></MiNTProgress>
+				<MiNTProgress :coordinates="coordinates8" :uniqueId="'linearGradient8'" :widthheight="box"
+					:strokeWidth="44.75" :axis="true" startcolor="#64DD64" endcolor="#6E78DB"></MiNTProgress>
+				<MiNTProgress :coordinates="coordinates9" :uniqueId="'linearGradient9'" :widthheight="box"
+					:strokeWidth="44.75" :axis="true" startcolor="#64DD64" endcolor="#6E78DB"></MiNTProgress>
+	
 			</div>
-			<div class="columnbox">
-				<div class="title">
-					<span class="label"> [ 生物智造基地 ] </span>
-				</div>
-
-				<div class="detail">
-					<div class="detail-list6">
-						<span class="label">提取纯化</span>
-					</div>
-
-					<div class="detail-list7">
-						<span class="label">发酵量产</span>
-					</div>
-
-				</div>
-			</div>
-			<div class="columnbox">
-				<div class="title">
-					<span class="label"> [ 应用 ] </span>
-				</div>
-				
-				<div class="detail">
-					<BioIntelligentApplication class="applicationlist1" labeltext="饲料" picsrc="assets/Application/pig.png"></BioIntelligentApplication>
-					<BioIntelligentApplication class="applicationlist2" labeltext="包装" picsrc="assets/Application/package.png"></BioIntelligentApplication>
-					<BioIntelligentApplication class="applicationlist3" labeltext="地膜" picsrc="assets/Application/farm.png"></BioIntelligentApplication>
-					<BioIntelligentApplication class="applicationlist4" labeltext="家电" picsrc="assets/Application/electric.png"></BioIntelligentApplication>
-					<BioIntelligentApplication class="applicationlist5" labeltext="文具" picsrc="assets/Application/package.png"></BioIntelligentApplication>
-					<BioIntelligentApplication class="applicationlist6" labeltext="玩具" picsrc="assets/Application/toy.png"></BioIntelligentApplication>
-				</div>
-			</div>
-
 		</div>
-
-
-		<div class="progress">
-
-			<MiNTProgress :coordinates="coordinates1" :uniqueId="'linearGradient1'" :widthheight="box"
-				:strokeWidth="44.75" :axis="true" startcolor="#0082FB" endcolor="#FF7200" :startlinewidth="10">
-			</MiNTProgress>
-			<MiNTProgress :coordinates="coordinates2" :uniqueId="'linearGradient2'" :widthheight="box"
-				:strokeWidth="44.75" :axis="true" startcolor="#0082FB" endcolor="#FF7200" :startlinewidth="10">
-			</MiNTProgress>
-			<MiNTProgress :coordinates="coordinates3" :uniqueId="'linearGradient3'" :widthheight="box"
-				:strokeWidth="44.75" :axis="true" startcolor="#FF7200" endcolor="#64DD64"></MiNTProgress>
-			<MiNTProgress :coordinates="coordinates4" :uniqueId="'linearGradient4'" :widthheight="box"
-				:strokeWidth="44.75" :axis="true" startcolor="#64DD64" endcolor="#6E78DB"></MiNTProgress>
-			<MiNTProgress :coordinates="coordinates5" :uniqueId="'linearGradient5'" :widthheight="box"
-				:strokeWidth="44.75" :axis="true" startcolor="#64DD64" endcolor="#6E78DB"></MiNTProgress>
-			<MiNTProgress :coordinates="coordinates6" :uniqueId="'linearGradient6'" :widthheight="box"
-				:strokeWidth="44.75" :axis="true" startcolor="#64DD64" endcolor="#6E78DB"></MiNTProgress>
-			<MiNTProgress :coordinates="coordinates7" :uniqueId="'linearGradient7'" :widthheight="box"
-				:strokeWidth="44.75" :axis="true" startcolor="#64DD64" endcolor="#6E78DB"></MiNTProgress>
-			<MiNTProgress :coordinates="coordinates8" :uniqueId="'linearGradient8'" :widthheight="box"
-				:strokeWidth="44.75" :axis="true" startcolor="#64DD64" endcolor="#6E78DB"></MiNTProgress>
-			<MiNTProgress :coordinates="coordinates9" :uniqueId="'linearGradient9'" :widthheight="box"
-				:strokeWidth="44.75" :axis="true" startcolor="#64DD64" endcolor="#6E78DB"></MiNTProgress>
-
-		</div>
-
-
-
 	</div>
 </template>
 
@@ -112,117 +112,121 @@
 	import BioIntelligentApplication from './BioIntelligentApplication.vue';
 
 	const coordinates1 = ref([{
-			x: 0 * 2.145,
-			y: 108 * 1.8
+			x: 0 ,
+			y: 108 
 		},
 		{
-			x: 138.7 * 2.145,
-			y: 56.88 * 1.8
+			x: 138.7 ,
+			y: 56.88 
 		},
 	]);
 
 	const coordinates2 = ref([{
-			x: 0 * 2.145,
-			y: 152.75 * 1.8
+			x: 0 ,
+			y: 152.75 
 		},
 		{
-			x: 138.7 * 2.145,
-			y: 56.88 * 1.8
+			x: 138.7 ,
+			y: 56.88 
 		},
 	]);
 
 	const coordinates3 = ref([{
-			x: 138.7 * 2.145,
-			y: 202 * 1.8
+			x: 138.7 ,
+			y: 202 
 		},
 		{
-			x: 343.2 * 2.145,
-			y: 64.55 * 1.8
+			x: 343.2 ,
+			y: 64.55 
 		},
 	]);
 
 	const coordinates4 = ref([{
-			x: 343.2 * 2.145,
-			y: 169.37 * 1.8
+			x: 343.2 ,
+			y: 169.37 
 		},
 		{
-			x: 526 * 2.145,
-			y: 22.36 * 1.8
+			x: 526 ,
+			y: 22.36 
 		},
 	]);
 
 	const coordinates5 = ref([{
-			x: 343.2 * 2.145,
-			y: 169.37 * 1.8
+			x: 343.2 ,
+			y: 169.37 
 		},
 		{
-			x: 526 * 2.145,
-			y: 89.77 * 1.8
+			x: 526 ,
+			y: 89.77 
 		},
 	]);
 
 	const coordinates6 = ref([{
-			x: 343.2 * 2.145,
-			y: 169.37 * 1.8
+			x: 343.2 ,
+			y: 169.37 
 		},
 		{
-			x: 526 * 2.145,
-			y: 157.18 * 1.8
+			x: 526 ,
+			y: 157.18 
 		},
 	]);
 
 	const coordinates7 = ref([{
-			x: 343.2 * 2.145,
-			y: 169.37 * 1.8
+			x: 343.2 ,
+			y: 169.37 
 		},
 		{
-			x: 526 * 2.145,
-			y: 224.59 * 1.8
+			x: 526 ,
+			y: 224.59 
 		},
 	]);
 
 	const coordinates8 = ref([{
-			x: 343.2 * 2.145,
-			y: 169.37 * 1.8
+			x: 343.2 ,
+			y: 169.37 
 		},
 		{
-			x: 526 * 2.145,
-			y: 292 * 1.8
+			x: 526 ,
+			y: 292 
 		},
 	]);
 
 	const coordinates9 = ref([{
-			x: 343.2 * 2.145,
-			y: 169.37 * 1.8
+			x: 343.2 ,
+			y: 169.37 
 		},
 		{
-			x: 526 * 2.145,
-			y: 359.41 * 1.8
+			x: 526 ,
+			y: 359.41 
 		},
 	]);
 
 	const box = ref({
-		x: 1180,
-		y: 690,
+		x: 550,
+		y: 401.8,
 	})
 </script>
 
 <style lang="scss" scoped>
 	.part4layout {
-		width: 100%;
-		height: 1148px;
+		height: 100%;
 		background-color: #111618;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		position: relative;
 
+		&-w{
+			padding: 160px;
+			height: 746px;
+		}
+
 		.progress {
 			position: absolute;
 
-			top: 22%;
+			top: 27%;
 			/* 设置第二个盒子的顶部位置与容器顶部对齐 */
-			left: 14%;
+			left: 38%;
 			/* 设置第二个盒子的左侧位置与容器左侧对齐 */
 			width: 58%;
 			/* 设置第二个盒子的宽度 */
@@ -368,7 +372,5 @@
 
 			}
 		}
-
-
 	}
 </style>
