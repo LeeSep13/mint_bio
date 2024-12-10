@@ -66,7 +66,7 @@ const getFontBase = (width, map) => {
  * xxl >= 1400
  */
 export const autoFont = () => {
-  let fontBase
+  let fontBase = 16
   let designWidth
   let { currentWidth, html } = getWidth()
   // 按照比例计算此区间会字体越来越小/大，需要重新设置基础字体大小

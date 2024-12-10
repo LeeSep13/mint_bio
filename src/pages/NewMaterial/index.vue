@@ -1,6 +1,9 @@
 <template>
   <div class="material">
     <BannerTitle :titleImage="require('@/assets/images/material-title.png')" :titleStyle="titleStyle" />
+    <div class="sector">
+      <img src="@/assets/images/material-banner.png" alt="material-banner" class="material-img">
+    </div>
   </div>
 </template>
 
@@ -24,8 +27,13 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+@import "@/style/variable.less";
+
 .material {
-  height: 700px;
-  font-size: 16px;
+
+  &-img {
+    width: 100%;
+    margin-bottom: 80px;
+  }
 }
 </style>
