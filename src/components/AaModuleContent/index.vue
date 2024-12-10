@@ -1,13 +1,8 @@
 <template>
   <div class="aminoAcid-module2">
-    <div
-      class="aminoAcid-module2-radian"
-      :style="{ marginLeft: tabStyle.marginLeft, zIndex: tabStyle.zIndex }"
-    >
+    <div class="aminoAcid-module2-radian" :style="{ marginLeft: tabStyle.marginLeft, zIndex: tabStyle.zIndex }">
       <div class="aminoAcid-module2-radian-inner"></div>
-      <div
-        class="aminoAcid-module2-radian-title"
-      >
+      <div class="aminoAcid-module2-radian-title">
         <p>{{ title }}</p>
       </div>
     </div>
@@ -19,32 +14,21 @@
         <div class="aminoAcid-module2-content-bottom">
           <div class="aminoAcid-module2-content-bottom-introduction">
             <div class="aminoAcid-module2-content-bottom-introduction-title">
-              <p
-                class="aminoAcid-module2-content-bottom-introduction-title-text1"
-              >
+              <p class="aminoAcid-module2-content-bottom-introduction-title-text1">
                 {{ introductionTitle1 }}
               </p>
-              <p
-                class="aminoAcid-module2-content-bottom-introduction-title-text2"
-              >
+              <p class="aminoAcid-module2-content-bottom-introduction-title-text2">
                 {{ introductionTitle2 }}
               </p>
             </div>
             <div class="aminoAcid-module2-content-bottom-introduction-apply">
-              <p
-                v-for="(applyText, index) in applyTexts"
-                :key="index"
-                class="aminoAcid-module2-content-bottom-introduction-apply-text"
-              >
+              <p v-for="(applyText, index) in applyTexts" :key="index"
+                class="aminoAcid-module2-content-bottom-introduction-apply-text">
                 {{ applyText }}
               </p>
             </div>
-            <div
-              class="aminoAcid-module2-content-bottom-introduction-advantage"
-            >
-              <ul
-                class="aminoAcid-module2-content-bottom-introduction-advantage-text"
-              >
+            <div class="aminoAcid-module2-content-bottom-introduction-advantage">
+              <ul class="aminoAcid-module2-content-bottom-introduction-advantage-text">
                 <li v-for="(advantage, index) in advantages" :key="index">
                   {{ advantage }}
                 </li>
@@ -59,8 +43,8 @@
     </div>
   </div>
 </template>
-  
-  <script>
+
+<script>
 export default {
   name: "AaModuleContent",
   props: {
@@ -113,6 +97,7 @@ export default {
       margin: 13.875rem 0;
       height: 45.3125rem;
     }
+
     &-radian {
       margin-left: 0.875rem;
       position: relative;
@@ -136,6 +121,7 @@ export default {
         border: 1px solid #ffffff66;
         border-bottom: none;
         transform-origin: center bottom;
+
         &::before {
           content: "";
           position: absolute;
@@ -143,14 +129,13 @@ export default {
           height: 10px;
           bottom: -8px;
           left: -8px;
-          background: radial-gradient(
-            circle at 0% 0,
-            transparent,
-            transparent 9.5px,
-            #626568 10px,
-            #17191c
-          );
+          background: radial-gradient(circle at 0% 0,
+              transparent,
+              transparent 9.5px,
+              #626568 10px,
+              #17191c);
         }
+
         &::after {
           content: "";
           position: absolute;
@@ -158,13 +143,11 @@ export default {
           height: 10px;
           top: 40px;
           right: -8px;
-          background: radial-gradient(
-            circle at 10px 0,
-            transparent,
-            transparent 9.5px,
-            #626568 10px,
-            #17191c
-          );
+          background: radial-gradient(circle at 10px 0,
+              transparent,
+              transparent 9.5px,
+              #626568 10px,
+              #17191c);
         }
       }
 
@@ -184,22 +167,23 @@ export default {
         border-radius: 30px 30px 0 0;
       }
     }
+
     &-content {
       border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
       border: 1px solid transparent;
       background-image: linear-gradient(#181a1d, #12161b),
-        linear-gradient(
-          156.52deg,
+        linear-gradient(156.52deg,
           rgba(255, 255, 255, 0.4) 2.12%,
           rgba(255, 255, 255, 0.0001) 60%,
           rgba(255, 255, 255, 0.0001) 54%,
-          rgba(255, 255, 255, 0.1) 93.02%
-        );
+          rgba(255, 255, 255, 0.1) 93.02%);
       background-origin: border-box;
       background-clip: content-box, border-box;
+
       &-w {
         margin: 2.8125rem 4.625rem 3.75rem 4.625rem;
       }
+
       &-top {
         margin-bottom: 2.75rem;
         display: flex;
@@ -208,30 +192,38 @@ export default {
         font-weight: 500;
         color: #f1f3f780;
       }
+
       &-bottom {
         display: flex;
         gap: 4.375rem;
+
         &-introduction {
           margin-top: 4.375rem;
           width: 27.5rem;
+
           &-title {
+
             &-text1,
             &-text2 {
               font-size: 2.5rem;
               font-weight: 500;
             }
+
             &-text1 {
               color: #ff7200;
             }
+
             &-text2 {
               color: #f1f3f7;
             }
           }
+
           &-apply {
             margin-top: 2.0625rem;
             margin-bottom: 7.5625rem;
             display: flex;
             gap: 1.875rem;
+
             &-text {
               padding: 1.25rem;
               font-size: 0.875rem;
@@ -241,6 +233,7 @@ export default {
               border: 1px solid #ffffff;
             }
           }
+
           &-advantage {
             li {
               position: relative;
@@ -262,11 +255,13 @@ export default {
               }
 
               &:not(:last-child) {
-                margin-bottom: 1rem; /* 每项之间的间隔 */
+                margin-bottom: 1rem;
+                /* 每项之间的间隔 */
               }
             }
           }
         }
+
         &-img {
           img {
             width: 764px;
