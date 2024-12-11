@@ -13,13 +13,14 @@
         </div>
         <div class="aminoAcid-module2-content-bottom">
           <div class="aminoAcid-module2-content-bottom-introduction">
-            <div class="aminoAcid-module2-content-bottom-introduction-title">
-              <p class="aminoAcid-module2-content-bottom-introduction-title-text1">
+            <div class="aminoAcid-module2-content-bottom-introduction-title"
+              :style="{ flexDirection: isRow ? 'row' : 'column' }">
+              <span class=" aminoAcid-module2-content-bottom-introduction-title-text1">
                 {{ introductionTitle1 }}
-              </p>
-              <p class="aminoAcid-module2-content-bottom-introduction-title-text2">
+              </span>
+              <span class="aminoAcid-module2-content-bottom-introduction-title-text2">
                 {{ introductionTitle2 }}
-              </p>
+              </span>
             </div>
             <div class="aminoAcid-module2-content-bottom-introduction-apply">
               <p v-for="(applyText, index) in applyTexts" :key="index"
@@ -52,6 +53,7 @@ export default {
     topItems: Array,
     introductionTitle1: String,
     introductionTitle2: String,
+    isRow: Boolean,
     applyTexts: Array,
     advantages: Array,
     imageUrl: String,
@@ -202,15 +204,19 @@ export default {
           width: 27.5rem;
 
           &-title {
+            display: flex;
+            flex-direction: column;
 
             &-text1,
             &-text2 {
               font-size: 2.5rem;
               font-weight: 500;
+
             }
 
             &-text1 {
               color: #ff7200;
+              margin-right: 10px;
             }
 
             &-text2 {

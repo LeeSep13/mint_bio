@@ -5,7 +5,7 @@
       <aa-module-content :title="module.title" :topItems="module.topItems"
         :introductionTitle1="module.introductionTitle1" :introductionTitle2="module.introductionTitle2"
         :applyTexts="module.applyTexts" :advantages="module.advantages" :imageUrl="module.imageUrl"
-        :tabStyle="getTabStyleData(index)"></aa-module-content>
+        :isRow="module.isRow" :tabStyle="getTabStyleData(index)"></aa-module-content>
     </div>
   </div>
 </template>
