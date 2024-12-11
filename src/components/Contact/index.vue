@@ -7,6 +7,7 @@
       :visible="visible"
       :show-arrow="false"
       popper-class="contact-popover-w"
+      :popper-options="popperOptions"
     >
       <div class="contact-popover">
         <div class="contact-popover-close" @click="visible = !visible">
@@ -80,22 +81,36 @@
         </div>
       </template>
     </el-popover>
+    <div v-if="visible" class="contact-popover-overlay" @click="visible = false"></div>
   </div>
 </template>
   
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
-const visible = ref(false)
+const visible = ref(false);
+
+const popperOptions = ref({
+  modifiers: [
+    {
+      name: "offset",
+      options: {
+        offset: [250, 0], // 控制水平和垂直偏移
+      },
+    },
+  ],
+});
+
 </script>
   
 <style lang="less">
 .el-popper.el-popover.contact-popover-w {
-  margin-right: 2.5rem;
+  // margin-right: 40px;
   padding: 24px 26px 95px 72px;
   background-color: #2828289f;
   border-radius: 20px;
   border: 1px solid transparent;
+  backdrop-filter: blur(10px);
 }
 .contact-popover {
   &-close {
@@ -166,6 +181,7 @@ const visible = ref(false)
       margin-right: 69px;
       img {
         width: 16px;
+        height: 100%;
       }
     }
     &-connection {
@@ -193,12 +209,21 @@ const visible = ref(false)
     }
   }
 }
+.contact-popover-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  z-index: 9; /* Ensure it's above the page content but below the popover */
+}
 </style>
 <style lang="less" scoped>
 .contact {
   position: fixed;
-  right: 20px;
-  top: 904px;
+  right: 0.5%;
+  top: 60%;
   z-index: 1000;
 }
 </style>

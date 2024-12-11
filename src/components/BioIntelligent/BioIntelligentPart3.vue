@@ -1,0 +1,302 @@
+<template>
+  <div class="part3">
+    <div class="label">
+      <div class="label-top">
+        <span class="labelBig labelWhite mr117">一起</span>
+        <span class="labelBig labelOrange">生物智造</span>
+      </div>
+      <div class="label-bottom">
+        <span class="labelBig labelWhite ml117">了解</span>
+      </div>
+    </div>
+    <div class="swipper-container">
+      <div class="desc">
+        <transition name="fade">
+          <div class="desc-content" v-if="showElement">
+            <div class="desc-content-top">
+              {{ bannerList[curSwipIndex].title }}
+            </div>
+            <div class="desc-content-bottom">
+              {{ bannerList[curSwipIndex].description }}
+            </div>
+          </div>
+        </transition>
+        <div class="desc-bottom">
+          <div class="navigation">
+            <div
+              class="arrow"
+              :class="{ 'arrow-active': curSwipIndex !== 0 }"
+              @click="handlePrev"
+            >
+              &lt;
+            </div>
+            <div
+              class="arrow"
+              :class="{
+                'arrow-active': curSwipIndex !== bannerList.length - 1,
+              }"
+              @click="handleNext"
+            >
+              &gt;
+            </div>
+          </div>
+          <div class="indicator">
+            <div
+              v-for="(item, index) in bannerList"
+              :key="index"
+              class="dot"
+              :class="{ active: index === curSwipIndex }"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div class="swipper-content">
+        <Swiper
+          :slides-per-view="1"
+          :current="curSwipIndex"
+          @slide-change="onSlideChange"
+          @swiper="onSwiper"
+        >
+          <SwiperSlide v-for="(item, index) in bannerList" :key="index">
+            <img :src="getImageUrl(item.url)" />
+          </SwiperSlide>
+        </Swiper>
+      </div>
+    </div>
+  </div>
+</template>
+  
+  <script>
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { ref } from "vue";
+import { getImageUrl } from "@/utils";
+import { throttle } from "lodash";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
+export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    const bannerList = ref([
+      {
+        url: "assets/BioIntelligent/swipper1.png",
+        title: "可再生原料",
+        description: "源自微生物和秸秆、淀粉等非粮生物质。",
+      },
+      {
+        url: "assets/BioIntelligent/swipper2.png",
+        title: "其他原料1",
+        description: "描述文字1。",
+      },
+      {
+        url: "assets/BioIntelligent/swipper3.png",
+        title: "其他原料2",
+        description: "描述文字2。",
+      },
+    ]);
+    const curSwipIndex = ref(0);
+    const swiperRef = ref(null); // 用于存储Swiper实例
+    const showElement = ref(true);
+
+    function onSwiper(swiper) {
+      swiperRef.value = swiper;
+    }
+
+    // 更新当前索引
+    function onSlideChange(swiper) {
+      curSwipIndex.value = swiper.activeIndex;
+    }
+
+    const handlePrev = throttle(() => {
+      if (curSwipIndex.value === 0) return; 
+      swiperRef.value && swiperRef.value.slidePrev();
+      showElement.value = !showElement.value;
+      setTimeout(() => {
+        showElement.value = !showElement.value;
+      }, 100);
+    }, 500); 
+
+    const handleNext = throttle(() => {
+      if (curSwipIndex.value === bannerList.value.length - 1) return; 
+      swiperRef.value && swiperRef.value.slideNext();
+      showElement.value = !showElement.value;
+      setTimeout(() => {
+        showElement.value = !showElement.value;
+      }, 100);
+    }, 500);
+
+    return {
+      getImageUrl,
+      bannerList,
+      curSwipIndex,
+      onSlideChange,
+      swiperRef, // 将swiperRef暴露到模板中
+      onSwiper,
+      showElement,
+      handlePrev,
+      handleNext,
+    };
+  },
+};
+</script>
+  
+<style lang="scss">
+.part3 {
+  width: 100%;
+  height: 1148px;
+
+  .labelOrange {
+    color: #ff7200;
+  }
+
+  .labelWhite {
+    color: white;
+  }
+
+  .labelBig {
+    font-size: 60px;
+  }
+
+  .labelSmall {
+    font-size: 36px;
+  }
+
+  .label {
+    width: 82.4%;
+    height: 112px;
+    text-align: left;
+    padding-top: 170px;
+    margin: 0 auto 100px;
+  }
+  .label-top {
+    margin-bottom: 20px;
+    height: 44px;
+    line-height: 44px;
+  }
+
+  .swipper-container {
+    display: flex;
+    gap: 16px;
+    height: 592px;
+    width: 82.4%;
+    margin: 0 auto;
+    .desc {
+      width: 34%;
+      height: 100%;
+      background: #2828289f;
+      border-radius: 15px;
+      padding: 0 54px;
+      box-sizing: border-box;
+      .desc-content {
+        height: 260px;
+        color: #f1f3f7;
+
+        .desc-content-top {
+          margin-top: 148px;
+          margin-bottom: 61px;
+          font-size: 40px;
+        }
+        .desc-content-bottom {
+          font-size: 20px;
+        }
+      }
+      .desc-bottom {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 146px;
+        height: 114px;
+        border-top: 1px solid #5e5e5e26;
+
+        .navigation {
+          display: flex;
+          gap: 82px;
+          .arrow {
+            width: 42px;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            border: 1px solid #ffffff33;
+            border-radius: 4px;
+            background-color: #ffffff2e;
+            font-size: 14px;
+            color: #82828280;
+			user-select: none;
+          }
+          .arrow:hover {
+            color: #ff720080;
+            background-color: #797a7c;
+            border-color: #ffffff;
+          }
+          .arrow-active {
+            color: #ff720080;
+          }
+        }
+
+        .indicator {
+          display: flex;
+          justify-content: center;
+
+          .dot {
+            width: 10px;
+            height: 10px;
+            margin: 0 6px;
+            border-radius: 50%;
+            background-color: #ffffff4d;
+          }
+
+          .active {
+            background-color: #ff7200;
+          }
+        }
+      }
+    }
+
+    .swipper-content {
+      width: 66%;
+      height: 100%;
+
+      .swiper {
+        height: 100%;
+        width: 100%;
+
+        .swiper-slide {
+          width: 100%;
+          height: 100%;
+
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.fade-leave-from,   // 离开前,进入后透明度是1
+.fade-enter-to {
+  opacity: 1;
+}
+.fade-leave-active,
+.fade-enter-active {
+  transition: all 2s; //过度是2秒
+}
+.fade-leave-to,
+.fade-enter-from {
+  opacity: 0;
+}
+.mr117 {
+  margin-right: 117px;
+}
+
+.ml117 {
+  margin-left: 117px;
+}
+</style>
+  

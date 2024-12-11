@@ -1,6 +1,15 @@
 export const getWidth = () => {
   const html = document.querySelector('html')
   let currentWidth = html.clientWidth
+  const maxWidth = 1920; // 设定最大宽度
+  const minWidth = 1200;  // 设定最小宽度
+
+  // 限制当前宽度在最大最小宽度之间
+  if (currentWidth > maxWidth) {
+    currentWidth = maxWidth;
+  } else if (currentWidth < minWidth) {
+    currentWidth = minWidth;
+  }
   if (!html) {
     console.error('HTML element not found');
     return;
@@ -94,10 +103,10 @@ export const autoFont = () => {
     console.error('HTML element not found');
     return;
   }
-  // 宽度固定 pc端根字体不再自适应
-  if (currentWidth < 350) {
-    currentWidth = 350
-  }
+  // // 宽度固定 pc端根字体不再自适应
+  // if (currentWidth < 350) {
+  //   currentWidth = 350
+  // }
   // else if (validPcOrPhone()) {
   //   currentWidth = 1780
   // }

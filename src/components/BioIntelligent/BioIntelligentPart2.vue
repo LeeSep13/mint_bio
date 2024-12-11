@@ -1,0 +1,184 @@
+<template>
+  <div class="part2">
+    <div class="label">
+      <div class="label-top">
+        <span class="labelBig labelOrange mr120">科研</span>
+        <span class="labelBig labelOrange">产业</span>
+      </div>
+      <div>
+        <span class="labelSmall labelWhite">0~1</span>
+        <span class="labelBig labelWhite mlr30">到</span>
+        <span class="labelSmall labelWhite">1~&infin;</span>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div
+        @mouseover="hoverCard1"
+        class="card first-card"
+        :style="{ width: card1Size + 'px', height: '100%' }"
+      >
+        <div class="card-title">Laboratory</div>
+        <div
+          class="card-item first-card-item"
+          :style="{ opacity: card1Opacity }"
+        >
+          <p class="card-item-title">科研 0~1</p>
+          <p class="card-item-content">
+            我们在实验室中进行基础研究和概念验证，打造能够高效生产目标产品的菌株及元件库。通过小试分析和工艺优化后，满足要求的工程微生物将被送往生物智造基地，进行量产验证和放大。
+          </p>
+        </div>
+      </div>
+      <div
+        @mouseover="hoverCard2"
+        class="card second-card"
+        :style="{ width: card2Size + 'px', height: '100%' }"
+      >
+        <div class="card-title">INDUSTRY</div>
+        <div
+          class="card-item second-card-item"
+          :style="{ opacity: card2Opacity }"
+        >
+          <p class="card-item-title">产业 1~&infin;</p>
+          <p class="card-item-content">
+            我们在实验室中进行基础研究和概念验证，打造能够高效生产目标产品的菌株及元件库。通过小试分析和工艺优化后，满足要求的工程微生物将被送往生物智造基地，进行量产验证和放大。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const card1Size = ref(944);
+const card2Size = ref(464);
+const card1Opacity = ref(1);
+const card2Opacity = ref(0);
+const showCardTrans = ref(true);
+
+function hoverCard1() {
+  card1Size.value = 944;
+  card2Size.value = 464;
+  card1Opacity.value = 1;
+  card2Opacity.value = 0;
+  showCardTrans.value = true;
+}
+
+function hoverCard2() {
+  card1Size.value = 464;
+  card2Size.value = 944;
+  card1Opacity.value = 0;
+  card2Opacity.value = 1;
+  showCardTrans.value = true;
+}
+</script>
+
+<style lang="scss" scoped>
+.part2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 1282px;
+
+  .label {
+    height: 112px;
+    text-align: center;
+    margin-bottom: 100px;
+    .label-top {
+      height: 44px;
+      line-height: 44px;
+    }
+
+    .labelBig {
+      font-size: 60px;
+    }
+
+    .labelSmall {
+      font-size: 36px;
+    }
+
+    .labelOrange {
+      color: #ff7200;
+    }
+
+    .labelWhite {
+      color: white;
+    }
+  }
+
+  .card-container {
+    display: flex;
+    gap: 16px;
+    height: 800px;
+
+    .card {
+      position: relative;
+      display: inline-block;
+      transition-property: width;
+      transition-duration: 0.3s;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+    }
+    .first-card {
+      background: url("@/assets/BioIntelligent/Laboratory.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .second-card {
+      background: url("@/assets/BioIntelligent/Industry.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .card-title {
+      margin-top: 229px;
+      font-size: 48px;
+      color: #ffffff;
+      text-align: center;
+    }
+    .card-item {
+      width: 466px;
+      height: 258px;
+      background-color: #666666b2;
+      border: 1px solid #999999;
+      border-radius: 17px;
+      padding: 52px 36px 62px 37px;
+      box-sizing: border-box;
+      transition: opacity 0.3s;
+      .card-item-title {
+        font-size: 30px;
+        color: #ffffff;
+      }
+      .card-item-content {
+        margin-top: 38px;
+        font-size: 16px;
+        color: #ffffff;
+      }
+    }
+    .first-card-item {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+    }
+    .second-card-item {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+}
+
+.mr120 {
+  margin-right: 120px;
+}
+.mlr30 {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+</style>

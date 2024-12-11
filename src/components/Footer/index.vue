@@ -3,13 +3,13 @@
     <el-row>
       <el-col :span="8" class="footer-left">
         <div class="footer-left-logo">
-          <img class="footer-left-logo-img" src="@/assets/images/logo.png" alt="" />
+          <div class="footer-left-logo-img-w"><img class="footer-left-logo-img" src="@/assets/images/logo.png" alt="" /></div>
           <div class="footer-left-logo-text1">生物智造惠及</div>
           <div class="footer-left-logo-text2">每一个生命</div>
         </div>
         <div class="footer-left-download">
           <span>下载品牌手册</span>
-          <img src="./images/download.png" alt="" />
+          <img src="@/assets/images/download.png" alt="" />
         </div>
       </el-col>
       <el-col :span="2" class="footer-middle">
@@ -72,8 +72,8 @@ export default {
 <style lang="less" scoped>
 .footer {
   background-color: #11161b;
-  padding: 5rem 13rem 5rem 9.5rem;
-  height: 27.8125rem;
+  padding: 4.2% 10.8% 4.2% 8% ;
+  height: 445px;
   border-width: 1px 0 0 0;
   /* 只设置上边框 */
   border-style: solid;
@@ -87,12 +87,11 @@ export default {
 
   &-common {
     font-weight: 500;
-    font-size: 0.875rem;
+    font-size: 14px;
     color: #ffffff;
   }
 
   &-left {
-    height: 27.8125rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -100,10 +99,12 @@ export default {
     &-logo {
       display: flex;
       align-items: center;
-
       &-img {
-        width: 6.375rem;
-        height: 3.125rem;
+        width: 100%;
+        height: 100%;
+        &-w{
+          width: 19.6%;
+        }
       }
 
       &-text1,
@@ -113,16 +114,16 @@ export default {
       }
 
       &-text1 {
-        width: 3.5625rem;
-        height: 1.8125rem;
-        margin-left: 2.625rem;
+        width: 12%;
+        height: 55%;
+        margin-left: 9%;
         text-align: right;
       }
 
       &-text2 {
-        width: 4.375rem;
-        height: 0.625rem;
-        margin-left: 0.9375rem;
+        width: 17%;
+        height: 19%;
+        margin-left: 3%;
       }
     }
 
@@ -130,23 +131,24 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 7.75rem;
-      height: 3.125rem;
+      width: 26%;
+      height: 10%;
       background-color: #ff7200;
-      border-radius: 2.3438rem;
-      font-size: 0.75rem;
+      border-radius: 37px;
+      font-size: 12px;
       color: #ffffff;
-
+      // padding: 20px;
       img {
-        width: 1.125rem;
-        height: 1.125rem;
+        width: 18px;
+        height: 18px;
       }
     }
   }
 
   &-middle {
     &-divider {
-      width: 1rem;
+      width: 12.5%;
+      height: 100%;
     }
   }
 
@@ -157,14 +159,14 @@ export default {
       width: 100%;
 
       &-menus {
-        height: 11.875rem;
+        height: 190px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
         &-item {
-          width: 3.5rem;
-          height: 0.625rem;
+          width: 56px;
+          height: 10px;
           color: #ffffff;
           cursor: pointer;
         }
@@ -172,28 +174,28 @@ export default {
 
       &-products {
         &-item {
-          width: 6.125rem;
-          height: 3rem;
+          width: 98px;
+          height: 48px;
           color: #8a8f98;
 
           &-title {
-            width: 6.125rem;
+            width: 98px;
             color: #ffffff;
-            margin-bottom: 3.125rem;
+            margin-bottom: 50px;
           }
         }
       }
 
       &-about {
         &-item {
-          width: 6.125rem;
-          height: 3rem;
+          width: 98px;
+          height: 48px;
           color: #8a8f98;
 
           &-title {
-            width: 6.125rem;
+            width: 98px;
             color: #ffffff;
-            margin-bottom: 3.125rem;
+            margin-bottom: 50px;
           }
         }
       }
@@ -201,24 +203,24 @@ export default {
 
     &-info {
       width: 100%;
-      margin-top: 7.5625rem;
+      margin-top: 121px;
       display: flex;
       justify-content: space-between;
       align-items: end;
 
       &-qrCode {
         img {
-          width: 8.0625rem;
-          height: 8.0625rem;
+          width: 129px;
+          height: 129px;
         }
       }
 
       &-address {
-        margin-left: 3.1875rem;
+        margin-left: 51px;
       }
 
       &-copyright {
-        margin-left: 6.9375rem;
+        margin-left: 111px;
         color: #ffffff;
       }
     }

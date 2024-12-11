@@ -4,7 +4,10 @@ import { createWebHashHistory, createRouter } from 'vue-router'
 import AminoAcid from '@/pages/AminoAcid'
 import KnotWeed from '@/pages/KnotWeed'
 import Vision from '@/pages/Vision'
+import MiNTNews from '@/pages/MiNTNews/MiNTNews.vue'
+import MiNTNewsDetail from '@/pages/MiNTNews/MiNTNewsDetail.vue'
 import Home from '@/pages/Home'
+import BioIntelligent from '@/pages/BioIntelligent'
 import CorporateVision from '@/pages/CorporateVision'
 import NewMaterial from '@/pages/NewMaterial'
 
@@ -30,11 +33,32 @@ const routes = [
     component: Vision
   },
   {
+    path: '/vision',
+    name: 'vision',
+    component: Vision
+  },
+  {
+    path: '/mintNews',
+    name: 'mintNews',
+    component: MiNTNews
+  },
+  {
+    path: '/mintNews/detail/:configId',
+    name: 'mintNewsDetail',
+    component: MiNTNewsDetail
+  },
+  {
     path: '/home',
     name: 'home',
     component: Home,
     meta: { unRequiresHeader: true }
 
+  },
+  {
+    path: '/bioIntelligent',
+    name: 'bioIntelligent',
+    component: BioIntelligent,
+    meta: { unRequiresHeader: true }
   },
   {
     path: '/corporate',
