@@ -66,12 +66,16 @@
     </div>
     <div class="new-section sector border-gradient">
       <div class="new-item" v-for="(item, index) in newList" :key="index">
-        <img :src="item.imgSrc" alt="" class="new-img">
-        <div class="overlay">
-          <div class="overlay-content">
-            <div class="button-more border-gradient">了解更多</div>
+        <div class="img-box">
+          <img :src="item.imgSrc" alt="" class="new-img">
+
+          <div class="overlay">
+            <div class="overlay-content">
+              <div class="button-more ">了解更多</div>
+            </div>
           </div>
         </div>
+
         <div class="text-top"><span class="name " :style="{ color: item.color, marginRight: '16px' }">{{ item.title
             }}</span>
           <span class="date">{{ item.date }}</span>
@@ -126,9 +130,9 @@ export default {
         },
       ],
       advantageShow: false,
-      productList: [{ isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放', top: 0 }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放', top: -144 },],
+      productList: [{ isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/News/news01.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放', top: 0 }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放', top: -144 },],
       newList: [
-        { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/images/new-1.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/images/new-1.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/images/new-1.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/images/new-1.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/images/new-1.png') },
+        { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/News/news01.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#FF7200', imgSrc: require('../../assets/News/news02.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#007D30', imgSrc: require('../../assets/News/news03.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#FF7200', imgSrc: require('../../assets/News/news04.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#FF7200', imgSrc: require('../../assets/News/news05.png') },
       ]
 
 
@@ -365,28 +369,41 @@ export default {
     flex-wrap: wrap;
 
     .new-item {
+      color: #FFFFFF;
       width: 32%;
-      margin-bottom: 16px;
+      margin-bottom: 40px;
       position: relative;
+      cursor: pointer;
 
-      .new-img {
-        width: 100%;
-        height: 367px;
-        object-fit: cover;
-        border-radius: 12px;
-        transition: opacity 0.3s ease;
-        cursor: pointer;
+      .img-box {
+        position: relative;
+
+        .new-img {
+          width: 100%;
+          height: 367px;
+          object-fit: cover;
+          border-radius: 12px;
+          transition: opacity 0.3s ease;
+          cursor: pointer;
+
+
+        }
+
+        &:hover {
+          opacity: 0.5;
+          /* 图片悬停时的透明度 */
+        }
+
+        &:hover .overlay {
+          opacity: 1;
+          /* 蒙层悬停时的透明度 */
+        }
+
       }
 
-      &:hover .new-img {
-        opacity: 0.5;
-        /* 图片悬停时的透明度 */
-      }
 
-      &:hover .overlay {
-        opacity: 1;
-        /* 蒙层悬停时的透明度 */
-      }
+
+
 
       .overlay {
         position: absolute;
@@ -408,8 +425,8 @@ export default {
         text-align: center;
       }
 
-      .tetx-top {
-        margin: 16px 0;
+      .text-top {
+        margin: 20px 0;
         text-align: left;
       }
 
@@ -424,6 +441,7 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
         cursor: pointer;
+        border: 1px solid #FFFFFF;
       }
 
       .line-bottom-img {

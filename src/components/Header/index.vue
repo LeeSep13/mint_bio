@@ -8,48 +8,23 @@
 
     <div class="header-middle">
       <ul class="nav">
-        <li
-          class="nav-item"
-          v-for="item in navData"
-          :key="item.key"
-          :class="{
-            'nav-item_current': item.state,
-            'has-submenu': item.submenu && item.submenu.length > 0,
-          }"
-          @mouseover="setMouseOver(item)"
-          @mouseleave="setMouseLeave(item)"
-          @click.prevent="handleClick(item)"
-        >
-          <router-link
-            class="nav-item-link"
-            :to="
-              item.submenu.length ? 'javascript:void(0)' : { name: item.router }
-            "
-            v-if="!item.submenu.length"
-          >
+        <li class="nav-item" v-for="item in navData" :key="item.key" :class="{
+          'nav-item_current': item.state,
+          'has-submenu': item.submenu && item.submenu.length > 0,
+        }" @mouseover="setMouseOver(item)" @mouseleave="setMouseLeave(item)" @click.prevent="handleClick(item)">
+          <router-link class="nav-item-link" :to="item.submenu.length ? 'javascript:void(0)' : { name: item.router }
+            " v-if="!item.submenu.length">
             {{ item.name }}
           </router-link>
           <span class="nav-item-link" v-else>
             {{ item.name }}
-            <img
-              :src="item.state ? item.iconUp : item.iconDown"
-              alt="Toggle Icon"
-              class="submenu-icon"
-            />
+            <img :src="item.state ? item.iconUp : item.iconDown" alt="Toggle Icon" class="submenu-icon" />
           </span>
 
           <ul v-if="item.submenu && item.submenu.length" class="submenu">
-            <li
-              class="submenu-item"
-              v-for="subItem in item.submenu"
-              :key="subItem.key"
-              @mouseover="setMouseOver(subItem)"
-              @mouseleave="setMouseLeave(subItem)"
-            >
-              <router-link
-                :to="{ name: subItem.router }"
-                class="submenu-item-link"
-              >
+            <li class="submenu-item" v-for="subItem in item.submenu" :key="subItem.key"
+              @mouseover="setMouseOver(subItem)" @mouseleave="setMouseLeave(subItem)">
+              <router-link :to="{ name: subItem.router }" class="submenu-item-link">
                 {{ subItem.name }}
               </router-link>
             </li>
@@ -59,15 +34,8 @@
     </div>
 
     <div class="header-right">
-      <el-popover
-        placement="bottom"
-        width="891"
-        trigger="manual"
-        :visible="visible"
-        :show-arrow="false"
-        popper-class="header-popover"
-        :popper-options="popperOptions"
-      >
+      <el-popover placement="bottom" width="891" trigger="manual" :visible="visible" :show-arrow="false"
+        popper-class="header-popover" :popper-options="popperOptions">
         <div class="popover-content">
           <div class="popover-content-close" @click="visible = !visible">
             <img src="./images/close.png" alt="close" />
@@ -108,15 +76,12 @@
         </div>
         <template #reference>
           <div class="menu" @click="visible = !visible">
-            <img src="./images/menu.png" alt="Menu" />
+            <img src="./images/menu.png" alt="Menu"
+              :style="!$route.meta.unRequiresHeader ? 'opacity:1' : 'opacity: 0.3'" />
           </div>
         </template>
       </el-popover>
-      <div
-        v-if="visible"
-        class="popover-overlay"
-        @click="visible = false"
-      ></div>
+      <div v-if="visible" class="popover-overlay" @click="visible = false"></div>
     </div>
   </header>
 </template>
@@ -274,14 +239,17 @@ const popperOptions = ref({
     border-radius: 999px;
   }
 }
+
 .popover-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-  z-index: 9; /* Ensure it's above the page content but below the popover */
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Semi-transparent background */
+  z-index: 9;
+  /* Ensure it's above the page content but below the popover */
 }
 </style>
 <style lang="less" scoped>
@@ -290,17 +258,13 @@ const popperOptions = ref({
   position: relative;
   display: flex;
   padding: 16px 160px 0 160px;
-  background: linear-gradient(0deg, #11161b, #11161b),
-    radial-gradient(
-      40.98% 38.14% at 50% 0%,
-      rgba(255, 255, 255, 0.12) 0%,
-      rgba(255, 255, 255, 0) 100%
-    );
+
 
   &-left {
     &-logo {
       width: 122px;
       height: 60px;
+
       img {
         width: 100%;
         height: 100%;
@@ -423,7 +387,8 @@ const popperOptions = ref({
   &-right {
     .menu {
       width: 54px;
-      img{
+
+      img {
         width: 100%;
         height: 100%;
       }

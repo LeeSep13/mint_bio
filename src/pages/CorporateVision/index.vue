@@ -261,17 +261,23 @@ export default {
 
 .corporate {
   .introduction {
-    padding: 100px 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 160px 0;
 
     &-img {
-      width: 80%;
-      margin: 80px auto;
+      width: 1042px;
+      margin: 80px auto 160px;
     }
 
     &-section {
-      margin-bottom: 16px;
+      width: 1184px;
+      margin-bottom: 60px;
       font-family: MiSans VF;
       font-size: 24px;
+      line-height: 32px;
       font-weight: 450;
       line-height: 39px;
       text-align: left;
@@ -294,6 +300,8 @@ export default {
       right: 80px;
 
       div {
+        text-align: center;
+        line-height: 22px;
         width: 22px;
         height: 22px;
         border: 1px solid #fff;
@@ -318,7 +326,7 @@ export default {
       overflow: scroll;
       scroll-behavior: smooth;
       flex-direction: row;
-      padding-left: 60px;
+      padding-left: 160px;
       padding-bottom: 40px;
 
       &::-webkit-scrollbar {
@@ -333,7 +341,7 @@ export default {
           font-size: 60px;
           font-weight: 450;
           text-align: left;
-          border-bottom: 1px solid #fff;
+          border-bottom: 1px solid rgba(241, 243, 247, 0.4);
           width: 100%;
 
         }
@@ -363,7 +371,7 @@ export default {
     display: flex;
     gap: 30px;
     font-family: MiSans VF;
-    font-size: 24px;
+    font-size: 20px;
     color: #fff;
     line-height: 32px;
 
@@ -398,7 +406,7 @@ export default {
           padding: 20px 0;
 
           .img-right {
-            width: 98%;
+            width: 80%;
           }
         }
 
@@ -419,7 +427,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 32px;
+      gap: 68px;
 
       .opacity-0 {
         opacity: 0;

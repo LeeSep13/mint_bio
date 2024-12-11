@@ -4,7 +4,10 @@
     <div class="material-banner">
       <img src="@/assets/images/material-banner.png" alt="material-banner" class="material-banner-img">
     </div>
-    <MouseScroll :modules="modules" />
+    <div class="material-scroll">
+      <MouseScroll :modules="modules" />
+
+    </div>
     <div class="case sector">
       <div class="case-title">
         <div class="case-title-first"><span class="orange-text">应用</span><span>案例</span></div>
@@ -43,7 +46,7 @@
     </div>
 
 
-    <div class="question sector">
+    <div class="question sector border-gradient">
       <div class="title-first"><span>常见</span><span class="orange-text ">？</span><span>问</span></div>
       <div class="title-second"><span :style="{ opacity: 0, }">常见？</span><span>题</span></div>
       <el-collapse class="collapse" @change="handleChange">
@@ -189,9 +192,12 @@ export default {
 
     &-img {
       width: 100%;
-      margin-bottom: 80px;
     }
 
+  }
+
+  &-scroll {
+    padding: 0 160px;
   }
 
   .case {
@@ -318,8 +324,10 @@ export default {
     font-weight: 520;
     line-height: 79.56px;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+
+    .title-second {
+      margin-bottom: 80px;
+    }
 
 
 
