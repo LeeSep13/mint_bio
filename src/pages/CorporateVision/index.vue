@@ -260,6 +260,8 @@ export default {
 }
 
 .corporate {
+  background-color: #11161b;
+
   .introduction {
     display: flex;
     flex-direction: column;

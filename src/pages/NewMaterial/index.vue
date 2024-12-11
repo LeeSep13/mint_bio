@@ -187,6 +187,8 @@ export default {
 }
 
 .material {
+  background-color: #11161b;
+
   &-banner {
     padding: 0 160px;
 
