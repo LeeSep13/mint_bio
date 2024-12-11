@@ -88,7 +88,6 @@ export default {
   <style lang="scss" scoped>
 .news-detail-container {
   width: 100%;
-  background-color: #11161b;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,9 +1,11 @@
 <template>
-  <div id="app" :class="isPc ? 'pc-layout' : 'mobile-layout'">
-    <Header v-if="!$route.meta.unRequiresHeader" />
-    <router-view />
-    <Footer />
-    <Contact />
+  <div id="app" class="layout">
+    <div :class="isPc ? 'pc-layout' : 'mobile-layout'">
+      <Header v-if="!$route.meta.unRequiresHeader" />
+      <router-view />
+      <Footer />
+      <Contact />
+    </div>
   </div>
 </template>
 

@@ -66,6 +66,7 @@
         :visible="visible"
         :show-arrow="false"
         popper-class="header-popover"
+        :popper-options="popperOptions"
       >
         <div class="popover-content">
           <div class="popover-content-close" @click="visible = !visible">
@@ -197,11 +198,22 @@ const handleClick = (item) => {
     router.push({ name: item.router });
   }
 };
+
+const popperOptions = ref({
+  modifiers: [
+    {
+      name: "offset",
+      options: {
+        offset: [-415, 30], // 控制水平和垂直偏移
+      },
+    },
+  ],
+});
 </script>
 
 <style lang="less">
 .el-popper.el-popover.header-popover {
-  margin-right: 40px;
+  // margin-right: 40px;
   padding: 24px 26px 95px 72px;
   background-color: #2828289f;
   border-radius: 20px;

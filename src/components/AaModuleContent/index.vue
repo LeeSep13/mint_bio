@@ -58,7 +58,7 @@ export default {
     tabStyle: {
       type: Object,
       default: () => ({
-        marginLeft: "0px", // 默认值
+        marginLeft: "0%", // 默认值
         zIndex: 1, // 默认值
       }),
     },
@@ -66,29 +66,12 @@ export default {
 };
 </script>
 
-<style>
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  /* text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  display: flex;
-  justify-content: center;
-  align-items: center; */
-}
-</style>
 
 <style lang="less" scoped>
 .aminoAcid {
   &-module2 {
     width: 100%;
     &-radian {
-      margin-left: 14px;
       position: relative;
       top: 1px;
       width: 20%;

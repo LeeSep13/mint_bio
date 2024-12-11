@@ -83,7 +83,6 @@ function hoverCard2() {
   align-items: center;
   width: 100%;
   height: 1282px;
-  background-color: #111618;
 
   .label {
     height: 112px;

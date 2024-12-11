@@ -7,6 +7,7 @@
       :visible="visible"
       :show-arrow="false"
       popper-class="contact-popover-w"
+      :popper-options="popperOptions"
     >
       <div class="contact-popover">
         <div class="contact-popover-close" @click="visible = !visible">
@@ -88,11 +89,23 @@
 import { ref } from "vue";
 
 const visible = ref(false);
+
+const popperOptions = ref({
+  modifiers: [
+    {
+      name: "offset",
+      options: {
+        offset: [250, 0], // 控制水平和垂直偏移
+      },
+    },
+  ],
+});
+
 </script>
   
 <style lang="less">
 .el-popper.el-popover.contact-popover-w {
-  margin-right: 2.5rem;
+  // margin-right: 40px;
   padding: 24px 26px 95px 72px;
   background-color: #2828289f;
   border-radius: 20px;
@@ -168,6 +181,7 @@ const visible = ref(false);
       margin-right: 69px;
       img {
         width: 16px;
+        height: 100%;
       }
     }
     &-connection {
@@ -208,8 +222,8 @@ const visible = ref(false);
 <style lang="less" scoped>
 .contact {
   position: fixed;
-  right: 20px;
-  top: 904px;
+  right: 0.5%;
+  top: 60%;
   z-index: 1000;
 }
 </style>

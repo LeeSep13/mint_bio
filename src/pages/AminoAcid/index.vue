@@ -1,6 +1,6 @@
 <template>
   <div class="aminoAcid">
-    <BannerTitle :titleImage="require('./images/banner_title.png')" />
+    <BannerTitle :titleImage="require('@/assets/AminoAcid/banner_title.png')" />
 
     <div class="aminoAcid-module1">
       <div class="aminoAcid-module1-content">
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <MouseScroll :modules="modules" />
+    <MouseScroll :modules="module2Data" />
 
     <div class="aminoAcid-module3">
       <div class="aminoAcid-module3-title">
@@ -91,7 +91,7 @@ export default {
           "相较同类产品，具有大幅成本优势",
           "相较行业头部，发酵效率高200%",
         ],
-        imageUrl: require("./images/module2_element.png"),
+        imageUrl: require("@/assets/AminoAcid/module2_ele1.png"),
       },
       {
         title: "生物合成 组氨酸",
@@ -100,7 +100,7 @@ export default {
         introductionTitle2: "组氨酸",
         applyTexts: ["食品", "饲料", "生化试剂制造制药"],
         advantages: ["相较同类产品，具有成本优势", "相较行业头部，发酵效率快35%", "相较化学合成法，产品纯度高"],
-        imageUrl: require("./images/module2_element.png"),
+        imageUrl: require("@/assets/AminoAcid/module2_ele2.png"),
       },
       {
         title: "生物合成 色氨酸",
@@ -109,7 +109,7 @@ export default {
         introductionTitle2: "色氨酸",
         applyTexts: ["医药", "食品强化剂", "饲料添加剂"],
         advantages: ["人体与动物必需氨基酸，应用场景广泛", "相较传统生产方法，效率更高、成本更低"],
-        imageUrl: require("./images/module2_element.png"),
+        imageUrl: require("@/assets/AminoAcid/module2_ele3.png"),
       },
       {
         title: "生物合成 亮氨酸",
@@ -118,7 +118,7 @@ export default {
         introductionTitle2: "亮氨酸",
         applyTexts: ["运动营养剂", "食品添加剂", "特殊医药用途食品"],
         advantages: ["动物必需氨基酸之一", "相较传统水解法，生产过程更环保、更高效", "相较化学合成法，具有成本优势"],
-        imageUrl: require("./images/module2_element.png"),
+        imageUrl: require("@/assets/AminoAcid/module2_ele4.png"),
       },
       {
         title: "生物合成 缬氨酸",
@@ -127,7 +127,7 @@ export default {
         introductionTitle2: "缬氨酸",
         applyTexts: ["医药", "食品强化剂", "饲料添加剂"],
         advantages: ["动物必需氨基酸之一", "提供饲料转化率，降低养殖成本", "相较化学合成法，具有成本优势"],
-        imageUrl: require("./images/module2_element.png"),
+        imageUrl: require("@/assets/AminoAcid/module2_ele5.png"),
       },
     ]);
 
@@ -207,7 +207,7 @@ export default {
     justify-content: center;
     align-items: center;
     height: 700px;
-    background-image: url("./images/banner1.png");
+    background-image: url("@/assets/AminoAcid/banner1.png");
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 20px;
@@ -350,7 +350,7 @@ export default {
       margin-bottom: 161px;
       display: flex;
       width: 100%;
-      background-image: url("./images/module3_bg.jpeg");
+      background-image: url("@/assets/AminoAcid/module3_bg.jpeg");
       background-size: cover;
       background-repeat: no-repeat;
       border-radius: 20px;

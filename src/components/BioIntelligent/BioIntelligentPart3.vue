@@ -148,7 +148,6 @@ export default {
 .part3 {
   width: 100%;
   height: 1148px;
-  background-color: #111618;
 
   .labelOrange {
     color: #ff7200;
