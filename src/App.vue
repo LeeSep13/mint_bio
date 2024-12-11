@@ -26,4 +26,6 @@ window.onresize = function () {
 
 </script>
 
-<style scoped></style>
+<style scoped>
+@import '@/style/common.less';
+</style>
