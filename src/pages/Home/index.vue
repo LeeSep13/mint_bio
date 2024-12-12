@@ -140,7 +140,7 @@ export default {
         { isShow: false, product: '[ 功能性纤维 ]', imgSrc: require('../../assets/images/product-6.jpeg'), advantage: ['吸湿性强', '弹力大', '可降解', '可回收',], friends: '[ 安踏 ]', objectFit: 'contain' },
       ],
       newList: [
-        { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/News/news01.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#FF7200', imgSrc: require('../../assets/News/news02.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#007D30', imgSrc: require('../../assets/News/news03.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#FF7200', imgSrc: require('../../assets/News/news04.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#FF7200', imgSrc: require('../../assets/News/news05.png') },
+        { title: '#MiNT产品力', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/News/news01.png') }, { title: '#MiNT进行时', date: '2024/09/21', content: '周扬区长莅临元素驱动调研指导', color: '#FF7200', imgSrc: require('../../assets/News/news02.png') }, { title: '#MiNT Vision', date: '2024/09/21', content: '中央首次部署！加快经济社会发展全面绿色转型', color: '#007D30', imgSrc: require('../../assets/News/news03.png') }, { title: '#MiNT进行时', date: '2024/09/21', content: '姚高员市长调研重点产业赛道企业，莅临元素驱动指导', color: '#FF7200', imgSrc: require('../../assets/News/news04.png') }, { title: '#MiNT进行时', date: '2024/09/21', content: '聚焦发展新质生产力，元素驱动年产3万吨PBX生物降解材料项目开工', color: '#FF7200', imgSrc: require('../../assets/News/news05.png') },
       ]
 
 

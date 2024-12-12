@@ -32,7 +32,7 @@
         <div class="case-title-second"><span class="orange-text">[ 全生物降解地膜 ]</span></div>
         <div class="case-title-third">
           <p>中国农科院</p>
-          <p>&元素驱动</p>
+          <p>& 元素驱动</p>
         </div>
       </div>
       <div class="case-list">

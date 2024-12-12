@@ -120,13 +120,13 @@
       <div class="scientific-card">
         <div class="scientific-card-left">
           <div class="scientific-card-left-item" @mousemove="itemMove(cardList[0])" @mouseleave="itemLeave(cardList[0])"
-            :style="activeIndex === 0 ? 'opacity: 0.6;' : 'opacity: 1'">
+            :style="activeIndex === 0 ? ' background: #6a6a6a; opacity:0.6;' : ''">
             <div class="top button-top">中心团队</div>
             <div class="middle"><img src="@/assets/images/number-1.png" alt=""></div>
             <div class="bottom">承担前端科研、实验及小试。</div>
           </div>
           <div class="scientific-card-left-item" @mousemove="itemMove(cardList[1])"
-            :style="activeIndex === 1 ? 'opacity: 0.6;' : 'opacity: 1'" @mouseleave="itemLeave(cardList[1])">
+            :style="activeIndex === 1 ? ' background: #6a6a6a;opacity:0.' : ''" @mouseleave="itemLeave(cardList[1])">
             <div class="top button-top">研发团队</div>
             <div class="middle"><img src="@/assets/images/number-2.png" alt=""></div>
             <div class="bottom">跨科学人才合作，探索前沿技术。</div>
@@ -173,17 +173,11 @@ export default {
         time: '2023.02',
         content: '与牧原集团合资成立河南牧元安粮公司。'
       }, {
-        time: '2023.02',
-        content: '与牧原集团合资成立河南牧元安粮公司。'
-      }, {
         time: '2023.04',
         content: '首次入围杭州市准独角兽榜单。'
       }, {
         time: '2023.06',
         content: '牧原实验室成立，创始人张科春担任主任，科研力度再加强。'
-      }, {
-        time: '2023.12',
-        content: '河南牧元安粮年产3万吨项目开工。'
       }, {
         time: '2023.12',
         content: '河南牧元安粮年产3万吨项目开工。'
@@ -253,13 +247,16 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, ;
 }
 
 .fade-enter,
 .fade-leave-to {
-  opacity: 0;
-  display: none;
+  opacity: 0.5;
+}
+
+.fade-enter {
+  transform: translateX(-100%);
 }
 
 .corporate {
@@ -503,6 +500,8 @@ export default {
 
     &-right {
       width: 824px;
+      display: flex;
+      flex-direction: row;
 
       img {
         height: 680px;
