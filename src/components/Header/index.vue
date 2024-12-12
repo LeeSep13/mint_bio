@@ -1,30 +1,59 @@
 <template>
-  <header class="header ">
+  <header class="header">
     <div class="header-left">
       <div class="header-left-logo" :style="{ cursor: 'pointer' }">
-        <img src="@/assets/images/logo.png" alt="Logo" @click="handleLogoClick" />
+        <img
+          src="@/assets/images/logo.png"
+          alt="Logo"
+          @click="handleLogoClick"
+        />
       </div>
     </div>
 
     <div class="header-middle">
       <ul class="nav">
-        <li class="nav-item" v-for="item in navData" :key="item.key" :class="{
-          'nav-item_current': item.state,
-          'has-submenu': item.submenu && item.submenu.length > 0,
-        }" @mouseover="setMouseOver(item)" @mouseleave="setMouseLeave(item)" @click.prevent="handleClick(item)">
-          <router-link class="nav-item-link" :to="item.submenu.length ? 'javascript:void(0)' : { name: item.router }
-            " v-if="!item.submenu.length">
+        <li
+          class="nav-item"
+          v-for="item in navData"
+          :key="item.key"
+          :class="{
+            'nav-item_current': item.state,
+            'has-submenu': item.submenu && item.submenu.length > 0,
+          }"
+          @mouseover="setMouseOver(item)"
+          @mouseleave="setMouseLeave(item)"
+          @click.prevent="handleClick(item)"
+        >
+          <router-link
+            class="nav-item-link"
+            :to="
+              item.submenu.length ? 'javascript:void(0)' : { name: item.router }
+            "
+            v-if="!item.submenu.length"
+          >
             {{ item.name }}
           </router-link>
           <span class="nav-item-link" v-else>
             {{ item.name }}
-            <img :src="item.state ? item.iconUp : item.iconDown" alt="Toggle Icon" class="submenu-icon" />
+            <img
+              :src="item.state ? item.iconUp : item.iconDown"
+              alt="Toggle Icon"
+              class="submenu-icon"
+            />
           </span>
 
           <ul v-if="item.submenu && item.submenu.length" class="submenu">
-            <li class="submenu-item" v-for="subItem in item.submenu" :key="subItem.key"
-              @mouseover="setMouseOver(subItem)" @mouseleave="setMouseLeave(subItem)">
-              <router-link :to="{ name: subItem.router }" class="submenu-item-link">
+            <li
+              class="submenu-item"
+              v-for="subItem in item.submenu"
+              :key="subItem.key"
+              @mouseover="setMouseOver(subItem)"
+              @mouseleave="setMouseLeave(subItem)"
+            >
+              <router-link
+                :to="{ name: subItem.router }"
+                class="submenu-item-link"
+              >
                 {{ subItem.name }}
               </router-link>
             </li>
@@ -34,8 +63,15 @@
     </div>
 
     <div class="header-right">
-      <el-popover placement="bottom" width="891" trigger="manual" :visible="visible" :show-arrow="false"
-        popper-class="header-popover" :popper-options="popperOptions">
+      <el-popover
+        placement="bottom"
+        width="891"
+        trigger="manual"
+        :visible="visible"
+        :show-arrow="false"
+        popper-class="header-popover"
+        :popper-options="popperOptions"
+      >
         <div class="popover-content">
           <div class="popover-content-close" @click="visible = !visible">
             <img src="./images/close.png" alt="close" />
@@ -76,12 +112,21 @@
         </div>
         <template #reference>
           <div class="menu" @click="visible = !visible">
-            <img src="./images/menu.png" alt="Menu"
-              :style="!$route.meta.unRequiresHeader ? 'opacity:1' : 'opacity: 0.3'" />
+            <img
+              src="./images/menu.png"
+              alt="Menu"
+              :style="
+                !$route.meta.unRequiresHeader ? 'opacity:1' : 'opacity: 0.3'
+              "
+            />
           </div>
         </template>
       </el-popover>
-      <div v-if="visible" class="popover-overlay" @click="visible = false"></div>
+      <div
+        v-if="visible"
+        class="popover-overlay"
+        @click="visible = false"
+      ></div>
     </div>
   </header>
 </template>
@@ -166,7 +211,7 @@ const handleClick = (item) => {
 
 const handleLogoClick = () => {
   router.push({ name: "home" });
-}
+};
 
 const popperOptions = ref({
   modifiers: [
@@ -263,7 +308,6 @@ const popperOptions = ref({
   display: flex;
   padding: 16px 160px 0 160px;
 
-
   &-left {
     &-logo {
       width: 122px;
@@ -294,17 +338,21 @@ const popperOptions = ref({
       background-color: rgba(255, 255, 255, 0.1);
 
       .nav-item {
+        position: relative;
         width: 25%;
+        height: 54px;
+        line-height: 54px;
         text-align: center;
         font-size: 16px;
         font-weight: 500;
         color: #fff;
-        padding: 16px 0;
-        position: relative;
         transition: background-color 0.3s ease, color 0.3s ease;
         cursor: pointer;
 
         &-link {
+          display: block;
+          width: 100%;
+          height: 100%;
           text-decoration: none;
           color: inherit;
         }
@@ -370,12 +418,21 @@ const popperOptions = ref({
       }
 
       .submenu-item {
-        padding: 30px;
+        // padding: 0 30px;
+        // width: 100%;
+        height: 72px;
+        line-height: 72px;
+        text-align: center;
         font-size: 16px;
         border-radius: 12px;
         background-color: #02030833;
 
         &-link {
+          // margin: 0 30px;
+          padding-right: 30px;
+          display: block;
+          width: 100%;
+          height: 100%;
           text-decoration: none;
           color: inherit;
         }
