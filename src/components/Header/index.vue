@@ -1,8 +1,8 @@
 <template>
   <header class="header ">
     <div class="header-left">
-      <div class="header-left-logo">
-        <img src="@/assets/images/logo.png" alt="Logo" />
+      <div class="header-left-logo" :style="{ cursor: 'pointer' }">
+        <img src="@/assets/images/logo.png" alt="Logo" @click="handleLogoClick" />
       </div>
     </div>
 
@@ -163,6 +163,10 @@ const handleClick = (item) => {
     router.push({ name: item.router });
   }
 };
+
+const handleLogoClick = () => {
+  router.push({ name: "home" });
+}
 
 const popperOptions = ref({
   modifiers: [

@@ -3,7 +3,8 @@
     <el-row>
       <el-col :span="8" class="footer-left">
         <div class="footer-left-logo">
-          <div class="footer-left-logo-img-w"><img class="footer-left-logo-img" src="@/assets/images/logo.png" alt="" /></div>
+          <div class="footer-left-logo-img-w"><img class="footer-left-logo-img" src="@/assets/images/logo.png" alt="" />
+          </div>
           <div class="footer-left-logo-text1">生物智造惠及</div>
           <div class="footer-left-logo-text2">每一个生命</div>
         </div>
@@ -37,9 +38,7 @@
         </div>
         <div class="footer-right-info">
           <div class="footer-right-info-qrCode">
-            <img
-              src="https://s3-alpha-sig.figma.com/img/a8b3/cc3c/75ee7ece7c623aa0b737ec85138f5819?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EdeWMtOpeY6QHeFLCWHcs4nd3NRdv-EmW1AYmXlYO1b6kAjH00wTUXoM7eI5aRvCHsI59f1UsLaN4gv-8Qi71eBAQ87KTTWMQZ~hznTu-nfsjs2CP0xuFA9g3EWQH68ahzAcgYIuXi660l89qSmSWFlHVOzBlbNFgCc1EUfll1eZbExa44MW~DVklpa90MnTZipX8GRE9BR~pu6p2yMi0zS0ryAP3vSJacBu0Hsdaqebj-Jnq7PfF2XP3xvmybbPvp7c5L~9fpmNUP8QPzNTHPxkngBdytFRAie61ocC4Bfl7dx43OPCB6VXpddrsS~f7yQLmmNQ6J7jE4wlN020HA__"
-              alt="" />
+            <img src="@/assets/images/code.png" alt="" />
           </div>
           <div class="footer-right-info-address footer-common">
             <p class="mb26">总部地址</p>
@@ -72,7 +71,7 @@ export default {
 <style lang="less" scoped>
 .footer {
   background-color: #11161b;
-  padding: 4.2% 10.8% 4.2% 8% ;
+  padding: 4.2% 10.8% 4.2% 8%;
   height: 445px;
   border-width: 1px 0 0 0;
   /* 只设置上边框 */
@@ -99,10 +98,12 @@ export default {
     &-logo {
       display: flex;
       align-items: center;
+
       &-img {
         width: 100%;
         height: 100%;
-        &-w{
+
+        &-w {
           width: 19.6%;
         }
       }
@@ -137,6 +138,7 @@ export default {
       border-radius: 37px;
       font-size: 12px;
       color: #ffffff;
+
       // padding: 20px;
       img {
         width: 18px;

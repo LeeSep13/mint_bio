@@ -50,10 +50,11 @@
               <span class="product-text" @mousemove="productMove(item)" @mouseleave="productLeave(item)">{{ item.product
                 }}</span>
               <transition name="fade">
-                <img :src="item.imgSrc" v-if="item.isShow" :style="{ top: item.top + 'px' }">
+                <img :src="item.imgSrc" v-if="item.isShow" :style="{ top: item.top + 'px', objectFit: item.objectFit }">
               </transition>
             </div>
-            <div class="advantage product-text">{{ item.advantage }}</div>
+            <div class="advantage product-text"><span class="dot-before" v-for="i in item.advantage" :key="i"
+                :style="{ width: item.width }">{{ i }}</span></div>
             <div class="friends product-text">{{ item.friends }}</div>
 
           </div>
@@ -83,7 +84,7 @@
         <div class="text-bottom">{{ item.content }}</div>
       </div>
       <div class="new-item">
-        <div class="button-more border-gradient">更多动态</div>
+        <div class="button-more-lg border-gradient">更多动态</div>
         <img class="line-bottom-img" src="@/assets/images/line-bottom.png" alt="">
       </div>
     </div>
@@ -130,7 +131,14 @@ export default {
         },
       ],
       advantageShow: false,
-      productList: [{ isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/News/news01.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放', top: 0 }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放' }, { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product_3.png'), advantage: '高效补充牲畜必需氨基酸', friends: '有效减少养殖过程中温室气体排放', top: -144 },],
+      productList: [
+        { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product-1.jpeg'), advantage: ['高效补充牲畜必需氨基酸', '有效减少养殖过程中温室气体排放'], friends: '[ 牧原集团 ]', top: 0, width: '50%' },
+        { isShow: false, product: '[ 快递袋 ]', imgSrc: require('../../assets/images/product-2.jpeg'), advantage: ['非粮原料', '韧性好', '可降解', '可回收',], friends: '[ 顺丰 ]' },
+        { isShow: false, product: '[ 快递袋 ]', imgSrc: require('../../assets/images/product-3.jpeg'), advantage: ['强度高', '成本低', '可降解', '可回收',], friends: '[ 唯品会 ]' },
+        { isShow: false, product: '[ 生物降解地膜 ]', imgSrc: require('../../assets/images/product-4.jpeg'), advantage: ['寿命长', '保温保墒', '降解期可调控', '有助增产',], friends: '[ 新疆农科院 ]' },
+        { isShow: false, product: '[ 一次性吸管 ]', imgSrc: require('../../assets/images/product-5.jpeg'), advantage: ['耐热耐冷', '硬度大', '韧性强', '成本低',], friends: '[ 蜜雪冰城 ]' },
+        { isShow: false, product: '[ 功能性纤维 ]', imgSrc: require('../../assets/images/product-6.jpeg'), advantage: ['吸湿性强', '弹力大', '可降解', '可回收',], friends: '[ 安踏 ]', objectFit: 'contain' },
+      ],
       newList: [
         { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/News/news01.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#FF7200', imgSrc: require('../../assets/News/news02.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#007D30', imgSrc: require('../../assets/News/news03.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#FF7200', imgSrc: require('../../assets/News/news04.png') }, { title: '[ MiNT产品力 ]', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#FF7200', imgSrc: require('../../assets/News/news05.png') },
       ]
@@ -270,6 +278,49 @@ export default {
 
       .advantage {
         width: 50%;
+
+        span {
+          display: inline-block;
+          width: 150px;
+        }
+
+
+
+        .dot-before {
+          &::before {
+            content: '•';
+            /* 原点字符 */
+            margin-right: 5px;
+            /* 原点与文字之间的间距 */
+          }
+        }
+      }
+
+      .product-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 32px;
+
+        img {
+          width: 35%;
+
+
+        }
+      }
+
+      &-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 32px;
+
+        img {
+          width: 35%;
+
+        }
       }
 
       .friends {
@@ -322,6 +373,8 @@ export default {
 
           img {
             width: calc(35% - 200px);
+            height: 255px;
+            object-fit: cover;
             position: absolute;
             top: -68px;
             left: 207px;
@@ -401,10 +454,6 @@ export default {
 
       }
 
-
-
-
-
       .overlay {
         position: absolute;
         top: 0;
@@ -431,10 +480,10 @@ export default {
       }
 
       .button-more {
-        width: 140px;
-        border-radius: 99px;
-        height: 84px;
-        line-height: 84px;
+        width: 104px;
+        border-radius: 50px;
+        height: 52px;
+        line-height: 52px;
         text-align: center;
         position: relative;
         top: 50%;
@@ -444,6 +493,28 @@ export default {
         border: 1px solid #FFFFFF;
       }
 
+      .button-more-lg {
+        text-align: center;
+        line-height: 84px;
+        border: 1px solid #2c2f34;
+        border-radius: 999px;
+        position: absolute;
+        top: calc(50% - 80px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 84px;
+        width: 140px;
+        font-family: MiSans VF;
+        font-size: 20px;
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.01)),
+          radial-gradient(107.5% 107.5% at 50% 215%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      .button-more-lg:hover {
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.01)),
+          radial-gradient(84.92% 150% at 50% 138.75%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 100%);
+      }
+
       .line-bottom-img {
         width: 100%;
         position: absolute;
@@ -451,6 +522,8 @@ export default {
         transform: translateY(-100%);
       }
     }
+
+
   }
 }
 </style>

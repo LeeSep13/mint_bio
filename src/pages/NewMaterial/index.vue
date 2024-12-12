@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="case-list">
-        <div class="case-list-item border-gradient" v-for="(item, index) in caseList" :key="index">
+        <div class="case-list-item border-gradient" v-for="(item, index) in caseListSecond" :key="index">
           <div class="case-list-item-top"><span>China</span><span>MiNT BiO</span><span>Hangzhou</span></div>
           <img :src="item.imgSrc" alt="case-list-item" class="case-list-item-img">
           <div class="case-list-item-describe">{{ item.describe }}</div>
@@ -47,8 +47,9 @@
 
 
     <div class="question sector border-gradient">
-      <div class="title-first"><span>常见</span><span class="orange-text ">？</span><span>问</span></div>
-      <div class="title-second"><span :style="{ opacity: 0, }">常见？</span><span>题</span></div>
+      <div class="title-first"><span>常见</span><span class="orange-text question-code">？</span><span>问</span></div>
+      <div class="title-second"><span :style="{ opacity: 0, }">常见</span><span class="orange-text question-code"
+          :style="{ opacity: 0, }">？</span><span>题</span></div>
       <el-collapse class="collapse" @change="handleChange">
         <el-collapse-item class="collapse-item" v-for="(item, index) in questionList" :key="index" :title="item.title"
           :name="index" :icon="activeNames.includes(index) ? Minus : Plus">
@@ -105,68 +106,77 @@ export default {
           imageUrl: require("@/assets/images/P001.png"),
         },
         {
-          title: "生物合成 组氨酸",
+          title: "PiX 002",
           isRow: true,
-          topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
-          introductionTitle1: "生物合成",
-          introductionTitle2: "组氨酸",
-          applyTexts: ["食品", "饲料", "生化试剂制造制药"],
+          topItems: ["Affordable", "Infinity"],
+          introductionTitle1: "PiX",
+          introductionTitle2: "002",
+          applyTexts: ["吸管", "杯材", "瓶材"],
           advantages: [
-            "相较同类产品，具有成本优势",
-            "相较行业头部，发酵效率快35%",
-            "相较化学合成法，产品纯度高",
+            "耐温耐冷",
+            "使用温度 - 30 ℃-100℃",
+            "货架期长"
           ],
-          imageUrl: require("@/assets/images/home-background.png"),
+          imageUrl: require("@/assets/images/P001.jpeg"),
         },
         {
-          title: "生物合成 色氨酸",
-          topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
-          introductionTitle1: "生物合成",
-          introductionTitle2: "色氨酸",
-          applyTexts: ["医药", "食品强化剂", "饲料添加剂"],
+          title: "PiX 003",
+          isRow: true,
+          topItems: ["Affordable", "Infinity"],
+          introductionTitle1: "PiX",
+          introductionTitle2: "003",
+          applyTexts: ["日化产品", "文具玩具", "家具家电"],
           advantages: [
-            "人体与动物必需氨基酸，应用场景广泛",
-            "相较传统生产方法，效率更高、成本更低",
+            "强度高",
+            "抗压性好",
+            "适配性强"
           ],
-          imageUrl: require("@/assets/images/home-background.png"),
+          imageUrl: require("@/assets/images/P002.jpeg"),
         },
         {
-          title: "生物合成 亮氨酸",
-          topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
-          introductionTitle1: "生物合成",
-          introductionTitle2: "亮氨酸",
-          applyTexts: ["运动营养剂", "食品添加剂", "特殊医药用途食品"],
+          title: "PiX 004",
+          isRow: true,
+          topItems: ["Affordable", "Infinity"],
+          introductionTitle1: "PiX",
+          introductionTitle2: "004",
+          applyTexts: ["农业", "种植业"],
           advantages: [
-            "动物必需氨基酸之一",
-            "相较传统水解法，生产过程更环保、更高效",
-            "相较化学合成法，具有成本优势",
+            "保温保墒",
+            "横纵向拉伸性能优",
+            "阻隔性好"
           ],
-          imageUrl: require("@/assets/images/home-background.png"),
+          imageUrl: require("@/assets/images/P003.jpeg"),
         },
         {
-          title: "生物合成 缬氨酸",
-          topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
-          introductionTitle1: "生物合成",
-          introductionTitle2: "缬氨酸",
-          applyTexts: ["医药", "食品强化剂", "饲料添加剂"],
+          title: "PiX 005",
+          isRow: true,
+          topItems: ["Affordable", "Infinity"],
+          introductionTitle1: "PiX",
+          introductionTitle2: "005",
+          applyTexts: ["服装", "纺织"],
           advantages: [
-            "动物必需氨基酸之一",
-            "提供饲料转化率，降低养殖成本",
-            "相较化学合成法，具有成本优势",
+            "透气性好",
+            "弹性佳",
+            "舒适亲肤"
           ],
-          imageUrl: require("@/assets/images/home-background.png"),
+          imageUrl: require("@/assets/images/P004.jpeg"),
         },
       ],
       caseList: [
-        { imgSrc: require("@/assets/images/case-1.png"), describe: '使用 PiX 001 打造，兼具性能、成本优势及环保性的快递袋。' },
+        { imgSrc: require("@/assets/images/case-4.png"), describe: '使用 PiX 001 打造，兼具性能、成本优势及环保性的快递袋。' },
         { imgSrc: require("@/assets/images/case-2.png"), describe: '独创合成工艺进行低成本、高效率量产。' },
-        { imgSrc: require("@/assets/images/case-3.png"), describe: '将于 2025 年 3 月正式在唯品会电商物流中投入使用。', tips: '元素驱动与中国农业科学院农业环境与可持续发展研究所合作，在新疆进行棉花大田试验，现已完成棉花成长全周期实验。' },
+        { imgSrc: require("@/assets/images/case-1.png"), describe: '将于 2025 年 3 月正式在唯品会电商物流中投入使用。' },
+      ],
+      caseListSecond: [
+        { imgSrc: require("@/assets/images/case-1.jpeg"), describe: 'PiX 004 全程护航新疆棉成长', tips: '元素驱动与中国农业科学院农业环境与可持续发展研究所合作，在新疆进行棉花大田试验，现已完成棉花成长全周期实验。' },
+        { imgSrc: require("@/assets/images/case-2.jpeg"), describe: '可控生物降解，满足长期作物生长条件。' },
+        { imgSrc: require("@/assets/images/case-3.jpeg"), describe: '节水性能优异，水蒸气透过量远低于市面普通可降解地膜。' },
       ],
       questionList: [
         { title: '什么是生物降解材料？', content: '生物降解材料是指可以和普通塑料一样使用，并能够被自然界的微生物分解成水和CO2，进而回归自然的环保型材料。' },
-        { title: '生物降解材料有哪些？', content: '生物降解材料包括生物降解塑料、生物降解纤维、生物降解薄膜、生物降解复合材料等。' },
-        { title: '生物降解材料有哪些优势？', content: '生物降解材料具有环保、可降解、可循环利用等优点，可以减少环境污染，提高资源利用率。' },
-        { title: '生物降解材料有哪些应用场景？', content: '生物降解材料广泛应用于包装、农业、医疗、家居等领域。' },
+        { title: 'PiX材料真的能适配这么多领域吗？', content: '生物降解材料包括生物降解塑料、生物降解纤维、生物降解薄膜、生物降解复合材料等。' },
+        { title: '产能是否适配我的需求？', content: '生物降解材料具有环保、可降解、可循环利用等优点，可以减少环境污染，提高资源利用率。' },
+        { title: '材料的生产过程环保吗？', content: '生物降解材料广泛应用于包装、农业、医疗、家居等领域。' },
       ]
 
     };
@@ -314,6 +324,7 @@ export default {
           line-height: 24px;
           font-weight: 400;
           white-space: normal;
+          color: #F1F3F799;
         }
       }
     }
@@ -326,6 +337,12 @@ export default {
     font-weight: 520;
     line-height: 79.56px;
     text-align: left;
+
+    &-code {
+      display: inline-block;
+      width: 30px;
+      margin: 0 20px;
+    }
 
     .title-second {
       margin-bottom: 80px;
@@ -355,12 +372,25 @@ export default {
       ::v-deep .el-collapse-item__wrap {
         padding: 40px 0;
         background-color: #11161b;
+        border-bottom: 1px solid #66666680;
 
       }
+
+      .is-active {
+        ::v-deep .el-collapse-item__header {
+          border-bottom: none;
+          height: 120px;
+        }
+
+      }
+
 
       ::v-deep .el-collapse-item__header {
+        border-bottom: 1px solid #66666680;
         height: 120px;
       }
+
+
 
       ::v-deep .el-collapse-item__arrow {
         margin: 0 0 0 10px;
@@ -371,6 +401,10 @@ export default {
       }
 
 
+    }
+
+    ::v-deep .el-collapse {
+      border-top: 1px solid #66666680;
     }
   }
 

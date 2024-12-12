@@ -18,8 +18,9 @@
     <div class="timeline">
       <div class="timeline-list">
         <div class="timeline-list-item" v-for="(item, index) in timeList" :key="index">
-          <div class="timeline-list-item-time">{{ item.time }}</div>
-          <div class="timeline-list-item-content">{{ item.content }}</div>
+          <div class="timeline-list-item-time" :style="{ color: item.color, width: item.width }">{{ item.time }}</div>
+          <div class="timeline-list-item-content" :style="{ color: item.color, width: item.width }">{{ item.content }}
+          </div>
         </div>
       </div>
 
@@ -120,15 +121,15 @@
         <div class="scientific-card-left">
           <div class="scientific-card-left-item" @mousemove="itemMove(cardList[0])" @mouseleave="itemLeave(cardList[0])"
             :style="activeIndex === 0 ? 'opacity: 0.6;' : 'opacity: 1'">
-            <div class="top">中心团队</div>
+            <div class="top button-top">中心团队</div>
             <div class="middle"><img src="@/assets/images/number-1.png" alt=""></div>
             <div class="bottom">承担前端科研、实验及小试。</div>
           </div>
           <div class="scientific-card-left-item" @mousemove="itemMove(cardList[1])"
             :style="activeIndex === 1 ? 'opacity: 0.6;' : 'opacity: 1'" @mouseleave="itemLeave(cardList[1])">
-            <div class="top">中心团队</div>
-            <div class="middle"><img src="@/assets/images/number-1.png" alt=""></div>
-            <div class="bottom">承担前端科研、实验及小试。</div>
+            <div class="top button-top">研发团队</div>
+            <div class="middle"><img src="@/assets/images/number-2.png" alt=""></div>
+            <div class="bottom">跨科学人才合作，探索前沿技术。</div>
           </div>
         </div>
         <div class="scientific-card-right">
@@ -158,43 +159,45 @@ export default {
   data() {
     return {
       imgSrc: require('@/assets/images/scientific.png'), activeIndex: 0, timeList: [{
-        time: '2021.08', content: '与牧原集团战略合作完成首批饲料添加氨基酸量产交付。'
+        time: '2021.08', content: '创办于杭州'
       }, {
-        time: '2021.09',
-        content: '与��原集团战略合作完成首批生物多功能��维（BFO）量产交付。'
+        time: '2022.09',
+        content: '与牧原集团战略合作完成首批饲料添加氨基酸量产交付。'
       }, {
-        time: '2021.10',
-        content: '与��原集团战略合作完成首批生物多功能��维（BFO）生物应用量产交付。'
+        time: '2022.11',
+        content: '与商汤科技达成战略合作推动AI+合成生物前沿创新。'
       }, {
-        time: '2021.10',
-        content: '与��原集团战略合作完成首批生物多功能��维（BFO）生物应用量产交付。'
+        time: '2022.12',
+        content: '异亮氨酸和缬氨酸300吨量产水平转化工艺优化成熟。'
       }, {
-        time: '2021.10',
-        content: '与��原集团战略合作完成首批生物多功能��维（BFO）生物应用量产交付。'
+        time: '2023.02',
+        content: '与牧原集团合资成立河南牧元安粮公司。'
       }, {
-        time: '2021.10',
-        content: '与��原集团战略合作完成首批生物多功能��维（BFO）生物应用量产交付。'
+        time: '2023.02',
+        content: '与牧原集团合资成立河南牧元安粮公司。'
       }, {
-        time: '2021.10',
-        content: '与��原集团战略合作完成首批生物多功能��维（BFO）生物应用量产交付。'
+        time: '2023.04',
+        content: '首次入围杭州市准独角兽榜单。'
       }, {
-        time: '2021.10',
-        content: '与��原集团战略合作完成首批生物多功能��维（BFO）生物应用量产交付。'
+        time: '2023.06',
+        content: '牧原实验室成立，创始人张科春担任主任，科研力度再加强。'
       }, {
-        time: '2021.10',
-        content: '与��原集团战略合作完成首批生物多功能��维（BFO）生物应用量产交付。'
+        time: '2023.12',
+        content: '河南牧元安粮年产3万吨项目开工。'
       }, {
-        time: '2021.10',
-        content: '与��原集团战略合作完成首批生物多功能��维（BFO）生物应用量产交付。'
+        time: '2023.12',
+        content: '河南牧元安粮年产3万吨项目开工。'
       }, {
-        time: '2021.10',
-        content: '与��原集团战略合作完成首批生物多功能��维（BFO）生物应用量产交付。'
+        time: '2024.02',
+        content: '与建德市签约年产15万吨元素新材料项目,打造生物降解材料全产业链标杆。'
       }, {
-        time: '2021.10',
-        content: '与��原集团战略合作完成首批生物多功能��维（BFO）生物应用量产交付。'
+        time: '2024.06',
+        content: '建德元素智造项目开工，一期年产3万吨, 计划2025年底投产。'
       }, {
-        time: '2021.10',
-        content: '与��原集团战略合作完成首批生物多功能��维（BFO）生物应用量产交付。'
+        time: '迎接生物智造时代',
+        content: '60%的物质生产可通过生物制造方式实现, 合成生物带来的经济价值可达万亿元规模。',
+        color: '#00965A',
+        width: '480px',
       },],
       cardList: [{
         index: 0, textTop: '中心团队', textMiddle:
@@ -358,6 +361,7 @@ export default {
           font-size: 20px;
           font-weight: 520;
           text-align: left;
+          line-height: 27px;
 
         }
 
@@ -371,7 +375,7 @@ export default {
 
   .story {
     display: flex;
-    gap: 30px;
+    gap: 60px;
     font-family: MiSans VF;
     font-size: 20px;
     color: #fff;
@@ -416,99 +420,112 @@ export default {
           justify-content: space-between;
         }
       }
+
+
+
+    }
+  }
+}
+
+
+.scientific {
+  color: #fff;
+  font-family: MiSans VF;
+  font-size: 60px;
+  font-weight: 520;
+
+  &-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 68px;
+
+    .opacity-0 {
+      opacity: 0;
+    }
+
+    &-middle {
+      font-family: MiSans VF;
+      font-size: 17px;
+      font-weight: 450;
+      text-align: center;
+      color: rgba(241, 243, 247, 0.5);
+      height: 82px;
     }
   }
 
-  .scientific {
-    color: #fff;
-    font-family: MiSans VF;
-    font-size: 60px;
-    font-weight: 520;
+  &-card {
+    height: 680px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 80px;
 
-    &-title {
+    &-left {
+      width: 50%;
+      width: calc(100% - 840px);
       display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 68px;
-
-      .opacity-0 {
-        opacity: 0;
-      }
-
-      &-middle {
-        font-family: MiSans VF;
-        font-size: 17px;
-        font-weight: 450;
-        text-align: center;
-        color: rgba(241, 243, 247, 0.5);
-        height: 82px;
-      }
-    }
-
-    &-card {
-      height: 680px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: space-between;
       gap: 16px;
-      margin-top: 80px;
+      height: 680px;
 
-      &-left {
-        width: 50%;
-        width: calc(100% - 840px);
+      &-item {
+        transition: opacity 0.3s ease;
+        cursor: pointer;
         display: flex;
         flex-direction: column;
-        align-items: space-between;
-        gap: 16px;
-        height: 680px;
-
-        &-item {
-          transition: opacity 0.3s ease;
-          cursor: pointer;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          height: 50%;
-          padding: 32px;
-          border-radius: 20px;
-          background: rgba(40, 40, 40, 0.6226);
-          border: 1px solid;
-          border-image: linear-gradient(156.52deg, rgba(255, 255, 255, 0.4) 2.12%, rgba(255, 255, 255, 0.0001) 39%, rgba(255, 255, 255, 0.0001) 54.33%, rgba(255, 255, 255, 0.1) 93.02%);
-
-          img {
-            height: 60px;
-          }
-
-          font-size: 14px;
-        }
-      }
-
-      &-right {
-        width: 824px;
+        justify-content: space-between;
+        height: 50%;
+        padding: 32px;
+        border-radius: 20px;
+        background: rgba(40, 40, 40, 0.6226);
+        border: 1px solid;
+        border-image: linear-gradient(156.52deg, rgba(255, 255, 255, 0.4) 2.12%, rgba(255, 255, 255, 0.0001) 39%, rgba(255, 255, 255, 0.0001) 54.33%, rgba(255, 255, 255, 0.1) 93.02%);
 
         img {
-          height: 680px;
-          width: 100%;
-          border-radius: 20px;
-          object-fit: cover;
+          height: 60px;
         }
 
+        .button-top {
+          border: 1px solid #fff;
+          border-radius: 50px;
+          width: 96px;
+          height: 50px;
+          text-align: center;
+          line-height: 50px;
+        }
 
-
+        font-size: 14px;
       }
     }
-  }
 
-  .project {
-    img {
-      width: 100%;
+    &-right {
+      width: 824px;
+
+      img {
+        height: 680px;
+        width: 100%;
+        border-radius: 20px;
+        object-fit: cover;
+      }
+
+
+
     }
   }
+}
 
-  .banner {
-    img {
-      width: 100%;
-    }
+.project {
+  img {
+    width: 100%;
+  }
+}
+
+.banner {
+  img {
+    width: 100%;
   }
 }
 </style>
