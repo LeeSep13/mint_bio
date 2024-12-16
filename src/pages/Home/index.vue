@@ -1,108 +1,134 @@
 <template>
   <div class="home">
-    <BannerTitleAnimation :titleImage="require('@/assets/images/home-title.png')"
-      :backgroundImg="require('@/assets/images/home-background.png')" />
+    <BannerTitleAnimation
+      :titleImage="require('@/assets/images/home-title.png')"
+      :backgroundImg="require('@/assets/images/home-background.png')"
+    />
     <div class="dna-section sector" @mouseover.once="expandMargin()">
       <div class="top-title">
         <div class="mint-text">MINT BIO</div>
         <div class="line-group">
-          <div v-for="(divide, index) in lineDivides" :key="index" class="line-divide"
-            :style="{ marginLeft: divide.marginLeft + 'px' }"></div>
+          <div
+            v-for="(divide, index) in lineDivides"
+            :key="index"
+            class="line-divide"
+            :style="{ marginLeft: divide.marginLeft + 'px' }"
+          ></div>
         </div>
         <div class="dna-text">DNA</div>
         <!-- <img src="@/assets/images/lines.png" class="line"> -->
       </div>
       <div class="advantage" v-if="advantageShow">
-        <div v-for="(advantage, index) in advantageArr" :key="index" class="advantage-item"
-          @mousemove="advantageMove(advantage)" @mouseleave="advantageLeave(advantage)">
+        <div
+          v-for="(advantage, index) in advantageArr"
+          :key="index"
+          class="advantage-item"
+          @mousemove="advantageMove(advantage)"
+          @mouseleave="advantageLeave(advantage)"
+        >
           <div class="title" :style="{ color: advantage.color }">
             {{ advantage.title }}
           </div>
           <div class="sub-title" v-if="advantage.subTitle">
             {{ advantage.subTitle }}
           </div>
-          <div class="describe" v-if="advantage.isShow">{{ advantage.describe }}</div>
+          <div class="describe" v-if="advantage.isShow">
+            {{ advantage.describe }}
+          </div>
         </div>
       </div>
-
-
-
     </div>
-    <div class="product-section sector border-gradient ">
-      <img src="@/assets/images/infinite.png" class="title">
+    <div class="product-section sector border-gradient">
+      <img src="@/assets/images/infinite.png" class="title" />
       <div class="product-list">
         <div class="product-list-top">
-          <div class="product-list-top-item product">
-            产品
-          </div>
-          <div class="product-list-top-item advantage">
-            性能优势
-          </div>
-          <div class="product-list-top-item friends">
-            合作伙伴
-          </div>
+          <div class="product-list-top-item product">产品</div>
+          <div class="product-list-top-item advantage">性能优势</div>
+          <div class="product-list-top-item friends">合作伙伴</div>
         </div>
         <div class="product-list-content">
-          <div v-for="(item, index) in productList" :key="index" class="product-list-content-item"
-            :style="{ color: item.isShow ? '#fff' : '' }">
-
+          <div
+            v-for="(item, index) in productList"
+            :key="index"
+            class="product-list-content-item"
+            :style="{ color: item.isShow ? '#fff' : '' }"
+            @mousemove="productMove(item)"
+            @mouseleave="productLeave(item)"
+          >
             <div class="product">
-              <span class="product-text" @mousemove="productMove(item)" @mouseleave="productLeave(item)">{{ item.product
-                }}</span>
+              <span class="product-text">{{ item.product }}</span>
               <transition name="fade">
-                <img :src="item.imgSrc" v-if="item.isShow" :style="{ top: item.top + 'px', objectFit: item.objectFit }">
+                <img
+                  :src="item.imgSrc"
+                  v-if="item.isShow"
+                  :style="{ top: item.top + 'px', objectFit: item.objectFit }"
+                />
               </transition>
             </div>
-            <div class="advantage product-text"><span class="dot-before" v-for="i in item.advantage" :key="i"
-                :style="{ width: item.width }">{{ i }}</span></div>
+            <div class="advantage product-text">
+              <span
+                class="dot-before"
+                v-for="i in item.advantage"
+                :key="i"
+                :style="{ width: item.width }"
+                >{{ i }}</span
+              >
+            </div>
             <div class="friends product-text">{{ item.friends }}</div>
-
           </div>
         </div>
       </div>
     </div>
     <div class="banner-section sector border-gradient">
-      <div class="title"><span>您的选择和 </span><span class="orange-text"> 他们 </span><span> 一样</span></div>
-      <img src="@/assets/images/banners.png" class="banner-img">
+      <div class="title">
+        <span>您的选择和 </span><span class="orange-text"> 他们 </span
+        ><span> 一样</span>
+      </div>
+      <img src="@/assets/images/banners.png" class="banner-img" />
     </div>
     <div class="new-section sector border-gradient">
       <div class="new-item" v-for="(item, index) in newList" :key="index">
         <div class="img-box">
-          <img :src="item.imgSrc" alt="" class="new-img">
+          <img :src="item.imgSrc" alt="" class="new-img" />
 
           <div class="overlay">
             <div class="overlay-content">
-              <div class="button-more ">了解更多</div>
+              <div class="button-more">了解更多</div>
             </div>
           </div>
         </div>
 
-        <div class="text-top"><span class="name " :style="{ color: item.color, marginRight: '16px' }">{{ item.title
-            }}</span>
+        <div class="text-top">
+          <span
+            class="name"
+            :style="{ color: item.color, marginRight: '16px' }"
+            >{{ item.title }}</span
+          >
           <span class="date">{{ item.date }}</span>
         </div>
         <div class="text-bottom">{{ item.content }}</div>
       </div>
       <div class="new-item">
         <div class="button-more-lg border-gradient">更多动态</div>
-        <img class="line-bottom-img" src="@/assets/images/line-bottom.png" alt="">
+        <img
+          class="line-bottom-img"
+          src="@/assets/images/line-bottom.png"
+          alt=""
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import BannerTitleAnimation from '@/components/BannerTitleAnimation'
+import BannerTitleAnimation from "@/components/BannerTitleAnimation";
 export default {
   name: "MintHome",
   components: {
-    BannerTitleAnimation
+    BannerTitleAnimation,
   },
   setup() {
-    return {
-
-
-    };
+    return {};
   },
   data() {
     return {
@@ -114,42 +140,137 @@ export default {
         { marginLeft: 4 },
         { marginLeft: 8 },
         { marginLeft: 16 },
-        { marginLeft: 32 }],
+        { marginLeft: 32 },
+      ],
       advantageArr: [
         {
-          title: '前沿 科技力', describe: '与合作伙伴共担ESG责任共筑地球可持续未来', moveColor: '#dd716c', isShow: false
+          title: "前沿 科技力",
+          describe: "与合作伙伴共担ESG责任共筑地球可持续未来",
+          moveColor: "#dd716c",
+          isShow: false,
         },
         {
-          title: '平台 强赋能', describe: '独创 MiNT X Platform AI赋能生物智造', moveColor: '#1c358c', isShow: false
+          title: "平台 强赋能",
+          describe: "独创 MiNT X Platform AI赋能生物智造",
+          moveColor: "#1c358c",
+          isShow: false,
         },
         {
-          title: '卓越 产品力', subTitle: '生物降解新材料', describe: '低成本高性能的环保新材料', moveColor: '#3170d3', isShow: false
+          title: "卓越 产品力",
+          subTitle: "生物降解新材料",
+          describe: "低成本高性能的环保新材料",
+          moveColor: "#3170d3",
+          isShow: false,
         },
-        { title: '卓越 产品力', subTitle: '生物合成氨基酸', describe: '高效生物合成20+种氨基酸', moveColor: '#285caa', isShow: false },
         {
-          title: '绿色 可持续', describe: '与合作伙伴共担ESG责任共筑地球可持续未来', moveColor: '#306e4a', isShow: false
+          title: "卓越 产品力",
+          subTitle: "生物合成氨基酸",
+          describe: "高效生物合成20+种氨基酸",
+          moveColor: "#285caa",
+          isShow: false,
+        },
+        {
+          title: "绿色 可持续",
+          describe: "与合作伙伴共担ESG责任共筑地球可持续未来",
+          moveColor: "#306e4a",
+          isShow: false,
         },
       ],
       advantageShow: false,
       productList: [
-        { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product-1.jpeg'), advantage: ['高效补充牲畜必需氨基酸', '有效减少养殖过程中温室气体排放'], friends: '[ 牧原集团 ]', top: 0, width: '50%' },
-        { isShow: false, product: '[ 快递袋 ]', imgSrc: require('../../assets/images/product-2.jpeg'), advantage: ['非粮原料', '韧性好', '可降解', '可回收',], friends: '[ 顺丰 ]' },
-        { isShow: false, product: '[ 快递袋 ]', imgSrc: require('../../assets/images/product-3.jpeg'), advantage: ['强度高', '成本低', '可降解', '可回收',], friends: '[ 唯品会 ]' },
-        { isShow: false, product: '[ 生物降解地膜 ]', imgSrc: require('../../assets/images/product-4.jpeg'), advantage: ['寿命长', '保温保墒', '降解期可调控', '有助增产',], friends: '[ 新疆农科院 ]' },
-        { isShow: false, product: '[ 一次性吸管 ]', imgSrc: require('../../assets/images/product-5.jpeg'), advantage: ['耐热耐冷', '硬度大', '韧性强', '成本低',], friends: '[ 蜜雪冰城 ]' },
-        { isShow: false, product: '[ 功能性纤维 ]', imgSrc: require('../../assets/images/product-6.jpeg'), advantage: ['吸湿性强', '弹力大', '可降解', '可回收',], friends: '[ 安踏 ]', objectFit: 'contain' },
+        {
+          isShow: false,
+          product: "[ 无豆粕日粮解决方案 ]",
+          imgSrc: require("../../assets/images/product-1.jpeg"),
+          advantage: [
+            "高效补充牲畜必需氨基酸",
+            "有效减少养殖过程中温室气体排放",
+          ],
+          friends: "[ 牧原集团 ]",
+          top: 0,
+          width: "50%",
+        },
+        {
+          isShow: false,
+          product: "[ 快递袋 ]",
+          imgSrc: require("../../assets/images/product-2.jpeg"),
+          advantage: ["非粮原料", "韧性好", "可降解", "可回收"],
+          friends: "[ 顺丰 ]",
+        },
+        {
+          isShow: false,
+          product: "[ 快递袋 ]",
+          imgSrc: require("../../assets/images/product-3.jpeg"),
+          advantage: ["强度高", "成本低", "可降解", "可回收"],
+          friends: "[ 唯品会 ]",
+        },
+        {
+          isShow: false,
+          product: "[ 生物降解地膜 ]",
+          imgSrc: require("../../assets/images/product-4.jpeg"),
+          advantage: ["寿命长", "保温保墒", "降解期可调控", "有助增产"],
+          friends: "[ 新疆农科院 ]",
+        },
+        {
+          isShow: false,
+          product: "[ 一次性吸管 ]",
+          imgSrc: require("../../assets/images/product-5.jpeg"),
+          advantage: ["耐热耐冷", "硬度大", "韧性强", "成本低"],
+          friends: "[ 蜜雪冰城 ]",
+        },
+        {
+          isShow: false,
+          product: "[ 功能性纤维 ]",
+          imgSrc: require("../../assets/images/product-6.jpeg"),
+          advantage: ["吸湿性强", "弹力大", "可降解", "可回收"],
+          friends: "[ 安踏 ]",
+          objectFit: "contain",
+        },
       ],
       newList: [
-        { title: '#MiNT产品力', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/News/news01.png') }, { title: '#MiNT进行时', date: '2024/09/21', content: '周扬区长莅临元素驱动调研指导', color: '#FF7200', imgSrc: require('../../assets/News/news02.png') }, { title: '#MiNT Vision', date: '2024/09/21', content: '中央首次部署！加快经济社会发展全面绿色转型', color: '#007D30', imgSrc: require('../../assets/News/news03.png') }, { title: '#MiNT进行时', date: '2024/09/21', content: '姚高员市长调研重点产业赛道企业，莅临元素驱动指导', color: '#FF7200', imgSrc: require('../../assets/News/news04.png') }, { title: '#MiNT进行时', date: '2024/09/21', content: '聚焦发展新质生产力，元素驱动年产3万吨PBX生物降解材料项目开工', color: '#FF7200', imgSrc: require('../../assets/News/news05.png') },
-      ]
-
-
+        {
+          title: "#MiNT产品力",
+          date: "2024/09/21",
+          content: "低豆粕日粮助力全面绿色转型",
+          color: "#144BE1",
+          imgSrc: require("../../assets/News/news01.png"),
+        },
+        {
+          title: "#MiNT进行时",
+          date: "2024/09/21",
+          content: "周扬区长莅临元素驱动调研指导",
+          color: "#FF7200",
+          imgSrc: require("../../assets/News/news02.png"),
+        },
+        {
+          title: "#MiNT Vision",
+          date: "2024/09/21",
+          content: "中央首次部署！加快经济社会发展全面绿色转型",
+          color: "#007D30",
+          imgSrc: require("../../assets/News/news03.png"),
+        },
+        {
+          title: "#MiNT进行时",
+          date: "2024/09/21",
+          content: "姚高员市长调研重点产业赛道企业，莅临元素驱动指导",
+          color: "#FF7200",
+          imgSrc: require("../../assets/News/news04.png"),
+        },
+        {
+          title: "#MiNT进行时",
+          date: "2024/09/21",
+          content:
+            "聚焦发展新质生产力，元素驱动年产3万吨PBX生物降解材料项目开工",
+          color: "#FF7200",
+          imgSrc: require("../../assets/News/news05.png"),
+        },
+      ],
     };
   },
   methods: {
     expandMargin() {
       this.advantageShow = true;
-      this.lineDivides.forEach(element => {
+      this.lineDivides.forEach((element) => {
         element.marginLeft *= 2.5;
       });
     },
@@ -158,27 +279,21 @@ export default {
       advantage.isShow = true;
     },
     advantageLeave(advantage) {
-      advantage.color = '#ffffff';
+      advantage.color = "#ffffff";
       advantage.isShow = false;
-
-
     },
     productMove(product) {
       product.isShow = true;
-
     },
     productLeave(product) {
       product.isShow = false;
-
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="less" scoped>
 @import "@/style/variable.less";
-
-
 
 .home {
   font-size: 16px;
@@ -189,7 +304,6 @@ export default {
     height: 300px;
 
     .top-title {
-
       div,
       span {
         display: inline-block;
@@ -197,7 +311,7 @@ export default {
 
       .mint-text {
         font: 600 56px Montser;
-        color: #FFFFFF;
+        color: #ffffff;
         margin-right: 32px;
       }
 
@@ -215,8 +329,6 @@ export default {
           height: 30px;
           transition: margin-left 0.3s ease; // 添加过渡效果
         }
-
-
       }
     }
 
@@ -254,7 +366,6 @@ export default {
           transition: all 1s ease;
         }
       }
-
     }
   }
 
@@ -284,11 +395,9 @@ export default {
           width: 150px;
         }
 
-
-
         .dot-before {
           &::before {
-            content: '•';
+            content: "•";
             /* 原点字符 */
             margin-right: 5px;
             /* 原点与文字之间的间距 */
@@ -305,8 +414,6 @@ export default {
 
         img {
           width: 35%;
-
-
         }
       }
 
@@ -319,7 +426,6 @@ export default {
 
         img {
           width: 35%;
-
         }
       }
 
@@ -333,9 +439,8 @@ export default {
         justify-content: space-between;
         width: 100%;
 
-
         &-item {
-          color: #FFFFFF;
+          color: #ffffff;
           margin-right: 8px;
           height: 45px;
           line-height: 45px;
@@ -345,11 +450,8 @@ export default {
 
           &:nth-last-child {
             margin-right: 0;
-
           }
-
         }
-
       }
 
       &-content {
@@ -370,7 +472,6 @@ export default {
           width: 100%;
           cursor: pointer;
 
-
           img {
             width: calc(35% - 200px);
             height: 255px;
@@ -383,12 +484,6 @@ export default {
           }
         }
       }
-
-
-
-
-
-
     }
   }
 
@@ -398,17 +493,15 @@ export default {
     flex-direction: column;
     align-items: center;
 
-
     .title {
       text-align: center;
       font: 600 60px MiSans;
       margin-bottom: 50px;
-      color: #FFFFFF;
+      color: #ffffff;
 
       .orange-text {
         margin: 0 10px;
       }
-
     }
 
     img {
@@ -422,7 +515,7 @@ export default {
     flex-wrap: wrap;
 
     .new-item {
-      color: #FFFFFF;
+      color: #ffffff;
       width: 32%;
       margin-bottom: 40px;
       position: relative;
@@ -438,8 +531,6 @@ export default {
           border-radius: 12px;
           transition: opacity 0.3s ease;
           cursor: pointer;
-
-
         }
 
         &:hover {
@@ -451,7 +542,6 @@ export default {
           opacity: 1;
           /* 蒙层悬停时的透明度 */
         }
-
       }
 
       .overlay {
@@ -490,7 +580,7 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
         cursor: pointer;
-        border: 1px solid #FFFFFF;
+        border: 1px solid #ffffff;
       }
 
       .button-more-lg {
@@ -506,13 +596,29 @@ export default {
         width: 140px;
         font-family: MiSans VF;
         font-size: 20px;
-        background: linear-gradient(0deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.01)),
-          radial-gradient(107.5% 107.5% at 50% 215%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
+        background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.01),
+            rgba(255, 255, 255, 0.01)
+          ),
+          radial-gradient(
+            107.5% 107.5% at 50% 215%,
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(255, 255, 255, 0) 100%
+          );
       }
 
       .button-more-lg:hover {
-        background: linear-gradient(0deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.01)),
-          radial-gradient(84.92% 150% at 50% 138.75%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 100%);
+        background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.01),
+            rgba(255, 255, 255, 0.01)
+          ),
+          radial-gradient(
+            84.92% 150% at 50% 138.75%,
+            rgba(255, 255, 255, 0.16) 0%,
+            rgba(255, 255, 255, 0) 100%
+          );
       }
 
       .line-bottom-img {
@@ -522,8 +628,6 @@ export default {
         transform: translateY(-100%);
       }
     }
-
-
   }
 }
 </style>

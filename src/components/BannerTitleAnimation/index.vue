@@ -2,19 +2,36 @@
   <div class="banner">
     <div class="banner-title" ref="bannerTitle">
       <Header />
-      <img class="background-img" :src="backgroundImg" alt="background-img"
-        :class="{ 'animate-background': isAnimating }" />
-      <img class="grid-image" src="@/assets/images/grid.png" alt="vision_grid"
-        :class="{ 'animate-grid': isAnimating }" />
-      <img class="mint-image" src="@/assets/images/mint.png" alt="vision_mint"
-        :class="{ 'animate-mint': isAnimating }" />
-      <img class="text-image" :src="titleImage" :style="titleStyle" alt="title"
-        :class="{ 'animate-text': isAnimating }" />
+      <img
+        class="background-img"
+        :src="backgroundImg"
+        alt="background-img"
+        :class="{ 'animate-background': isAnimating }"
+      />
+      <img
+        class="grid-image"
+        src="@/assets/images/grid.png"
+        alt="vision_grid"
+        :class="{ 'animate-grid': isAnimating }"
+      />
+      <img
+        class="mint-image"
+        src="@/assets/images/mint.png"
+        alt="vision_mint"
+        :class="{ 'animate-mint': isAnimating }"
+      />
+      <img
+        class="text-image"
+        :src="titleImage"
+        :style="titleStyle"
+        alt="title"
+        :class="{ 'animate-text': isAnimating }"
+      />
     </div>
   </div>
 </template>
 <script>
-import Header from '@/components/Header'
+import Header from "@/components/Header";
 
 export default {
   name: "BannerTitleAnimation",
@@ -23,34 +40,35 @@ export default {
   props: {
     titleImage: {
       type: String,
-      required: true
+      required: true,
     },
     backgroundImg: {
       type: String,
     },
     titleStyle: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   data() {
     return {
-      isAnimating: false
+      isAnimating: false,
     };
   },
   mounted() {
-    this.startAnimation();
+    setTimeout(() => {
+      this.startAnimation();
+    }, 1000);
   },
   methods: {
     startAnimation() {
       this.isAnimating = true;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="less" scoped>
 .banner {
-
   &-title {
     padding: 0 160px;
     margin: auto;
@@ -66,7 +84,7 @@ export default {
       width: calc(100% - 320px);
       height: 100%;
       object-fit: cover;
-      transition: all 2s ease-in-out;
+      transition: all 1s ease-in-out;
       z-index: 0;
     }
 
@@ -112,10 +130,12 @@ export default {
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 2;
-      transition: transform 2s ease-in-out;
+      opacity: 0.7;
+      transition: all 1s ease-in-out;
     }
 
     .animate-text {
+      opacity: 1;
       top: 50%;
       transform: translate(-50%, -50%);
     }
