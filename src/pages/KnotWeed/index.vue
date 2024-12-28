@@ -306,13 +306,12 @@ export default {
       }
     }
     &-data {
-      padding-left: 125px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       row-gap: 149px;
       column-gap: 369px;
-      width: 87%;
+      width: 100%;
       &-item {
         width: 388px;
         &:nth-child(1),
@@ -323,6 +322,7 @@ export default {
           font-size: 120px;
           font-weight: 500;
           color: #ff7200;
+          white-space: nowrap;
         }
         &-content {
           font-size: 32px;
