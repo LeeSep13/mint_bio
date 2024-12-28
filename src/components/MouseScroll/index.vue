@@ -62,7 +62,7 @@ export default {
       } else if (delta < 0 && scrollDistance.value > 0) {
         scrollDistance.value = Math.max(scrollDistance.value - step, 0);
       }
-    }, 50);
+    }, 30);
 
     const getModuleStyle = (index) => {
       // 计算每个模块相对于 scrollDistance 的偏移量
