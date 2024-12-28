@@ -303,10 +303,15 @@ const popperOptions = ref({
 </style>
 <style lang="less" scoped>
 .header {
-  z-index: 4;
-  position: relative;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  padding: 16px 160px 0 160px;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 16px;
 
   &-left {
     &-logo {
@@ -321,9 +326,7 @@ const popperOptions = ref({
   }
 
   &-middle {
-    width: 100%;
-    margin-left: 21.5%;
-    margin-right: 23.6%;
+    width: 34%;
 
     .nav {
       width: 100%;
@@ -333,10 +336,20 @@ const popperOptions = ref({
       padding: 0;
       margin: 0;
       list-style: none;
-      border: 1px solid #fff;
+      // border: 1px solid #fff;
       border-radius: 16px;
-      background-color: rgba(255, 255, 255, 0.1);
-
+      // background-color: #2828289f;
+      border: 1px solid transparent;
+      background-image: linear-gradient(#282828, #292B2D),
+        linear-gradient(
+          185deg,
+          rgba(255, 255, 255, 0.4) 2.12%,
+          rgba(255, 255, 255, 0.3) 50%,
+          rgba(255, 255, 255, 0.2) 70%,
+          rgba(255, 255, 255, 0.1) 93.02%
+        );
+      background-origin: border-box;
+      background-clip: content-box, border-box;
       .nav-item {
         position: relative;
         width: 25%;
