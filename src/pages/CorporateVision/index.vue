@@ -1,14 +1,20 @@
 <template>
   <div class="corporate">
-    <BannerTitleAnimation :titleImage="require('@/assets/images/vision-title.png')"
-      :backgroundImg="require('@/assets/images/corporateVision.png')" />
+    <BannerTitleAnimation
+      :titleImage="require('@/assets/images/vision-title.png')"
+      :backgroundImg="require('@/assets/images/corporateVision.png')"
+    />
     <div class="introduction">
-      <img src="@/assets/images/introduction-title.png" alt="" class="introduction-img">
+      <img
+        src="@/assets/images/introduction-title.png"
+        alt=""
+        class="introduction-img"
+      />
       <div class="introduction-section">
-        元素驱动（MiNT BiO）是一家集技术研发、生产应用推广为一体的合成生物科技公司，由西湖大学张科春教授于2021年8月创办，总部位于浙江杭州。
+        元素驱动（MiNT
+        BiO）是一家集技术研发、生产应用推广为一体的合成生物科技公司，由西湖大学张科春教授于2021年8月创办，总部位于浙江杭州。
       </div>
       <div class="introduction-section">
-
         公司配备世界领先的研发团队及行业顶级的产业化团队，从头设计创新型合成生物路径，以人工智能技术为辅助进行颠覆性源头创新，自研多个合成生物平台核心技术。目前，公司通过前沿技术赋能产业，主要聚焦无豆粕日粮和可降解生物材料领域。现有核心产品处于世界领先水平，已与行业龙头展开深度战略合作，并已布局万吨级规模化量产，真正实现从科研到产业的跨越，实现降本增效、绿色生产的生物“智造”。
       </div>
       <div class="introduction-section">
@@ -17,33 +23,55 @@
     </div>
     <div class="timeline">
       <div class="timeline-list">
-        <div class="timeline-list-item" v-for="(item, index) in timeList" :key="index">
-          <div class="timeline-list-item-time" :style="{ color: item.color, width: item.width }">{{ item.time }}</div>
-          <div class="timeline-list-item-content" :style="{ color: item.color, width: item.width }">{{ item.content }}
+        <div
+          class="timeline-list-item"
+          v-for="(item, index) in timeList"
+          :key="index"
+        >
+          <div
+            class="timeline-list-item-time"
+            :style="{ color: item.color, width: item.width }"
+          >
+            {{ item.time }}
+          </div>
+          <div
+            class="timeline-list-item-content"
+            :style="{ color: item.color, width: item.width }"
+          >
+            {{ item.content }}
           </div>
         </div>
       </div>
 
       <div class="buttons">
-        <div class="prev" :class="{ 'disabled': isPrevDisabled }" @click="scrollTimeline('prev')">
+        <div
+          class="prev"
+          :class="{ disabled: isPrevDisabled }"
+          @click="scrollTimeline('prev')"
+        >
           &lt;
         </div>
-        <div class="next" :class="{ 'disabled': isNextDisabled }" @click="scrollTimeline('next')"> &gt; </div>
+        <div
+          class="next"
+          :class="{ disabled: isNextDisabled }"
+          @click="scrollTimeline('next')"
+        >
+          &gt;
+        </div>
       </div>
-
     </div>
 
     <div class="story sector border-gradient">
       <div class="story-item">
         <div class="top">
           <div class="top-left">
-            <img src="@/assets/images/story-1.png" alt="">
+            <img src="@/assets/images/story-1.png" alt="" />
           </div>
           <div class="top-right space-between">
             <div>
               <div class="margin-bottom">
                 <p>张科春</p>
-                <p> 创始人&首席科学家</p>
+                <p>创始人&首席科学家</p>
               </div>
               <div class="margin-bottom">
                 <p>西湖大学教授</p>
@@ -51,13 +79,13 @@
               </div>
             </div>
 
-
-            <img src="@/assets/images/story-3.png" class="img-right">
+            <img src="@/assets/images/story-3.png" class="img-right" />
           </div>
         </div>
         <div class="bottom">
           创始人张科春教授本科毕业于中国科学技术大学，博士毕业于加州理工学院，从事合成生物相关研究20余年，具有独特的交叉学科研究背景。他开发了第一种可规模化生产的弹性生物降解高分子材料，创建了世界第一个可持续高分子研究中心并获得美国自然科学基金经费4000万美元的重点支持。研究成果2022年被选为美国推进生物制造的首批九个重点项目之一。2015年获得明尼苏达大学年轻教授的最高荣誉McKnight
-          Land-Grant Professorship，2014 年获得University of Minnesota Innovator award.
+          Land-Grant Professorship，2014 年获得University of Minnesota Innovator
+          award.
           2019年，张科春教授选择归国，加入西湖大学创建生物制造和新材料实验室。
         </div>
       </div>
@@ -65,7 +93,7 @@
       <div class="story-item">
         <div class="top">
           <div class="top-left">
-            <img src="@/assets/images/story-2.png" alt="">
+            <img src="@/assets/images/story-2.png" alt="" />
           </div>
           <div class="top-right">
             <div class="margin-bottom">
@@ -75,18 +103,16 @@
             <div>
               <p>西湖大学教授</p>
               <p>西湖大学校长助理</p>
-              <p> 西湖大学董事会秘书</p>
-              <p> 西湖大学未来产业研究中心副主任</p>
-              <p> 新质生产力培育平台负责人</p>
-              <p> 杭州市西湖教育基金会副理事长</p>
+              <p>西湖大学董事会秘书</p>
+              <p>西湖大学未来产业研究中心副主任</p>
+              <p>新质生产力培育平台负责人</p>
+              <p>杭州市西湖教育基金会副理事长</p>
             </div>
-
           </div>
         </div>
         <div class="bottom">
           <p>
             刘旻昊2011年毕业于英国帝国理工学院，获得生物物理博士学位，2012年回国后在清华大学从事博士后研究工作;2016年起任清华大学助理研究员，同时担任北京市结构生物学高精尖中心副主任、行政办公室主任。
-
           </p>
           <p>
             自2014年起，刘旻吴参与西湖大学筹办，先后或同时担任西湖大学筹委会办公室主任、西湖大学董事会秘书、西湖大学校长助理，西湖教育基金会创始秘书长、副理事长等职务。
@@ -98,8 +124,14 @@
     <div class="scientific sector border-gradient">
       <div class="scientific-title">
         <div class="scientific-title-left">
-          <div><span>前端</span><span class="opacity-0">科研</span><span>攻坚</span></div>
-          <div><span class="opacity-0">前端</span><span class="orange-text">科研</span><span class="opacity-0">攻坚</span>
+          <div>
+            <span>前端</span><span class="opacity-0">科研</span
+            ><span>攻坚</span>
+          </div>
+          <div>
+            <span class="opacity-0">前端</span
+            ><span class="orange-text">科研</span
+            ><span class="opacity-0">攻坚</span>
           </div>
         </div>
         <div class="scientific-title-middle">
@@ -110,136 +142,171 @@
         </div>
         <div class="scientific-title-right">
           <div class="scientific-title-left">
-            <div><span>后端</span><span class="opacity-0">落地</span><span>量产</span></div>
-            <div><span class="opacity-0">后端</span><span class="orange-text">落地</span><span class="opacity-0">量产</span>
+            <div>
+              <span>后端</span><span class="opacity-0">落地</span
+              ><span>量产</span>
+            </div>
+            <div>
+              <span class="opacity-0">后端</span
+              ><span class="orange-text">落地</span
+              ><span class="opacity-0">量产</span>
             </div>
           </div>
-
         </div>
       </div>
       <div class="scientific-card">
         <div class="scientific-card-left">
-          <div class="scientific-card-left-item" @mousemove="itemMove(cardList[0])" @mouseleave="itemLeave(cardList[0])"
-            :style="activeIndex === 0 ? ' background: #6a6a6a; opacity:0.6;' : ''">
-            <div class="top button-top">中心团队</div>
-            <div class="middle"><img src="@/assets/images/number-1.png" alt=""></div>
-            <div class="bottom">承担前端科研、实验及小试。</div>
-          </div>
-          <div class="scientific-card-left-item" @mousemove="itemMove(cardList[1])"
-            :style="activeIndex === 1 ? ' background: #6a6a6a;opacity:0.' : ''" @mouseleave="itemLeave(cardList[1])">
-            <div class="top button-top">研发团队</div>
-            <div class="middle"><img src="@/assets/images/number-2.png" alt=""></div>
-            <div class="bottom">跨科学人才合作，探索前沿技术。</div>
+          <div
+            class="scientific-card-left-item"
+            v-for="(card, index) in cardList"
+            :key="index"
+            @mousemove="itemMove(card)"
+            :class="{ active: activeIndex === index }"
+          >
+            <div class="top button-top">{{ card.textTop }}</div>
+            <div class="middle"><img :src="card.textMiddle" alt="" /></div>
+            <div class="bottom">{{ card.textBottom }}</div>
           </div>
         </div>
         <div class="scientific-card-right">
-          <transition name="fade">
-            <img :src="imgSrc" :key="imgSrc">
+          <transition name="fade" mode="in-out">
+            <img :src="imgSrc" :key="imgSrc" />
           </transition>
-
         </div>
       </div>
-
     </div>
 
     <div class="project sector">
-      <img src="@/assets/images/project.png">
+      <img src="@/assets/images/project.png" />
     </div>
     <div class="banner sector border-gradient">
-      <img src="@/assets/images/banners.png" class="banner-img">
+      <img src="@/assets/images/banners.png" class="banner-img" />
     </div>
-
   </div>
 </template>
 
 <script>
-import BannerTitleAnimation from '@/components/BannerTitleAnimation'
+import BannerTitleAnimation from "@/components/BannerTitleAnimation";
 export default {
-  name: " CorporateVision", components: { BannerTitleAnimation }, setup() { return { titleStyle: { top: '47%' } }; },
+  name: " CorporateVision",
+  components: { BannerTitleAnimation },
+  setup() {
+    return { titleStyle: { top: "47%" } };
+  },
   data() {
     return {
-      imgSrc: require('@/assets/images/scientific.png'), activeIndex: 0, timeList: [{
-        time: '2021.08', content: '创办于杭州'
-      }, {
-        time: '2022.09',
-        content: '与牧原集团战略合作完成首批饲料添加氨基酸量产交付。'
-      }, {
-        time: '2022.11',
-        content: '与商汤科技达成战略合作推动AI+合成生物前沿创新。'
-      }, {
-        time: '2022.12',
-        content: '异亮氨酸和缬氨酸300吨量产水平转化工艺优化成熟。'
-      }, {
-        time: '2023.02',
-        content: '与牧原集团合资成立河南牧元安粮公司。'
-      }, {
-        time: '2023.04',
-        content: '首次入围杭州市准独角兽榜单。'
-      }, {
-        time: '2023.06',
-        content: '牧原实验室成立，创始人张科春担任主任，科研力度再加强。'
-      }, {
-        time: '2023.12',
-        content: '河南牧元安粮年产3万吨项目开工。'
-      }, {
-        time: '2024.02',
-        content: '与建德市签约年产15万吨元素新材料项目,打造生物降解材料全产业链标杆。'
-      }, {
-        time: '2024.06',
-        content: '建德元素智造项目开工，一期年产3万吨, 计划2025年底投产。'
-      }, {
-        time: '迎接生物智造时代',
-        content: '60%的物质生产可通过生物制造方式实现, 合成生物带来的经济价值可达万亿元规模。',
-        color: '#00965A',
-        width: '480px',
-      },],
-      cardList: [{
-        index: 0, textTop: '中心团队', textMiddle:
-          require('@/assets/images/number-1.png'), textBottom: '承担前端科研、实验及小试。', imRight:
-          require('@/assets/images/scientific.png'),
-      }, {
-        index: 1, textTop: '中心团队', textMiddle:
-          require('@/assets/images/number-1.png'), textBottom: '承担前端科研、实验及小试。', imRight:
-          require('@/assets/images/scientific-2.png'),
-      }], isPrevDisabled: true, isNextDisabled: false,
+      imgSrc: require("@/assets/images/scientific.png"),
+      activeIndex: 0,
+      timeList: [
+        {
+          time: "2021.08",
+          content: "创办于杭州",
+        },
+        {
+          time: "2022.09",
+          content: "与牧原集团战略合作完成首批饲料添加氨基酸量产交付。",
+        },
+        {
+          time: "2022.11",
+          content: "与商汤科技达成战略合作推动AI+合成生物前沿创新。",
+        },
+        {
+          time: "2022.12",
+          content: "异亮氨酸和缬氨酸300吨量产水平转化工艺优化成熟。",
+        },
+        {
+          time: "2023.02",
+          content: "与牧原集团合资成立河南牧元安粮公司。",
+        },
+        {
+          time: "2023.04",
+          content: "首次入围杭州市准独角兽榜单。",
+        },
+        {
+          time: "2023.06",
+          content: "牧原实验室成立，创始人张科春担任主任，科研力度再加强。",
+        },
+        {
+          time: "2023.12",
+          content: "河南牧元安粮年产3万吨项目开工。",
+        },
+        {
+          time: "2024.02",
+          content:
+            "与建德市签约年产15万吨元素新材料项目,打造生物降解材料全产业链标杆。",
+        },
+        {
+          time: "2024.06",
+          content: "建德元素智造项目开工，一期年产3万吨, 计划2025年底投产。",
+        },
+        {
+          time: "迎接生物智造时代",
+          content:
+            "60%的物质生产可通过生物制造方式实现, 合成生物带来的经济价值可达万亿元规模。",
+          color: "#00965A",
+          width: "480px",
+        },
+      ],
+      cardList: [
+        {
+          index: 0,
+          textTop: "中心团队",
+          textMiddle: require("@/assets/images/number-1.png"),
+          textBottom: "承担前端科研、实验及小试。",
+          imRight: require("@/assets/images/scientific.png"),
+        },
+        {
+          index: 1,
+          textTop: "科研团队",
+          textMiddle: require("@/assets/images/number-2.png"),
+          textBottom: "跨科学人才合作，探索前沿技术。",
+          imRight: require("@/assets/images/scientific-2.png"),
+        },
+      ],
+      isPrevDisabled: true,
+      isNextDisabled: false,
       timelineElement: null,
     };
-  }, mounted() {
-    this.timelineElement = document.querySelector('.timeline-list');
-    this.timelineElement.addEventListener('scroll', this.handleScroll); this.updateButtonState();
+  },
+  mounted() {
+    this.timelineElement = document.querySelector(".timeline-list");
+    this.timelineElement.addEventListener("scroll", this.handleScroll);
+    this.updateButtonState();
   },
   beforeDestroy() {
     if (this.timelineElement) {
-      this.timelineElement.removeEventListener('scroll',
-        this.handleScroll);
+      this.timelineElement.removeEventListener("scroll", this.handleScroll);
     }
-  }, methods: {
-    handleScroll() { this.updateButtonState(); }, updateButtonState() {
-      if
-        (!this.timelineElement) return; const { scrollLeft, scrollWidth, clientWidth } = this.timelineElement;
-      this.isPrevDisabled = scrollLeft <= 0; this.isNextDisabled = scrollLeft + clientWidth >= scrollWidth;
+  },
+  methods: {
+    handleScroll() {
+      this.updateButtonState();
+    },
+    updateButtonState() {
+      if (!this.timelineElement) return;
+      const { scrollLeft, scrollWidth, clientWidth } = this.timelineElement;
+      this.isPrevDisabled = scrollLeft <= 0;
+      this.isNextDisabled = scrollLeft + clientWidth >= scrollWidth;
     },
     scrollTimeline(direction) {
       if (!this.timelineElement) return;
 
       const scrollStep = 300; // 每次滚动的距离
-      if (direction === 'prev') {
+      if (direction === "prev") {
         this.timelineElement.scrollLeft -= scrollStep;
-      } else if (direction === 'next') {
+      } else if (direction === "next") {
         this.timelineElement.scrollLeft += scrollStep;
       }
       this.updateButtonState();
     },
 
     itemMove(item) {
-      this.imgSrc = item.imRight;
-      this.activeIndex = item.index;
+      if (this.activeIndex !== item.index) {
+        this.imgSrc = item.imRight;
+        this.activeIndex = item.index;
+      }
     },
-    itemLeave(item) {
-      this.imgSrc = item.imRight
-      this.activeIndex = item.index
-    }
-  }
+  },
 };
 </script>
 <style lang="less" scoped>
@@ -247,16 +314,15 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s, ;
+  transition: opacity 0.5s ease;
 }
 
-.fade-enter,
+.fade-enter-from {
+  opacity: 0;
+}
+
 .fade-leave-to {
-  opacity: 0.5;
-}
-
-.fade-enter {
-  transform: translateX(-100%);
+  opacity: 0;
 }
 
 .corporate {
@@ -285,8 +351,6 @@ export default {
       text-align: left;
       color: #fff;
     }
-
-
   }
 
   .timeline {
@@ -308,7 +372,7 @@ export default {
         height: 22px;
         border: 1px solid #fff;
         background: #595c5f;
-        color: #FF7200;
+        color: #ff7200;
         cursor: pointer;
         transition: background-color 0.3s;
 
@@ -336,7 +400,6 @@ export default {
       }
 
       &-item {
-
         &-time {
           padding: 0 60px;
           font-family: MiSans VF;
@@ -345,7 +408,6 @@ export default {
           text-align: left;
           border-bottom: 1px solid rgba(241, 243, 247, 0.4);
           width: 100%;
-
         }
 
         &-time:first-child {
@@ -359,14 +421,8 @@ export default {
           font-weight: 520;
           text-align: left;
           line-height: 27px;
-
         }
-
-
-
       }
-
-
     }
   }
 
@@ -417,13 +473,9 @@ export default {
           justify-content: space-between;
         }
       }
-
-
-
     }
   }
 }
-
 
 .scientific {
   color: #fff;
@@ -479,7 +531,13 @@ export default {
         border-radius: 20px;
         background: rgba(40, 40, 40, 0.6226);
         border: 1px solid;
-        border-image: linear-gradient(156.52deg, rgba(255, 255, 255, 0.4) 2.12%, rgba(255, 255, 255, 0.0001) 39%, rgba(255, 255, 255, 0.0001) 54.33%, rgba(255, 255, 255, 0.1) 93.02%);
+        border-image: linear-gradient(
+          156.52deg,
+          rgba(255, 255, 255, 0.4) 2.12%,
+          rgba(255, 255, 255, 0.0001) 39%,
+          rgba(255, 255, 255, 0.0001) 54.33%,
+          rgba(255, 255, 255, 0.1) 93.02%
+        );
 
         img {
           height: 60px;
@@ -495,23 +553,25 @@ export default {
         }
 
         font-size: 14px;
+        opacity: 0.6;
+      }
+      .active {
+        opacity: 1;
       }
     }
 
     &-right {
       width: 824px;
-      display: flex;
-      flex-direction: row;
-
+      position: relative;
+      overflow: hidden;
       img {
+        position: absolute;
+        top: 0;
+        left: 0;
         height: 680px;
         width: 100%;
         border-radius: 20px;
-        object-fit: cover;
       }
-
-
-
     }
   }
 }
