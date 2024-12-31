@@ -77,11 +77,17 @@
       </div>
       <template #reference>
         <div class="contact-btn" @click="visible = !visible">
-          <img src="@/assets/images/contact.png" alt="contact" />
+          <div class="contact-btn-icon">
+            <img src="@/assets/images/contact.png" alt="contact" />
+          </div>
         </div>
       </template>
     </el-popover>
-    <div v-if="visible" class="contact-popover-overlay" @click="visible = false"></div>
+    <div
+      v-if="visible"
+      class="contact-popover-overlay"
+      @click="visible = false"
+    ></div>
   </div>
 </template>
   
@@ -100,7 +106,6 @@ const popperOptions = ref({
     },
   ],
 });
-
 </script>
   
 <style lang="less">
@@ -225,5 +230,50 @@ const popperOptions = ref({
   right: 0.5%;
   top: 60%;
   z-index: 1000;
+  &-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 80px;
+    position: relative;
+    border-radius: 100px;
+    background-color: #0a0b10b2;
+    // transition: all 0.5s;
+    &-icon {
+      width: 24px;
+      height: 24px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  &-btn::after,
+  &-btn::before {
+    content: "";
+    position: absolute;
+    border: 2px solid #808184;
+    width: 100px;
+    height: 80px;
+    border-radius: 100px;
+    /* 添加动画 */
+    animation: ellipse-rotate 3s infinite linear;
+  }
+  @keyframes ellipse-rotate {
+    0%,
+    100% {
+      clip-path: inset(0 0 65% 0);
+    }
+    25% {
+      clip-path: inset(0 65% 0 0);
+    }
+    50% {
+      clip-path: inset(65% 0 0 0);
+    }
+    75% {
+      clip-path: inset(0 0 0 65%);
+    }
+  }
 }
 </style>

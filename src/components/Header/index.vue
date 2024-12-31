@@ -115,9 +115,6 @@
             <img
               src="./images/menu.png"
               alt="Menu"
-              :style="
-                !$route.meta.unRequiresHeader ? 'opacity:1' : 'opacity: 0.3'
-              "
             />
           </div>
         </template>
