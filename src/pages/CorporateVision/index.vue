@@ -176,10 +176,10 @@
       </div>
     </div>
 
-    <div class="project sector">
+    <div class="project">
       <img src="@/assets/images/project.png" />
     </div>
-    <div class="banner sector border-gradient">
+    <div class="banner-sector">
       <img src="@/assets/images/banners.png" class="banner-img" />
     </div>
   </div>
@@ -291,7 +291,7 @@ export default {
     scrollTimeline(direction) {
       if (!this.timelineElement) return;
 
-      const scrollStep = 300; // 每次滚动的距离
+      const scrollStep = 1200; // 每次滚动的距离
       if (direction === "prev") {
         this.timelineElement.scrollLeft -= scrollStep;
       } else if (direction === "next") {
@@ -577,12 +577,15 @@ export default {
 }
 
 .project {
+  padding: 100px 160px;
   img {
     width: 100%;
   }
 }
 
-.banner {
+.banner-sector {
+  padding: 100px 160px;
+
   img {
     width: 100%;
   }

@@ -40,7 +40,14 @@
           <p>&元素驱动</p>
         </div>
       </div>
-      <div class="case-list">
+      <div
+        class="case-list"
+        ref="caseList"
+        @mousedown="startDrag($event, 'caseList')"
+        @mousemove="onDrag($event, 'caseList')"
+        @mouseup="endDrag"
+        @mouseleave="endDrag"
+      >
         <div
           class="case-list-item border-gradient"
           v-for="(item, index) in caseList"
@@ -70,7 +77,14 @@
           <p>& 元素驱动</p>
         </div>
       </div>
-      <div class="case-list">
+      <div
+        class="case-list"
+        ref="caseListSecond"
+        @mousedown="startDrag($event, 'caseListSecond')"
+        @mousemove="onDrag($event, 'caseListSecond')"
+        @mouseup="endDrag"
+        @mouseleave="endDrag"
+      >
         <div
           class="case-list-item border-gradient"
           v-for="(item, index) in caseListSecond"
@@ -252,6 +266,20 @@ export default {
     handleChange(activeNames) {
       this.activeNames = activeNames;
     },
+    startDrag(event, listRef) {
+      this.isDragging = true;
+      this.startX = event.clientX;
+      this.scrollLeft = this.$refs[listRef].scrollLeft;
+    },
+    onDrag(event, listRef) {
+      if (!this.isDragging) return;
+      const x = event.clientX;
+      const walk = (x - this.startX) * 2; // Adjust the multiplier for sensitivity
+      this.$refs[listRef].scrollLeft = this.scrollLeft - walk;
+    },
+    endDrag() {
+      this.isDragging = false;
+    },
   },
 };
 </script>
@@ -367,25 +395,26 @@ export default {
         /* 初始状态下滚动条轨道透明 */
       }
 
-      &:hover {
-        /* 悬停时显示滚动条 */
-        &::-webkit-scrollbar {
-          height: 8px;
-          /* 恢复滚动条高度 */
-          background: rgba(255, 255, 255, 0.1);
-          /* 恢复滚动条背景颜色 */
-        }
+      // &:hover {
 
-        &::-webkit-scrollbar-thumb {
-          background: rgba(255, 255, 255, 0.3);
-          /* 恢复滚动条滑块颜色 */
-        }
+      //   /* 悬停时显示滚动条 */
+      //   &::-webkit-scrollbar {
+      //     height: 8px;
+      //     /* 恢复滚动条高度 */
+      //     background: rgba(255, 255, 255, 0.1);
+      //     /* 恢复滚动条背景颜色 */
+      //   }
 
-        &::-webkit-scrollbar-track {
-          background: rgba(255, 255, 255, 0.1);
-          /* 恢复滚动条轨道颜色 */
-        }
-      }
+      //   &::-webkit-scrollbar-thumb {
+      //     background: rgba(255, 255, 255, 0.3);
+      //     /* 恢复滚动条滑块颜色 */
+      //   }
+
+      //   &::-webkit-scrollbar-track {
+      //     background: rgba(255, 255, 255, 0.1);
+      //     /* 恢复滚动条轨道颜色 */
+      //   }
+      // }
 
       &-item {
         background: hsla(206, 9%, 15%, 1);
