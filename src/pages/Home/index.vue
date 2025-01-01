@@ -50,7 +50,7 @@
               <span class="product-text" @mousemove="productMove(item)" @mouseleave="productLeave(item)">{{ item.product
                 }}</span>
               <transition name="fade">
-                <img :src="item.imgSrc" v-if="item.isShow" :style="{ top: item.top + 'px', objectFit: item.objectFit }">
+                <img :src="item.imgSrc" v-if="item.isShow"  :style="{ top: item.top + 'px', objectFit: item.objectFit }">
               </transition>
             </div>
             <div class="advantage product-text"><span class="dot-before" v-for="i in item.advantage" :key="i"
@@ -132,12 +132,12 @@ export default {
       ],
       advantageShow: false,
       productList: [
-        { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product-1.jpeg'), advantage: ['高效补充牲畜必需氨基酸', '有效减少养殖过程中温室气体排放'], friends: '[ 牧原集团 ]', top: 0, width: '50%' },
+        { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product-1.jpeg'), advantage: ['高效补充牲畜必需氨基酸', '有效减少养殖过程中温室气体排放'], friends: '[ 牧原集团 ]', top: -12, width: '50%' },
         { isShow: false, product: '[ 快递袋 ]', imgSrc: require('../../assets/images/product-2.jpeg'), advantage: ['非粮原料', '韧性好', '可降解', '可回收',], friends: '[ 顺丰 ]' },
         { isShow: false, product: '[ 快递袋 ]', imgSrc: require('../../assets/images/product-3.jpeg'), advantage: ['强度高', '成本低', '可降解', '可回收',], friends: '[ 唯品会 ]' },
         { isShow: false, product: '[ 生物降解地膜 ]', imgSrc: require('../../assets/images/product-4.jpeg'), advantage: ['寿命长', '保温保墒', '降解期可调控', '有助增产',], friends: '[ 新疆农科院 ]' },
         { isShow: false, product: '[ 一次性吸管 ]', imgSrc: require('../../assets/images/product-5.jpeg'), advantage: ['耐热耐冷', '硬度大', '韧性强', '成本低',], friends: '[ 蜜雪冰城 ]' },
-        { isShow: false, product: '[ 功能性纤维 ]', imgSrc: require('../../assets/images/product-6.jpeg'), advantage: ['吸湿性强', '弹力大', '可降解', '可回收',], friends: '[ 安踏 ]', objectFit: 'contain' },
+        { isShow: false, product: '[ 功能性纤维 ]', imgSrc: require('../../assets/images/product-6.jpeg'), advantage: ['吸湿性强', '弹力大', '可降解', '可回收',], friends: '[ 安踏 ]', objectFit: 'fill' },
       ],
       newList: [
         { title: '#MiNT产品力', date: '2024/09/21', content: '低豆粕日粮助力全面绿色转型', color: '#144BE1', imgSrc: require('../../assets/News/news01.png') }, { title: '#MiNT进行时', date: '2024/09/21', content: '周扬区长莅临元素驱动调研指导', color: '#FF7200', imgSrc: require('../../assets/News/news02.png') }, { title: '#MiNT Vision', date: '2024/09/21', content: '中央首次部署！加快经济社会发展全面绿色转型', color: '#007D30', imgSrc: require('../../assets/News/news03.png') }, { title: '#MiNT进行时', date: '2024/09/21', content: '姚高员市长调研重点产业赛道企业，莅临元素驱动指导', color: '#FF7200', imgSrc: require('../../assets/News/news04.png') }, { title: '#MiNT进行时', date: '2024/09/21', content: '聚焦发展新质生产力，元素驱动年产3万吨PBX生物降解材料项目开工', color: '#FF7200', imgSrc: require('../../assets/News/news05.png') },
@@ -266,7 +266,7 @@ export default {
 
     .title {
       width: 678px;
-      margin-bottom: 40px;
+      margin-bottom: 170px;
     }
 
     .product-list {
@@ -376,8 +376,8 @@ export default {
             height: 255px;
             object-fit: cover;
             position: absolute;
-            top: -68px;
-            left: 207px;
+            top: -48px;
+            left: 180px;
             z-index: 0;
             transition: all 0.5s ease;
           }

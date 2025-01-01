@@ -70,6 +70,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .footer {
+  position: relative;
   background-color: #11161b;
   padding: 4.2% 10.8% 4.2% 8%;
   height: 445px;
@@ -110,21 +111,20 @@ export default {
 
       &-text1,
       &-text2 {
+        font-size: 14px;
         font-weight: 500;
         color: #ffffff;
       }
 
       &-text1 {
-        width: 12%;
-        height: 55%;
-        margin-left: 9%;
+        width: 57px;
+        margin-left: 42px;
         text-align: right;
       }
 
       &-text2 {
-        width: 17%;
-        height: 19%;
-        margin-left: 3%;
+        width: 70px;
+        margin-left: 15px;
       }
     }
 
@@ -227,6 +227,24 @@ export default {
       }
     }
   }
+}
+
+.footer::after {
+  content: '';
+  position: absolute;
+  top: 0; /* 位于边框下方 */
+  left: 50%; /* 水平居中 */
+  width: 90%; /* 光晕的宽度 */
+  height: 50px; /* 光晕的高度 */
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: translateX(-50%);
+  filter: blur(30px);
+  opacity: 0.1;
+  pointer-events: none; /* 光晕不影响交互 */
 }
 
 .mb26 {
