@@ -73,7 +73,6 @@ export default {
   position: relative;
   background-color: #11161b;
   padding: 4.2% 10.8% 4.2% 8%;
-  height: 445px;
   border-width: 1px 0 0 0;
   /* 只设置上边框 */
   border-style: solid;
@@ -248,6 +247,6 @@ export default {
 }
 
 .mb26 {
-  margin-bottom: 1.625rem;
+  margin-bottom: 26px;
 }
 </style>

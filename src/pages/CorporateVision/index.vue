@@ -176,7 +176,7 @@
       </div>
     </div>
 
-    <div class="project">
+    <div class="project border-gradient">
       <img src="@/assets/images/project.png" />
     </div>
     <div class="banner-sector">
@@ -512,11 +512,10 @@ export default {
     margin-top: 80px;
 
     &-left {
-      width: 50%;
-      width: calc(100% - 840px);
+      width: calc(100% - 54%);
       display: flex;
       flex-direction: column;
-      align-items: space-between;
+      align-items: stretch;
       gap: 16px;
       height: 680px;
 
@@ -561,7 +560,7 @@ export default {
     }
 
     &-right {
-      width: 824px;
+      width: 53.5%;
       position: relative;
       overflow: hidden;
       img {
@@ -584,7 +583,7 @@ export default {
 }
 
 .banner-sector {
-  padding: 100px 160px;
+  padding: 237px 243px 214px;
 
   img {
     width: 100%;

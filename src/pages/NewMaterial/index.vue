@@ -485,10 +485,12 @@ export default {
     }
 
     .title-second {
-      margin-bottom: 80px;
+      margin-bottom: 94px;
     }
 
     .collapse {
+      margin-left: 432px;
+      margin-bottom: 160px;
       font: 400 24px MiSans VF;
       color: #fff;
 

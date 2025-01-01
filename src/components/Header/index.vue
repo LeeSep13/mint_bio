@@ -1,129 +1,130 @@
 <template>
-  <header class="header">
-    <div class="header-left">
-      <div class="header-left-logo" :style="{ cursor: 'pointer' }">
-        <img
-          src="@/assets/images/logo.png"
-          alt="Logo"
-          @click="handleLogoClick"
-        />
-      </div>
-    </div>
-
-    <div class="header-middle">
-      <ul class="nav">
-        <li
-          class="nav-item"
-          v-for="item in navData"
-          :key="item.key"
-          :class="{
-            'nav-item_current': item.state,
-            'has-submenu': item.submenu && item.submenu.length > 0,
-          }"
-          @mouseover="setMouseOver(item)"
-          @mouseleave="setMouseLeave(item)"
-          @click.prevent="handleClick(item)"
-        >
-          <router-link
-            class="nav-item-link"
-            :to="
-              item.submenu.length ? 'javascript:void(0)' : { name: item.router }
-            "
-            v-if="!item.submenu.length"
-          >
-            {{ item.name }}
-          </router-link>
-          <span class="nav-item-link" v-else>
-            {{ item.name }}
-            <img
-              :src="item.state ? item.iconUp : item.iconDown"
-              alt="Toggle Icon"
-              class="submenu-icon"
-            />
-          </span>
-
-          <ul v-if="item.submenu && item.submenu.length" class="submenu">
-            <li
-              class="submenu-item"
-              v-for="subItem in item.submenu"
-              :key="subItem.key"
-              @mouseover="setMouseOver(subItem)"
-              @mouseleave="setMouseLeave(subItem)"
-            >
-              <router-link
-                :to="{ name: subItem.router }"
-                class="submenu-item-link"
-              >
-                {{ subItem.name }}
-              </router-link>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <div class="header-right">
-      <el-popover
-        placement="bottom"
-        width="891"
-        trigger="manual"
-        :visible="visible"
-        :show-arrow="false"
-        popper-class="header-popover"
-        :popper-options="popperOptions"
-      >
-        <div class="popover-content">
-          <div class="popover-content-close" @click="visible = !visible">
-            <img src="./images/close.png" alt="close" />
-          </div>
-          <div class="popover-content-menu">
-            <div class="popover-content-menu-item">
-              <p>生物智造</p>
-            </div>
-            <div class="popover-content-menu-item">
-              <p>产品</p>
-              <p>生物降解新材料</p>
-              <p>生物合成氨基酸</p>
-              <p>节豆粮解决方案</p>
-            </div>
-            <div class="popover-content-menu-item">
-              <p>关于我们</p>
-              <p>企业介绍</p>
-              <p>愿景与责任</p>
-            </div>
-            <div class="popover-content-menu-item">
-              <p>发展动态</p>
-            </div>
-            <div class="popover-content-menu-item">
-              <p>加入我们</p>
-            </div>
-            <div class="popover-content-menu-item">
-              <p>下载中心</p>
-            </div>
-          </div>
-          <div class="popover-content-language">
-            <p class="popover-content-language-cn">简体中文</p>
-            <p class="popover-content-language-en">ENGLISH</p>
-            <div class="popover-content-download">
-              <p>下载品牌手册</p>
-              <img src="./images/download.png" alt="download" />
-            </div>
-          </div>
+  <header class="header-w">
+    <div class="header">
+      <div class="header-left">
+        <div class="header-left-logo" :style="{ cursor: 'pointer' }">
+          <img
+            src="@/assets/images/logo.png"
+            alt="Logo"
+            @click="handleLogoClick"
+          />
         </div>
-        <template #reference>
-          <div class="menu" @click="visible = !visible">
-            <img
-              src="./images/menu.png"
-              alt="Menu"
-            />
+      </div>
+
+      <div class="header-middle">
+        <ul class="nav">
+          <li
+            class="nav-item"
+            v-for="item in navData"
+            :key="item.key"
+            :class="{
+              'nav-item_current': item.state,
+              'has-submenu': item.submenu && item.submenu.length > 0,
+            }"
+            @mouseover="setMouseOver(item)"
+            @mouseleave="setMouseLeave(item)"
+            @click.prevent="handleClick(item)"
+          >
+            <router-link
+              class="nav-item-link"
+              :to="
+                item.submenu.length
+                  ? 'javascript:void(0)'
+                  : { name: item.router }
+              "
+              v-if="!item.submenu.length"
+            >
+              {{ item.name }}
+            </router-link>
+            <span class="nav-item-link" v-else>
+              {{ item.name }}
+              <img
+                :src="item.state ? item.iconUp : item.iconDown"
+                alt="Toggle Icon"
+                class="submenu-icon"
+              />
+            </span>
+
+            <ul v-if="item.submenu && item.submenu.length" class="submenu">
+              <li
+                class="submenu-item"
+                v-for="subItem in item.submenu"
+                :key="subItem.key"
+                @mouseover="setMouseOver(subItem)"
+                @mouseleave="setMouseLeave(subItem)"
+              >
+                <router-link
+                  :to="{ name: subItem.router }"
+                  class="submenu-item-link"
+                >
+                  {{ subItem.name }}
+                </router-link>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="header-right">
+        <el-popover
+          placement="bottom"
+          width="891"
+          trigger="manual"
+          :visible="visible"
+          :show-arrow="false"
+          popper-class="header-popover"
+          :popper-options="popperOptions"
+        >
+          <div class="popover-content">
+            <div class="popover-content-close" @click="visible = !visible">
+              <img src="./images/close.png" alt="close" />
+            </div>
+            <div class="popover-content-menu">
+              <div class="popover-content-menu-item">
+                <p>生物智造</p>
+              </div>
+              <div class="popover-content-menu-item">
+                <p>产品</p>
+                <p>生物降解新材料</p>
+                <p>生物合成氨基酸</p>
+                <p>节豆粮解决方案</p>
+              </div>
+              <div class="popover-content-menu-item">
+                <p>关于我们</p>
+                <p>企业介绍</p>
+                <p>愿景与责任</p>
+              </div>
+              <div class="popover-content-menu-item">
+                <p>发展动态</p>
+              </div>
+              <div class="popover-content-menu-item">
+                <p>加入我们</p>
+              </div>
+              <div class="popover-content-menu-item">
+                <p>下载中心</p>
+              </div>
+            </div>
+            <div class="popover-content-language">
+              <p class="popover-content-language-cn">简体中文</p>
+              <p class="popover-content-language-en">ENGLISH</p>
+              <div class="popover-content-download">
+                <p>下载品牌手册</p>
+                <img src="./images/download.png" alt="download" />
+              </div>
+            </div>
           </div>
-        </template>
-      </el-popover>
-      <div
-        v-if="visible"
-        class="popover-overlay"
-        @click="visible = false"
-      ></div>
+          <template #reference>
+            <div class="menu" @click="visible = !visible">
+              <img src="./images/menu.png" alt="Menu" />
+            </div>
+          </template>
+        </el-popover>
+        <div
+          v-if="visible"
+          class="popover-overlay"
+          @click="visible = false"
+        ></div>
+      </div>
     </div>
   </header>
 </template>
@@ -305,10 +306,16 @@ const popperOptions = ref({
   top: 0;
   left: 0;
   width: 100%;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding-top: 16px;
+
+  &-w {
+    height: 70px;
+    background-color: #11161b;
+  }
 
   &-left {
     &-logo {
@@ -337,7 +344,7 @@ const popperOptions = ref({
       border-radius: 16px;
       // background-color: #2828289f;
       border: 1px solid transparent;
-      background-image: linear-gradient(#282828, #292B2D),
+      background-image: linear-gradient(#282828, #292b2d),
         linear-gradient(
           185deg,
           rgba(255, 255, 255, 0.4) 2.12%,
@@ -465,5 +472,18 @@ const popperOptions = ref({
       }
     }
   }
+}
+.header::after {
+  content: '';
+  position: absolute;
+  top: 0; /* 位于边框下方 */
+  left: 50%; /* 水平居中 */
+  width: 80%; /* 光晕的宽度 */
+  height: 450px; /* 光晕的高度 */
+  background: radial-gradient(55% 50% at 50% 0%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  transform: translateX(-50%);
+  filter: blur(20px);
+  opacity: 0.1;
+  pointer-events: none; /* 光晕不影响交互 */
 }
 </style>

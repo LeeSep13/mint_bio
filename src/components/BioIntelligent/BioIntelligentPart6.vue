@@ -1,5 +1,5 @@
 <template>
-  <div class="biointelligentpart6v2">
+  <div class="biointelligentpart6v2 sector">
     <div class="title">
       <span class="label1"> 生物智造&nbsp;&nbsp; </span>
       <span class="label2"> 基 <br />地 </span>
@@ -119,17 +119,18 @@ const handleMouseOut = () => {
 };
 </script>
 
-<style lang="scss">
+<style lang="less" scoped>
+@import "@/style/variable.less";
+
 .biointelligentpart6v2 {
-  margin-bottom: 170px;
-  width: 1728px;
+  // margin-bottom: 170px;
+  // width: 1728px;
   height: 1300px;
   background-color: #11161b;
   .title {
-    width: 82.4%;
+    width: 100%;
     height: 30%;
     display: flex;
-    margin: auto;
     text-align: left;
     align-items: center;
 
@@ -145,11 +146,9 @@ const handleMouseOut = () => {
   }
 
   .content {
-    width: 82.4%;
+    width: 100%;
     height: 60%;
     border-radius: 15px;
-    margin: auto;
-    justify-content: space-between;
     position: relative;
 
     .box {
@@ -239,12 +238,12 @@ const handleMouseOut = () => {
 
       // z-index: 2;
       &:hover {
-        width: 66%;
+        width: 66.5%;
         z-index: 2;
       }
     }
     .box2 {
-      left: 33.3%;
+      left: 34%;
       background-image: url("@/assets/BioIntelligent/hangzhou.jfif");
       background-size: cover;
       background-position: center;
@@ -258,14 +257,14 @@ const handleMouseOut = () => {
     }
 
     .box3 {
-      left: 66.6%;
+      left: 68%;
       background-image: url("@/assets/BioIntelligent/jiande.jfif");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       border-radius: 15px;
       &:hover {
-        left: 33.3%;
+        left: 34%;
         width: 66.6%;
         z-index: 2;
       }

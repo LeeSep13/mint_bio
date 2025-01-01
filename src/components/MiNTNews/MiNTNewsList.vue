@@ -178,8 +178,9 @@ onMounted(async () => {
 });
 </script>
 
-<style lang="scss" scoped>
-/* @media screen and (min-width: 680px) { */
+<style lang="less" scoped>
+@import "@/style/variable.less";
+
 .container {
   width: 100%;
   /* height: 100%; */
@@ -190,9 +191,9 @@ onMounted(async () => {
   align-items: center;
 
   .news-container {
-    width: 1728px;
+    width: 100%;
     height: 100%;
-    padding: 40px 150px 300px 150px;
+    padding: 40px 160px 300px 160px;
     /* position: relative; */
 
     .selecthead {
@@ -220,14 +221,14 @@ onMounted(async () => {
     }
 
     .preview-newsinfo {
-      width: 1424px;
+      width: 100%;
       height: 647px;
       /* position: absolute; */
       margin: 60px 0px;
     }
 
     .news-preview {
-      width: 1424px;
+      width: 100%;
       top: 880px;
       /* position: absolute; */
     }

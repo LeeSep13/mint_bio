@@ -18,29 +18,26 @@ const props = defineProps({
     required: true,
   },
 });
-
 </script>
 
-<style lang="scss" scoped>
-@media screen and (min-width: 380px) {
-  .newslist {
-    width: 100%;
-    display: grid;
-    // position: relative;
-    grid-column-gap: 16px;
-    grid-row-gap: 80px;
-    grid-template-columns: repeat(3, 1fr);
-    overflow: hidden;
-    // justify-content: left;
+<style lang="less" scoped>
+.newslist {
+  width: 100%;
+  display: grid;
+  // position: relative;
+  grid-column-gap: 16px;
+  grid-row-gap: 80px;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: hidden;
+  // justify-content: left;
 
-    .newsbox {
-      width: 464px;
-      height: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      // display: flex;
-      justify-content: center;
-    }
+  .newsbox {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // display: flex;
+    justify-content: center;
   }
 }
 </style>

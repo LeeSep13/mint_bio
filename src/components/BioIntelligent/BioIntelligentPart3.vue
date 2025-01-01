@@ -1,5 +1,5 @@
 <template>
-  <div class="part3">
+  <div class="part3 sector border-gradient">
     <div class="label">
       <div class="label-top">
         <span class="labelBig labelWhite mr117">一起</span>
@@ -144,10 +144,10 @@ export default {
 };
 </script>
   
-<style lang="scss">
+<style lang="less" scoped>
+@import "@/style/variable.less";
+
 .part3 {
-  width: 100%;
-  height: 1148px;
 
   .labelOrange {
     color: #ff7200;
@@ -169,8 +169,7 @@ export default {
     width: 82.4%;
     height: 112px;
     text-align: left;
-    padding-top: 170px;
-    margin: 0 auto 100px;
+    margin-bottom: 100px;
   }
   .label-top {
     margin-bottom: 20px;
@@ -182,8 +181,7 @@ export default {
     display: flex;
     gap: 16px;
     height: 592px;
-    width: 82.4%;
-    margin: 0 auto;
+    width: 100%;
     .desc {
       width: 34%;
       height: 100%;
