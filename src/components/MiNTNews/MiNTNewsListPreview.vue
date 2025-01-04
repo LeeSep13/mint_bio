@@ -1,6 +1,13 @@
 <template>
   <div class="newslist">
-    <div class="newsbox" v-for="news in props.filteredNews" :key="news.id">
+    <div
+      v-for="news in props.filteredNews"
+      :key="news.id"
+      class="newsbox hover-scale-transition"
+      @mousemove="cardHover(news)"
+      @mouseleave="cardLeave(news)"
+      :style="{ transform: news.transform }"
+    >
       <!-- 展示新闻内容 -->
       <NewsCardPreview :info="news"> </NewsCardPreview>
     </div>
@@ -18,9 +25,18 @@ const props = defineProps({
     required: true,
   },
 });
+
+function cardHover(card) {
+  card.transform = "scale(1.05)";
+}
+function cardLeave(card) {
+  card.transform = "scale(1)";
+}
 </script>
 
 <style lang="less" scoped>
+@import "@/style/variable.less";
+
 .newslist {
   width: 100%;
   display: grid;

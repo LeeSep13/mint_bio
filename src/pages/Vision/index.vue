@@ -9,15 +9,17 @@
     <div class="vision-module2 sector">
       <div class="vision-module2-left">
         <p class="vision-module2-left-title">白色污染</p>
-        <img
-          class="vision-module2-left-img"
-          src="./images/banner2_left.png"
-          alt="vision_module2_left"
-        />
-        <ul class="vision-module2-left-text">
-          <li>海洋飘浮着 5 亿+块不可降解的塑料垃圾</li>
-          <li>每人每年吞入 5万+个微塑料颗粒=50+张信用卡</li>
-        </ul>
+        <div class="hover-scale-transition">
+          <img
+            class="vision-module2-left-img"
+            src="./images/banner2_left.png"
+            alt="vision_module2_left"
+          />
+          <ul class="vision-module2-left-text">
+            <li>海洋飘浮着 5 亿+块不可降解的塑料垃圾</li>
+            <li>每人每年吞入 5万+个微塑料颗粒=50+张信用卡</li>
+          </ul>
+        </div>
       </div>
       <div class="vision-module2-right">
         <p class="vision-module2-right-title">资源枯竭</p>
@@ -70,7 +72,9 @@
     </div>
     <div class="vision-module4 sector border-gradient">
       <div class="vision-module4-top">
-        <div class="vision-module4-top-title animate__animated animate__fadeInUp">
+        <div
+          class="vision-module4-top-title animate__animated animate__fadeInUp"
+        >
           <p class="vision-module4-top-title-text1">响应</p>
           <p class="vision-module4-top-title-text2">号召</p>
         </div>
@@ -83,9 +87,12 @@
       </div>
       <div class="vision-module4-bottom">
         <div
-          class="vision-module4-bottom-card"
           v-for="item in cardData"
           :key="item.key"
+          class="vision-module4-bottom-card hover-scale-transition"
+          @mousemove="cardHover(item)"
+          @mouseleave="cardLeave(item)"
+          :style="{ transform: item.transform }"
         >
           <img src="./images/book_icon.png" alt="book_icon" />
           <div class="vision-module4-bottom-card-content">
@@ -114,24 +121,28 @@ const cardData = ref([
     title: "《“十四五”塑料污染治理行动方案》",
     content:
       "科学稳妥推广塑料替代产品。加大可降解塑料关键核心技术攻关和成果转化，不断提升产品质量和性能，降低应用成本。",
+    transform: "scale(1)",
   },
   {
     key: 1,
     title: "《“十四五”生物经济发展规划》",
     content:
       "培育壮大生物经济支柱产业。加快生物技术广泛赋能健康、农业、能源、环保等产业，促进生物技术与信息技术深度融合，全面提升生物产业多样化水平，推动生物经济高质量发展。",
+    transform: "scale(1)",
   },
   {
     key: 2,
     title: "《新产业标准化领航工程实施方案(2023-2035年)》",
     content:
       "聚焦元宇宙、脑机接口、量子信息、人形机器人、生成式人工智能、生物制造、未来显示、未来网络、新型储能等9大未来产业。",
+    transform: "scale(1)",
   },
   {
     key: 3,
     title: "《加快非粮生物基材料创新发展三年行动方案》",
     content:
       "到 2025 年，非粮生物基材料产业基本形成自主创新能力强、产品体系不断丰富、绿色循环低碳的创新发展生态，非粮生物质原料利用和应用技术基本成熟，部分非粮生物基产品竞争力与化石基产品相当，高质量、可持续的供给和消费体系初步建立。",
+    transform: "scale(1)",
   },
 ]);
 const declineData = ref([
@@ -167,6 +178,13 @@ const hoverData = ref("15%～88%");
 function updateHoverData(data, index) {
   this.highlightedIndex = index;
   this.hoverData = data;
+}
+
+function cardHover(card) {
+  card.transform = "scale(1.05)";
+}
+function cardLeave(card) {
+  card.transform = "scale(1)";
 }
 </script>
 

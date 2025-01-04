@@ -93,12 +93,12 @@ export default {
   overflow: hidden;
   .more-dynamic {
     margin-top: 100px;
-    margin-bottom: 80px;
     font-size: 21px;
     color: #ffffff;
   }
   .news-preview {
-    margin-bottom: 300px;
+    padding-top: 80px;
+    padding-bottom: 300px;
     width: 82.5%;
   }
 }

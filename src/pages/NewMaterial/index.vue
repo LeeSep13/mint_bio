@@ -5,10 +5,6 @@
       :titleStyle="titleStyle"
     />
 
-    <!-- <div class="material-banner">
-      <img src="@/assets/images/material-banner.png" alt="material-banner" class="material-banner-img">
-    </div> -->
-
     <div class="material-banner">
       <div class="material-banner-content">
         <div class="material-banner-content-right">
@@ -49,9 +45,12 @@
         @mouseleave="endDrag"
       >
         <div
-          class="case-list-item border-gradient"
           v-for="(item, index) in caseList"
           :key="index"
+          class="case-list-item border-gradient hover-scale-transition"
+          @mousemove="cardHover(item)"
+          @mouseleave="cardLeave(item)"
+          :style="{ transform: item.transform }"
         >
           <div class="case-list-item-top">
             <span>China</span><span>MiNT BiO</span><span>Hangzhou</span>
@@ -68,7 +67,7 @@
     </div>
 
     <div class="case sector">
-      <div class="case-title">
+      <div class="case-title flex">
         <div class="case-title-third">
           <p>中国农科院</p>
           <p>& 元素驱动</p>
@@ -86,9 +85,12 @@
         @mouseleave="endDrag"
       >
         <div
-          class="case-list-item border-gradient"
+          class="case-list-item border-gradient hover-scale-transition"
           v-for="(item, index) in caseListSecond"
           :key="index"
+          @mousemove="cardHover(item)"
+          @mouseleave="cardLeave(item)"
+          :style="{ transform: item.transform }"
         >
           <div class="case-list-item-top">
             <span>China</span><span>MiNT BiO</span><span>Hangzhou</span>
@@ -287,14 +289,17 @@ export default {
         {
           imgSrc: require("@/assets/images/case-4.png"),
           describe: "使用 PiX 001 打造，兼具性能、成本优势及环保性的快递袋。",
+          transform: "scale(1)",
         },
         {
           imgSrc: require("@/assets/images/case-2.png"),
           describe: "独创合成工艺进行低成本、高效率量产。",
+          transform: "scale(1)",
         },
         {
           imgSrc: require("@/assets/images/case-1.png"),
           describe: "将于 2025 年 3 月正式在唯品会电商物流中投入使用。",
+          transform: "scale(1)",
         },
       ],
       caseListSecond: [
@@ -302,14 +307,17 @@ export default {
           imgSrc: require("@/assets/images/case-1.jpeg"),
           describe: "PiX 004 全程护航新疆棉成长",
           tips: "元素驱动与中国农业科学院农业环境与可持续发展研究所合作，在新疆进行棉花大田试验，现已完成棉花成长全周期实验。",
+          transform: "scale(1)",
         },
         {
           imgSrc: require("@/assets/images/case-2.jpeg"),
           describe: "可控生物降解，满足长期作物生长条件。",
+          transform: "scale(1)",
         },
         {
           imgSrc: require("@/assets/images/case-3.jpeg"),
           describe: "节水性能优异，水蒸气透过量远低于市面普通可降解地膜。",
+          transform: "scale(1)",
         },
       ],
       questionList: [
@@ -352,6 +360,12 @@ export default {
     },
     endDrag() {
       this.isDragging = false;
+    },
+    cardHover(card) {
+      card.transform = "scale(1.05)";
+    },
+    cardLeave(card) {
+      card.transform = "scale(1)";
     },
   },
 };
@@ -426,8 +440,6 @@ export default {
     color: #fff;
 
     &-title {
-      display: flex;
-      gap: 377px;
       &-first {
         text-align: left;
         font: 520 60px MiSans VF;
@@ -443,9 +455,13 @@ export default {
         font: 520 40px MiSans VF;
       }
     }
+    .flex{
+      display: flex;
+      gap: 377px;
+    }
 
     &-list {
-      margin-top: 40px;
+      padding-top: 70px;
       white-space: nowrap;
       overflow-x: auto;
       display: flex;

@@ -25,7 +25,7 @@
     </div>
 
     <div class="knotWeed-module1-w sector">
-      <div class="knotWeed-module1">
+      <div class="knotWeed-module1 animate__animated animate__zoomIn">
         <div class="knotWeed-module1-title animate__animated animate__fadeInUp">
           <p>节豆日粮</p>
           <p class="knotWeed-module1-title-replace">替代</p>
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="knotWeed-module2-w sector">
-      <div class="knotWeed-module2">
+      <div class="knotWeed-module2 animate__animated animate__zoomIn">
         <div class="knotWeed-module2-propagate animate__animated animate__fadeInUp">
           <div class="knotWeed-module2-propagate-title">节豆日粮</div>
           <div class="knotWeed-module2-propagate-target">

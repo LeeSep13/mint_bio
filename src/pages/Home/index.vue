@@ -18,7 +18,10 @@
         <div class="dna-text">DNA</div>
         <!-- <img src="@/assets/images/lines.png" class="line"> -->
       </div>
-      <div class="advantage animate__animated animate__fadeIn" v-if="advantageShow">
+      <div
+        class="advantage animate__animated animate__fadeIn"
+        v-if="advantageShow"
+      >
         <div
           v-for="(advantage, index) in advantageArr"
           :key="index"
@@ -26,16 +29,16 @@
           @mousemove="advantageMove(advantage)"
           @mouseleave="advantageLeave(advantage)"
         >
-          <div class="title" :style="{ color: advantage.color,transition: 'color 1s' }">
+          <div
+            class="title"
+            :style="{ color: advantage.color, transition: 'color 1s' }"
+          >
             {{ advantage.title }}
           </div>
           <div class="sub-title" v-if="advantage.subTitle">
             {{ advantage.subTitle }}
           </div>
-          <div
-            :class="advantage.animationClass"
-            class="describe"
-          >
+          <div :class="advantage.animationClass" class="describe">
             {{ advantage.describe }}
           </div>
         </div>
@@ -96,7 +99,14 @@
       />
     </div>
     <div class="new-section sector border-gradient">
-      <div class="new-item" v-for="(item, index) in newList" :key="index">
+      <div
+        v-for="(item, index) in newList"
+        :key="index"
+        class="new-item hover-scale-transition"
+        @mousemove="cardHover(item)"
+        @mouseleave="cardLeave(item)"
+        :style="{ transform: item.transform}"
+      >
         <div class="img-box">
           <img :src="item.imgSrc" alt="" class="new-img" />
 
@@ -156,33 +166,33 @@ export default {
           title: "前沿 科技力",
           describe: "与合作伙伴共担ESG责任共筑地球可持续未来",
           moveColor: "#FF7200",
-          animationClass: '',
+          animationClass: "",
         },
         {
           title: "平台 强赋能",
           describe: "独创 MiNT X Platform AI赋能生物智造",
           moveColor: "#144BE1",
-          animationClass: '',
+          animationClass: "",
         },
         {
           title: "卓越 产品力",
           subTitle: "生物降解新材料",
           describe: "低成本高性能的环保新材料",
           moveColor: "#0082FB",
-          animationClass: '',
+          animationClass: "",
         },
         {
           title: "卓越 产品力",
           subTitle: "生物合成氨基酸",
           describe: "高效生物合成20+种氨基酸",
           moveColor: "#0082FB",
-          animationClass: '',
+          animationClass: "",
         },
         {
           title: "绿色 可持续",
           describe: "与合作伙伴共担ESG责任共筑地球可持续未来",
           moveColor: "#00965A",
-          animationClass: '',
+          animationClass: "",
         },
       ],
       advantageShow: false,
@@ -243,6 +253,7 @@ export default {
           content: "低豆粕日粮助力全面绿色转型",
           color: "#144BE1",
           imgSrc: require("../../assets/News/news01.png"),
+          transform: 'scale(1)',
         },
         {
           title: "#MiNT进行时",
@@ -250,6 +261,7 @@ export default {
           content: "周扬区长莅临元素驱动调研指导",
           color: "#FF7200",
           imgSrc: require("../../assets/News/news02.png"),
+          transform: 'scale(1)',
         },
         {
           title: "#MiNT Vision",
@@ -257,6 +269,7 @@ export default {
           content: "中央首次部署！加快经济社会发展全面绿色转型",
           color: "#007D30",
           imgSrc: require("../../assets/News/news03.png"),
+          transform: 'scale(1)',
         },
         {
           title: "#MiNT进行时",
@@ -264,6 +277,7 @@ export default {
           content: "姚高员市长调研重点产业赛道企业，莅临元素驱动指导",
           color: "#FF7200",
           imgSrc: require("../../assets/News/news04.png"),
+          transform: 'scale(1)',
         },
         {
           title: "#MiNT进行时",
@@ -272,6 +286,7 @@ export default {
             "聚焦发展新质生产力，元素驱动年产3万吨PBX生物降解材料项目开工",
           color: "#FF7200",
           imgSrc: require("../../assets/News/news05.png"),
+          transform: 'scale(1)',
         },
       ],
     };
@@ -285,11 +300,11 @@ export default {
     },
     advantageMove(advantage) {
       advantage.color = advantage.moveColor;
-      advantage.animationClass = 'animate__animated animate__fadeIn';
+      advantage.animationClass = "animate__animated animate__fadeIn";
     },
     advantageLeave(advantage) {
       advantage.color = "#ffffff";
-      advantage.animationClass = 'animate__animated animate__fadeOut';
+      advantage.animationClass = "animate__animated animate__fadeOut";
     },
     productMove(product) {
       product.isShow = true;
@@ -297,6 +312,12 @@ export default {
     productLeave(product) {
       product.isShow = false;
     },
+    cardHover(card) {
+      card.transform = 'scale(1.05)';
+    },
+    cardLeave(card) {
+      card.transform = 'scale(1)';
+    }
   },
 };
 </script>
@@ -530,7 +551,6 @@ export default {
       margin-bottom: 40px;
       position: relative;
       cursor: pointer;
-
       .img-box {
         position: relative;
 
