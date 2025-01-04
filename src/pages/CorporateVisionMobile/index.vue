@@ -33,10 +33,14 @@
         <div class="story-img-box-item">
           <img src="@/assets/images/story-1.png" alt="" />
           <div class="plus" @click="toggleStoryItem">+</div>
+          <div>张科春</div>
+          <div>创始人&首席科学家</div>
         </div>
         <div class="story-img-box-item">
           <img src="@/assets/images/story-2.png" />
           <div class="plus" @click="toggleStoryItem2">+</div>
+          <div>刘旻昊</div>
+          <div>联合创始人&创始董事</div>
 
         </div>
 
@@ -115,42 +119,30 @@
         <div>
           <span>后端</span><span class="orange-text">落地</span><span>量产</span>
         </div>
-
-
       </div>
       <div class="scientific-card">
-        <div class="scientific-card-left">
-          <div class="scientific-card-left-item" @mousemove="itemMove(cardList[0])" @mouseleave="itemLeave(cardList[0])"
-            :style="activeIndex === 0 ? ' background: #6a6a6a; opacity:0.6;' : ''
-              ">
-            <div class="top button-top">中心团队</div>
-            <div class="middle">
-              <img src="@/assets/images/number-1.png" alt="" />
-            </div>
-            <div class="bottom">承担前端科研、实验及小试。</div>
+        <div class="scientific-card-top">
+          <div class="menu-item">MiNT BiO</div>
+          <div :class="{ 'menu-item': true, 'active': activeIndex === 0 }" @click="itemMove(cardList[0])">研发中心
+
+            <div class="slider" :style="{ left: sliderPosition + 'px' }"></div>
+
           </div>
-          <div class="scientific-card-left-item" @mousemove="itemMove(cardList[1])"
-            :style="activeIndex === 1 ? ' background: #6a6a6a;opacity:0.' : ''" @mouseleave="itemLeave(cardList[1])">
-            <div class="top button-top">研发团队</div>
-            <div class="middle">
-              <img src="@/assets/images/number-2.png" alt="" />
-            </div>
-            <div class="bottom">跨科学人才合作，探索前沿技术。</div>
-          </div>
+          <div :class="{ 'menu-item': true, 'active': activeIndex === 1 }" @click="itemMove(cardList[1])">研发团队</div>
         </div>
-        <div class="scientific-card-right">
-          <transition name="fade">
-            <img :src="imgSrc" :key="imgSrc" />
-          </transition>
+        <div class="scientific-card-content">
+          <img :src="cardList[activeIndex].textMiddle" class="text-middle" />
+          <div class="text-bottom">{{ cardList[activeIndex].textBottom }}</div>
+          <img :src="cardList[activeIndex].imSrc" :key="imgSrc" class="main-img" />
         </div>
       </div>
     </div>
 
     <div class="project">
-      <img src="@/assets/images/project.png" />
+      <img src="@/assets/images/corporates.png" alt="">
     </div>
     <div class="banner-sector">
-      <img src="@/assets/images/banners.png" class="banner-img" />
+      <img src="@/assets/images/banners-mobile.png" class="banner-img" />
     </div>
   </div>
 </template>
@@ -167,6 +159,7 @@ export default {
     return {
       isStoryItemVisible: false,
       isStoryItemVisible2: false,
+      sliderPosition: 0, // 添加滑块位置
       imgSrc: require("@/assets/images/scientific.png"),
       activeIndex: 0,
       timeList: [
@@ -225,14 +218,14 @@ export default {
           textTop: "中心团队",
           textMiddle: require("@/assets/images/number-1.png"),
           textBottom: "承担前端科研、实验及小试。",
-          imRight: require("@/assets/images/scientific.png"),
+          imSrc: require("@/assets/images/scientific.png"),
         },
         {
           index: 1,
           textTop: "中心团队",
-          textMiddle: require("@/assets/images/number-1.png"),
-          textBottom: "承担前端科研、实验及小试。",
-          imRight: require("@/assets/images/scientific-2.png"),
+          textMiddle: require("@/assets/images/number-2.png"),
+          textBottom: "跨科学人才合作，探索前沿技术",
+          imSrc: require("@/assets/images/scientific-2.png"),
         },
       ],
       isPrevDisabled: true,
@@ -244,6 +237,7 @@ export default {
     this.timelineElement = document.querySelector(".timeline-list");
     this.timelineElement.addEventListener("scroll", this.handleScroll);
     this.updateButtonState();
+    this.updateSliderPosition();
   },
   beforeDestroy() {
     if (this.timelineElement) {
@@ -251,6 +245,13 @@ export default {
     }
   },
   methods: {
+    updateSliderPosition() {
+      const buttons = document.querySelectorAll('.scientific-card-top .menu-item');
+      if (buttons.length > this.activeIndex) {
+        const button = buttons[this.activeIndex];
+        this.sliderPosition = button.offsetLeft;
+      }
+    },
     handleScroll() {
       this.updateButtonState();
     },
@@ -273,12 +274,8 @@ export default {
     },
 
     itemMove(item) {
-      this.imgSrc = item.imRight;
       this.activeIndex = item.index;
-    },
-    itemLeave(item) {
-      this.imgSrc = item.imRight;
-      this.activeIndex = item.index;
+      this.updateSliderPosition();
     },
     toggleStoryItem() {
       this.isStoryItemVisible = !this.isStoryItemVisible;
@@ -387,17 +384,19 @@ export default {
       justify-content: space-between;
 
       &-item {
+        font-size: 14px;
+        line-height: 21px;
         position: relative;
         width: 200px;
-        height: 210px;
-        border-radius: 8px;
-
+        margin-top: 20px;
 
         img {
-          width: 100%;
-          height: 100%;
+          width: 200px;
+          height: 210px;
           border-radius: 8px;
           object-fit: cover;
+          object-position: top;
+          margin-bottom: 20px;
         }
 
         .plus {
@@ -409,7 +408,7 @@ export default {
           background: #FF7200;
           position: absolute;
           right: 8px;
-          bottom: 8px;
+          bottom: 75px;
           font-size: 24px;
           color: #fff;
         }
@@ -511,8 +510,9 @@ export default {
 
 .scientific {
   color: #fff;
-  font-size: 25px;
+  font-size: 14px;
   font-weight: 520;
+  padding: 0 10px;
 
   &-title {
     display: flex;
@@ -532,74 +532,110 @@ export default {
   }
 
   &-card {
-    height: 680px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    margin-top: 80px;
+    border-radius: 12px;
+    margin: 40px auto 60px;
+    border: 1px solid;
+    border-image-source: linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 74.04%);
 
-    &-left {
-      width: 50%;
-      width: calc(100% - 840px);
+    &-content {
+      padding: 10px;
       display: flex;
+      justify-content: flex-start;
+      align-items: center;
       flex-direction: column;
-      align-items: space-between;
-      gap: 16px;
-      height: 680px;
 
-      &-item {
-        transition: opacity 0.3s ease;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 50%;
-        padding: 32px;
-        border-radius: 20px;
-        background: rgba(40, 40, 40, 0.6226);
-        border: 1px solid;
-        border-image: linear-gradient(156.52deg,
-            rgba(255, 255, 255, 0.4) 2.12%,
-            rgba(255, 255, 255, 0.0001) 39%,
-            rgba(255, 255, 255, 0.0001) 54.33%,
-            rgba(255, 255, 255, 0.1) 93.02%);
-
-        img {
-          height: 60px;
-        }
-
-        .button-top {
-          border: 1px solid #fff;
-          border-radius: 50px;
-          width: 96px;
-          height: 50px;
-          text-align: center;
-          line-height: 50px;
-        }
-
-        font-size: 14px;
+      .text-middle {
+        margin: 30px auto 10px;
+        width: 118px;
       }
+
+      .text-bottom {
+        margin-bottom: 30px;
+      }
+
     }
 
-    &-right {
-      width: 824px;
+    &-top {
+      position: relative;
+      width: 100%;
       display: flex;
-      flex-direction: row;
-      overflow: hidden;
+      justify-content: space-between;
+      background: radial-gradient(16.67% 100% at 42.7% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
+      height: 36px;
+      line-height: 36px;
+      color: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 8.85%, rgba(255, 255, 255, 0.5) 100%);
 
-      img {
-        height: 680px;
-        width: 100%;
-        border-radius: 20px;
-        object-fit: cover;
+
+
+
+      .menu-item {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        transition: all 0.3s ease-in-out; // 平滑过渡效果
+
+        &:nth-child(1) {
+          background: #181c20;
+          color: #F1F3F780;
+          border-radius: 6px 0px 6px 0px;
+          width: 90px;
+          border: 1px solid transparent;
+          border-image-source: radial-gradient(100% 148.61% at 0% 148.61%, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        &:nth-child(2) {
+          width: calc(100% - 230px);
+          background: #181c20;
+          position: relative;
+
+          .slider {
+            position: absolute;
+            bottom: 0;
+            left: 90px;
+            height: 2px;
+            background: #FF7200;
+            transition: all 0.3s ease-in-out;
+            width: 100px;
+          }
+        }
+
+        &:nth-child(3) {
+          border-radius: 0px 6px 0px 6px;
+          width: 140px;
+          background: #181c20;
+        }
+
+        &.active {
+          background: none;
+          border: 1px solid #444649;
+        }
       }
+
+
     }
+
+    .main-img {
+      width: 350px;
+      height: 214px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
   }
 }
 
 .project {
   padding: 60px 10px;
+
+  &-item {
+    width: 141.18px;
+    height: 116.71px;
+    background: #2828289F;
+    border: 0.45px solid #2d2e2e;
+    border-radius: 9.07px;
+    border-image-source: linear-gradient(156.52deg, rgba(255, 255, 255, 0.4) 2.12%, rgba(255, 255, 255, 0.0001) 39%, rgba(255, 255, 255, 0.0001) 54.33%, rgba(255, 255, 255, 0.1) 93.02%);
+  }
 
   img {
     width: 100%;
