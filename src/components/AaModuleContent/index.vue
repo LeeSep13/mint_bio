@@ -52,12 +52,13 @@
               </ul>
             </div>
           </div>
-          <div class="aminoAcid-module2-content-bottom-img">
-            <img
+          <div class="aminoAcid-module2-content-bottom-exhibit">
+            <div
               v-if="imageUrl.length === 1"
-              :src="getImageUrl(imageUrl[0])"
-              alt=""
-            />
+              class="aminoAcid-module2-content-bottom-exhibit-image"
+            >
+              <img :src="getImageUrl(imageUrl[0])" alt="" />
+            </div>
 
             <div v-else class="swiper-content">
               <div class="navigation">
@@ -100,6 +101,12 @@
                   :class="{ active: index === curSwipIndex }"
                 ></div>
               </div>
+            </div>
+
+            <div class="aminoAcid-module2-content-bottom-exhibit-match">
+              <p class="aminoAcid-module2-content-bottom-exhibit-match-btn">
+                匹配顾问
+              </p>
             </div>
           </div>
         </div>
@@ -331,10 +338,32 @@ const handleNext = throttle(() => {
           }
         }
 
-        &-img {
-          img {
+        &-exhibit {
+          position: relative;
+          &-image {
             width: 764px;
             height: 526px;
+
+            img {
+              width: 100%;
+            }
+          }
+          &-match {
+            position: absolute;
+            bottom: 20px;
+            right: 10px;
+            z-index: 999;
+            &-btn {
+              width: 124px;
+              height: 58px;
+              line-height: 58px;
+              text-align: center;
+              font-size: 16px;
+              font-weight: 500;
+              color: #f1f3f7;
+              background-color: rgba(40, 40, 40, 0.62);
+              border-radius: 209px;
+            }
           }
           .swiper-content {
             position: relative;
