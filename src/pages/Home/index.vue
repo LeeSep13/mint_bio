@@ -18,7 +18,7 @@
         <div class="dna-text">DNA</div>
         <!-- <img src="@/assets/images/lines.png" class="line"> -->
       </div>
-      <div class="advantage" v-if="advantageShow">
+      <div class="advantage animate__animated animate__fadeIn" v-if="advantageShow">
         <div
           v-for="(advantage, index) in advantageArr"
           :key="index"
@@ -26,20 +26,26 @@
           @mousemove="advantageMove(advantage)"
           @mouseleave="advantageLeave(advantage)"
         >
-          <div class="title" :style="{ color: advantage.color }">
+          <div class="title" :style="{ color: advantage.color,transition: 'color 1s' }">
             {{ advantage.title }}
           </div>
           <div class="sub-title" v-if="advantage.subTitle">
             {{ advantage.subTitle }}
           </div>
-          <div class="describe" v-if="advantage.isShow">
+          <div
+            :class="advantage.animationClass"
+            class="describe"
+          >
             {{ advantage.describe }}
           </div>
         </div>
       </div>
     </div>
     <div class="product-section sector border-gradient">
-      <img src="@/assets/images/infinite.png" class="title" />
+      <img
+        src="@/assets/images/infinite.png"
+        class="title animate__animated animate__fadeIn"
+      />
       <div class="product-list">
         <div class="product-list-top">
           <div class="product-list-top-item product">产品</div>
@@ -58,7 +64,11 @@
             <div class="product">
               <span class="product-text">{{ item.product }}</span>
               <transition name="fade">
-                <img :src="item.imgSrc" v-if="item.isShow"  :style="{ top: item.top + 'px', objectFit: item.objectFit }">
+                <img
+                  :src="item.imgSrc"
+                  v-if="item.isShow"
+                  :style="{ top: item.top + 'px', objectFit: item.objectFit }"
+                />
               </transition>
             </div>
             <div class="advantage product-text">
@@ -76,11 +86,14 @@
       </div>
     </div>
     <div class="banner-section sector border-gradient">
-      <div class="title">
+      <div class="title animate__animated animate__fadeIn">
         <span>您的选择和 </span><span class="orange-text"> 他们 </span
         ><span> 一样</span>
       </div>
-      <img src="@/assets/images/banners.png" class="banner-img" />
+      <img
+        src="@/assets/images/banners.png"
+        class="banner-img animate__animated animate__fadeIn"
+      />
     </div>
     <div class="new-section sector border-gradient">
       <div class="new-item" v-for="(item, index) in newList" :key="index">
@@ -142,44 +155,86 @@ export default {
         {
           title: "前沿 科技力",
           describe: "与合作伙伴共担ESG责任共筑地球可持续未来",
-          moveColor: "#dd716c",
-          isShow: false,
+          moveColor: "#FF7200",
+          animationClass: '',
         },
         {
           title: "平台 强赋能",
           describe: "独创 MiNT X Platform AI赋能生物智造",
-          moveColor: "#1c358c",
-          isShow: false,
+          moveColor: "#144BE1",
+          animationClass: '',
         },
         {
           title: "卓越 产品力",
           subTitle: "生物降解新材料",
           describe: "低成本高性能的环保新材料",
-          moveColor: "#3170d3",
-          isShow: false,
+          moveColor: "#0082FB",
+          animationClass: '',
         },
         {
           title: "卓越 产品力",
           subTitle: "生物合成氨基酸",
           describe: "高效生物合成20+种氨基酸",
-          moveColor: "#285caa",
-          isShow: false,
+          moveColor: "#0082FB",
+          animationClass: '',
         },
         {
           title: "绿色 可持续",
           describe: "与合作伙伴共担ESG责任共筑地球可持续未来",
-          moveColor: "#306e4a",
-          isShow: false,
+          moveColor: "#00965A",
+          animationClass: '',
         },
       ],
       advantageShow: false,
       productList: [
-        { isShow: false, product: '[ 无豆粕日粮解决方案 ]', imgSrc: require('../../assets/images/product-1.jpeg'), advantage: ['高效补充牲畜必需氨基酸', '有效减少养殖过程中温室气体排放'], friends: '[ 牧原集团 ]', top: -12, width: '50%' },
-        { isShow: false, product: '[ 快递袋 ]', imgSrc: require('../../assets/images/product-2.jpeg'), advantage: ['非粮原料', '韧性好', '可降解', '可回收',], friends: '[ 顺丰 ]' },
-        { isShow: false, product: '[ 快递袋 ]', imgSrc: require('../../assets/images/product-3.jpeg'), advantage: ['强度高', '成本低', '可降解', '可回收',], friends: '[ 唯品会 ]' },
-        { isShow: false, product: '[ 生物降解地膜 ]', imgSrc: require('../../assets/images/product-4.jpeg'), advantage: ['寿命长', '保温保墒', '降解期可调控', '有助增产',], friends: '[ 新疆农科院 ]' },
-        { isShow: false, product: '[ 一次性吸管 ]', imgSrc: require('../../assets/images/product-5.jpeg'), advantage: ['耐热耐冷', '硬度大', '韧性强', '成本低',], friends: '[ 蜜雪冰城 ]' },
-        { isShow: false, product: '[ 功能性纤维 ]', imgSrc: require('../../assets/images/product-6.jpeg'), advantage: ['吸湿性强', '弹力大', '可降解', '可回收',], friends: '[ 安踏 ]', objectFit: 'fill' },
+        {
+          isShow: false,
+          product: "[ 无豆粕日粮解决方案 ]",
+          imgSrc: require("../../assets/images/product-1.jpeg"),
+          advantage: [
+            "高效补充牲畜必需氨基酸",
+            "有效减少养殖过程中温室气体排放",
+          ],
+          friends: "[ 牧原集团 ]",
+          top: -12,
+          width: "50%",
+        },
+        {
+          isShow: false,
+          product: "[ 快递袋 ]",
+          imgSrc: require("../../assets/images/product-2.jpeg"),
+          advantage: ["非粮原料", "韧性好", "可降解", "可回收"],
+          friends: "[ 顺丰 ]",
+        },
+        {
+          isShow: false,
+          product: "[ 快递袋 ]",
+          imgSrc: require("../../assets/images/product-3.jpeg"),
+          advantage: ["强度高", "成本低", "可降解", "可回收"],
+          friends: "[ 唯品会 ]",
+        },
+        {
+          isShow: false,
+          product: "[ 生物降解地膜 ]",
+          imgSrc: require("../../assets/images/product-4.jpeg"),
+          advantage: ["寿命长", "保温保墒", "降解期可调控", "有助增产"],
+          friends: "[ 新疆农科院 ]",
+        },
+        {
+          isShow: false,
+          product: "[ 一次性吸管 ]",
+          imgSrc: require("../../assets/images/product-5.jpeg"),
+          advantage: ["耐热耐冷", "硬度大", "韧性强", "成本低"],
+          friends: "[ 蜜雪冰城 ]",
+        },
+        {
+          isShow: false,
+          product: "[ 功能性纤维 ]",
+          imgSrc: require("../../assets/images/product-6.jpeg"),
+          advantage: ["吸湿性强", "弹力大", "可降解", "可回收"],
+          friends: "[ 安踏 ]",
+          objectFit: "fill",
+        },
       ],
       newList: [
         {
@@ -230,11 +285,11 @@ export default {
     },
     advantageMove(advantage) {
       advantage.color = advantage.moveColor;
-      advantage.isShow = true;
+      advantage.animationClass = 'animate__animated animate__fadeIn';
     },
     advantageLeave(advantage) {
       advantage.color = "#ffffff";
-      advantage.isShow = false;
+      advantage.animationClass = 'animate__animated animate__fadeOut';
     },
     productMove(product) {
       product.isShow = true;
@@ -293,7 +348,7 @@ export default {
 
       &-item {
         font: 600 32px MiSans;
-        width: 108px;
+        width: 180px;
         min-height: 200px;
         display: flex;
         flex-direction: column;
@@ -306,18 +361,19 @@ export default {
         }
 
         .title {
-          margin-bottom: 4px;
+          margin-bottom: 20px;
           width: 96px;
         }
 
         .sub-title {
           font-size: 15px;
-          margin-bottom: 4px;
+          margin-bottom: 20px;
         }
 
         .describe {
           font-size: 15px;
           transition: all 1s ease;
+          opacity: 0;
         }
       }
     }
