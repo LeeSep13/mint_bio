@@ -3,7 +3,10 @@
     <div class="banner-title">
       <img class="grid-image" src="@/assets/images/grid1.png" alt="vision_grid" />
       <img class="mint-image" src="@/assets/images/mint.png" alt="vision_mint" />
-      <img class="text-image" :src="titleImage" :style="titleStyle" alt="title" />
+      <div class="banner-title-text">
+        <slot></slot>
+      </div>
+      <img class="text-image" :src="titleImage" :style="titleStyle" alt="title" v-if="titleImage" />
     </div>
   </div>
 </template>
@@ -19,6 +22,10 @@ export default {
     titleStyle: {
       type: Object,
       default: () => ({})
+    },
+    titleRender: {
+      type: Function,
+      default: (h) => h('div', {}, 'Your Title')
     }
   },
 
@@ -58,6 +65,38 @@ export default {
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 2;
+    }
+
+    .banner-title-text {
+      position: absolute;
+      width: 735px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+
+    }
+  }
+}
+
+@media (max-width: 992px) {
+
+  .banner {
+    &-title {
+      width: calc(100vw - 20px);
+      height: 248px;
+
+      .grid-image {
+        width: 100%;
+      }
+
+      .mint-image {
+        width: 302px;
+      }
+
+      .text-image {
+        width: 217px;
+      }
     }
   }
 }

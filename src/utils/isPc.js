@@ -3,12 +3,18 @@ export const getWidth = () => {
   let currentWidth = html.clientWidth
   const maxWidth = 1920; // 设定最大宽度
   const minWidth = 1200;  // 设定最小宽度
+  const mobileWidth = 992; // 移动端宽度
+  const mobileMinWidth = 350; // 移动端最小宽度
 
-  // 限制当前宽度在最大最小宽度之间
+  /** pc端 宽度设置固定不自适应 
+  **  移动端则根据实际屏幕宽度自适应 
+  **  移动端最小宽度为350不再自适应 */
   if (currentWidth > maxWidth) {
     currentWidth = maxWidth;
-  } else if (currentWidth < minWidth) {
+  } else if (currentWidth < minWidth && currentWidth > mobileWidth) {
     currentWidth = minWidth;
+  } else if (currentWidth < mobileMinWidth) {
+    currentWidth = mobileMinWidth
   }
   if (!html) {
     console.error('HTML element not found');
@@ -24,36 +30,36 @@ export const getWidth = () => {
  * 统一判断是pc端
  * @returns true:pc端 false:移动端
  */
-export const validPcOrPhone = () => {
-  // const { currentWidth
-  // } = getWidth()
-  // if (/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
-  //   return false;
-  // }
-  // if (!currentWidth) {
-  //   console.error('HTML element not found');
-  //   return;
-  // }
-  return true;
-}
+// export const validPcOrPhone = () => {
+//   const { currentWidth
+//   } = getWidth()
+//   if (/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+//     return false;
+//   }
+//   if (!currentWidth) {
+//     console.error('HTML element not found');
+//     return;
+//   }
+//   return true;
+// }
 
 /**
  * 根据宽度判断是否是pc端
  * 判断pc端还是移动端
  * @returns true:pc端 false:移动端
  */
-// export const validPcOrPhone = () => {
-//   const { currentWidth
-//   } = getWidth()
-//   if (!currentWidth) {
-//     console.error('HTML element not found');
-//     return;
-//   }
-//   if (currentWidth < 992) {
-//     return false;
-//   }
-//   return true;
-// }
+export const validPcOrPhone = () => {
+  const { currentWidth
+  } = getWidth()
+  if (!currentWidth) {
+    console.error('HTML element not found');
+    return;
+  }
+  if (currentWidth < 992) {
+    return false;
+  }
+  return true;
+}
 
 const getFontBase = (width, map) => {
   for (const range of map) {
@@ -85,11 +91,18 @@ export const autoFont = () => {
     { min: 1780, max: Infinity, font: 16 },
   ];
 
+  // const fontMapMobile = [
+  //   { min: 768, max: 992, font: 6 },
+  //   { min: 576, max: 768, font: 8 },
+  //   { min: 476, max: 576, font: 10 },
+  //   { min: 400, max: 476, font: 13 },
+  //   { min: 0, max: 400, font: 14 },
+  // ];
   const fontMapMobile = [
-    { min: 768, max: 992, font: 6 },
-    { min: 576, max: 768, font: 8 },
-    { min: 476, max: 576, font: 10 },
-    { min: 400, max: 476, font: 13 },
+    { min: 768, max: 992, font: 14 },
+    { min: 576, max: 768, font: 14 },
+    { min: 476, max: 576, font: 14 },
+    { min: 400, max: 476, font: 14 },
     { min: 0, max: 400, font: 14 },
   ];
   if (validPcOrPhone()) {
@@ -103,7 +116,6 @@ export const autoFont = () => {
     console.error('HTML element not found');
     return;
   }
-  // // 宽度固定 pc端根字体不再自适应
   // if (currentWidth < 350) {
   //   currentWidth = 350
   // }
