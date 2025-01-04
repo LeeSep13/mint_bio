@@ -26,19 +26,19 @@
 
     <div class="knotWeed-module1-w sector">
       <div class="knotWeed-module1">
-        <div class="knotWeed-module1-title">
+        <div class="knotWeed-module1-title animate__animated animate__fadeInUp">
           <p>节豆日粮</p>
           <p class="knotWeed-module1-title-replace">替代</p>
           <p>大豆</p>
         </div>
-        <div class="knotWeed-module1-desc">
+        <div class="knotWeed-module1-desc animate__animated animate__fadeInUp">
           <p>提供动物生长的必要氨基酸</p>
         </div>
       </div>
     </div>
     <div class="knotWeed-module2-w sector">
       <div class="knotWeed-module2">
-        <div class="knotWeed-module2-propagate">
+        <div class="knotWeed-module2-propagate animate__animated animate__fadeInUp">
           <div class="knotWeed-module2-propagate-title">节豆日粮</div>
           <div class="knotWeed-module2-propagate-target">
             <p>生物智造</p>
@@ -58,7 +58,7 @@
     </div>
     <MiNTDivider :content="'+'"></MiNTDivider>
 
-    <div class="knotWeed-module3-w sector">
+    <div class="knotWeed-module3-w sector animate__animated animate__fadeInUp">
       <div class="knotWeed-module3">
         <div class="knotWeed-module3-title">
           <p>节豆日粮助力</p>

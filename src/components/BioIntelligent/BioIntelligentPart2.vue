@@ -1,6 +1,6 @@
 <template>
   <div class="part2 sector">
-    <div class="label">
+    <div class="label animate__animated animate__fadeInUp">
       <div class="label-top">
         <span class="labelBig labelOrange mr120">科研</span>
         <span class="labelBig labelOrange">产业</span>

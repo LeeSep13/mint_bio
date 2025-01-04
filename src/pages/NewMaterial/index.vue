@@ -29,7 +29,7 @@
     </div>
     <div class="case sector">
       <div class="case-title">
-        <div class="case-title-first">
+        <div class="case-title-first animate__animated animate__fadeInUp">
           <span class="orange-text">应用</span><span>案例</span>
         </div>
         <div class="case-title-second">
@@ -69,12 +69,12 @@
 
     <div class="case sector">
       <div class="case-title">
-        <div class="case-title-second">
-          <span class="orange-text">[ 全生物降解地膜 ]</span>
-        </div>
         <div class="case-title-third">
           <p>中国农科院</p>
           <p>& 元素驱动</p>
+        </div>
+        <div class="case-title-second">
+          <span class="orange-text">[ 全生物降解地膜 ]</span>
         </div>
       </div>
       <div
@@ -105,11 +105,11 @@
     </div>
 
     <div class="question sector border-gradient">
-      <div class="title-first">
+      <div class="title-first animate__animated animate__fadeInUp">
         <span>常见</span><span class="orange-text question-code">？</span
         ><span>问</span>
       </div>
-      <div class="title-second">
+      <div class="title-second animate__animated animate__fadeInUp">
         <span :style="{ opacity: 0 }">常见</span
         ><span class="orange-text question-code" :style="{ opacity: 0 }"
           >？</span
@@ -426,6 +426,8 @@ export default {
     color: #fff;
 
     &-title {
+      display: flex;
+      gap: 377px;
       &-first {
         text-align: left;
         font: 520 60px MiSans VF;

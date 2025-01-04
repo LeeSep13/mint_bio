@@ -1,13 +1,13 @@
 <template>
   <div class="vision-module5 sector border-gradient">
-    <div class="vision-module5-title">
+    <div class="vision-module5-title animate__animated animate__fadeInUp">
       <p class="vision-module5-title-text1">60%</p>
       <p class="vision-module5-title-text2">
         未来60%的物质<br />可以通过生物制造生产
       </p>
     </div>
     <div class="vision-module5-content">
-      <div class="vision-module5-content-img1">
+      <div class="vision-module5-content-img1 animate__animated animate__fadeInUp">
         <p class="vision-module5-content-img1-title">
           生物智造 [ 产品解决方案 ]
         </p>
@@ -25,7 +25,7 @@
           <p class="learn-more-btn">了解更多</p>
         </div>
       </div>
-      <div class="vision-module5-content-img3">
+      <div class="vision-module5-content-img3 animate__animated animate__fadeInUp">
         <p class="vision-module5-content-img3-title">
           生物智造 [ 定制解决方案 ]
         </p>

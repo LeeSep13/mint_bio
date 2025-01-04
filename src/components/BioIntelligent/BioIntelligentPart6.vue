@@ -1,6 +1,6 @@
 <template>
   <div class="biointelligentpart6v2 sector">
-    <div class="title">
+    <div class="title animate__animated animate__fadeInUp">
       <span class="label1"> 生物智造&nbsp;&nbsp; </span>
       <span class="label2"> 基 <br />地 </span>
     </div>

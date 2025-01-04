@@ -24,7 +24,7 @@
     <MouseScroll :modules="module2Data" />
 
     <div class="aminoAcid-module3">
-      <div class="aminoAcid-module3-title">
+      <div class="aminoAcid-module3-title animate__animated animate__fadeInUp">
         <span class="aminoAcid-module3-title-text1">应用</span>
         <span class="aminoAcid-module3-title-text2">案例</span>
       </div>

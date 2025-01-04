@@ -1,6 +1,6 @@
 <template>
   <div class="part3 sector border-gradient">
-    <div class="label">
+    <div class="label animate__animated animate__fadeInUp">
       <div class="label-top">
         <span class="labelBig labelWhite mr117">一起</span>
         <span class="labelBig labelOrange">生物智造</span>

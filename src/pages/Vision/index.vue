@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="vision-module3 sector">
-      <div class="vision-module3-title">
+      <div class="vision-module3-title animate__animated animate__fadeInUp">
         <p class="vision-module3-title-text1">生物智造</p>
         <p class="vision-module3-title-text2">势在必行</p>
       </div>
@@ -70,7 +70,7 @@
     </div>
     <div class="vision-module4 sector border-gradient">
       <div class="vision-module4-top">
-        <div class="vision-module4-top-title">
+        <div class="vision-module4-top-title animate__animated animate__fadeInUp">
           <p class="vision-module4-top-title-text1">响应</p>
           <p class="vision-module4-top-title-text2">号召</p>
         </div>

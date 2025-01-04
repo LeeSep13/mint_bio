@@ -8,7 +8,7 @@
       <img
         src="@/assets/images/introduction-title.png"
         alt=""
-        class="introduction-img"
+        class="introduction-img animate__animated animate__fadeInUp"
       />
       <div class="introduction-section">
         元素驱动（MiNT
@@ -122,7 +122,7 @@
     </div>
 
     <div class="scientific sector border-gradient">
-      <div class="scientific-title">
+      <div class="scientific-title animate__animated animate__fadeInUp">
         <div class="scientific-title-left">
           <div>
             <span>前端</span><span class="opacity-0">科研</span
@@ -179,7 +179,7 @@
     <div class="project border-gradient">
       <img src="@/assets/images/project.png" />
     </div>
-    <div class="banner-sector">
+    <div class="banner-sector animate__animated animate__fadeInUp">
       <img src="@/assets/images/banners.png" class="banner-img" />
     </div>
   </div>
