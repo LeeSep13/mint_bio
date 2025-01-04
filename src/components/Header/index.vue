@@ -6,7 +6,7 @@
           <img
             src="@/assets/images/logo.png"
             alt="Logo"
-            @click="handleLogoClick"
+            @click="handleJumps('home')"
           />
         </div>
       </div>
@@ -81,21 +81,29 @@
             </div>
             <div class="popover-content-menu">
               <div class="popover-content-menu-item">
-                <p>生物智造</p>
+                <p class="pointer" @click="handleJumps('bioIntelligent')">
+                  生物智造
+                </p>
               </div>
               <div class="popover-content-menu-item">
                 <p>产品</p>
-                <p>生物降解新材料</p>
-                <p>生物合成氨基酸</p>
-                <p>节豆粮解决方案</p>
+                <p class="pointer" @click="handleJumps('material')">
+                  生物降解新材料
+                </p>
+                <p class="pointer" @click="handleJumps('aminoAcid')">
+                  生物合成氨基酸
+                </p>
+                <p class="pointer" @click="handleJumps('knotWeed')">
+                  节豆粮解决方案
+                </p>
               </div>
               <div class="popover-content-menu-item">
                 <p>关于我们</p>
-                <p>企业介绍</p>
-                <p>愿景与责任</p>
+                <p class="pointer" @click="handleJumps('vision')">企业介绍</p>
+                <p class="pointer" @click="handleJumps('corporate')">愿景与责任</p>
               </div>
               <div class="popover-content-menu-item">
-                <p>发展动态</p>
+                <p class="pointer" @click="handleJumps('mintNews')">发展动态</p>
               </div>
               <div class="popover-content-menu-item">
                 <p>加入我们</p>
@@ -206,9 +214,8 @@ const handleClick = (item) => {
     router.push({ name: item.router });
   }
 };
-
-const handleLogoClick = () => {
-  router.push({ name: "home" });
+const handleJumps = (item) => {
+  router.push({ name: item });
 };
 
 const popperOptions = ref({
@@ -300,6 +307,8 @@ const popperOptions = ref({
 }
 </style>
 <style lang="less" scoped>
+@import "@/style/variable.less";
+
 .header {
   z-index: 10;
   position: fixed;
@@ -474,13 +483,17 @@ const popperOptions = ref({
   }
 }
 .header::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0; /* 位于边框下方 */
   left: 50%; /* 水平居中 */
   width: 80%; /* 光晕的宽度 */
   height: 450px; /* 光晕的高度 */
-  background: radial-gradient(55% 50% at 50% 0%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  background: radial-gradient(
+    55% 50% at 50% 0%,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
   transform: translateX(-50%);
   filter: blur(20px);
   opacity: 0.1;
