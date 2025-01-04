@@ -3,7 +3,7 @@
     <div class="knotWeed-title">
       <img
         class="grid-image"
-        src="@/assets/images/grid.png"
+        src="@/assets/images/grid1.png"
         alt="knotWeed_grid"
       />
       <img

@@ -73,7 +73,6 @@ import { getImageUrl } from "@/utils";
 import { throttle } from "lodash";
 
 import "swiper/css";
-import "swiper/css/pagination";
 
 export default {
   components: {

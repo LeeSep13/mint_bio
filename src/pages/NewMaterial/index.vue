@@ -167,7 +167,20 @@ export default {
             "承重性足",
             "可搭竹粉等环保材料",
           ],
-          imageUrl: require("@/assets/images/P001.png"),
+          imageUrl: [
+            {
+              url: "assets/NewMaterial/P001-1.png",
+              desc: "快递袋",
+            },
+            {
+              url: "assets/NewMaterial/P001-2.jpeg",
+              desc: "快递袋",
+            },
+            {
+              url: "assets/NewMaterial/P001-3.jpeg",
+              desc: "快递包装泡沫膜",
+            },
+          ],
         },
         {
           title: "PiX 002",
@@ -177,7 +190,20 @@ export default {
           introductionTitle2: "002",
           applyTexts: ["吸管", "杯材", "瓶材"],
           advantages: ["耐温耐冷", "使用温度 - 30 ℃-100℃", "货架期长"],
-          imageUrl: require("@/assets/images/P001.jpeg"),
+          imageUrl: [
+            {
+              url: "assets/NewMaterial/P002-1.jpeg",
+              desc: "吸管",
+            },
+            {
+              url: "assets/NewMaterial/P002-2.jpeg",
+              desc: "杯子",
+            },
+            {
+              url: "assets/NewMaterial/P002-3.jpeg",
+              desc: "矿泉水瓶",
+            },
+          ],
         },
         {
           title: "PiX 003",
@@ -187,7 +213,32 @@ export default {
           introductionTitle2: "003",
           applyTexts: ["日化产品", "文具玩具", "家具家电"],
           advantages: ["强度高", "抗压性好", "适配性强"],
-          imageUrl: require("@/assets/images/P002.jpeg"),
+          imageUrl: [
+            {
+              url: "assets/NewMaterial/P003-1.jpeg",
+              desc: "化妆品",
+            },
+            {
+              url: "assets/NewMaterial/P003-2.png",
+              desc: "笔",
+            },
+            {
+              url: "assets/NewMaterial/P003-3.png",
+              desc: "玩具",
+            },
+            {
+              url: "assets/NewMaterial/P003-4.png",
+              desc: "功能性家具",
+            },
+            {
+              url: "assets/NewMaterial/P003-5.png",
+              desc: "日用家具",
+            },
+            {
+              url: "assets/NewMaterial/P003-6.png",
+              desc: "白电",
+            },
+          ],
         },
         {
           title: "PiX 004",
@@ -197,7 +248,20 @@ export default {
           introductionTitle2: "004",
           applyTexts: ["农业", "种植业"],
           advantages: ["保温保墒", "横纵向拉伸性能优", "阻隔性好"],
-          imageUrl: require("@/assets/images/P003.jpeg"),
+          imageUrl: [
+            {
+              url: "assets/NewMaterial/P004-1.jpeg",
+              desc: "地膜",
+            },
+            {
+              url: "assets/NewMaterial/P004-2.png",
+              desc: "棚膜",
+            },
+            {
+              url: "assets/NewMaterial/P004-3.png",
+              desc: "育苗盆",
+            },
+          ],
         },
         {
           title: "PiX 005",
@@ -207,7 +271,16 @@ export default {
           introductionTitle2: "005",
           applyTexts: ["服装", "纺织"],
           advantages: ["透气性好", "弹性佳", "舒适亲肤"],
-          imageUrl: require("@/assets/images/P004.jpeg"),
+          imageUrl: [
+            {
+              url: "assets/NewMaterial/P005-1.jpeg",
+              desc: "运动服",
+            },
+            {
+              url: "assets/NewMaterial/P005-2.png",
+              desc: "运动鞋",
+            },
+          ],
         },
       ],
       caseList: [
