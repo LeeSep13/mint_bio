@@ -5,7 +5,7 @@
       :backgroundImg="require('@/assets/images/corporateVision.png')"
     />
     <div class="introduction">
-      <div v-intersect="() => title1InView = true">
+      <div v-intersect="() => (title1InView = true)">
         <img
           v-if="title1InView"
           src="@/assets/images/introduction-title.png"
@@ -125,8 +125,11 @@
     </div>
 
     <div class="scientific sector border-gradient">
-      <div v-intersect="() => title2InView = true">   
-        <div v-if="title2InView" class="scientific-title animate__animated animate__fadeInUp">
+      <div v-intersect="() => (title2InView = true)">
+        <div
+          v-if="title2InView"
+          class="scientific-title animate__animated animate__fadeInUp"
+        >
           <div class="scientific-title-left">
             <div>
               <span>前端</span><span class="opacity-0">科研</span
@@ -182,16 +185,31 @@
     </div>
 
     <div class="project border-gradient">
-      <img src="@/assets/images/project.png" />
+      <div
+        v-for="item in corpList"
+        :key="item.key"
+        class="project-image hover-scale-transition"
+        @mousemove="cardHover(item)"
+        @mouseleave="cardLeave(item)"
+        :style="{ transform: item.transform }"
+      >
+        <img :src="getImageUrl(item.imgSrc)" alt="" />
+      </div>
     </div>
-    <div v-intersect="() => title3InView = true" class="banner-sector">
-      <img v-if="title3InView" src="@/assets/images/banners.png" class="banner-img animate__animated animate__fadeInUp" />
+    <div v-intersect="() => (title3InView = true)" class="banner-sector">
+      <img
+        v-if="title3InView"
+        src="@/assets/images/banners.png"
+        class="banner-img animate__animated animate__fadeInUp"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import BannerTitleAnimation from "@/components/BannerTitleAnimation";
+import { getImageUrl } from "@/utils";
+
 export default {
   name: " CorporateVision",
   components: { BannerTitleAnimation },
@@ -268,6 +286,48 @@ export default {
           imRight: require("@/assets/images/scientific-2.png"),
         },
       ],
+      corpList: [
+        {
+          imgSrc: "assets/CorporateVision/corp1.png",
+          key: 1,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: "assets/CorporateVision/corp2.png",
+          key: 2,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: "assets/CorporateVision/corp3.png",
+          key: 3,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: "assets/CorporateVision/corp4.png",
+          key: 4,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: "assets/CorporateVision/corp5.png",
+          key: 5,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: "assets/CorporateVision/corp6.png",
+          key: 6,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: "assets/CorporateVision/corp7.png",
+          key: 7,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: "assets/CorporateVision/corp8.png",
+          key: 8,
+          transform: "scale(1)",
+        },
+      ],
       isPrevDisabled: true,
       isNextDisabled: false,
       timelineElement: null,
@@ -314,6 +374,13 @@ export default {
         this.activeIndex = item.index;
       }
     },
+    cardHover(card) {
+      card.transform = "scale(1.05)";
+    },
+    cardLeave(card) {
+      card.transform = "scale(1)";
+    },
+    getImageUrl,
   },
 };
 </script>
@@ -585,8 +652,16 @@ export default {
 
 .project {
   padding: 100px 160px;
-  img {
-    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 56px;
+  column-gap: 101px;
+  &-image {
+    width: 281px;
+    height: 231px;
+    img {
+      width: 100%;
+    }
   }
 }
 

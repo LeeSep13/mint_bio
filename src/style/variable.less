@@ -36,12 +36,11 @@
   width: 80%; /* 光晕的宽度 */
   height: 300px; /* 光晕的高度 */
   background: radial-gradient(55% 50% at 50% 0%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
-  
-  
   transform: translateX(-50%);
   filter: blur(100px);
   opacity: 0.1;
   pointer-events: none; /* 光晕不影响交互 */
+  clip-path: inset(0 0 50% 0); // 裁剪上部分光晕
 }
 
 .border-bottom-gradient {
