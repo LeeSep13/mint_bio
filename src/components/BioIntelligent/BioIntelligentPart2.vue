@@ -1,6 +1,6 @@
 <template>
-  <div class="part2">
-    <div class="label">
+  <div class="part2 sector">
+    <div class="label animate__animated animate__fadeInUp">
       <div class="label-top">
         <span class="labelBig labelOrange mr120">科研</span>
         <span class="labelBig labelOrange">产业</span>
@@ -16,7 +16,7 @@
       <div
         @mouseover="hoverCard1"
         class="card first-card"
-        :style="{ width: card1Size + 'px', height: '100%' }"
+        :style="{ width: card1Size + '%', height: '100%' }"
       >
         <div class="card-title">Laboratory</div>
         <div
@@ -32,7 +32,7 @@
       <div
         @mouseover="hoverCard2"
         class="card second-card"
-        :style="{ width: card2Size + 'px', height: '100%' }"
+        :style="{ width: card2Size + '%', height: '100%' }"
       >
         <div class="card-title">INDUSTRY</div>
         <div
@@ -52,37 +52,37 @@
 <script setup>
 import { ref } from "vue";
 
-const card1Size = ref(944);
-const card2Size = ref(464);
+const card1Size = ref(69);
+const card2Size = ref(36);
 const card1Opacity = ref(1);
 const card2Opacity = ref(0);
 const showCardTrans = ref(true);
 
 function hoverCard1() {
-  card1Size.value = 944;
-  card2Size.value = 464;
+  card1Size.value = 69;
+  card2Size.value = 36;
   card1Opacity.value = 1;
   card2Opacity.value = 0;
   showCardTrans.value = true;
 }
 
 function hoverCard2() {
-  card1Size.value = 464;
-  card2Size.value = 944;
+  card1Size.value = 36;
+  card2Size.value = 69;
   card1Opacity.value = 0;
   card2Opacity.value = 1;
   showCardTrans.value = true;
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
+@import "@/style/variable.less";
+
 .part2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 1282px;
 
   .label {
     height: 112px;
@@ -113,6 +113,7 @@ function hoverCard2() {
   .card-container {
     display: flex;
     gap: 16px;
+    width: 100%;
     height: 800px;
 
     .card {

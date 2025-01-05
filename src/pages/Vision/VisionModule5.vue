@@ -1,13 +1,13 @@
 <template>
-  <div class="vision-module5">
-    <div class="vision-module5-title">
+  <div class="vision-module5 sector border-gradient">
+    <div class="vision-module5-title animate__animated animate__fadeInUp">
       <p class="vision-module5-title-text1">60%</p>
       <p class="vision-module5-title-text2">
         未来60%的物质<br />可以通过生物制造生产
       </p>
     </div>
     <div class="vision-module5-content">
-      <div class="vision-module5-content-img1">
+      <div class="vision-module5-content-img1 animate__animated animate__fadeInUp">
         <p class="vision-module5-content-img1-title">
           生物智造 [ 产品解决方案 ]
         </p>
@@ -25,7 +25,7 @@
           <p class="learn-more-btn">了解更多</p>
         </div>
       </div>
-      <div class="vision-module5-content-img3">
+      <div class="vision-module5-content-img3 animate__animated animate__fadeInUp">
         <p class="vision-module5-content-img3-title">
           生物智造 [ 定制解决方案 ]
         </p>
@@ -43,21 +43,22 @@
 
 
 <style lang="less" scoped>
+@import "@/style/variable.less";
+
 .vision-module5 {
   &-title {
-    margin-top: 10.625rem;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     &-text1 {
-      font-size: 12.5rem;
+      font-size: 200px;
       font-weight: 500;
       color: #ff7200;
       line-height: 0.8;
       margin: 0;
     }
     &-text2 {
-      font-size: 3rem;
+      font-size: 48px;
       font-weight: 500;
       color: #f1f3f7;
       line-height: 1;
@@ -65,32 +66,31 @@
     }
   }
   &-content {
-    margin-top: 10rem;
-    margin-bottom: 10.625rem;
+    margin-top: 160px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    column-gap: 1rem;
-    row-gap: 6.25rem;
+    column-gap: 16px;
+    row-gap: 100px;
     &-img1,
     &-img3 {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-left: 3.75rem;
-      width: 944px;
+      padding-left: 60px;
+      width: 60%;
       height: 460px;
-      border-radius: 1.25rem;
+      border-radius: 20px;
       &-title {
-        font-size: 1.875rem;
+        font-size: 30px;
         font-weight: 500;
         color: #f1f3f7;
-        margin-bottom: 2.5rem;
+        margin-bottom: 40px;
       }
       &-desc {
-        font-size: 1.25rem;
+        font-size: 20px;
         color: #f1f3f7;
       }
     }
@@ -100,45 +100,44 @@
       background-repeat: no-repeat;
     }
     &-img2 {
+      width: 34%;
       &-item1,
       &-item2 {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 3.1875rem;
-        border-radius: 1.25rem;
+        gap: 51px;
+        border-radius: 20px;
+        width: 100%;
+        height: 222px;
         &-text {
-          font-size: 1.5rem;
+          font-size: 24px;
           font-weight: 500;
           color: #fff;
         }
       }
       &-item1 {
-        margin-bottom: 1rem;
-        width: 464px;
-        height: 222px;
+        margin-bottom: 16px;
         background: url("./images/module5_img2.png");
         background-size: cover;
         background-repeat: no-repeat;
       }
       &-item2 {
-        width: 464px;
-        height: 222px;
         background: url("./images/module5_img3.jpeg");
         background-size: cover;
         background-repeat: no-repeat;
       }
       .learn-more-btn {
-        width: 6rem;
-        height: 2.375rem;
-        line-height: 2.375rem;
+        width: 96px;
+        height: 38px;
+        line-height: 38px;
         text-align: center;
-        font-size: 0.875rem;
+        font-size: 14px;
         font-weight: 500;
         color: #f1f3f7;
         background-color: rgba(255, 114, 0, 0.8);
-        border-radius: 13.0625rem;
+        border-radius: 209px;
       }
     }
     &-img3 {
@@ -146,21 +145,22 @@
       background-size: cover;
       background-repeat: no-repeat;
       &-btn {
-        margin-top: 5.4375rem;
-        width: 7.75rem;
-        height: 3.625rem;
-        line-height: 3.625rem;
+        margin-top: 87px;
+        width: 124px;
+        height: 58px;
+        line-height: 58px;
         text-align: center;
-        font-size: 1rem;
+        font-size: 16px;
         font-weight: 500;
         color: #f1f3f7;
         background-color: rgba(40, 40, 40, 0.62);
-        border-radius: 13.0625rem;
+        border-radius: 209px;
       }
     }
     &-img4 {
+      width: 34%;
       img {
-        width: 464px;
+        width: 100%;
         height: 460px;
       }
     }

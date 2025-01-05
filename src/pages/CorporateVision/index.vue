@@ -8,7 +8,7 @@
       <img
         src="@/assets/images/introduction-title.png"
         alt=""
-        class="introduction-img"
+        class="introduction-img animate__animated animate__fadeInUp"
       />
       <div class="introduction-section">
         元素驱动（MiNT
@@ -122,7 +122,7 @@
     </div>
 
     <div class="scientific sector border-gradient">
-      <div class="scientific-title">
+      <div class="scientific-title animate__animated animate__fadeInUp">
         <div class="scientific-title-left">
           <div>
             <span>前端</span><span class="opacity-0">科研</span
@@ -158,43 +158,28 @@
         <div class="scientific-card-left">
           <div
             class="scientific-card-left-item"
-            @mousemove="itemMove(cardList[0])"
-            @mouseleave="itemLeave(cardList[0])"
-            :style="
-              activeIndex === 0 ? ' background: #6a6a6a; opacity:0.6;' : ''
-            "
+            v-for="(card, index) in cardList"
+            :key="index"
+            @mousemove="itemMove(card)"
+            :class="{ active: activeIndex === index }"
           >
-            <div class="top button-top">中心团队</div>
-            <div class="middle">
-              <img src="@/assets/images/number-1.png" alt="" />
-            </div>
-            <div class="bottom">承担前端科研、实验及小试。</div>
-          </div>
-          <div
-            class="scientific-card-left-item"
-            @mousemove="itemMove(cardList[1])"
-            :style="activeIndex === 1 ? ' background: #6a6a6a;opacity:0.' : ''"
-            @mouseleave="itemLeave(cardList[1])"
-          >
-            <div class="top button-top">研发团队</div>
-            <div class="middle">
-              <img src="@/assets/images/number-2.png" alt="" />
-            </div>
-            <div class="bottom">跨科学人才合作，探索前沿技术。</div>
+            <div class="top button-top">{{ card.textTop }}</div>
+            <div class="middle"><img :src="card.textMiddle" alt="" /></div>
+            <div class="bottom">{{ card.textBottom }}</div>
           </div>
         </div>
         <div class="scientific-card-right">
-          <transition name="fade">
+          <transition name="fade" mode="in-out">
             <img :src="imgSrc" :key="imgSrc" />
           </transition>
         </div>
       </div>
     </div>
 
-    <div class="project">
+    <div class="project border-gradient">
       <img src="@/assets/images/project.png" />
     </div>
-    <div class="banner-sector">
+    <div class="banner-sector animate__animated animate__fadeInUp">
       <img src="@/assets/images/banners.png" class="banner-img" />
     </div>
   </div>
@@ -272,9 +257,9 @@ export default {
         },
         {
           index: 1,
-          textTop: "中心团队",
-          textMiddle: require("@/assets/images/number-1.png"),
-          textBottom: "承担前端科研、实验及小试。",
+          textTop: "科研团队",
+          textMiddle: require("@/assets/images/number-2.png"),
+          textBottom: "跨科学人才合作，探索前沿技术。",
           imRight: require("@/assets/images/scientific-2.png"),
         },
       ],
@@ -316,12 +301,10 @@ export default {
     },
 
     itemMove(item) {
-      this.imgSrc = item.imRight;
-      this.activeIndex = item.index;
-    },
-    itemLeave(item) {
-      this.imgSrc = item.imRight;
-      this.activeIndex = item.index;
+      if (this.activeIndex !== item.index) {
+        this.imgSrc = item.imRight;
+        this.activeIndex = item.index;
+      }
     },
   },
 };
@@ -331,12 +314,15 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); // 使用更复杂的缓动函数
+  transition: opacity 0.5s ease;
 }
 
-.fade-enter,
+.fade-enter-from {
+  opacity: 0;
+}
+
 .fade-leave-to {
-  opacity: 0.5;
+  opacity: 0;
 }
 
 .corporate {
@@ -526,11 +512,10 @@ export default {
     margin-top: 80px;
 
     &-left {
-      width: 50%;
-      width: calc(100% - 840px);
+      width: calc(100% - 54%);
       display: flex;
       flex-direction: column;
-      align-items: space-between;
+      align-items: stretch;
       gap: 16px;
       height: 680px;
 
@@ -567,20 +552,24 @@ export default {
         }
 
         font-size: 14px;
+        opacity: 0.6;
+      }
+      .active {
+        opacity: 1;
       }
     }
 
     &-right {
-      width: 824px;
-      display: flex;
-      flex-direction: row;
+      width: 53.5%;
+      position: relative;
       overflow: hidden;
-
       img {
+        position: absolute;
+        top: 0;
+        left: 0;
         height: 680px;
         width: 100%;
         border-radius: 20px;
-        object-fit: cover;
       }
     }
   }
@@ -594,7 +583,7 @@ export default {
 }
 
 .banner-sector {
-  padding: 100px 160px;
+  padding: 237px 243px 214px;
 
   img {
     width: 100%;

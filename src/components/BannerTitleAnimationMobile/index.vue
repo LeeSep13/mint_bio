@@ -4,7 +4,7 @@
       <Header v-if="isShowHeader" />
       <img class="background-img" :src="backgroundImg" alt="background-img"
         :class="{ 'animate-background': isAnimating }" />
-      <img class="grid-image" src="@/assets/images/grid.png" alt="vision_grid"
+      <img class="grid-image" src="@/assets/images/grid1.png" alt="vision_grid"
         :class="{ 'animate-grid': isAnimating }" />
       <img class="mint-image" src="@/assets/images/mint.png" alt="vision_mint"
         :class="{ 'animate-mint': isAnimating }" />

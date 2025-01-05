@@ -2,10 +2,8 @@
   <div class="news-detail-container">
     <MiNTNewsDetailCom v-if="configData" :info="configData">
     </MiNTNewsDetailCom>
-	<MiNTDivider :content="'+'"></MiNTDivider>	
-	<div class="more-dynamic">
-		更多动态
-	</div>
+    <MiNTDivider :content="'+'"></MiNTDivider>
+    <div class="more-dynamic">更多动态</div>
     <MiNTNewsListPreview
       class="news-preview"
       :filteredNews="newsList"
@@ -24,7 +22,7 @@ export default {
   components: {
     MiNTNewsDetailCom,
     MiNTNewsListPreview,
-	MiNTDivider,
+    MiNTDivider,
   },
 
   setup() {
@@ -93,15 +91,15 @@ export default {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  .more-dynamic{
-	margin-top: 100px;
-	margin-bottom: 80px;
-	font-size: 21px;
-	color: #FFFFFF;
+  .more-dynamic {
+    margin-top: 100px;
+    font-size: 21px;
+    color: #ffffff;
   }
   .news-preview {
-	margin-bottom: 300px;
-    width: 1424px;
+    padding-top: 80px;
+    padding-bottom: 300px;
+    width: 82.5%;
   }
 }
 </style>

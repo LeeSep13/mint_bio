@@ -5,7 +5,7 @@
         <img src="@/assets/images/mint.png" mode="aspectFill" />
       </div>
       <div class="bggrid">
-        <img src="@/assets/images/grid.png" mode="aspectFill" />
+        <img src="@/assets/images/grid1.png" mode="aspectFill" />
       </div>
       <div class="title">
         <text label1>发展&nbsp;&nbsp;&nbsp;&nbsp;动态</text>

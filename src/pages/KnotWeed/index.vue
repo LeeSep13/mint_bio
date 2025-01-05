@@ -3,7 +3,7 @@
     <div class="knotWeed-title">
       <img
         class="grid-image"
-        src="@/assets/images/grid.png"
+        src="@/assets/images/grid1.png"
         alt="knotWeed_grid"
       />
       <img
@@ -25,20 +25,20 @@
     </div>
 
     <div class="knotWeed-module1-w sector">
-      <div class="knotWeed-module1">
-        <div class="knotWeed-module1-title">
+      <div class="knotWeed-module1 animate__animated animate__zoomIn">
+        <div class="knotWeed-module1-title animate__animated animate__fadeInUp">
           <p>节豆日粮</p>
           <p class="knotWeed-module1-title-replace">替代</p>
           <p>大豆</p>
         </div>
-        <div class="knotWeed-module1-desc">
+        <div class="knotWeed-module1-desc animate__animated animate__fadeInUp">
           <p>提供动物生长的必要氨基酸</p>
         </div>
       </div>
     </div>
     <div class="knotWeed-module2-w sector">
-      <div class="knotWeed-module2">
-        <div class="knotWeed-module2-propagate">
+      <div class="knotWeed-module2 animate__animated animate__zoomIn">
+        <div class="knotWeed-module2-propagate animate__animated animate__fadeInUp">
           <div class="knotWeed-module2-propagate-title">节豆日粮</div>
           <div class="knotWeed-module2-propagate-target">
             <p>生物智造</p>
@@ -58,7 +58,7 @@
     </div>
     <MiNTDivider :content="'+'"></MiNTDivider>
 
-    <div class="knotWeed-module3-w sector">
+    <div class="knotWeed-module3-w sector animate__animated animate__fadeInUp">
       <div class="knotWeed-module3">
         <div class="knotWeed-module3-title">
           <p>节豆日粮助力</p>
@@ -306,13 +306,12 @@ export default {
       }
     }
     &-data {
-      padding-left: 125px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       row-gap: 149px;
       column-gap: 369px;
-      width: 87%;
+      width: 100%;
       &-item {
         width: 388px;
         &:nth-child(1),
@@ -323,6 +322,7 @@ export default {
           font-size: 120px;
           font-weight: 500;
           color: #ff7200;
+          white-space: nowrap;
         }
         &-content {
           font-size: 32px;

@@ -3,14 +3,21 @@
     <el-row>
       <el-col :span="8" class="footer-left">
         <div class="footer-left-logo">
-          <div class="footer-left-logo-img-w"><img class="footer-left-logo-img" src="@/assets/images/logo.png" alt="" />
+          <div class="footer-left-logo-img-w pointer" @click="handleJumps('home')">
+            <img
+              class="footer-left-logo-img"
+              src="@/assets/images/logo.png"
+              alt=""
+            />
           </div>
           <div class="footer-left-logo-text1">生物智造惠及</div>
           <div class="footer-left-logo-text2">每一个生命</div>
         </div>
         <div class="footer-left-download">
           <span>下载品牌手册</span>
-          <img src="@/assets/images/download.png" alt="" />
+          <div class="footer-left-download-img">
+            <img src="@/assets/images/download.png" alt="" />
+          </div>
         </div>
       </el-col>
       <el-col :span="2" class="footer-middle">
@@ -19,21 +26,21 @@
       <el-col :span="14" class="footer-right">
         <div class="footer-right-content">
           <div class="footer-right-content-menus footer-common">
-            <p class="footer-right-content-menus-item">生物智造</p>
-            <p class="footer-right-content-menus-item">发展动态</p>
+            <p class="footer-right-content-menus-item" @click="handleJumps('bioIntelligent')">生物智造</p>
+            <p class="footer-right-content-menus-item" @click="handleJumps('mintNews')">发展动态</p>
             <p class="footer-right-content-menus-item">加入我们</p>
             <p class="footer-right-content-menus-item">下载中心</p>
           </div>
           <div class="footer-right-content-products footer-common">
             <p class="footer-right-content-products-item-title">产品</p>
-            <p class="footer-right-content-products-item">生物降解新材料</p>
-            <p class="footer-right-content-products-item">生物合成氨基酸</p>
-            <p class="footer-right-content-products-item">节豆粮解决方案</p>
+            <p class="footer-right-content-products-item pointer" @click="handleJumps('material')">生物降解新材料</p>
+            <p class="footer-right-content-products-item pointer" @click="handleJumps('aminoAcid')">生物合成氨基酸</p>
+            <p class="footer-right-content-products-item pointer" @click="handleJumps('knotWeed')">节豆粮解决方案</p>
           </div>
           <div class="footer-right-content-about footer-common">
             <p class="footer-right-content-about-item-title">关于我们</p>
-            <p class="footer-right-content-about-item">企业介绍</p>
-            <p class="footer-right-content-about-item">愿景与责任</p>
+            <p class="footer-right-content-about-item pointer" @click="handleJumps('corporate')">企业介绍</p>
+            <p class="footer-right-content-about-item pointer" @click="handleJumps('vision')">愿景与责任</p>
           </div>
         </div>
         <div class="footer-right-info">
@@ -59,30 +66,36 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Footer",
-  components: {},
-  data() {
-    return {};
-  },
+<script setup>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const handleJumps = (item) => {
+  router.push({ name: item });
 };
 </script>
 <style lang="less" scoped>
+@import "@/style/variable.less";
+
 .footer {
+  position: relative;
   background-color: #11161b;
   padding: 4.2% 10.8% 4.2% 8%;
-  height: 445px;
   border-width: 1px 0 0 0;
   /* 只设置上边框 */
   border-style: solid;
-  border-image: linear-gradient(to right,
+  border-image: linear-gradient(
+      to right,
       rgba(53, 52, 74, 0.5) 0%,
       rgba(53, 52, 74, 0.5) 10%,
       rgba(255, 255, 255, 0.4) 30%,
       rgba(255, 255, 255, 0.4) 70%,
       rgba(53, 52, 74, 0.5) 90%,
-      rgba(53, 52, 74, 0.5) 100%) 1;
+      rgba(53, 52, 74, 0.5) 100%
+    )
+    1;
 
   &-common {
     font-weight: 500;
@@ -110,21 +123,20 @@ export default {
 
       &-text1,
       &-text2 {
+        font-size: 14px;
         font-weight: 500;
         color: #ffffff;
       }
 
       &-text1 {
-        width: 12%;
-        height: 55%;
-        margin-left: 9%;
+        width: 57px;
+        margin-left: 42px;
         text-align: right;
       }
 
       &-text2 {
-        width: 17%;
-        height: 19%;
-        margin-left: 3%;
+        width: 70px;
+        margin-left: 15px;
       }
     }
 
@@ -138,11 +150,12 @@ export default {
       border-radius: 37px;
       font-size: 12px;
       color: #ffffff;
-
-      // padding: 20px;
-      img {
+      &-img {
         width: 18px;
         height: 18px;
+        img{
+          width: 100%;
+        }
       }
     }
   }
@@ -229,7 +242,25 @@ export default {
   }
 }
 
+.footer::after {
+  content: "";
+  position: absolute;
+  top: 0; /* 位于边框下方 */
+  left: 50%; /* 水平居中 */
+  width: 90%; /* 光晕的宽度 */
+  height: 50px; /* 光晕的高度 */
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: translateX(-50%);
+  filter: blur(30px);
+  opacity: 0.1;
+  pointer-events: none; /* 光晕不影响交互 */
+}
+
 .mb26 {
-  margin-bottom: 1.625rem;
+  margin-bottom: 26px;
 }
 </style>

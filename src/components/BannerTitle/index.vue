@@ -1,7 +1,7 @@
 <template>
   <div class="banner">
     <div class="banner-title">
-      <img class="grid-image" src="@/assets/images/grid.png" alt="vision_grid" />
+      <img class="grid-image" src="@/assets/images/grid1.png" alt="vision_grid" />
       <img class="mint-image" src="@/assets/images/mint.png" alt="vision_mint" />
       <div class="banner-title-text">
         <slot></slot>

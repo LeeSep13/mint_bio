@@ -1,5 +1,4 @@
 export function getImageUrl(picPath) {
-    console.log('picPath',picPath);
     try {
         return require(`@/${picPath}`);
     } catch (e) {

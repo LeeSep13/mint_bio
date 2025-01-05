@@ -4,19 +4,28 @@
       :titleImage="require('@/assets/images/material-title.png')"
       :titleStyle="titleStyle"
     />
+
     <div class="material-banner">
-      <img
-        src="@/assets/images/material-banner.png"
-        alt="material-banner"
-        class="material-banner-img"
-      />
+      <div class="material-banner-content">
+        <div class="material-banner-content-right">
+          <ul class="material-banner-content-right-text">
+            <li>全新化学结构</li>
+            <li>可生物降解</li>
+            <li>可回收</li>
+            <li>高性能</li>
+            <li>高适配性</li>
+            <li>低成本</li>
+          </ul>
+        </div>
+      </div>
     </div>
+
     <div class="material-scroll">
       <MouseScroll :modules="modules" />
     </div>
     <div class="case sector">
       <div class="case-title">
-        <div class="case-title-first">
+        <div class="case-title-first animate__animated animate__fadeInUp">
           <span class="orange-text">应用</span><span>案例</span>
         </div>
         <div class="case-title-second">
@@ -36,9 +45,12 @@
         @mouseleave="endDrag"
       >
         <div
-          class="case-list-item border-gradient"
           v-for="(item, index) in caseList"
           :key="index"
+          class="case-list-item border-gradient hover-scale-transition"
+          @mousemove="cardHover(item)"
+          @mouseleave="cardLeave(item)"
+          :style="{ transform: item.transform }"
         >
           <div class="case-list-item-top">
             <span>China</span><span>MiNT BiO</span><span>Hangzhou</span>
@@ -55,13 +67,13 @@
     </div>
 
     <div class="case sector">
-      <div class="case-title">
-        <div class="case-title-second">
-          <span class="orange-text">[ 全生物降解地膜 ]</span>
-        </div>
+      <div class="case-title flex">
         <div class="case-title-third">
           <p>中国农科院</p>
           <p>& 元素驱动</p>
+        </div>
+        <div class="case-title-second">
+          <span class="orange-text">[ 全生物降解地膜 ]</span>
         </div>
       </div>
       <div
@@ -73,9 +85,12 @@
         @mouseleave="endDrag"
       >
         <div
-          class="case-list-item border-gradient"
+          class="case-list-item border-gradient hover-scale-transition"
           v-for="(item, index) in caseListSecond"
           :key="index"
+          @mousemove="cardHover(item)"
+          @mouseleave="cardLeave(item)"
+          :style="{ transform: item.transform }"
         >
           <div class="case-list-item-top">
             <span>China</span><span>MiNT BiO</span><span>Hangzhou</span>
@@ -92,11 +107,11 @@
     </div>
 
     <div class="question sector border-gradient">
-      <div class="title-first">
+      <div class="title-first animate__animated animate__fadeInUp">
         <span>常见</span><span class="orange-text question-code">？</span
         ><span>问</span>
       </div>
-      <div class="title-second">
+      <div class="title-second animate__animated animate__fadeInUp">
         <span :style="{ opacity: 0 }">常见</span
         ><span class="orange-text question-code" :style="{ opacity: 0 }"
           >？</span
@@ -154,7 +169,20 @@ export default {
             "承重性足",
             "可搭竹粉等环保材料",
           ],
-          imageUrl: require("@/assets/images/P001.png"),
+          imageUrl: [
+            {
+              url: "assets/NewMaterial/P001-1.png",
+              desc: "快递袋",
+            },
+            {
+              url: "assets/NewMaterial/P001-2.jpeg",
+              desc: "快递袋",
+            },
+            {
+              url: "assets/NewMaterial/P001-3.jpeg",
+              desc: "快递包装泡沫膜",
+            },
+          ],
         },
         {
           title: "PiX 002",
@@ -164,7 +192,20 @@ export default {
           introductionTitle2: "002",
           applyTexts: ["吸管", "杯材", "瓶材"],
           advantages: ["耐温耐冷", "使用温度 - 30 ℃-100℃", "货架期长"],
-          imageUrl: require("@/assets/images/P001.jpeg"),
+          imageUrl: [
+            {
+              url: "assets/NewMaterial/P002-1.jpeg",
+              desc: "吸管",
+            },
+            {
+              url: "assets/NewMaterial/P002-2.jpeg",
+              desc: "杯子",
+            },
+            {
+              url: "assets/NewMaterial/P002-3.jpeg",
+              desc: "矿泉水瓶",
+            },
+          ],
         },
         {
           title: "PiX 003",
@@ -174,7 +215,32 @@ export default {
           introductionTitle2: "003",
           applyTexts: ["日化产品", "文具玩具", "家具家电"],
           advantages: ["强度高", "抗压性好", "适配性强"],
-          imageUrl: require("@/assets/images/P002.jpeg"),
+          imageUrl: [
+            {
+              url: "assets/NewMaterial/P003-1.jpeg",
+              desc: "化妆品",
+            },
+            {
+              url: "assets/NewMaterial/P003-2.png",
+              desc: "笔",
+            },
+            {
+              url: "assets/NewMaterial/P003-3.png",
+              desc: "玩具",
+            },
+            {
+              url: "assets/NewMaterial/P003-4.png",
+              desc: "功能性家具",
+            },
+            {
+              url: "assets/NewMaterial/P003-5.png",
+              desc: "日用家具",
+            },
+            {
+              url: "assets/NewMaterial/P003-6.png",
+              desc: "白电",
+            },
+          ],
         },
         {
           title: "PiX 004",
@@ -184,7 +250,20 @@ export default {
           introductionTitle2: "004",
           applyTexts: ["农业", "种植业"],
           advantages: ["保温保墒", "横纵向拉伸性能优", "阻隔性好"],
-          imageUrl: require("@/assets/images/P003.jpeg"),
+          imageUrl: [
+            {
+              url: "assets/NewMaterial/P004-1.jpeg",
+              desc: "地膜",
+            },
+            {
+              url: "assets/NewMaterial/P004-2.png",
+              desc: "棚膜",
+            },
+            {
+              url: "assets/NewMaterial/P004-3.png",
+              desc: "育苗盆",
+            },
+          ],
         },
         {
           title: "PiX 005",
@@ -194,21 +273,33 @@ export default {
           introductionTitle2: "005",
           applyTexts: ["服装", "纺织"],
           advantages: ["透气性好", "弹性佳", "舒适亲肤"],
-          imageUrl: require("@/assets/images/P004.jpeg"),
+          imageUrl: [
+            {
+              url: "assets/NewMaterial/P005-1.jpeg",
+              desc: "运动服",
+            },
+            {
+              url: "assets/NewMaterial/P005-2.png",
+              desc: "运动鞋",
+            },
+          ],
         },
       ],
       caseList: [
         {
           imgSrc: require("@/assets/images/case-4.png"),
           describe: "使用 PiX 001 打造，兼具性能、成本优势及环保性的快递袋。",
+          transform: "scale(1)",
         },
         {
           imgSrc: require("@/assets/images/case-2.png"),
           describe: "独创合成工艺进行低成本、高效率量产。",
+          transform: "scale(1)",
         },
         {
           imgSrc: require("@/assets/images/case-1.png"),
           describe: "将于 2025 年 3 月正式在唯品会电商物流中投入使用。",
+          transform: "scale(1)",
         },
       ],
       caseListSecond: [
@@ -216,14 +307,17 @@ export default {
           imgSrc: require("@/assets/images/case-1.jpeg"),
           describe: "PiX 004 全程护航新疆棉成长",
           tips: "元素驱动与中国农业科学院农业环境与可持续发展研究所合作，在新疆进行棉花大田试验，现已完成棉花成长全周期实验。",
+          transform: "scale(1)",
         },
         {
           imgSrc: require("@/assets/images/case-2.jpeg"),
           describe: "可控生物降解，满足长期作物生长条件。",
+          transform: "scale(1)",
         },
         {
           imgSrc: require("@/assets/images/case-3.jpeg"),
           describe: "节水性能优异，水蒸气透过量远低于市面普通可降解地膜。",
+          transform: "scale(1)",
         },
       ],
       questionList: [
@@ -267,6 +361,12 @@ export default {
     endDrag() {
       this.isDragging = false;
     },
+    cardHover(card) {
+      card.transform = "scale(1.05)";
+    },
+    cardLeave(card) {
+      card.transform = "scale(1)";
+    },
   },
 };
 </script>
@@ -284,8 +384,51 @@ export default {
   &-banner {
     padding: 0 160px;
 
-    &-img {
-      width: 100%;
+    &-content {
+      margin-top: 87px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 700px;
+      background-image: url("@/assets/images/material-banner.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 20px;
+      border: 1px solid #ffffff33;
+      &-right {
+        width: 340px;
+        margin-right: 63px;
+        background-color: #2828289f;
+        backdrop-filter: blur(68px);
+        border-radius: 20px;
+        border: 1px solid transparent;
+        &-text {
+          padding: 40px;
+          li {
+            position: relative;
+            font-size: 24px;
+            font-weight: 500;
+            color: #f1f3f7;
+            padding-left: 32px;
+
+            &::before {
+              content: "";
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 10px;
+              height: 10px;
+              background-color: #fff;
+              border-radius: 50%;
+            }
+
+            &:not(:last-child) {
+              margin-bottom: 16px; /* 每项之间的间隔 */
+            }
+          }
+        }
+      }
     }
   }
 
@@ -312,9 +455,13 @@ export default {
         font: 520 40px MiSans VF;
       }
     }
+    .flex{
+      display: flex;
+      gap: 377px;
+    }
 
     &-list {
-      margin-top: 40px;
+      padding-top: 70px;
       white-space: nowrap;
       overflow-x: auto;
       display: flex;
@@ -429,10 +576,12 @@ export default {
     }
 
     .title-second {
-      margin-bottom: 80px;
+      margin-bottom: 94px;
     }
 
     .collapse {
+      margin-left: 432px;
+      margin-bottom: 160px;
       font: 400 24px MiSans VF;
       color: #fff;
 

@@ -3,7 +3,6 @@
 }
 
 .pc-layout {
-  max-width: 1920px;
   min-width: 1200px;
   margin: 0 auto;
   background-color: #11161b;
@@ -13,6 +12,15 @@
   width: 100vw;
   background-color: #11161b;
   min-width: 350px;
+}
+// 禁止图片拖拽出现缩影效果
+img {
+  -webkit-user-drag: none;
+  user-select: none;
   overflow-x: hidden;
   margin: 0 auto;
+}
+
+.pointer {
+  cursor: pointer;
 }

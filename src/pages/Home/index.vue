@@ -18,7 +18,10 @@
         <div class="dna-text">DNA</div>
         <!-- <img src="@/assets/images/lines.png" class="line"> -->
       </div>
-      <div class="advantage" v-if="advantageShow">
+      <div
+        class="advantage animate__animated animate__fadeIn"
+        v-if="advantageShow"
+      >
         <div
           v-for="(advantage, index) in advantageArr"
           :key="index"
@@ -26,20 +29,26 @@
           @mousemove="advantageMove(advantage)"
           @mouseleave="advantageLeave(advantage)"
         >
-          <div class="title" :style="{ color: advantage.color }">
+          <div
+            class="title"
+            :style="{ color: advantage.color, transition: 'color 1s' }"
+          >
             {{ advantage.title }}
           </div>
           <div class="sub-title" v-if="advantage.subTitle">
             {{ advantage.subTitle }}
           </div>
-          <div class="describe" v-if="advantage.isShow">
+          <div :class="advantage.animationClass" class="describe">
             {{ advantage.describe }}
           </div>
         </div>
       </div>
     </div>
     <div class="product-section sector border-gradient">
-      <img src="@/assets/images/infinite.png" class="title" />
+      <img
+        src="@/assets/images/infinite.png"
+        class="title animate__animated animate__fadeIn"
+      />
       <div class="product-list">
         <div class="product-list-top">
           <div class="product-list-top-item product">产品</div>
@@ -80,14 +89,24 @@
       </div>
     </div>
     <div class="banner-section sector border-gradient">
-      <div class="title">
+      <div class="title animate__animated animate__fadeIn">
         <span>您的选择和 </span><span class="orange-text"> 他们 </span
         ><span> 一样</span>
       </div>
-      <img src="@/assets/images/banners.png" class="banner-img" />
+      <img
+        src="@/assets/images/banners.png"
+        class="banner-img animate__animated animate__fadeIn"
+      />
     </div>
     <div class="new-section sector border-gradient">
-      <div class="new-item" v-for="(item, index) in newList" :key="index">
+      <div
+        v-for="(item, index) in newList"
+        :key="index"
+        class="new-item hover-scale-transition"
+        @mousemove="cardHover(item)"
+        @mouseleave="cardLeave(item)"
+        :style="{ transform: item.transform}"
+      >
         <div class="img-box">
           <img :src="item.imgSrc" alt="" class="new-img" />
 
@@ -146,34 +165,34 @@ export default {
         {
           title: "前沿 科技力",
           describe: "与合作伙伴共担ESG责任共筑地球可持续未来",
-          moveColor: "#dd716c",
-          isShow: false,
+          moveColor: "#FF7200",
+          animationClass: "",
         },
         {
           title: "平台 强赋能",
           describe: "独创 MiNT X Platform AI赋能生物智造",
-          moveColor: "#1c358c",
-          isShow: false,
+          moveColor: "#144BE1",
+          animationClass: "",
         },
         {
           title: "卓越 产品力",
           subTitle: "生物降解新材料",
           describe: "低成本高性能的环保新材料",
-          moveColor: "#3170d3",
-          isShow: false,
+          moveColor: "#0082FB",
+          animationClass: "",
         },
         {
           title: "卓越 产品力",
           subTitle: "生物合成氨基酸",
           describe: "高效生物合成20+种氨基酸",
-          moveColor: "#285caa",
-          isShow: false,
+          moveColor: "#0082FB",
+          animationClass: "",
         },
         {
           title: "绿色 可持续",
           describe: "与合作伙伴共担ESG责任共筑地球可持续未来",
-          moveColor: "#306e4a",
-          isShow: false,
+          moveColor: "#00965A",
+          animationClass: "",
         },
       ],
       advantageShow: false,
@@ -187,7 +206,7 @@ export default {
             "有效减少养殖过程中温室气体排放",
           ],
           friends: "[ 牧原集团 ]",
-          top: 0,
+          top: -12,
           width: "50%",
         },
         {
@@ -224,7 +243,7 @@ export default {
           imgSrc: require("../../assets/images/product-6.jpeg"),
           advantage: ["吸湿性强", "弹力大", "可降解", "可回收"],
           friends: "[ 安踏 ]",
-          objectFit: "contain",
+          objectFit: "fill",
         },
       ],
       newList: [
@@ -234,6 +253,7 @@ export default {
           content: "低豆粕日粮助力全面绿色转型",
           color: "#144BE1",
           imgSrc: require("../../assets/News/news01.png"),
+          transform: 'scale(1)',
         },
         {
           title: "#MiNT进行时",
@@ -241,6 +261,7 @@ export default {
           content: "周扬区长莅临元素驱动调研指导",
           color: "#FF7200",
           imgSrc: require("../../assets/News/news02.png"),
+          transform: 'scale(1)',
         },
         {
           title: "#MiNT Vision",
@@ -248,6 +269,7 @@ export default {
           content: "中央首次部署！加快经济社会发展全面绿色转型",
           color: "#007D30",
           imgSrc: require("../../assets/News/news03.png"),
+          transform: 'scale(1)',
         },
         {
           title: "#MiNT进行时",
@@ -255,6 +277,7 @@ export default {
           content: "姚高员市长调研重点产业赛道企业，莅临元素驱动指导",
           color: "#FF7200",
           imgSrc: require("../../assets/News/news04.png"),
+          transform: 'scale(1)',
         },
         {
           title: "#MiNT进行时",
@@ -263,6 +286,7 @@ export default {
             "聚焦发展新质生产力，元素驱动年产3万吨PBX生物降解材料项目开工",
           color: "#FF7200",
           imgSrc: require("../../assets/News/news05.png"),
+          transform: 'scale(1)',
         },
       ],
     };
@@ -276,11 +300,11 @@ export default {
     },
     advantageMove(advantage) {
       advantage.color = advantage.moveColor;
-      advantage.isShow = true;
+      advantage.animationClass = "animate__animated animate__fadeIn";
     },
     advantageLeave(advantage) {
       advantage.color = "#ffffff";
-      advantage.isShow = false;
+      advantage.animationClass = "animate__animated animate__fadeOut";
     },
     productMove(product) {
       product.isShow = true;
@@ -288,6 +312,12 @@ export default {
     productLeave(product) {
       product.isShow = false;
     },
+    cardHover(card) {
+      card.transform = 'scale(1.05)';
+    },
+    cardLeave(card) {
+      card.transform = 'scale(1)';
+    }
   },
 };
 </script>
@@ -339,7 +369,7 @@ export default {
 
       &-item {
         font: 600 32px MiSans;
-        width: 108px;
+        width: 180px;
         min-height: 200px;
         display: flex;
         flex-direction: column;
@@ -352,18 +382,19 @@ export default {
         }
 
         .title {
-          margin-bottom: 4px;
+          margin-bottom: 20px;
           width: 96px;
         }
 
         .sub-title {
           font-size: 15px;
-          margin-bottom: 4px;
+          margin-bottom: 20px;
         }
 
         .describe {
           font-size: 15px;
           transition: all 1s ease;
+          opacity: 0;
         }
       }
     }
@@ -377,7 +408,7 @@ export default {
 
     .title {
       width: 678px;
-      margin-bottom: 40px;
+      margin-bottom: 170px;
     }
 
     .product-list {
@@ -477,8 +508,8 @@ export default {
             height: 255px;
             object-fit: cover;
             position: absolute;
-            top: -68px;
-            left: 207px;
+            top: -48px;
+            left: 180px;
             z-index: 0;
             transition: all 0.5s ease;
           }
@@ -520,7 +551,6 @@ export default {
       margin-bottom: 40px;
       position: relative;
       cursor: pointer;
-
       .img-box {
         position: relative;
 

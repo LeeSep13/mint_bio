@@ -75,7 +75,7 @@ const props = defineProps({
     position: relative;
 
     .body {
-      width: 944px;
+      width: 56.3%;
       height: 100%;
       // border: solid 1px red;
 
@@ -87,7 +87,7 @@ const props = defineProps({
         position: absolute;
         width: 663px;
         height: 468px;
-        top: 66px;
+        top: 0;
         left: 140px;
 
         img {

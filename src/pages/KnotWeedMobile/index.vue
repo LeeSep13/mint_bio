@@ -1,7 +1,7 @@
 <template>
   <div class="knotWeed">
     <div class="knotWeed-title">
-      <img class="grid-image" src="@/assets/images/grid.png" alt="knotWeed_grid" />
+      <img class="grid-image" src="@/assets/images/grid1.png" alt="knotWeed_grid" />
       <img class="mint-image" src="@/assets/images/mint.png" alt="knotWeed_mint" />
       <div class="knotWeed-title-text">
         <p class="knotWeed-title-text-top">

@@ -171,6 +171,9 @@ onMounted(async () => {
     const response = await axios.get("/data/news_list.json");
     if (response.status === 200) {
       newsList.value = response.data;
+      newsList.value.forEach((news) => {
+        news.transform = 'scale(1)';
+      });
     }
   } catch (error) {
     console.error("Error fetching news data:", error);
@@ -178,8 +181,9 @@ onMounted(async () => {
 });
 </script>
 
-<style lang="scss" scoped>
-/* @media screen and (min-width: 680px) { */
+<style lang="less" scoped>
+@import "@/style/variable.less";
+
 .container {
   width: 100%;
   /* height: 100%; */
@@ -190,15 +194,13 @@ onMounted(async () => {
   align-items: center;
 
   .news-container {
-    width: 1728px;
+    width: 100%;
     height: 100%;
-    padding: 40px 150px 300px 150px;
+    padding: 40px 160px 300px 160px;
     /* position: relative; */
 
     .selecthead {
       width: 100%;
-      height: 106px;
-      /* margin-left: -30px; */
       overflow: hidden;
       font-size: 18px;
       span {
@@ -220,16 +222,14 @@ onMounted(async () => {
     }
 
     .preview-newsinfo {
-      width: 1424px;
+      width: 100%;
       height: 647px;
-      /* position: absolute; */
-      margin: 60px 0px;
+      margin-top: 100px;
     }
 
     .news-preview {
-      width: 1424px;
-      top: 880px;
-      /* position: absolute; */
+      width: 100%;
+      padding-top: 100px;
     }
   }
 }
