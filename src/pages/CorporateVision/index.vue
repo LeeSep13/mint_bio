@@ -5,11 +5,14 @@
       :backgroundImg="require('@/assets/images/corporateVision.png')"
     />
     <div class="introduction">
-      <img
-        src="@/assets/images/introduction-title.png"
-        alt=""
-        class="introduction-img animate__animated animate__fadeInUp"
-      />
+      <div v-intersect="() => title1InView = true">
+        <img
+          v-if="title1InView"
+          src="@/assets/images/introduction-title.png"
+          alt=""
+          class="introduction-img animate__animated animate__fadeInUp"
+        />
+      </div>
       <div class="introduction-section">
         元素驱动（MiNT
         BiO）是一家集技术研发、生产应用推广为一体的合成生物科技公司，由西湖大学张科春教授于2021年8月创办，总部位于浙江杭州。
@@ -122,34 +125,36 @@
     </div>
 
     <div class="scientific sector border-gradient">
-      <div class="scientific-title animate__animated animate__fadeInUp">
-        <div class="scientific-title-left">
-          <div>
-            <span>前端</span><span class="opacity-0">科研</span
-            ><span>攻坚</span>
-          </div>
-          <div>
-            <span class="opacity-0">前端</span
-            ><span class="orange-text">科研</span
-            ><span class="opacity-0">攻坚</span>
-          </div>
-        </div>
-        <div class="scientific-title-middle">
-          <p>从实验室走向生产线</p>
-          <p>是合成生物行业必经之路</p>
-          <p>迈向生物智造时代</p>
-          <p>元素驱动已做好准备</p>
-        </div>
-        <div class="scientific-title-right">
+      <div v-intersect="() => title2InView = true">   
+        <div v-if="title2InView" class="scientific-title animate__animated animate__fadeInUp">
           <div class="scientific-title-left">
             <div>
-              <span>后端</span><span class="opacity-0">落地</span
-              ><span>量产</span>
+              <span>前端</span><span class="opacity-0">科研</span
+              ><span>攻坚</span>
             </div>
             <div>
-              <span class="opacity-0">后端</span
-              ><span class="orange-text">落地</span
-              ><span class="opacity-0">量产</span>
+              <span class="opacity-0">前端</span
+              ><span class="orange-text">科研</span
+              ><span class="opacity-0">攻坚</span>
+            </div>
+          </div>
+          <div class="scientific-title-middle">
+            <p>从实验室走向生产线</p>
+            <p>是合成生物行业必经之路</p>
+            <p>迈向生物智造时代</p>
+            <p>元素驱动已做好准备</p>
+          </div>
+          <div class="scientific-title-right">
+            <div class="scientific-title-left">
+              <div>
+                <span>后端</span><span class="opacity-0">落地</span
+                ><span>量产</span>
+              </div>
+              <div>
+                <span class="opacity-0">后端</span
+                ><span class="orange-text">落地</span
+                ><span class="opacity-0">量产</span>
+              </div>
             </div>
           </div>
         </div>
@@ -179,8 +184,8 @@
     <div class="project border-gradient">
       <img src="@/assets/images/project.png" />
     </div>
-    <div class="banner-sector animate__animated animate__fadeInUp">
-      <img src="@/assets/images/banners.png" class="banner-img" />
+    <div v-intersect="() => title3InView = true" class="banner-sector">
+      <img v-if="title3InView" src="@/assets/images/banners.png" class="banner-img animate__animated animate__fadeInUp" />
     </div>
   </div>
 </template>
@@ -266,6 +271,9 @@ export default {
       isPrevDisabled: true,
       isNextDisabled: false,
       timelineElement: null,
+      title1InView: false,
+      title2InView: false,
+      title3InView: false,
     };
   },
   mounted() {
@@ -583,7 +591,7 @@ export default {
 }
 
 .banner-sector {
-  padding: 237px 243px 214px;
+  padding: 137px 243px 214px;
 
   img {
     width: 100%;

@@ -23,17 +23,19 @@
     <div class="material-scroll">
       <MouseScroll :modules="modules" />
     </div>
-    <div class="case sector">
-      <div class="case-title">
-        <div class="case-title-first animate__animated animate__fadeInUp">
+    <div v-intersect="() => title1InView = true" class="case sector">
+      <div  v-if="title1InView" class="case-title animate__animated animate__fadeInUp">
+        <div class="case-title-first">
           <span class="orange-text">应用</span><span>案例</span>
         </div>
-        <div class="case-title-second">
-          <span class="orange-text">[ 生物降解快递袋 ]</span>
-        </div>
-        <div class="case-title-third">
-          <p>唯品会</p>
-          <p>&元素驱动</p>
+        <div class="flex pt100">
+          <div class="case-title-third">
+            <p>唯品会</p>
+            <p>&元素驱动</p>
+          </div>
+          <div class="case-title-second">
+            <span class="orange-text">[ 生物降解快递袋 ]</span>
+          </div>
         </div>
       </div>
       <div
@@ -66,8 +68,8 @@
       </div>
     </div>
 
-    <div class="case sector">
-      <div class="case-title flex">
+    <div v-intersect="() => title2InView = true" class="case sector pt70">
+      <div v-if="title2InView" class="case-title flex animate__animated animate__fadeInUp">
         <div class="case-title-third">
           <p>中国农科院</p>
           <p>& 元素驱动</p>
@@ -106,12 +108,12 @@
       </div>
     </div>
 
-    <div class="question sector border-gradient">
-      <div class="title-first animate__animated animate__fadeInUp">
+    <div v-intersect="() => title3InView = true" class="question sector border-gradient">
+      <div v-if="title3InView" class="title-first animate__animated animate__fadeInUp">
         <span>常见</span><span class="orange-text question-code">？</span
         ><span>问</span>
       </div>
-      <div class="title-second animate__animated animate__fadeInUp">
+      <div v-if="title3InView" class="title-second animate__animated animate__fadeInUp">
         <span :style="{ opacity: 0 }">常见</span
         ><span class="orange-text question-code" :style="{ opacity: 0 }"
           >？</span
@@ -341,6 +343,9 @@ export default {
           content: "生物降解材料广泛应用于包装、农业、医疗、家居等领域。",
         },
       ],
+      title1InView: false,
+      title2InView: false,
+      title3InView: false,
     };
   },
   methods: {
@@ -377,7 +382,12 @@ export default {
   margin: 0 8px 0 auto;
   color: #409eff;
 }
-
+.pt100 {
+  padding-top: 100px;
+}
+.pt70{
+  padding-top: 70px;
+}
 .material {
   background-color: #11161b;
 

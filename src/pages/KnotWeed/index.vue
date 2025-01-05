@@ -24,8 +24,8 @@
       </div>
     </div>
 
-    <div class="knotWeed-module1-w sector">
-      <div class="knotWeed-module1 animate__animated animate__zoomIn">
+    <div v-intersect="() => module1InView = true" class="knotWeed-module1-w sector">
+      <div v-if="module1InView" class="knotWeed-module1 animate__animated animate__zoomIn">
         <div class="knotWeed-module1-title animate__animated animate__fadeInUp">
           <p>节豆日粮</p>
           <p class="knotWeed-module1-title-replace">替代</p>
@@ -36,8 +36,8 @@
         </div>
       </div>
     </div>
-    <div class="knotWeed-module2-w sector">
-      <div class="knotWeed-module2 animate__animated animate__zoomIn">
+    <div v-intersect="() => module2InView = true" class="knotWeed-module2-w sector">
+      <div v-if="module2InView" class="knotWeed-module2 animate__animated animate__zoomIn">
         <div class="knotWeed-module2-propagate animate__animated animate__fadeInUp">
           <div class="knotWeed-module2-propagate-title">节豆日粮</div>
           <div class="knotWeed-module2-propagate-target">
@@ -58,8 +58,8 @@
     </div>
     <MiNTDivider :content="'+'"></MiNTDivider>
 
-    <div class="knotWeed-module3-w sector animate__animated animate__fadeInUp">
-      <div class="knotWeed-module3">
+    <div v-intersect="() => module3InView = true" class="knotWeed-module3-w sector">
+      <div v-if="module3InView" class="knotWeed-module3 animate__animated animate__fadeInUp">
         <div class="knotWeed-module3-title">
           <p>节豆日粮助力</p>
           <p>解决粮食安全“卡脖子问题”</p>
@@ -112,9 +112,15 @@ export default {
         content: "减少进口4000万吨大豆",
       },
     ]);
-
+    
+    const module1InView = ref(false);
+    const module2InView = ref(false);
+    const module3InView = ref(false);
     return {
       knotData,
+      module1InView,
+      module2InView,
+      module3InView,
     };
   },
 };

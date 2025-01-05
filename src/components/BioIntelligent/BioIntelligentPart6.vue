@@ -1,8 +1,10 @@
 <template>
   <div class="biointelligentpart6v2 sector">
-    <div class="title animate__animated animate__fadeInUp">
-      <span class="label1"> 生物智造&nbsp;&nbsp; </span>
-      <span class="label2"> 基 <br />地 </span>
+    <div v-intersect="() => titleInView = true">
+      <div v-if="titleInView" class="title animate__animated animate__fadeInUp">
+        <span class="label1"> 生物智造&nbsp;&nbsp; </span>
+        <span class="label2"> 基 <br />地 </span>
+      </div>
     </div>
 
     <div class="content">
@@ -97,6 +99,8 @@ import { ref } from "vue";
 
 // 使用 ref 创建响应式变量
 const expandedIndex = ref(-1); // 当前扩展的盒子索引
+
+const titleInView = ref(false);
 
 // 方法定义
 
