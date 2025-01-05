@@ -1,35 +1,39 @@
 <template>
-  <header class="header">
-    <div class="header-left">
-      <div class="header-left-logo" :style="{ cursor: 'pointer' }">
-        <img src="@/assets/images/logo.png" alt="Logo" @click="handleLogoClick" />
+  <header class="header-w">
+    <div class="header">
+      <div class="header-left">
+        <div class="header-left-logo" :style="{ cursor: 'pointer' }">
+          <img src="@/assets/images/logo.png" alt="Logo" @click="handleJumps('home')" />
+        </div>
       </div>
-    </div>
-    <div class="header-right">
-      <el-popover placement="bottom" trigger="manual" :visible="visible" :show-arrow="false"
-        popper-class="header-popover" :popper-options="popperOptions">
-        <div class="popover-content">
-          <div class="popover-content-close" @click="visible = !visible">
+      <div class="header-right">
+        <el-popover placement="bottom" width="891" trigger="manual" :visible="visible" :show-arrow="false"
+          popper-class="header-popover" :popper-options="popperOptions">
+          <div class="popover-close" @click="visible = !visible">
             <img src="./images/close.png" alt="close" />
           </div>
-          <div class="popover-content-box">
+          <div class="popover-content">
             <div class="popover-content-menu">
               <div class="popover-content-menu-item">
-                <p>生物智造</p>
+                <p class="pointer" @click="handleJumps('bioIntelligent')">
+                  生物智造
+                </p>
               </div>
               <div class="popover-content-menu-item">
-                <p>产品</p>
-                <p>生物降解新材料</p>
-                <p>生物合成氨基酸</p>
-                <p>节豆粮解决方案</p>
+                <div @click="togglePanel('productPanel')">产品 <span class="plus"
+                    :class="{ 'rotated': isPanelOpen.productPanel }">+</span></div>
+                <p class="pointer" v-if="isPanelOpen.productPanel" @click="handleJumps('material')">生物降解新材料</p>
+                <p class="pointer" v-if="isPanelOpen.productPanel" @click="handleJumps('aminoAcid')">生物合成氨基酸</p>
+                <p class="pointer" v-if="isPanelOpen.productPanel" @click="handleJumps('knotWeed')">节豆粮解决方案</p>
               </div>
               <div class="popover-content-menu-item">
-                <p>关于我们</p>
-                <p>企业介绍</p>
-                <p>愿景与责任</p>
+                <div @click="togglePanel('aboutUsPanel')">关于我们<span class="plus"
+                    :class="{ 'rotated': isPanelOpen.aboutUsPanel }">+</span></div>
+                <p class="pointer" v-if="isPanelOpen.aboutUsPanel" @click="handleJumps('vision')">企业介绍</p>
+                <p class="pointer" v-if="isPanelOpen.aboutUsPanel" @click="handleJumps('corporate')">愿景与责任</p>
               </div>
               <div class="popover-content-menu-item">
-                <p>发展动态</p>
+                <p class="pointer" @click="handleJumps('mintNews')">发展动态</p>
               </div>
               <div class="popover-content-menu-item">
                 <p>加入我们</p>
@@ -39,115 +43,87 @@
               </div>
             </div>
             <div class="popover-content-language">
-              <p class="popover-content-language-cn">CN</p>
-              <p class="popover-content-language-en">EN</p>
+              <p class="popover-content-language-cn" :class="{ 'active-language': currentLanguage === 'CN' }"
+                @click="toggleToCN">CN</p>
+              <p class="popover-content-language-en" :class="{ 'active-language': currentLanguage === 'EN' }"
+                @click="toggleToEN">EN</p>
             </div>
           </div>
-        </div>
-        <template #reference>
-          <div class="menu" @click="visible = !visible">
-            <img src="./images/menu.png" alt="Menu" :style="!$route.meta.unRequiresHeader ? 'opacity:1' : 'opacity: 0.3'
-              " />
-          </div>
-        </template>
-      </el-popover>
-      <div v-if="visible" class="popover-overlay" @click="visible = false"></div>
+          <template #reference>
+            <div class="menu" @click="visible = !visible">
+              <img src="@/assets/images/menu.png" alt="Menu" />
+            </div>
+          </template>
+        </el-popover>
+        <div v-if="visible" class="popover-overlay" @click="visible = false"></div>
+      </div>
     </div>
   </header>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { ref, reactive } from 'vue';
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-const navData = ref([
-  {
-    key: 0,
-    name: "生物智造",
-    router: "bioIntelligent",
-    state: false,
-    submenu: [],
-    disabled: true,
-  },
-  {
-    key: 1,
-    name: "产品",
-    router: "/",
-    state: false,
-    submenu: [
-      { key: 1, name: "生物降解新材料", router: "material" },
-      { key: 2, name: "生物合成氨基酸", router: "aminoAcid" },
-      { key: 3, name: "节豆粮解决方案", router: "knotWeed" },
-    ],
-    iconUp: require("@/components/Header/images/arrow_up.png"),
-    iconDown: require("@/components/Header/images/arrow_down.png"),
-  },
-  {
-    key: 2,
-    name: "关于我们",
-    router: "/",
-    state: false,
-    submenu: [
-      { key: 21, name: "企业介绍", router: "corporate" },
-      { key: 22, name: "愿景与责任", router: "vision" },
-    ],
-    iconUp: require("@/components/Header/images/arrow_up.png"),
-    iconDown: require("@/components/Header/images/arrow_down.png"),
-  },
-  {
-    key: 3,
-    name: "发展动态",
-    router: "mintNews",
-    state: false,
-    submenu: [],
-    disabled: true,
-  },
-]);
-
 const visible = ref(false);
+const isPanelOpen = reactive({
+  productPanel: false,
+  aboutUsPanel: false
+});
+const currentLanguage = ref('CN');
 
-
-const handleLogoClick = () => {
-  router.push({ name: "home" });
+const togglePanel = (panel) => {
+  isPanelOpen[panel] = !isPanelOpen[panel];
 };
 
-const popperOptions = ref({
-  modifiers: [
-    {
-      name: "offset",
-      options: {
-        offset: [-415, 30], // 控制水平和垂直偏移
-      },
-    },
-  ],
-});
+const handleJumps = (target) => {
+  router.push({ name: target });
+};
+const toggleToCN = () => {
+  currentLanguage.value = 'CN';
+};
+const toggleToEN = () => {
+  currentLanguage.value = 'EN';
+};
 </script>
 
-<style lang="less">
-.el-popper.el-popover.header-popover {
+<style lang="scss">
+.header-popover {
   padding: 24px 26px 95px 72px;
-  background-color: #2828289f;
+  background-color: #12161b !important;
   border-radius: 20px;
-  border: 1px solid transparent;
-  backdrop-filter: blur(10px);
-  width: calc(100% - 40px) !important;
-  margin: 40px 0px 40px 15px !important;
+  width: calc(100% - 20px) !important;
+  margin: 40px auto !important;
+  left: 10px;
+
+}
+
+.el-popover.el-popper {
+  border: 1px solid #12161b !important;
+  ;
+}
+</style>
+<style lang="less" scoped>
+@import "@/style/variable.less";
+
+.popover-close {
+  margin-bottom: 22px;
+  text-align: right;
+
+  img {
+    width: 34px;
+    height: 34px;
+  }
 }
 
 .popover-content {
   width: 100%;
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 30px;
 
-  &-close {
-    margin-bottom: 62px;
-    text-align: right;
-
-    img {
-      width: 54px;
-      height: 54px;
-    }
-  }
 
   &-box {
     display: flex;
@@ -156,41 +132,56 @@ const popperOptions = ref({
     padding: 20px;
   }
 
-
   &-wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 80px;
   }
 
   &-menu {
     display: flex;
-    gap: 80px;
+    flex-direction: column;
 
     &-item {
-      display: flex;
-      flex-direction: column;
-      gap: 39px;
+      min-height: 50px;
+      line-height: 50px;
+      width: 200px;
+      border-bottom: 1px solid #3a3e41;
+      font-size: 14px;
+      color: #f1f3f7;
 
-      p {
-        font-size: 16px;
-        font-weight: 500;
-        color: #f1f3f7;
+      .plus {
+        margin-left: 40px;
+        transition: transform 0.3s ease;
+        display: inline-block; // 确保 span 可以旋转
+      }
+
+      .rotated {
+        transform: rotate(45deg); // 修改为 45deg 以实现 + 变成 x 的效果
       }
     }
   }
 
   &-language {
-    margin-top: 118px;
-    display: flex;
-    align-items: center;
-    gap: 80px;
+    margin-left: 80px;
 
     &-cn,
     &-en {
-      font-size: 16px;
+      width: 80px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 14px;
       font-weight: 500;
       color: #f1f3f7;
+    }
+
+    .active-language::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: orange;
+      border-radius: 50%;
+      margin-right: 4px;
     }
   }
 
@@ -215,11 +206,14 @@ const popperOptions = ref({
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 9;
 }
-</style>
-<style lang="less" scoped>
+
 .header {
   z-index: 4;
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   padding: 15px 0;
@@ -238,10 +232,9 @@ const popperOptions = ref({
     }
   }
 
-
   &-right {
     .menu {
-      width: 50px;
+      width: 54px;
 
       img {
         width: 100%;
@@ -249,5 +242,37 @@ const popperOptions = ref({
       }
     }
   }
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  /* 位于边框下方 */
+  left: 50%;
+  /* 水平居中 */
+  width: 80%;
+  /* 光晕的宽度 */
+  height: 450px;
+  /* 光晕的高度 */
+  background: radial-gradient(55% 50% at 50% 0%,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0) 100%);
+  transform: translateX(-50%);
+  filter: blur(20px);
+  opacity: 0.1;
+  pointer-events: none;
+  /* 光晕不影响交互 */
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-enter,
+.slide-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
 }
 </style>
