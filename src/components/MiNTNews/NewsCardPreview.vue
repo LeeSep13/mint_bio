@@ -1,8 +1,5 @@
 <template>
-  <router-link
-    :to="`/mintNews/detail/${props.info.id}`"
-    class="news-preview-container"
-  >
+  <router-link :to="`/mintNews/detail/${props.info.id}`" class="news-preview-container">
     <div class="pic">
       <img :src="getImageUrl(props.info.pic)" />
     </div>
@@ -28,15 +25,14 @@ const props = defineProps({
   },
 });
 
-// const info = props.info
 </script>
 
 <style lang="scss" scoped>
 .news-preview-container {
-  // width: 464px;
   &:hover {
-	  text-decoration: none;
+    text-decoration: none;
   }
+
   .pic {
     width: 100%;
     height: 367px;
@@ -49,12 +45,14 @@ const props = defineProps({
 
   .newsinfo {
     margin: 30px 0;
+
     span {
       font-size: 18px;
       font-weight: 450;
       line-height: 23.87px;
       color: #f1f3f7;
     }
+
     .newsinfo-time {
       margin-left: 24px;
     }
@@ -62,6 +60,7 @@ const props = defineProps({
 
   .title {
     width: 100%;
+
     span {
       font-size: 20px;
       font-weight: 450;
@@ -69,5 +68,48 @@ const props = defineProps({
       color: #f1f3f7;
     }
   }
+}
+
+@media screen and (max-width: 922px) {
+  .news-preview-container {
+    width: 100%;
+
+    .pic {
+      height: 240px;
+      border-radius: 12px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .newsinfo {
+      margin: 20px 0;
+
+      span {
+        font-size: 12px;
+        font-weight: 450;
+        line-height: 23.87px;
+        color: #f1f3f7;
+      }
+
+      .newsinfo-time {
+        margin-left: 24px;
+      }
+    }
+
+    .title {
+      width: 100%;
+
+      span {
+        font-size: 16px;
+        font-weight: 450;
+        line-height: 22.52px;
+        color: #f1f3f7;
+      }
+    }
+  }
+
 }
 </style>

@@ -22,7 +22,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-@media screen and (min-width: 380px) {
+@media screen and (min-width: 992px) {
   .newslist {
     width: 100%;
     display: grid;
@@ -41,6 +41,15 @@ const props = defineProps({
       // display: flex;
       justify-content: center;
     }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .newslist {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
   }
 }
 </style>

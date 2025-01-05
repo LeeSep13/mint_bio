@@ -28,24 +28,13 @@
         </div>
       </div>
     </div>
-    <div class="knotWeed-module2-w mobile-sector">
-      <div class="knotWeed-module2">
-        <div class="knotWeed-module2-propagate">
-          <div class="knotWeed-module2-propagate-title">节豆日粮</div>
-          <div class="knotWeed-module2-propagate-target">
-            <p>生物智造</p>
-            <p>惠及每一个生命</p>
-          </div>
-        </div>
-        <div class="knotWeed-module2-advantage">
-          <div class="knotWeed-module2-advantage-content">
-            <ul class="knotWeed-module2-advantage-content-text">
-              <li>合成8种氨基酸</li>
-              <li>营养供给精准高效</li>
-              <li>节约饲养成本</li>
-            </ul>
-          </div>
-        </div>
+
+    <div class="knotWeed-module2">
+      <Propagate />
+      <div class="knotWeed-module2-advantage">
+        <span>合成8种氨基酸</span>
+        <span>营养供给精准高效</span>
+        <span>节约饲养成本</span>
       </div>
     </div>
     <MiNTDivider :content="'+'"></MiNTDivider>
@@ -72,10 +61,12 @@
 <script>
 import { ref } from "vue";
 import MiNTDivider from "@/components/Divider";
+import Propagate from "@/components/Propagate";
 
 export default {
   components: {
     MiNTDivider,
+    Propagate
   },
   setup() {
     const knotData = ref([
@@ -114,21 +105,21 @@ export default {
 /* 样式部分保持不变 */
 .knotWeed {
   &-title {
-    height: 468px;
-    line-height: 468px;
+    height: 248px;
+    line-height: 248px;
     text-align: center;
     position: relative;
 
     &-text {
-      font-size: 70px;
+      font-size: 20px;
       font-weight: 500;
 
       &-top {
-        height: 130px;
+        height: 36px;
         color: #ffffff73;
 
         span {
-          font-size: 128px;
+          font-size: 20px;
         }
       }
 
@@ -136,7 +127,7 @@ export default {
         color: rgba(236, 236, 238, 0.8);
 
         span {
-          font-size: 128px;
+          font-size: 20px;
         }
       }
     }
@@ -163,184 +154,99 @@ export default {
   }
 
   &-module1 {
-    height: 100%;
+    height: 224px;
     background-image: url("@/assets/KnotWeed/banner1.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
-    border-radius: 1.25rem;
+    border-radius: 12px;
     border: 1px solid #ffffff33;
 
-    &-w {
-      padding-bottom: 70px;
-      height: 843px;
-    }
-
     &-title {
-      margin-top: 144px;
+      margin-top: 60px;
       margin-left: 60px;
       display: flex;
       align-items: center;
-      font-size: 90px;
+      font-size: 24px;
       font-weight: 500;
       color: #fff;
 
       &-replace {
-        width: 130px;
+        width: 48px;
         text-align: center;
         color: #ff7200;
       }
     }
 
     &-desc {
-      margin-left: 60px;
+      margin-left: 10px;
       margin-top: 20px;
-      font-size: 66px;
+      font-size: 16px;
       font-weight: 500;
       color: #fff;
     }
   }
 
   &-module2 {
-    padding: 135px 164px 134px 95px;
-    height: 100%;
-    display: flex;
-    background-image: url("@/assets/AminoAcid/module3_bg.jpeg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 20px;
-    box-sizing: border-box;
-
-    &-w {
-      padding-bottom: 150px;
-      height: 843px;
-    }
-
-    &-propagate {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      &-title {
-        font-size: 96px;
-        font-weight: 500;
-        color: #fff;
-      }
-
-      &-target {
-        font-size: 74px;
-        font-weight: 500;
-        color: transparent;
-        background-clip: text;
-        background-image: linear-gradient(90deg,
-            #000000 0%,
-            #000 30%,
-            #3e0603 40%,
-            #000 50%,
-            #3e0603 60%,
-            #000 100%);
-
-        p:last-child {
-          margin-left: 148px;
-        }
-      }
-    }
 
     &-advantage {
-      margin-left: 10.625rem;
+      color: #f1f3f7;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      gap: 16px;
+      font-size: 12px;
+      font-weight: 450;
+      line-height: 16.8px;
+      text-align: left;
+      margin: 20px 0 40px 32px;
 
-      &-content {
-        width: 20.375rem;
-        height: 12.125rem;
-        background-color: #2828289f;
-        backdrop-filter: blur(68px);
-        border-radius: 1.25rem;
-        border: 1px solid transparent;
-        background-image: linear-gradient(#181a1d, #2828289f),
-          linear-gradient(156.52deg,
-            rgba(255, 255, 255, 0.4) 2.12%,
-            rgba(255, 255, 255, 0.0001) 60%,
-            rgba(255, 255, 255, 0.0001) 54%,
-            rgba(255, 255, 255, 0.1) 93.02%);
-        background-origin: border-box;
-        background-clip: content-box, border-box;
-
-        &-text {
-          padding: 2.5rem;
-
-          li {
-            position: relative;
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: #f1f3f7;
-            padding-left: 2rem;
-
-            &::before {
-              content: "";
-              position: absolute;
-              left: 0;
-              top: 50%;
-              transform: translateY(-50%);
-              width: 10px;
-              height: 10px;
-              background-color: #fff;
-              border-radius: 50%;
-            }
-
-            &:not(:last-child) {
-              margin-bottom: 1rem;
-              /* 每项之间的间隔 */
-            }
-          }
-        }
+      span {
+        display: flex;
+        align-items: center;
       }
+
+      span::before {
+        content: "";
+        width: 4px;
+        height: 4px;
+        background-color: #f6f3f0;
+        display: inline-block;
+        border-radius: 50%;
+        margin-right: 4px;
+      }
+
     }
   }
 
   &-module3 {
-    &-w {
-      padding-top: 132px;
-      padding-bottom: 300px;
-    }
+    padding: 60px 0 60px 46px;
 
     &-title {
-      margin-bottom: 200px;
-      font-size: 60px;
+      margin-bottom: 40px;
+      font-size: 25px;
       font-weight: 500;
       color: #f1f3f7;
-
-      p:last-child {
-        margin-left: 240px;
-      }
     }
 
     &-data {
-      padding-left: 125px;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      row-gap: 149px;
-      column-gap: 369px;
       width: 87%;
+      gap: 16px;
 
       &-item {
-        width: 388px;
 
         &:nth-child(1),
         &:nth-child(3) {
-          margin-right: 120px;
+          margin-right: 40px;
         }
 
         &-important {
-          font-size: 120px;
+          font-size: 40px;
           font-weight: 500;
           color: #ff7200;
         }
 
         &-content {
-          font-size: 32px;
+          font-size: 10px;
           color: #f1f3f7;
         }
       }

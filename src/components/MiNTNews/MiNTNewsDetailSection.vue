@@ -6,11 +6,7 @@
 
     <div class="section-content">
       <div v-for="content in props.info.contents" :key="content.id">
-        <div
-          v-if="content.pic"
-          class="pic"
-          :style="{ height: content.height + 'px' }"
-        >
+        <div v-if="content.pic" class="pic">
           <img :src="getImageUrl(content.pic)" />
         </div>
 
@@ -48,6 +44,7 @@ const props = defineProps({
 
   .section-content {
     width: 100%;
+
     .pic {
       width: 100%;
       margin: 50px 0px;
@@ -60,7 +57,8 @@ const props = defineProps({
 
     .section-desc {
       margin-top: 50px;
-      white-space: pre-wrap; 
+      white-space: pre-wrap;
+
       span {
         color: white;
         font-size: 21px;
@@ -70,5 +68,63 @@ const props = defineProps({
       }
     }
   }
+}
+
+@media screen and (max-width: 922px) {
+  .section-container {
+    width: 100%;
+
+    .section-head {
+      font-size: 20px;
+      font-weight: 520;
+      line-height: 26.52px;
+      text-align: left;
+    }
+
+
+    .section-content {
+      margin: 20px 0;
+
+      span {
+        font-size: 12px;
+        font-weight: 450;
+        line-height: 23.87px;
+        color: #f1f3f7;
+      }
+
+      .pic {
+        height: 240px;
+        border-radius: 12px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .newsinfo-time {
+        margin-left: 24px;
+      }
+
+      .section-desc {
+        margin-top: 20px;
+        white-space: pre-wrap;
+
+        span {
+          color: white;
+          font-size: 14px;
+          line-height: 23px;
+        }
+      }
+
+    }
+
+
+
+
+
+  }
+
 }
 </style>

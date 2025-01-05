@@ -7,8 +7,7 @@
         </div>
         <div class="tag">
           <span :style="{ color: props.info.categorycolor }">
-            {{ props.info.categorylabel }}</span
-          >
+            {{ props.info.categorylabel }}</span>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span> {{ props.info.time }} </span>
         </div>
@@ -65,6 +64,7 @@ const props = defineProps({
   display: flex;
   justify-content: center;
   overflow: hidden;
+
   .content {
     width: 1728px;
     height: 100%;
@@ -127,8 +127,10 @@ const props = defineProps({
         font-weight: 330;
         line-height: 33px;
         font-family: MiSans VF;
+
         .overview-abstract {
-          white-space: pre-wrap; /* 保留空白符序列，但是正常地进行换行 */
+          white-space: pre-wrap;
+          /* 保留空白符序列，但是正常地进行换行 */
         }
       }
 
@@ -153,6 +155,89 @@ const props = defineProps({
           line-height: 33px;
           white-space: pre-wrap;
         }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 922px) {
+  .news-container {
+    .content {
+      .body {
+        padding: 0 10px;
+
+        .topbg {
+          position: absolute;
+          width: 663px;
+          height: 468px;
+          top: 66px;
+          left: 140px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .tag {
+          width: 100%;
+          margin-top: 171px;
+
+          span {
+            font-size: 18px;
+            font-weight: 450;
+            line-height: 23.87px;
+            color: white;
+          }
+        }
+
+        .title {
+          width: 100%;
+          margin-top: 50px;
+
+          .overview-header {
+            font-size: 24px;
+            line-height: 32px;
+            white-space: nowrap;
+            color: white;
+          }
+        }
+
+        .abstract {
+          font-size: 14px;
+          line-height: 20px;
+
+          .overview-abstract {
+            white-space: pre-wrap;
+            /* 保留空白符序列，但是正常地进行换行 */
+          }
+        }
+
+        .pic {
+          margin-top: 100px;
+          width: 100%;
+          height: 230px;
+          border-radius: 12px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .overview {
+          margin-top: 50px;
+
+          .overview-content {
+            color: white;
+            font-weight: 330;
+            font-size: 14px;
+            white-space: pre-wrap;
+          }
+        }
+
+
       }
     }
   }

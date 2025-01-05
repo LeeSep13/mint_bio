@@ -2,29 +2,26 @@
   <div class="news-detail-container">
     <MiNTNewsDetailCom v-if="configData" :info="configData">
     </MiNTNewsDetailCom>
-	<MiNTDivider :content="'+'"></MiNTDivider>	
-	<div class="more-dynamic">
-		更多动态
-	</div>
-    <MiNTNewsListPreview
-      class="news-preview"
-      :filteredNews="newsList"
-    ></MiNTNewsListPreview>
+    <MiNTDivider :content="'+'"></MiNTDivider>
+    <div class="more-dynamic">
+      更多动态
+    </div>
+    <MiNTNewsListMobile class="news-preview" :filteredNews="newsList"></MiNTNewsListMobile>
   </div>
 </template>
-  
-  <script>
+
+<script>
 import { ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import MiNTNewsDetailCom from "@/components/MiNTNews/MiNTNewsDetailCom.vue";
-import MiNTNewsListPreview from "@/components/MiNTNews/MiNTNewsListPreview.vue";
+import MiNTNewsListMobile from "@/components/MiNTNews/MiNTNewsListMobile.vue";
 import MiNTDivider from "@/components/Divider";
 export default {
   components: {
     MiNTNewsDetailCom,
-    MiNTNewsListPreview,
-	MiNTDivider,
+    MiNTNewsListMobile,
+    MiNTDivider,
   },
 
   setup() {
@@ -84,8 +81,8 @@ export default {
   },
 };
 </script>
-  
-  <style lang="scss" scoped>
+
+<style lang="scss" scoped>
 .news-detail-container {
   width: 100%;
   display: flex;
@@ -93,14 +90,16 @@ export default {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  .more-dynamic{
-	margin-top: 100px;
-	margin-bottom: 80px;
-	font-size: 21px;
-	color: #FFFFFF;
+
+  .more-dynamic {
+    margin-top: 100px;
+    margin-bottom: 80px;
+    font-size: 21px;
+    color: #FFFFFF;
   }
+
   .news-preview {
-	margin-bottom: 300px;
+    margin-bottom: 300px;
     width: 1424px;
   }
 }
