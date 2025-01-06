@@ -1,9 +1,9 @@
 <template>
-  <div class="part7layout sector">
+  <div v-intersect="() => titleInView = true" class="part7layout sector">
     <div class="title">
         <img src="@/assets/BioIntelligent/component_title.png" alt="">
     </div>
-    <div class="content">
+    <div  v-if="titleInView" class="content">
       <img
         v-show="currentIndex >= 0"
         class="comp1 animate__animated animate__fadeIn"
@@ -32,6 +32,7 @@ import { ref } from 'vue';
 export default {
   setup() {
     const currentIndex = ref(0);
+    const titleInView = ref(false);
 
     const nextComponent = () => {
       if (currentIndex.value < 2) {
@@ -41,6 +42,7 @@ export default {
 
     return {
       currentIndex,
+      titleInView,
       nextComponent
     };
   }
