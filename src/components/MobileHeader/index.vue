@@ -1,5 +1,5 @@
 <template>
-  <header class="header-w">
+  <div class="header-w">
     <div class="header">
       <div class="header-left">
         <div class="header-left-logo" :style="{ cursor: 'pointer' }">
@@ -20,7 +20,7 @@
                 </p>
               </div>
               <div class="popover-content-menu-item">
-                <div @click="togglePanel('productPanel')">产品 <span class="plus"
+                <div @click="togglePanel('productPanel')">产品 <span class="plus" :style="{ marginLeft:'64px' }"
                     :class="{ 'rotated': isPanelOpen.productPanel }">+</span></div>
                 <p class="pointer" v-if="isPanelOpen.productPanel" @click="handleJumps('material')">生物降解新材料</p>
                 <p class="pointer" v-if="isPanelOpen.productPanel" @click="handleJumps('aminoAcid')">生物合成氨基酸</p>
@@ -29,8 +29,8 @@
               <div class="popover-content-menu-item">
                 <div @click="togglePanel('aboutUsPanel')">关于我们<span class="plus"
                     :class="{ 'rotated': isPanelOpen.aboutUsPanel }">+</span></div>
-                <p class="pointer" v-if="isPanelOpen.aboutUsPanel" @click="handleJumps('vision')">企业介绍</p>
-                <p class="pointer" v-if="isPanelOpen.aboutUsPanel" @click="handleJumps('corporate')">愿景与责任</p>
+                <p class="pointer" v-if="isPanelOpen.aboutUsPanel" @click="handleJumps('corporate')">企业介绍</p>
+                <p class="pointer" v-if="isPanelOpen.aboutUsPanel" @click="handleJumps('vision')">愿景与责任</p>
               </div>
               <div class="popover-content-menu-item">
                 <p class="pointer" @click="handleJumps('mintNews')">发展动态</p>
@@ -58,7 +58,7 @@
         <div v-if="visible" class="popover-overlay" @click="visible = false"></div>
       </div>
     </div>
-  </header>
+  </div>
 </template>
 
 <script setup>
@@ -79,6 +79,7 @@ const togglePanel = (panel) => {
 };
 
 const handleJumps = (target) => {
+  visible.value = false;
   router.push({ name: target });
 };
 const toggleToCN = () => {
@@ -207,63 +208,69 @@ const toggleToEN = () => {
   z-index: 9;
 }
 
-.header {
+.header-w {
+  display: flex;
+  justify-content: center;
   z-index: 4;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 60px;
-  display: flex;
-  justify-content: space-between;
   padding: 15px 0;
-  width: 390px;
-  left: 20px;
 
-  &-left {
-    &-logo {
-      width: 102px;
-      height: 50px;
+  .header {
+    width: 370px;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
 
-      img {
-        width: 100%;
-        height: 100%;
+    &-left {
+      &-logo {
+        width: 102px;
+        height: 50px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    &-right {
+      .menu {
+        width: 54px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
 
-  &-right {
-    .menu {
-      width: 54px;
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
+  .header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    /* 位于边框下方 */
+    left: 50%;
+    /* 水平居中 */
+    width: 80%;
+    /* 光晕的宽度 */
+    height: 450px;
+    /* 光晕的高度 */
+    background: radial-gradient(55% 50% at 50% 0%,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0) 100%);
+    transform: translateX(-50%);
+    filter: blur(20px);
+    opacity: 0.1;
+    pointer-events: none;
+    /* 光晕不影响交互 */
   }
 }
 
-.header::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  /* 位于边框下方 */
-  left: 50%;
-  /* 水平居中 */
-  width: 80%;
-  /* 光晕的宽度 */
-  height: 450px;
-  /* 光晕的高度 */
-  background: radial-gradient(55% 50% at 50% 0%,
-      rgba(255, 255, 255, 0.5) 0%,
-      rgba(255, 255, 255, 0) 100%);
-  transform: translateX(-50%);
-  filter: blur(20px);
-  opacity: 0.1;
-  pointer-events: none;
-  /* 光晕不影响交互 */
-}
 
 .slide-enter-active,
 .slide-leave-active {

@@ -1,6 +1,6 @@
 <template>
   <div class="contact">
-    <el-popover placement="left-end" width="1285" trigger="manual" :visible="visible" :show-arrow="false"
+    <el-popover placement="left-end" width="370" trigger="manual" :visible="visible" :show-arrow="false"
       popper-class="contact-popover-w" :popper-options="popperOptions">
       <div class="contact-popover">
         <div class="contact-popover-close" @click="visible = !visible">
@@ -11,44 +11,28 @@
             <p class="contact-popover-content-left-title">洽谈合作</p>
             <p class="contact-popover-content-left-tip">
               感谢您对元素驱动的关注，如您对生物智造产品 &
-              解决方案有兴趣或疑问，<br />使用1分钟填写下方表格，我们将尽快安排工作人员与您建联。
+              <br />解决方案有兴趣或疑问，使用1分钟填写下方表格，<br />我们将尽快安排工作人员与您建联。
             </p>
             <div class="contact-popover-content-left-form">
               <div class="contact-popover-content-left-form-item">
-                <div class="contact-popover-content-left-form-item-label">
-                  姓名
-                </div>
+
                 <div class="contact-popover-content-left-form-item-input">
                   <input type="text" placeholder="您的姓名..." />
                 </div>
-                <div class="contact-popover-content-left-form-item-label">
-                  邮箱
-                </div>
+
                 <div class="contact-popover-content-left-form-item-input">
                   <input type="text" placeholder="您的邮箱..." />
                 </div>
-                <div class="contact-popover-content-left-form-item-label">
-                  电话
-                </div>
+
                 <div class="contact-popover-content-left-form-item-input">
                   <input type="text" placeholder="您的电话..." />
                 </div>
-                <div class="contact-popover-content-left-form-item-label">
-                  请简单描述您的问题
-                </div>
+
                 <div class="contact-popover-content-left-form-item-input">
-                  <input type="text" placeholder="您的留言..." />
+                  <input type="text" placeholder="您的留言...(请简单描述您的问题)" />
                 </div>
               </div>
-              <!-- <div class="contact-popover-content-left-form-submit-w"> -->
-              <div class="contact-popover-content-left-form-submit">
-                <p class="contact-popover-content-left-form-submit-btn">提交</p>
-              </div>
-              <!-- </div> -->
             </div>
-          </div>
-          <div class="contact-popover-content-divider">
-            <img src="./images/divider.png" alt="divider" />
           </div>
           <div class="contact-popover-content-connection">
             <p class="contact-popover-content-connection-title">
@@ -57,10 +41,17 @@
             <p class="contact-popover-content-connection-email">
               邮箱：mkt@mint-bio.com
             </p>
-            <img class="contact-popover-content-connection-qrcode" src="./images/QRcode.png" alt="QRcode" />
-            <p class="contact-popover-content-connection-desc">
-              公司动向、产品信息、行业新闻、前沿进展
-            </p>
+            <div class="contact-popover-content-connection-bottom">
+              <img class="contact-popover-content-connection-qrcode" src="./images/QRcode.png" alt="QRcode" />
+              <div class="bottom-right">
+                <div>公司动向</div>
+                <div>产品信息</div>
+                <div>行业新闻</div>
+                <div>前沿进展</div>
+              </div>
+
+            </div>
+
           </div>
         </div>
       </div>
@@ -93,17 +84,19 @@ const popperOptions = ref({
 });
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .el-popper.el-popover.contact-popover-w {
-  // margin-right: 40px;
-  padding: 24px 26px 95px 72px;
-  background-color: #2828289f;
+  background-color: #12161b !important;
   border-radius: 20px;
   border: 1px solid transparent;
-  backdrop-filter: blur(10px);
+  left: 10px !important;
+  top: 100px !important;
+  height: calc(100vh - 150px);
 }
 
 .contact-popover {
+  white-space: normal;
+
   &-close {
     text-align: right;
 
@@ -115,47 +108,49 @@ const popperOptions = ref({
 
   &-content {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
 
     &-left {
-      width: 560px;
+      width: 370px;
 
       &-title {
-        margin-bottom: 30px;
-        font-size: 36px;
+        margin-bottom: 15px;
+        font-size: 17px;
         font-weight: 500;
         color: #f1f3f7;
       }
 
       &-tip {
-        font-size: 16px;
+        font-size: 13px;
         font-weight: 500;
-        color: #f1f3f7;
+        color: #F1F3F780;
       }
 
       &-form {
-        margin-top: 45px;
+        margin-top: 25px;
 
         &-item {
           &-label {
-            margin-top: 35px;
-            font-size: 16px;
+            margin-top: 15px;
+            font-size: 15px;
             color: #f1f3f766;
           }
 
           &-input {
             input {
               width: 100%;
-              color: #f1f3f7;
-              background-color: transparent;
               border: none;
               border-bottom: 0.5px solid #f1f3f733;
-              padding-top: 35px;
+              background-color: transparent;
+              padding-top: 15px;
               padding-bottom: 10px;
               outline: none;
             }
 
             input::placeholder {
-              color: #f1f3f7;
+              color: #F1F3F7CC;
               opacity: 1;
             }
           }
@@ -179,43 +174,51 @@ const popperOptions = ref({
       }
     }
 
-    &-divider {
-      margin-left: 45px;
-      margin-right: 69px;
 
-      img {
-        width: 16px;
-        height: 100%;
-      }
-    }
 
     &-connection {
+      margin-top: 20px;
       color: #f1f3f7;
 
       &-title {
-        font-size: 36px;
+        font-size: 17px;
         font-weight: 500;
       }
 
+      &-bottom {
+        display: flex;
+        justify-content: flex-start;
+        gap: 5px;
+
+        .bottom-right {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          color: #F1F3F780;
+        }
+      }
+
       &-email {
-        margin-top: 162px;
-        margin-bottom: 66px;
-        font-size: 24px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-size: 15px;
         font-weight: 500;
       }
 
       &-qrcode {
-        width: 122px;
-        height: 123px;
+        width: 100px;
+        height: 100px;
+        margin: 0;
       }
 
       &-desc {
         margin-top: 37px;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 500;
       }
     }
   }
+
 }
 
 .contact-popover-overlay {

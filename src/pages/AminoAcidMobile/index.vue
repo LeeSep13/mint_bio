@@ -21,7 +21,7 @@
 
     <!-- <MouseScroll :modules="module2Data" /> -->
 
-    <div class="aminoAcid-module3">
+    <div class="aminoAcid-module3 border-gradient">
       <div class="aminoAcid-module3-title">
         <span class="orange-text">应用</span>
         <span>案例</span>
@@ -126,6 +126,8 @@ export default {
   padding: 60px 5px;
 
   &-module1 {
+    padding-bottom: 60px;
+
     &-content {
       &-top {
         border-radius: 12px;

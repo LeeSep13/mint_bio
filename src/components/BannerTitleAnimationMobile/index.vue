@@ -61,6 +61,7 @@ export default {
     position: relative;
     height: 412px;
     overflow: hidden;
+    margin-top: 60px;
 
     .background-img {
       position: absolute;
@@ -76,10 +77,11 @@ export default {
     }
 
     .animate-background {
-      top: 100px;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 20px;
+      width: 370px;
+      left: 10px;
+      height: 392px;
+
       transform: translate(0, 0);
     }
 
@@ -117,7 +119,7 @@ export default {
     .text-image {
       position: absolute;
       top: 115px;
-      width: 180px;
+      width: 280px;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 2;

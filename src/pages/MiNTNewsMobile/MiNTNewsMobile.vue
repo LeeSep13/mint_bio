@@ -12,7 +12,7 @@
     </BannerTitle>
     <div class="button">
       <div class="button-btn">
-        <p>下载品牌手册</p>
+        <span>下载品牌手册</span>
         <img src="@/assets/images/download.png" alt="download" />
       </div>
     </div>
@@ -84,10 +84,12 @@ export default {
       color: #ffffff;
       border: 1px solid #FFFFFF1A;
       border-radius: 9999px;
+      text-align: center;
+      background: #202123;
 
       img {
-        width: 1.125rem;
-        height: 1.125rem;
+        width: 18px;
+        margin: 0;
       }
 
       margin-bottom: 60px;

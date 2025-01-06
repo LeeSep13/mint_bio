@@ -78,7 +78,7 @@ const getFontBase = (width, map) => {
  * md >= 768
  * lg >= 992
  * xl >= 1200
- * xxl >= 1400
+ * xxl >= 1600
  */
 export const autoFont = () => {
   let fontBase = 16
@@ -96,14 +96,14 @@ export const autoFont = () => {
   //   { min: 576, max: 768, font: 8 },
   //   { min: 476, max: 576, font: 10 },
   //   { min: 400, max: 476, font: 13 },
-  //   { min: 0, max: 400, font: 14 },
+  //   { min: 0, max: 400, font: 16 },
   // ];
   const fontMapMobile = [
-    { min: 768, max: 992, font: 14 },
-    { min: 576, max: 768, font: 14 },
-    { min: 476, max: 576, font: 14 },
-    { min: 400, max: 476, font: 14 },
-    { min: 0, max: 400, font: 14 },
+    { min: 768, max: 992, font: 16 },
+    { min: 576, max: 768, font: 16 },
+    { min: 476, max: 576, font: 16 },
+    { min: 400, max: 476, font: 16 },
+    { min: 0, max: 400, font: 16 },
   ];
   if (validPcOrPhone()) {
     designWidth = 1780;

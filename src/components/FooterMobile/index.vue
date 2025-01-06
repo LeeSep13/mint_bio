@@ -37,8 +37,11 @@
       </el-col>
       <div class="download-qrCode">
         <img src="@/assets/images/down.png" class="down">
-        <img src="@/assets/images/wechat.png" class="weChat">
+        <img src="@/assets/images/wechat.png" class="weChat" @click="toggleQRCode">
+        <img src="@/assets/images/QRcode.png" class="QRcode" v-if="showQRCode" />
+
       </div>
+      <div class="overlay" v-if="showQRCode" @click="toggleQRCode"></div>
 
       <div class="address footer-common">
         <p class="mb26">总部地址</p>
@@ -63,6 +66,11 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+const showQRCode = ref(false);
+
+const toggleQRCode = () => {
+  showQRCode.value = !showQRCode.value;
+};
 
 const handleJumps = (item) => {
   router.push({ name: item });
@@ -72,6 +80,7 @@ const handleJumps = (item) => {
 @import "@/style/variable.less";
 
 .footer {
+  position: relative;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -234,6 +243,26 @@ const handleJumps = (item) => {
     .weChat {
       width: 60px;
     }
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .QRcode {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    width: 200px;
+    height: 200px;
   }
 
   .address {

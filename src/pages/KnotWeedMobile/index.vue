@@ -1,6 +1,20 @@
 <template>
   <div class="knotWeed">
-    <div class="knotWeed-title">
+
+    <BannerTitle>
+      <div class="knotWeed-title-text">
+        <div class="knotWeed-title-text-top">
+          每年大豆进口量近
+          <span>1亿</span>
+          吨
+        </div>
+        <div class="knotWeed-title-text-bottom">
+          <span>52%</span>
+          进口大豆用于提供饲用蛋白
+        </div>
+      </div>
+    </BannerTitle>
+    <!-- <div class="knotWeed-title">
       <img class="grid-image" src="@/assets/images/grid1.png" alt="knotWeed_grid" />
       <img class="mint-image" src="@/assets/images/mint.png" alt="knotWeed_mint" />
       <div class="knotWeed-title-text">
@@ -14,7 +28,7 @@
           进口大豆用于提供饲用蛋白
         </p>
       </div>
-    </div>
+    </div> -->
 
     <div class="knotWeed-module1-w mobile-sector">
       <div class="knotWeed-module1">
@@ -62,11 +76,13 @@
 import { ref } from "vue";
 import MiNTDivider from "@/components/Divider";
 import Propagate from "@/components/Propagate";
+import BannerTitle from "@/components/BannerTitle";
 
 export default {
   components: {
     MiNTDivider,
-    Propagate
+    Propagate,
+    BannerTitle
   },
   setup() {
     const knotData = ref([
@@ -104,13 +120,12 @@ export default {
 
 /* 样式部分保持不变 */
 .knotWeed {
+  padding: 0 10px;
+
   &-title {
-    height: 248px;
-    line-height: 248px;
-    text-align: center;
-    position: relative;
 
     &-text {
+      width: 317px;
       font-size: 20px;
       font-weight: 500;
 
@@ -130,26 +145,6 @@ export default {
           font-size: 20px;
         }
       }
-    }
-
-    .grid-image {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 34.5%;
-      z-index: 0;
-      /* 确保网格图在下面 */
-    }
-
-    .mint-image {
-      position: absolute;
-      top: 60%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 52%;
-      z-index: 0;
-      /* 确保Mint图在网格图下面 */
     }
   }
 
@@ -236,7 +231,7 @@ export default {
 
         &:nth-child(1),
         &:nth-child(3) {
-          margin-right: 40px;
+          margin-right: 20px;
         }
 
         &-important {

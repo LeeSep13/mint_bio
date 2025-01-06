@@ -6,7 +6,8 @@
       <router-view />
       <Footer v-if="isPc" />
       <FooterMobile v-else />
-      <Contact />
+      <Contact v-if="isPc" />
+      <ContactMobile v-else />
     </div>
   </div>
 </template>
@@ -18,7 +19,8 @@ export default {
     Footer,
     Contact,
     MobileHeader,
-    FooterMobile
+    FooterMobile,
+    ContactMobile
   },
   data() {
     return {
@@ -44,6 +46,7 @@ import Footer from './components/Footer'
 import FooterMobile from './components/FooterMobile'
 import Contact from './components/Contact'
 import MobileHeader from './components/MobileHeader'
+import ContactMobile from './components/ContactMobile'
 import { validPcOrPhone, autoFont } from './utils/isPc'
 import './style/common.less'
 

@@ -38,7 +38,7 @@
 
     </div>
 
-    <div class="vision-module4">
+    <div class="vision-module4 border-gradient">
       <div class="vision-module4-w">
         <div class="vision-module4-top">
           <div class="vision-module4-top-title">
@@ -53,8 +53,11 @@
           </div>
         </div>
         <div class="vision-module4-bottom">
-          <div class="vision-module4-bottom-card" v-for="item in cardData" :key="item.key">
-            <img src="./images/book_icon.png" alt="book_icon" />
+          <div class="vision-module4-bottom-card border-white" v-for="item in cardData" :key="item.key">
+            <div class="book-icon">
+              <img src="./images/book_icon.png" alt="book-icon" />
+
+            </div>
             <div class="vision-module4-bottom-card-content">
               <p class="vision-module4-bottom-card-content-text1">
                 {{ item.title }}
@@ -133,13 +136,6 @@ const declineData = ref(
   ]
 )
 
-
-
-function updateHoverData(data, index) {
-  this.highlightedIndex = index;
-  this.hoverData = data;
-}
-
 </script>
 
 <style lang="less" scoped>
@@ -156,14 +152,18 @@ function updateHoverData(data, index) {
   }
 
   &-module1 {
+    display: flex;
+    justify-content: center;
+
     img {
-      width: 100%;
+      width: 370px;
     }
 
     margin-bottom: 70px;
   }
 
   &-module2 {
+    padding: 30px 0;
     overflow: auto;
     display: flex;
     margin-bottom: 70px;
@@ -239,7 +239,7 @@ function updateHoverData(data, index) {
   &-module3 {
     &-title {
       margin-left: 45px;
-      margin-bottom: 40px;
+      margin-bottom: 60px;
 
       &-text1,
       &-text2 {
@@ -290,16 +290,8 @@ function updateHoverData(data, index) {
   }
 
   &-module4 {
+    margin-top: 60px;
     width: 100%;
-    border-width: 1px;
-    border-style: solid;
-    border-image: linear-gradient(to right,
-        rgba(53, 52, 74, 1) 0%,
-        rgba(53, 52, 74, 0.5) 33%,
-        rgba(255, 255, 255, 1) 58%,
-        rgba(255, 255, 255, 1) 60%,
-        rgba(53, 52, 74, 0.5) 67%,
-        rgba(53, 52, 74, 1) 100%) 1;
 
     &-top {
       margin: 60px 0 0 60px;
@@ -331,7 +323,7 @@ function updateHoverData(data, index) {
 
         img {
           width: 23px;
-          height: 24px;
+          height: 22px;
           margin: -4px 8px 0 0;
         }
 
@@ -356,11 +348,17 @@ function updateHoverData(data, index) {
         color: #fff;
         padding: 16px;
         border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        // border: 1px solid rgba(255, 255, 255, 0.2);
 
-        img {
-          width: 16px;
+        .book-icon {
+          width: 15.89px;
           height: 20px;
+
+          img {
+            height: 100%;
+          }
+
+
         }
 
         &-content {

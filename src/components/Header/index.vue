@@ -63,8 +63,8 @@
               </div>
               <div class="popover-content-menu-item">
                 <p>关于我们</p>
-                <p class="pointer" @click="handleJumps('vision')">企业介绍</p>
-                <p class="pointer" @click="handleJumps('corporate')">愿景与责任</p>
+                <p class="pointer" @click="handleJumps('corporate')">企业介绍</p>
+                <p class="pointer" @click="handleJumps('vision')">愿景与责任</p>
               </div>
               <div class="popover-content-menu-item">
                 <p class="pointer" @click="handleJumps('mintNews')">发展动态</p>

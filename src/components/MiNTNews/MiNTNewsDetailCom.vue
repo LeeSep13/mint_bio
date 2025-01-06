@@ -165,6 +165,7 @@ const props = defineProps({
   .news-container {
     .content {
       .body {
+        width: 100%;
         padding: 0 10px;
 
         .topbg {
@@ -182,7 +183,7 @@ const props = defineProps({
 
         .tag {
           width: 100%;
-          margin-top: 171px;
+          margin-top: 120px;
 
           span {
             font-size: 18px;
@@ -194,12 +195,13 @@ const props = defineProps({
 
         .title {
           width: 100%;
-          margin-top: 50px;
+          margin-top: 30px;
+          white-space: normal;
 
           .overview-header {
             font-size: 24px;
             line-height: 32px;
-            white-space: nowrap;
+            white-space: normal;
             color: white;
           }
         }
@@ -207,6 +209,7 @@ const props = defineProps({
         .abstract {
           font-size: 14px;
           line-height: 20px;
+          margin-top: 30px;
 
           .overview-abstract {
             white-space: pre-wrap;
@@ -215,7 +218,7 @@ const props = defineProps({
         }
 
         .pic {
-          margin-top: 100px;
+          margin-top: 30px;
           width: 100%;
           height: 230px;
           border-radius: 12px;
