@@ -79,6 +79,8 @@ const props = defineProps({
       font-weight: 520;
       line-height: 26.52px;
       text-align: left;
+      padding-bottom: 0px;
+      padding-top: 40px;
     }
 
 

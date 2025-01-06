@@ -58,7 +58,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 30px;
 
     .title {
       font-size: 16px;
@@ -118,6 +117,7 @@
 
     &-img1,
     &-img3 {
+      width: 290px;
       padding: 40px;
       display: flex;
       flex-direction: column;
@@ -145,6 +145,7 @@
       background: url("./images/module5_img1.jpeg");
       background-size: cover;
       background-repeat: no-repeat;
+      border-radius: 12px;
     }
 
     &-img2 {
@@ -152,6 +153,7 @@
       display: flex;
       justify-content: space-between;
       gap: 16px;
+
 
       &-item1,
       &-item2 {
@@ -230,7 +232,7 @@
     .last-box {
       padding: 60px 40px 40px;
       color: #f2f3f7;
-      margin-top: 30px;
+      margin-top: 10px;
 
       &-btn {
         margin-top: 40px;

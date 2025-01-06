@@ -1,7 +1,8 @@
 <template>
-  <div class="module-container" @wheel="handleWheel">
-    <div v-for="(module, index) in modules" :key="index" :class="['module', `module-${index}`]">
-      <div class="crisis-card" :style="getModuleStyle(index)">
+  <div class="module-container" @wheel="throttleWheel" ref="moduleContainer">
+    <div v-for="(module, index) in modules" :key="index" :class="['module', `module-${index}`]"
+      :style="getModuleStyle(index)">
+      <div class="crisis-card">
         <div class="crisis-card-top"><span>生物制造</span>MiNT BiO<span></span><span>势在必行</span></div>
         <div class="crisis-card-title">{{ module.name }}</div>
         <div class="crisis-card-data">
@@ -25,60 +26,19 @@ export default {
   },
   setup(props) {
     const scrollDistance = ref(0); // 初始滚动距离为0，加载时显示module1
-    const moduleHeight = 284; // 每个模块的高度
 
-    const maxScrollDistance = computed(() => {
-      // 最大滚动距离为模块总高度
-      return (props.modules.length - 1) * moduleHeight;
-    });
-
-    // 处理滚动事件，添加防止默认滚动的逻辑
     const handleWheel = (event) => {
       event.preventDefault(); // 阻止浏览器滚动
-
-      // 节流控制逻辑
-      throttleWheel(event);
+      scrollDistance.value += event.deltaY;
     };
 
-    // 使用节流函数包装
-    const throttleWheel = throttle((event) => {
-      const delta = event.deltaY;
-      const step = 30; // 每次滚动的步长
-      if (delta > 0 && scrollDistance.value < maxScrollDistance.value) {
-        scrollDistance.value = Math.min(
-          scrollDistance.value + step,
-          maxScrollDistance.value
-        );
-      } else if (delta < 0 && scrollDistance.value > 0) {
-        scrollDistance.value = Math.max(scrollDistance.value - step, 0);
-      }
-    }, 50);
+    const throttleWheel = throttle(handleWheel, 50);
 
     const getModuleStyle = (index) => {
-      // 计算每个模块相对于 scrollDistance 的偏移量
-      const offset = index * moduleHeight - scrollDistance.value;
-
-      // 计算模块的 translateY，确保模块滑入
-      const translateY = offset >= 0 ? Math.min(offset) : 30 * (index);
-      console.log('offset', offset);
-
-      // 动态调整模块的层级，确保当前模块处于上层
-      const zIndex = offset >= 0 ? props.modules.length - index : 0;
-
+      const translateY = 30 * index - scrollDistance.value;
       return {
-        transform: `translateY(${translateY}px)`, // 控制模块的滑动位置
-        zIndex: zIndex, // 控制模块层级，使当前模块显示在最上层
-      };
-    };
-
-    const getTabStyleData = (index) => {
-      const marginLeft = index === 0 ? "1%" : `${1 + index * 19.7}%`;
-      const offset = index * moduleHeight - scrollDistance.value;
-      const zIndex = offset >= 0 ? props.modules.length - index : 0;
-
-      return {
-        marginLeft: marginLeft,
-        zIndex: zIndex,
+        transform: `translateY(${translateY}px)`,
+        zIndex: index,
       };
     };
 
@@ -89,11 +49,8 @@ export default {
 
     return {
       scrollDistance,
-      maxScrollDistance,
-      // debouncedHandleWheel,
       getModuleStyle,
-      getTabStyleData,
-      handleWheel,
+      throttleWheel,
     };
   },
 };
@@ -113,7 +70,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .crisis-card {

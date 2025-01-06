@@ -91,7 +91,6 @@ export default {
 <style lang="less" scoped>
 .swiper {
   background-color: #11161b;
-  margin-left: 45px;
 
   .case {
     color: #fff;
@@ -119,6 +118,8 @@ export default {
       overflow-x: auto;
       display: flex;
       align-items: stretch;
+      padding-right: 45px;
+      padding-left: 45px;
 
       /* 初始状态下隐藏滚动条 */
       &::-webkit-scrollbar {
@@ -199,15 +200,16 @@ export default {
   }
 
   .indicator {
-    width: 10px;
-    height: 10px;
+    width: 6px;
+    height: 6px;
     background-color: #ccc;
     border-radius: 50%;
     margin: 0 5px;
     transition: background-color 0.3s;
 
     &.active {
-      background-color: orange;
+      background-color: #FF7200;
+      ;
     }
   }
 

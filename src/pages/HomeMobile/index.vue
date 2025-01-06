@@ -2,7 +2,7 @@
   <div class="home">
     <BannerTitleAnimationMobile :titleImage="require('@/assets/images/home-title.png')" :isShowHeader="false"
       :backgroundImg="require('@/assets/images/home-background.png')" />
-    <div class="dna-section mobile-sector" @mouseover.once="expandMargin()">
+    <div class="dna-section mobile-sector">
       <div class="top-title">
         <div class="mint-text">MINT BIO</div>
         <div class="line-group">
@@ -23,7 +23,6 @@
     <div class="product-section mobile-sector border-gradient">
       <div class="title">
         <img src="@/assets/images/infinite.png" />
-
       </div>
       <div class="product-list">
         <Swiper :caseList="productList" :topTip="productTopTip">
@@ -39,7 +38,7 @@
         </Swiper>
       </div>
     </div>
-    <div class="banner-section mobile-sector border-gradient">
+    <div class="banner-section  border-gradient">
       <div class="title">
         <span>您的选择和 </span><span class="orange-text"> 他们 </span><span> 一样</span>
       </div>
@@ -256,7 +255,7 @@ export default {
   font: 400 20px MiSans;
 
   .dna-section {
-    padding-bottom: 30px;
+    padding-bottom: 60px;
 
     .top-title {
 
@@ -393,6 +392,8 @@ export default {
               height: 203px;
               border-radius: 6px;
               object-fit: cover;
+              object-position: top;
+
 
             }
 
@@ -412,7 +413,7 @@ export default {
             &-third {
               display: flex;
               justify-content: space-between;
-              gap: 8px;
+              gap: 4px;
               flex-wrap: wrap;
               font-size: 14px;
               color: #F1F3F7;
@@ -462,7 +463,7 @@ export default {
   }
 
   .new-section {
-    padding: 0 10px 60px;
+    padding: 60px 10px 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -537,7 +538,7 @@ export default {
       border-radius: 999px;
       height: 84px;
       width: 140px;
-      font-size: 12px;
+      font-size: 14px;
       backdrop-filter: blur(68px);
       background: linear-gradient(0deg,
           rgba(255, 255, 255, 0.01),

@@ -1,22 +1,25 @@
 <template>
   <div class="container">
     <div class="selecthead">
-      <div class="radio-group" @change="handleRadioChange">
+      <div class="radio-group" @change="handleRadioChange" v-if="!props.isDetail">
         <label class="radio">
           <input type="radio" value="all" v-model="selectedOption" class="custom-news-radio" />
           <div :class="{ selectedradio: isSelected('all'), 'all-radio': true }">全部</div>
         </label>
-        <label class="radio" v-for="item in options" :key="item.value">
-          <input type="radio" :value="item.value" v-model="selectedOption" class="custom-news-radio" />
-          <span :class="[
-            'normal-radio',
-            { selectedradio: isSelected(item.value) },
-          ]" :style="{
-            color: isSelected(item.value)
-              ? getHighlightColor(item.value)
-              : '',
-          }">{{ item.label }}</span>
-        </label>
+        <div class="radio-list">
+          <label class="radio" v-for="item in options" :key="item.value">
+            <input type="radio" :value="item.value" v-model="selectedOption" class="custom-news-radio" />
+            <span :class="[
+              'normal-radio',
+              { selectedradio: isSelected(item.value) },
+            ]" :style="{
+              color: isSelected(item.value)
+                ? getHighlightColor(item.value)
+                : '',
+            }">{{ item.label }}</span>
+          </label>
+        </div>
+
       </div>
     </div>
 
@@ -25,12 +28,18 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, defineProps } from "vue";
 import axios from "axios";
 
 import MiNTNewsListPreview from "./MiNTNewsListPreview.vue";
 
 // 使用ref创建响应式数据
+const props = defineProps({
+  isDetail: {
+    type: Boolean,
+    default: false,
+  }
+});
 const selectedOption = ref("all");
 const options = ref([
   {
@@ -115,8 +124,17 @@ onMounted(async () => {
     font-size: 14px;
     margin-bottom: 30px;
 
+    .radio-list {
+      margin-left: -8px;
+    }
+
     span {
       color: #666666;
+    }
+
+    label.radio {
+      width: 88px;
+
     }
 
     .all-radio {

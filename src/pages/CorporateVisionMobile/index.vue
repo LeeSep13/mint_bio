@@ -86,8 +86,7 @@
               <p>刘旻昊</p>
               <p>联合创始人&创始董事</p>
             </div>
-            <div>
-              <p>西湖大学教授</p>
+            <div  class="font-12">
               <p>西湖大学校长助理</p>
               <p>西湖大学董事会秘书</p>
               <p>西湖大学未来产业研究中心副主任</p>
@@ -373,29 +372,36 @@ export default {
 
   .story {
     padding: 80px 10px 40px;
-    height: 431px;
+    height: 370px;
     font-size: 12px;
     line-height: 20px;
     color: #fff;
     position: relative;
+    .font-12{
+      font-size: 12px;
+    }
 
     &-img-box {
       display: flex;
       justify-content: space-between;
+      gap: 10px;
 
       &-item {
         font-size: 14px;
         line-height: 21px;
         position: relative;
-        width: 200px;
+        width: 180px;
+        height: 210px;
         margin-top: 20px;
+        position: relative;
 
         img {
-          width: 200px;
-          height: 210px;
+          width: 100%;
+          height: 100%;
           border-radius: 8px;
           object-fit: cover;
-          object-position: top;
+            object-position: 50% 10%;
+
           margin-bottom: 20px;
         }
 
@@ -408,8 +414,9 @@ export default {
           background: #FF7200;
           position: absolute;
           right: 8px;
-          bottom: 75px;
-          font-size: 24px;
+          bottom: 8px;
+          font-size: 20px;
+          font-weight: 200;
           color: #fff;
         }
 
@@ -423,15 +430,19 @@ export default {
     }
 
     &-item {
+    top: -50px;
       position: absolute;
       background: #24272a;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
+      width: 360px;
       transition: all 0.3s ease-in-out; // 平滑过渡效果
-      z-index: 999;
+      z-index: 99999;
       padding: 20px;
       box-sizing: border-box;
+      border-radius: 12px;
+      padding: 60px 20px 30px;
+      border: 1px solid #828486;
+      border-radius: 12px;
+
 
       .close-icon {
         position: absolute;
@@ -442,41 +453,37 @@ export default {
         color: white;
       }
 
-      border-radius: 12px;
-      margin: 10px;
-      padding: 60px 20px;
-      width: 100%;
-
       .top {
         height: 170px;
         display: flex;
         flex-direction: row;
-        gap: 32px;
+        gap: 12px;
         margin-bottom: 40px;
 
         &-left {
-          width: 30%;
+          width: 40%;
 
           img {
             width: 100%;
             height: 150px;
             border-radius: 4px;
             object-fit: cover;
+            object-position: 50% 10%;
           }
         }
 
         &-right {
           height: 100%;
-          width: 70%;
+          width: 60%;
           font-size: 14px;
           padding: 10px 0;
           position: relative;
 
           .img-right {
-            width: 120px;
+            width: 80px;
             position: absolute;
-            right: 20px;
-            bottom: 20px;
+            right: 10px;
+            bottom: 10px;
           }
         }
 
@@ -497,12 +504,12 @@ export default {
     }
 
     .story-item-right.visible {
-      right: 0;
+      right: 15px;
       top: 0;
     }
 
     .story-item-left.visible {
-      left: 0;
+      left: 15px;
       top: 0;
     }
   }
@@ -534,9 +541,10 @@ export default {
   &-card {
     border-radius: 12px;
     margin: 40px auto 60px;
-    border: 1px solid;
-    border-image-source: linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 74.04%);
+    transition: all 0.3s ease-in-out; // 平滑过渡效果
+    border: 1px solid #444649;
+
+  
 
     &-content {
       padding: 10px;
@@ -561,12 +569,9 @@ export default {
       width: 100%;
       display: flex;
       justify-content: space-between;
-      background: radial-gradient(16.67% 100% at 42.7% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
       height: 36px;
       line-height: 36px;
       color: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 8.85%, rgba(255, 255, 255, 0.5) 100%);
-
-
 
 
       .menu-item {
@@ -574,14 +579,12 @@ export default {
         font-size: 14px;
         font-weight: 400;
         transition: all 0.3s ease-in-out; // 平滑过渡效果
+        border-bottom: 1px solid #444649;
 
         &:nth-child(1) {
           background: #181c20;
           color: #F1F3F780;
-          border-radius: 6px 0px 6px 0px;
           width: 90px;
-          border: 1px solid transparent;
-          border-image-source: radial-gradient(100% 148.61% at 0% 148.61%, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0) 100%);
         }
 
         &:nth-child(2) {
@@ -590,25 +593,26 @@ export default {
           position: relative;
 
           .slider {
-            position: absolute;
-            bottom: 0;
-            left: 90px;
-            height: 2px;
-            background: #FF7200;
-            transition: all 0.3s ease-in-out;
-            width: 100px;
+            // position: absolute;
+            // bottom: 0;
+            // left: 90px;
+            // height: 2px;
+            // background: #FF7200;
+            // transition: all 0.3s ease-in-out;
+            // width: 100px;
           }
         }
 
         &:nth-child(3) {
-          border-radius: 0px 6px 0px 6px;
           width: 140px;
           background: #181c20;
         }
 
         &.active {
-          background: none;
+          background: linear-gradient(0deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.01)),
+          radial-gradient(63.94% 63.94% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
           border: 1px solid #444649;
+          border-bottom:none ;
         }
       }
 
@@ -634,7 +638,6 @@ export default {
     background: #2828289F;
     border: 0.45px solid #2d2e2e;
     border-radius: 9.07px;
-    border-image-source: linear-gradient(156.52deg, rgba(255, 255, 255, 0.4) 2.12%, rgba(255, 255, 255, 0.0001) 39%, rgba(255, 255, 255, 0.0001) 54.33%, rgba(255, 255, 255, 0.1) 93.02%);
   }
 
   img {

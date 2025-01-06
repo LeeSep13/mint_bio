@@ -3,60 +3,31 @@
     <div class="header">
       <div class="header-left">
         <div class="header-left-logo" :style="{ cursor: 'pointer' }">
-          <img
-            src="@/assets/images/logo.png"
-            alt="Logo"
-            @click="handleJumps('home')"
-          />
+          <img src="@/assets/images/logo.png" alt="Logo" @click="handleJumps('home')" />
         </div>
       </div>
 
       <div class="header-middle">
         <ul class="nav">
-          <li
-            class="nav-item"
-            v-for="item in navData"
-            :key="item.key"
-            :class="{
-              'nav-item_current': item.state,
-              'has-submenu': item.submenu && item.submenu.length > 0,
-            }"
-            @mouseover="setMouseOver(item)"
-            @mouseleave="setMouseLeave(item)"
-            @click.prevent="handleClick(item)"
-          >
-            <router-link
-              class="nav-item-link"
-              :to="
-                item.submenu.length
-                  ? 'javascript:void(0)'
-                  : { name: item.router }
-              "
-              v-if="!item.submenu.length"
-            >
+          <li class="nav-item" v-for="item in navData" :key="item.key" :class="{
+            'nav-item_current': item.state,
+            'has-submenu': item.submenu && item.submenu.length > 0,
+          }" @mouseover="setMouseOver(item)" @mouseleave="setMouseLeave(item)" @click.prevent="handleClick(item)">
+            <router-link class="nav-item-link" :to="item.submenu.length
+              ? 'javascript:void(0)'
+              : { name: item.router }
+              " v-if="!item.submenu.length">
               {{ item.name }}
             </router-link>
             <span class="nav-item-link" v-else>
               {{ item.name }}
-              <img
-                :src="item.state ? item.iconUp : item.iconDown"
-                alt="Toggle Icon"
-                class="submenu-icon"
-              />
+              <img :src="item.state ? item.iconUp : item.iconDown" alt="Toggle Icon" class="submenu-icon" />
             </span>
 
             <ul v-if="item.submenu && item.submenu.length" class="submenu">
-              <li
-                class="submenu-item"
-                v-for="subItem in item.submenu"
-                :key="subItem.key"
-                @mouseover="setMouseOver(subItem)"
-                @mouseleave="setMouseLeave(subItem)"
-              >
-                <router-link
-                  :to="{ name: subItem.router }"
-                  class="submenu-item-link"
-                >
+              <li class="submenu-item" v-for="subItem in item.submenu" :key="subItem.key"
+                @mouseover="setMouseOver(subItem)" @mouseleave="setMouseLeave(subItem)">
+                <router-link :to="{ name: subItem.router }" class="submenu-item-link">
                   {{ subItem.name }}
                 </router-link>
               </li>
@@ -66,15 +37,8 @@
       </div>
 
       <div class="header-right">
-        <el-popover
-          placement="bottom"
-          width="891"
-          trigger="manual"
-          :visible="visible"
-          :show-arrow="false"
-          popper-class="header-popover"
-          :popper-options="popperOptions"
-        >
+        <el-popover placement="bottom" width="891" trigger="manual" :visible="visible" :show-arrow="false"
+          popper-class="header-popover" :popper-options="popperOptions">
           <div class="popover-content">
             <div class="popover-content-close" @click="visible = !visible">
               <img src="./images/close.png" alt="close" />
@@ -99,8 +63,8 @@
               </div>
               <div class="popover-content-menu-item">
                 <p>关于我们</p>
-                <p class="pointer" @click="handleJumps('vision')">企业介绍</p>
-                <p class="pointer" @click="handleJumps('corporate')">愿景与责任</p>
+                <p class="pointer" @click="handleJumps('corporate')">企业介绍</p>
+                <p class="pointer" @click="handleJumps('vision')">愿景与责任</p>
               </div>
               <div class="popover-content-menu-item">
                 <p class="pointer" @click="handleJumps('mintNews')">发展动态</p>
@@ -127,11 +91,7 @@
             </div>
           </template>
         </el-popover>
-        <div
-          v-if="visible"
-          class="popover-overlay"
-          @click="visible = false"
-        ></div>
+        <div v-if="visible" class="popover-overlay" @click="visible = false"></div>
       </div>
     </div>
   </header>
@@ -230,7 +190,7 @@ const popperOptions = ref({
 });
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .el-popper.el-popover.header-popover {
   // margin-right: 40px;
   padding: 24px 26px 95px 72px;
@@ -241,6 +201,7 @@ const popperOptions = ref({
 }
 
 .popover-content {
+
   &-close {
     margin-bottom: 62px;
     text-align: right;
@@ -354,15 +315,14 @@ const popperOptions = ref({
       // background-color: #2828289f;
       border: 1px solid transparent;
       background-image: linear-gradient(#282828, #292b2d),
-        linear-gradient(
-          185deg,
+        linear-gradient(185deg,
           rgba(255, 255, 255, 0.4) 2.12%,
           rgba(255, 255, 255, 0.3) 50%,
           rgba(255, 255, 255, 0.2) 70%,
-          rgba(255, 255, 255, 0.1) 93.02%
-        );
+          rgba(255, 255, 255, 0.1) 93.02%);
       background-origin: border-box;
       background-clip: content-box, border-box;
+
       .nav-item {
         position: relative;
         width: 25%;
@@ -482,21 +442,25 @@ const popperOptions = ref({
     }
   }
 }
+
 .header::after {
   content: "";
   position: absolute;
-  top: 0; /* 位于边框下方 */
-  left: 50%; /* 水平居中 */
-  width: 80%; /* 光晕的宽度 */
-  height: 450px; /* 光晕的高度 */
-  background: radial-gradient(
-    55% 50% at 50% 0%,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  top: 0;
+  /* 位于边框下方 */
+  left: 50%;
+  /* 水平居中 */
+  width: 80%;
+  /* 光晕的宽度 */
+  height: 450px;
+  /* 光晕的高度 */
+  background: radial-gradient(55% 50% at 50% 0%,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0) 100%);
   transform: translateX(-50%);
   filter: blur(20px);
   opacity: 0.1;
-  pointer-events: none; /* 光晕不影响交互 */
+  pointer-events: none;
+  /* 光晕不影响交互 */
 }
 </style>

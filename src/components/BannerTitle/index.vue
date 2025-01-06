@@ -74,6 +74,8 @@ export default {
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 2;
+      display: flex;
+      justify-content: center;
 
     }
   }
@@ -82,6 +84,8 @@ export default {
 @media (max-width: 992px) {
 
   .banner {
+    margin-top: 60px;
+
     &-title {
       width: calc(100vw - 20px);
       height: 248px;

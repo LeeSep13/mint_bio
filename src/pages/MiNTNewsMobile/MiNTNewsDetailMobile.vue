@@ -6,7 +6,7 @@
     <div class="more-dynamic">
       更多动态
     </div>
-    <MiNTNewsListMobile class="news-preview" :filteredNews="newsList"></MiNTNewsListMobile>
+    <MiNTNewsListMobile class="news-preview" :filteredNews="newsList" :isDetail="true" />
   </div>
 </template>
 
@@ -92,15 +92,9 @@ export default {
   overflow: hidden;
 
   .more-dynamic {
-    margin-top: 100px;
-    margin-bottom: 80px;
+    margin-top: 60px;
     font-size: 21px;
     color: #FFFFFF;
-  }
-
-  .news-preview {
-    margin-bottom: 300px;
-    width: 1424px;
   }
 }
 </style>

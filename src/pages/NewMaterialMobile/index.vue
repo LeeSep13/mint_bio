@@ -3,23 +3,30 @@
     <BannerTitle :titleImage="require('@/assets/images/material-title.png')" :titleStyle="titleStyle" />
     <div class="material-banner">
       <img src="@/assets/images/material-banner.png" alt="material-banner" class="material-banner-img" />
+      <div class="material-banner-list">
+        <div class="material-banner-list-item" v-for="(item, index) in bannerList" :key="index">
+          {{ item }}
+        </div>
+      </div>
+
     </div>
     <!-- <div class="material-scroll">
       <MouseScroll :modules="modules" />
     </div> -->
-    <div class="case mobile-sector">
+    <div class="case border-gradient">
       <div class="case-title">
         <div class="case-title-first">
           <span class="orange-text">应用</span><span>案例</span>
         </div>
         <div class="text-wrapper">
-          <div class="case-title-second">
-            <span class="orange-text">[ 生物降解快递袋 ]</span>
-          </div>
           <div class="case-title-third">
             <p>唯品会</p>
             <p>&元素驱动</p>
           </div>
+          <div class="case-title-second">
+            <span class="orange-text">[ 生物降解快递袋 ]</span>
+          </div>
+
         </div>
 
       </div>
@@ -36,7 +43,7 @@
       </div>
     </div>
 
-    <div class="case mobile-sector">
+    <div class="case mobile-sector ">
       <div class="case-title">
         <div class=" text-wrapper">
           <div class="case-title-second">
@@ -100,6 +107,7 @@ export default {
       Plus,
       Minus,
       activeNames: [],
+      bannerList: ['全新化学结构', '高适配性', '可回收', '高性能', '可生物降解', '低成本'],
       modules: [
         {
           title: "PiX 001",
@@ -321,6 +329,27 @@ export default {
     &-img {
       width: 100%;
     }
+
+    &-list {
+      margin: 10px auto 20px;
+      width: 282px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+
+      &-item {
+        padding: 0 20px;
+        border-radius: 20px;
+        height: 34px;
+        color: white;
+        font-size: 11px;
+        font-weight: 380;
+        line-height: 34px;
+        text-align: center;
+        border: 0.4px solid #F1F3F799
+      }
+    }
   }
 
   &-scroll {}
@@ -347,6 +376,7 @@ export default {
         }
 
         .case-title-third {
+          margin-right: 30px;
           text-align: left;
           font: 520 16px MiSans VF;
         }
