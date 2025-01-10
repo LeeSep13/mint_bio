@@ -18,8 +18,16 @@
         </div>
       </div>
     </div>
-
-    <!-- <MouseScroll :modules="module2Data" /> -->
+    <div class="mouse-scroll">
+      <MouseScrollM :modules="module2Data" :originHeight="600">
+        <template #item-content="{ module, index }">
+          <aa-module-content-mobile :title="module.title" :topItems="module.topItems"
+            :introductionTitle1="module.introductionTitle1" :introductionTitle2="module.introductionTitle2"
+            :applyTexts="module.applyTexts" :advantages="module.advantages" :imageUrl="module.imageUrl"
+            :isRow="module.isRow" :tabStyle="getTabStyleData(index)"></aa-module-content-mobile>
+        </template>
+      </MouseScrollM>
+    </div>
 
     <div class="aminoAcid-module3 border-gradient">
       <div class="aminoAcid-module3-title">
@@ -50,13 +58,16 @@
 <script>
 import { ref } from 'vue';
 import BannerTitle from '@/components/BannerTitle'
-import MouseScroll from '@/components/MouseScroll';
+import MouseScrollM from '@/components/MouseScrollM';
 import Propagate from '@/components/Propagate';
+import AaModuleContentMobile from "@/components/AaModuleContentMobile";
+
 
 export default {
   components: {
     BannerTitle,
-    MouseScroll,
+    MouseScrollM,
+    AaModuleContentMobile,
     Propagate
   },
   setup() {
@@ -72,7 +83,7 @@ export default {
           "相较同类产品，具有大幅成本优势",
           "相较行业头部，发酵效率高200%",
         ],
-        imageUrl: require("@/assets/AminoAcid/module2_ele1.png"),
+        imageUrl: ["assets/AminoAcid/module2_ele1.png"],
       },
       {
         title: "生物合成 组氨酸",
@@ -81,7 +92,7 @@ export default {
         introductionTitle2: "组氨酸",
         applyTexts: ["食品", "饲料", "生化试剂制造制药"],
         advantages: ["相较同类产品，具有成本优势", "相较行业头部，发酵效率快35%", "相较化学合成法，产品纯度高"],
-        imageUrl: require("@/assets/AminoAcid/module2_ele2.png"),
+        imageUrl: ["assets/AminoAcid/module2_ele2.png"],
       },
       {
         title: "生物合成 色氨酸",
@@ -90,7 +101,7 @@ export default {
         introductionTitle2: "色氨酸",
         applyTexts: ["医药", "食品强化剂", "饲料添加剂"],
         advantages: ["人体与动物必需氨基酸，应用场景广泛", "相较传统生产方法，效率更高、成本更低"],
-        imageUrl: require("@/assets/AminoAcid/module2_ele3.png"),
+        imageUrl: ["assets/AminoAcid/module2_ele3.png"],
       },
       {
         title: "生物合成 亮氨酸",
@@ -99,7 +110,7 @@ export default {
         introductionTitle2: "亮氨酸",
         applyTexts: ["运动营养剂", "食品添加剂", "特殊医药用途食品"],
         advantages: ["动物必需氨基酸之一", "相较传统水解法，生产过程更环保、更高效", "相较化学合成法，具有成本优势"],
-        imageUrl: require("@/assets/AminoAcid/module2_ele4.png"),
+        imageUrl: ["assets/AminoAcid/module2_ele4.png"],
       },
       {
         title: "生物合成 缬氨酸",
@@ -108,12 +119,22 @@ export default {
         introductionTitle2: "缬氨酸",
         applyTexts: ["医药", "食品强化剂", "饲料添加剂"],
         advantages: ["动物必需氨基酸之一", "提供饲料转化率，降低养殖成本", "相较化学合成法，具有成本优势"],
-        imageUrl: require("@/assets/AminoAcid/module2_ele5.png"),
+        imageUrl: ["assets/AminoAcid/module2_ele5.png"],
       },
     ]);
 
+
+    const getTabStyleData = (index) => {
+      const marginLeft = index === 0 ? "1%" : `${1 + index * 19.7}%`;
+
+      return {
+        marginLeft: marginLeft,
+        zIndex: index,
+      };
+    };
     return {
       module2Data,
+      getTabStyleData
     };
   },
 };
@@ -121,6 +142,11 @@ export default {
 
 <style lang="less" scoped>
 @import "@/style/variable.less";
+
+.mouse-scroll {
+  margin-top: 100px;
+  height: 600px;
+}
 
 .aminoAcid {
   padding: 60px 5px;
@@ -132,7 +158,6 @@ export default {
       &-top {
         border-radius: 12px;
         width: 100%;
-        height: 224px;
         background-image: url("@/assets/AminoAcid/banner1.png");
         background-size: cover;
         background-repeat: no-repeat;

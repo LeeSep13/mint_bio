@@ -10,9 +10,16 @@
       </div>
 
     </div>
-    <!-- <div class="material-scroll">
-      <MouseScroll :modules="modules" />
-    </div> -->
+    <div class="mouse-scroll">
+      <MouseScrollM :modules="modules" :originHeight="700">
+        <template #item-content="{ module, index }">
+          <aa-module-content-mobile :title="module.title" :topItems="module.topItems"
+            :introductionTitle1="module.introductionTitle1" :introductionTitle2="module.introductionTitle2"
+            :applyTexts="module.applyTexts" :advantages="module.advantages" :imageUrl="module.imageUrl"
+            :isRow="module.isRow" :tabStyle="getTabStyleData(index)"></aa-module-content-mobile>
+        </template>
+      </MouseScrollM>
+    </div>
     <div class="case border-gradient">
       <div class="case-title">
         <div class="case-title-first">
@@ -88,14 +95,18 @@
 
 <script>
 import BannerTitle from "@/components/BannerTitle";
-import MouseScroll from "@/components/MouseScroll";
+import MouseScrollM from "@/components/MouseScrollM";
+import AaModuleContentMobile from "@/components/AaModuleContentMobile";
+
 import { Plus, Minus } from "@element-plus/icons-vue";
+
 
 export default {
   name: "NewMaterial",
   components: {
     BannerTitle,
-    MouseScroll,
+    MouseScrollM,
+    AaModuleContentMobile
   },
   setup() {
     return {
@@ -292,6 +303,14 @@ export default {
     };
   },
   methods: {
+    getTabStyleData(index) {
+      const marginLeft = index === 0 ? "1%" : `${1 + index * 19.7}%`;
+
+      return {
+        marginLeft: marginLeft,
+        zIndex: index,
+      };
+    },
     handleChange(activeNames) {
       this.activeNames = activeNames;
     },
@@ -314,6 +333,11 @@ export default {
 </script>
 <style lang="less" scoped>
 @import "@/style/variable.less";
+
+.mouse-scroll {
+  margin-top: 100px;
+  height: 700px;
+}
 
 .icon-ele {
   margin: 0 8px 0 auto;
@@ -340,7 +364,7 @@ export default {
 
       &-item {
         padding: 0 20px;
-        border-radius: 20px;
+        border-radius: 8px;
         height: 34px;
         color: white;
         font-size: 11px;

@@ -34,7 +34,13 @@
         <p class="vision-module3-title-text3">据世界经合组织 (OECD) 的案例分析表明，</p>
         <p class="vision-module3-title-text3"> 生物技术的应用可以</p>
       </div>
-      <MouseScrollMobile :modules="declineData" />
+      <div class="mouse-scroll">
+        <MouseScrollM :modules="declineData" :originHeight="430">
+          <template #item-content="{ module }">
+            <CrisisCard :module="module" />
+          </template>
+        </MouseScrollM>
+      </div>
 
     </div>
 
@@ -78,7 +84,10 @@
 import { ref } from "vue";
 import VisionModule5 from "./VisionModule5.vue";
 import BannerTitle from '@/components/BannerTitle'
-import MouseScrollMobile from '@/components/MouseScrollMobile'
+import MouseScrollM from '@/components/MouseScrollM'
+import CrisisCard from "./CrisisCard";
+
+
 
 const cardData = ref([
   {
@@ -140,6 +149,10 @@ const declineData = ref(
 
 <style lang="less" scoped>
 @import "@/style/variable.less";
+
+.mouse-scroll {
+  height: 430px;
+}
 
 .vision {
 
