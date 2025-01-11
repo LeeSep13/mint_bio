@@ -1,19 +1,23 @@
 <template>
   <div class="vision-module5 sector border-gradient">
-    <div class="vision-module5-title animate__animated animate__fadeInUp">
-      <p class="vision-module5-title-text1">60%</p>
-      <p class="vision-module5-title-text2">
-        未来60%的物质<br />可以通过生物制造生产
-      </p>
+    <div v-intersect="() => titleInView = true">
+      <div v-if="titleInView" class="vision-module5-title animate__animated animate__fadeInUp">
+        <p class="vision-module5-title-text1">60%</p>
+        <p class="vision-module5-title-text2">
+          未来60%的物质<br />可以通过生物制造生产
+        </p>
+      </div>
     </div>
     <div class="vision-module5-content">
-      <div class="vision-module5-content-img1 animate__animated animate__fadeInUp">
-        <p class="vision-module5-content-img1-title">
-          生物智造 [ 产品解决方案 ]
-        </p>
-        <p class="vision-module5-content-img1-desc">
-          匹配元素驱动现有产品，并针对性您的应用领域针对性优化。
-        </p>
+      <div v-intersect="() => img1InView = true" class="vision-module5-content-img1">
+        <div  v-if="img1InView" class="animate__animated animate__fadeInUp">
+          <p class="vision-module5-content-img1-title">
+            生物智造 [ 产品解决方案 ]
+          </p>
+          <p class="vision-module5-content-img1-desc">
+            匹配元素驱动现有产品，并针对性您的应用领域针对性优化。
+          </p>
+        </div>
       </div>
       <div class="vision-module5-content-img2">
         <div class="vision-module5-content-img2-item1">
@@ -25,14 +29,16 @@
           <p class="learn-more-btn">了解更多</p>
         </div>
       </div>
-      <div class="vision-module5-content-img3 animate__animated animate__fadeInUp">
-        <p class="vision-module5-content-img3-title">
-          生物智造 [ 定制解决方案 ]
-        </p>
-        <p class="vision-module5-content-img3-desc">
-          元素驱动将针对您的需求，进行菌种定制、优化、产品延展等<br />生物智造全流程服务。
-        </p>
-        <p class="vision-module5-content-img3-btn">匹配顾问</p>
+      <div v-intersect="() => img3InView = true" class="vision-module5-content-img3">
+        <div v-if="img3InView" class="animate__animated animate__fadeInUp">
+          <p class="vision-module5-content-img3-title">
+            生物智造 [ 定制解决方案 ]
+          </p>
+          <p class="vision-module5-content-img3-desc">
+            元素驱动将针对您的需求，进行菌种定制、优化、产品延展等<br />生物智造全流程服务。
+          </p>
+          <p class="vision-module5-content-img3-btn">匹配顾问</p>
+        </div>
       </div>
       <div class="vision-module5-content-img4">
         <img src="./images/process.png" alt="" />
@@ -41,7 +47,14 @@
   </div>
 </template>
 
+<script setup>
+import { ref } from "vue";
 
+const titleInView = ref(false);
+const img1InView = ref(false);
+const img3InView = ref(false);
+
+</script>
 <style lang="less" scoped>
 @import "@/style/variable.less";
 

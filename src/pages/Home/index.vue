@@ -45,10 +45,13 @@
       </div>
     </div>
     <div class="product-section sector border-gradient">
-      <img
-        src="@/assets/images/infinite.png"
-        class="title animate__animated animate__fadeIn"
-      />
+      <div v-intersect="() => titleInView = true">
+        <img
+          v-if="titleInView"
+          src="@/assets/images/infinite.png"
+          class="title animate__animated animate__fadeInUp"
+        />
+      </div>
       <div class="product-list">
         <div class="product-list-top">
           <div class="product-list-top-item product">产品</div>
@@ -88,15 +91,20 @@
         </div>
       </div>
     </div>
-    <div class="banner-section sector border-gradient">
-      <div class="title animate__animated animate__fadeIn">
-        <span>您的选择和 </span><span class="orange-text"> 他们 </span
-        ><span> 一样</span>
+    <div
+      v-intersect="() => bannerSectionInView = true"
+      class="banner-section sector border-gradient"
+    >
+      <div
+        v-if="bannerSectionInView"
+        class="animate__animated animate__fadeInUp"
+      >
+        <div class="title">
+          <span>您的选择和 </span><span class="orange-text"> 他们 </span
+          ><span> 一样</span>
+        </div>
+        <img src="@/assets/images/banners.png" class="banner-img" />
       </div>
-      <img
-        src="@/assets/images/banners.png"
-        class="banner-img animate__animated animate__fadeIn"
-      />
     </div>
     <div class="new-section sector border-gradient">
       <div
@@ -105,7 +113,7 @@
         class="new-item hover-scale-transition"
         @mousemove="cardHover(item)"
         @mouseleave="cardLeave(item)"
-        :style="{ transform: item.transform}"
+        :style="{ transform: item.transform }"
       >
         <div class="img-box">
           <img :src="item.imgSrc" alt="" class="new-img" />
@@ -139,186 +147,182 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref, reactive, onMounted, onUnmounted } from "vue";
 import BannerTitleAnimation from "@/components/BannerTitleAnimation";
-export default {
-  name: "MintHome",
-  components: {
-    BannerTitleAnimation,
+
+const lineDivides = reactive([
+  { marginLeft: 0 },
+  { marginLeft: 1 },
+  { marginLeft: 1 },
+  { marginLeft: 2 },
+  { marginLeft: 4 },
+  { marginLeft: 8 },
+  { marginLeft: 16 },
+  { marginLeft: 32 },
+]);
+
+const advantageArr = reactive([
+  {
+    title: "前沿 科技力",
+    describe: "与合作伙伴共担ESG责任共筑地球可持续未来",
+    moveColor: "#FF7200",
+    animationClass: "",
   },
-  setup() {
-    return {};
+  {
+    title: "平台 强赋能",
+    describe: "独创 MiNT X Platform AI赋能生物智造",
+    moveColor: "#144BE1",
+    animationClass: "",
   },
-  data() {
-    return {
-      lineDivides: [
-        { marginLeft: 0 },
-        { marginLeft: 1 },
-        { marginLeft: 1 },
-        { marginLeft: 2 },
-        { marginLeft: 4 },
-        { marginLeft: 8 },
-        { marginLeft: 16 },
-        { marginLeft: 32 },
-      ],
-      advantageArr: [
-        {
-          title: "前沿 科技力",
-          describe: "与合作伙伴共担ESG责任共筑地球可持续未来",
-          moveColor: "#FF7200",
-          animationClass: "",
-        },
-        {
-          title: "平台 强赋能",
-          describe: "独创 MiNT X Platform AI赋能生物智造",
-          moveColor: "#144BE1",
-          animationClass: "",
-        },
-        {
-          title: "卓越 产品力",
-          subTitle: "生物降解新材料",
-          describe: "低成本高性能的环保新材料",
-          moveColor: "#0082FB",
-          animationClass: "",
-        },
-        {
-          title: "卓越 产品力",
-          subTitle: "生物合成氨基酸",
-          describe: "高效生物合成20+种氨基酸",
-          moveColor: "#0082FB",
-          animationClass: "",
-        },
-        {
-          title: "绿色 可持续",
-          describe: "与合作伙伴共担ESG责任共筑地球可持续未来",
-          moveColor: "#00965A",
-          animationClass: "",
-        },
-      ],
-      advantageShow: false,
-      productList: [
-        {
-          isShow: false,
-          product: "[ 无豆粕日粮解决方案 ]",
-          imgSrc: require("../../assets/images/product-1.jpeg"),
-          advantage: [
-            "高效补充牲畜必需氨基酸",
-            "有效减少养殖过程中温室气体排放",
-          ],
-          friends: "[ 牧原集团 ]",
-          top: -12,
-          width: "50%",
-        },
-        {
-          isShow: false,
-          product: "[ 快递袋 ]",
-          imgSrc: require("../../assets/images/product-2.jpeg"),
-          advantage: ["非粮原料", "韧性好", "可降解", "可回收"],
-          friends: "[ 顺丰 ]",
-        },
-        {
-          isShow: false,
-          product: "[ 快递袋 ]",
-          imgSrc: require("../../assets/images/product-3.jpeg"),
-          advantage: ["强度高", "成本低", "可降解", "可回收"],
-          friends: "[ 唯品会 ]",
-        },
-        {
-          isShow: false,
-          product: "[ 生物降解地膜 ]",
-          imgSrc: require("../../assets/images/product-4.jpeg"),
-          advantage: ["寿命长", "保温保墒", "降解期可调控", "有助增产"],
-          friends: "[ 新疆农科院 ]",
-        },
-        {
-          isShow: false,
-          product: "[ 一次性吸管 ]",
-          imgSrc: require("../../assets/images/product-5.jpeg"),
-          advantage: ["耐热耐冷", "硬度大", "韧性强", "成本低"],
-          friends: "[ 蜜雪冰城 ]",
-        },
-        {
-          isShow: false,
-          product: "[ 功能性纤维 ]",
-          imgSrc: require("../../assets/images/product-6.jpeg"),
-          advantage: ["吸湿性强", "弹力大", "可降解", "可回收"],
-          friends: "[ 安踏 ]",
-          objectFit: "fill",
-        },
-      ],
-      newList: [
-        {
-          title: "#MiNT产品力",
-          date: "2024/09/21",
-          content: "低豆粕日粮助力全面绿色转型",
-          color: "#144BE1",
-          imgSrc: require("../../assets/News/news01.png"),
-          transform: 'scale(1)',
-        },
-        {
-          title: "#MiNT进行时",
-          date: "2024/09/21",
-          content: "周扬区长莅临元素驱动调研指导",
-          color: "#FF7200",
-          imgSrc: require("../../assets/News/news02.png"),
-          transform: 'scale(1)',
-        },
-        {
-          title: "#MiNT Vision",
-          date: "2024/09/21",
-          content: "中央首次部署！加快经济社会发展全面绿色转型",
-          color: "#007D30",
-          imgSrc: require("../../assets/News/news03.png"),
-          transform: 'scale(1)',
-        },
-        {
-          title: "#MiNT进行时",
-          date: "2024/09/21",
-          content: "姚高员市长调研重点产业赛道企业，莅临元素驱动指导",
-          color: "#FF7200",
-          imgSrc: require("../../assets/News/news04.png"),
-          transform: 'scale(1)',
-        },
-        {
-          title: "#MiNT进行时",
-          date: "2024/09/21",
-          content:
-            "聚焦发展新质生产力，元素驱动年产3万吨PBX生物降解材料项目开工",
-          color: "#FF7200",
-          imgSrc: require("../../assets/News/news05.png"),
-          transform: 'scale(1)',
-        },
-      ],
-    };
+  {
+    title: "卓越 产品力",
+    subTitle: "生物降解新材料",
+    describe: "低成本高性能的环保新材料",
+    moveColor: "#0082FB",
+    animationClass: "",
   },
-  methods: {
-    expandMargin() {
-      this.advantageShow = true;
-      this.lineDivides.forEach((element) => {
-        element.marginLeft *= 2.5;
-      });
-    },
-    advantageMove(advantage) {
-      advantage.color = advantage.moveColor;
-      advantage.animationClass = "animate__animated animate__fadeIn";
-    },
-    advantageLeave(advantage) {
-      advantage.color = "#ffffff";
-      advantage.animationClass = "animate__animated animate__fadeOut";
-    },
-    productMove(product) {
-      product.isShow = true;
-    },
-    productLeave(product) {
-      product.isShow = false;
-    },
-    cardHover(card) {
-      card.transform = 'scale(1.05)';
-    },
-    cardLeave(card) {
-      card.transform = 'scale(1)';
-    }
+  {
+    title: "卓越 产品力",
+    subTitle: "生物合成氨基酸",
+    describe: "高效生物合成20+种氨基酸",
+    moveColor: "#0082FB",
+    animationClass: "",
   },
+  {
+    title: "绿色 可持续",
+    describe: "与合作伙伴共担ESG责任共筑地球可持续未来",
+    moveColor: "#00965A",
+    animationClass: "",
+  },
+]);
+
+const advantageShow = ref(false);
+const productList = reactive([
+  {
+    isShow: false,
+    product: "[ 无豆粕日粮解决方案 ]",
+    imgSrc: require("../../assets/images/product-1.jpeg"),
+    advantage: ["高效补充牲畜必需氨基酸", "有效减少养殖过程中温室气体排放"],
+    friends: "[ 牧原集团 ]",
+    top: -12,
+    width: "50%",
+  },
+  {
+    isShow: false,
+    product: "[ 快递袋 ]",
+    imgSrc: require("../../assets/images/product-2.jpeg"),
+    advantage: ["非粮原料", "韧性好", "可降解", "可回收"],
+    friends: "[ 顺丰 ]",
+  },
+  {
+    isShow: false,
+    product: "[ 快递袋 ]",
+    imgSrc: require("../../assets/images/product-3.jpeg"),
+    advantage: ["强度高", "成本低", "可降解", "可回收"],
+    friends: "[ 唯品会 ]",
+  },
+  {
+    isShow: false,
+    product: "[ 生物降解地膜 ]",
+    imgSrc: require("../../assets/images/product-4.jpeg"),
+    advantage: ["寿命长", "保温保墒", "降解期可调控", "有助增产"],
+    friends: "[ 新疆农科院 ]",
+  },
+  {
+    isShow: false,
+    product: "[ 一次性吸管 ]",
+    imgSrc: require("../../assets/images/product-5.jpeg"),
+    advantage: ["耐热耐冷", "硬度大", "韧性强", "成本低"],
+    friends: "[ 蜜雪冰城 ]",
+  },
+  {
+    isShow: false,
+    product: "[ 功能性纤维 ]",
+    imgSrc: require("../../assets/images/product-6.jpeg"),
+    advantage: ["吸湿性强", "弹力大", "可降解", "可回收"],
+    friends: "[ 安踏 ]",
+    objectFit: "fill",
+  },
+]);
+
+const newList = reactive([
+  {
+    title: "#MiNT产品力",
+    date: "2024/09/21",
+    content: "低豆粕日粮助力全面绿色转型",
+    color: "#144BE1",
+    imgSrc: require("../../assets/News/news01.png"),
+    transform: "scale(1)",
+  },
+  {
+    title: "#MiNT进行时",
+    date: "2024/09/21",
+    content: "周扬区长莅临元素驱动调研指导",
+    color: "#FF7200",
+    imgSrc: require("../../assets/News/news02.png"),
+    transform: "scale(1)",
+  },
+  {
+    title: "#MiNT Vision",
+    date: "2024/09/21",
+    content: "中央首次部署！加快经济社会发展全面绿色转型",
+    color: "#007D30",
+    imgSrc: require("../../assets/News/news03.png"),
+    transform: "scale(1)",
+  },
+  {
+    title: "#MiNT进行时",
+    date: "2024/09/21",
+    content: "姚高员市长调研重点产业赛道企业，莅临元素驱动指导",
+    color: "#FF7200",
+    imgSrc: require("../../assets/News/news04.png"),
+    transform: "scale(1)",
+  },
+  {
+    title: "#MiNT进行时",
+    date: "2024/09/21",
+    content: "聚焦发展新质生产力，元素驱动年产3万吨PBX生物降解材料项目开工",
+    color: "#FF7200",
+    imgSrc: require("../../assets/News/news05.png"),
+    transform: "scale(1)",
+  },
+]);
+
+const titleInView = ref(false);
+const bannerSectionInView = ref(false);
+
+const expandMargin = () => {
+  advantageShow.value = true;
+  lineDivides.forEach((element) => {
+    element.marginLeft *= 2.5;
+  });
+};
+
+const advantageMove = (advantage) => {
+  advantage.color = advantage.moveColor;
+  advantage.animationClass = "animate__animated animate__fadeIn";
+};
+
+const advantageLeave = (advantage) => {
+  advantage.color = "#ffffff";
+  advantage.animationClass = "animate__animated animate__fadeOut";
+};
+
+const productMove = (product) => {
+  product.isShow = true;
+};
+
+const productLeave = (product) => {
+  product.isShow = false;
+};
+
+const cardHover = (card) => {
+  card.transform = "scale(1.05)";
+};
+
+const cardLeave = (card) => {
+  card.transform = "scale(1)";
 };
 </script>
 

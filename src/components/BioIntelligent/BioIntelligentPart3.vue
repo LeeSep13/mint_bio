@@ -1,12 +1,14 @@
 <template>
   <div class="part3 sector border-gradient">
-    <div class="label animate__animated animate__fadeInUp">
-      <div class="label-top">
-        <span class="labelBig labelWhite mr117">一起</span>
-        <span class="labelBig labelOrange">生物智造</span>
-      </div>
-      <div class="label-bottom">
-        <span class="labelBig labelWhite ml117">了解</span>
+    <div v-intersect="() => titleInView = true">
+      <div v-if="titleInView" class="label animate__animated animate__fadeInUp">
+        <div class="label-top">
+          <span class="labelBig labelWhite mr117">一起</span>
+          <span class="labelBig labelOrange">生物智造</span>
+        </div>
+        <div class="label-bottom">
+          <span class="labelBig labelWhite ml117">了解</span>
+        </div>
       </div>
     </div>
     <div class="swipper-container">
@@ -92,6 +94,7 @@ export default {
     const curSwipIndex = ref(0);
     const swiperRef = ref(null); // 用于存储Swiper实例
     const showElement = ref(true);
+    const titleInView = ref(false);
 
     function onSwiper(swiper) {
       swiperRef.value = swiper;
@@ -130,6 +133,7 @@ export default {
       showElement,
       handlePrev,
       handleNext,
+      titleInView,
     };
   },
 };

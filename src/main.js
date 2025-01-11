@@ -4,6 +4,7 @@ import router from './router'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import 'animate.css'
+import directives from './utils/directives' 
 
 Vue.config.productionTip = false
 
@@ -14,4 +15,5 @@ const app = createApp({
 
 app.use(router)
 app.use(ElementPlus)
+app.use(directives);
 app.mount('#app')

@@ -1,14 +1,16 @@
 <template>
   <div class="part2 sector">
-    <div class="label animate__animated animate__fadeInUp">
-      <div class="label-top">
-        <span class="labelBig labelOrange mr120">科研</span>
-        <span class="labelBig labelOrange">产业</span>
-      </div>
-      <div>
-        <span class="labelSmall labelWhite">0~1</span>
-        <span class="labelBig labelWhite mlr30">到</span>
-        <span class="labelSmall labelWhite">1~&infin;</span>
+    <div v-intersect="() => titleInView = true">
+      <div v-if="titleInView" class="label animate__animated animate__fadeInUp">
+        <div class="label-top">
+          <span class="labelBig labelOrange mr120">科研</span>
+          <span class="labelBig labelOrange">产业</span>
+        </div>
+        <div>
+          <span class="labelSmall labelWhite">0~1</span>
+          <span class="labelBig labelWhite mlr30">到</span>
+          <span class="labelSmall labelWhite">1~&infin;</span>
+        </div>
       </div>
     </div>
 
@@ -57,7 +59,7 @@ const card2Size = ref(36);
 const card1Opacity = ref(1);
 const card2Opacity = ref(0);
 const showCardTrans = ref(true);
-
+const titleInView = ref(false);
 function hoverCard1() {
   card1Size.value = 69;
   card2Size.value = 36;
