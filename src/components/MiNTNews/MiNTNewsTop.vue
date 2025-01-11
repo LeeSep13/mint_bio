@@ -19,7 +19,9 @@
       <div class="button">
         <div class="button-btn">
           <p>下载品牌手册</p>
-          <img src="@/assets/images/download.png" alt="download" />
+          <div class="button-btn-img">
+            <img src="@/assets/images/download.png" alt="download" />
+          </div>
         </div>
       </div>
     </div>
@@ -126,11 +128,14 @@
           height: 67px;
           font-size: 14px;
           color: #ffffff;
-		  border: 1px solid #FFFFFF1A;
+		      border: 1px solid #FFFFFF1A;
           border-radius: 9999px;
-          img {
-            width: 1.125rem;
-            height: 1.125rem;
+          &-img {
+            width: 18px;
+            height: 18px;
+            img {
+              width: 100%;
+            }
           }
         }
       }

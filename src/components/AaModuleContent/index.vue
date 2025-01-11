@@ -229,6 +229,7 @@ const handleNext = throttle(() => {
 
       &-bottom {
         display: flex;
+        justify-content: space-between;
         gap: 70px;
 
         &-introduction {

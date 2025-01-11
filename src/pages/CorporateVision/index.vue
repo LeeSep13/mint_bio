@@ -677,13 +677,17 @@ export default {
   display: flex;
   flex-wrap: wrap;
   row-gap: 56px;
-  column-gap: 101px;
+  // column-gap: 101px;
   &-image {
     width: 281px;
     height: 231px;
+    margin-right: calc((100% - 4 * 281px) / 3);
     img {
       width: 100%;
     }
+  }
+  &-image:nth-child(4n) {
+    margin-right: 0; 
   }
 }
 

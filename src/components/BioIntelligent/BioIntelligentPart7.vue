@@ -55,8 +55,7 @@ export default {
 .part7layout {
   height: 778px;
   .title{
-    width: 1219px;
-    height: 69px;
+    width: 84%;
     img{
         width: 100%;
     }
@@ -67,9 +66,9 @@ export default {
     height: 90%;
     .comp1 {
       position: absolute;
-      top: 88px;
+      top: 12.5%;
       left: 0;
-      width: 462px;
+      width: 30.8%;
       height: 390px;
       z-index: 3;
       img {
@@ -78,9 +77,9 @@ export default {
     }
     .comp2 {
       position: absolute;
-      top: 103px;
-      left: 420px;
-      width: 452px;
+      top: 14.6%;
+      left: 28%;
+      width: 30.1%;
       height: 375px;
       z-index: 2;
       img {
@@ -89,9 +88,9 @@ export default {
     }
     .comp3 {
       position: absolute;
-      top: 17px;
-      left: 839px;
-      width: 584px;
+      top: 2.25%;
+      left: 55.9%;
+      width: 38.9%;
       height: 690px;
       z-index: 1;
       img {
