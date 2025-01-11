@@ -1,9 +1,6 @@
 <template>
   <div class="aminoAcid-module2">
-    <div
-      class="aminoAcid-module2-radian"
-      :style="{ marginLeft: tabStyle.marginLeft, zIndex: tabStyle.zIndex }"
-    >
+    <div class="aminoAcid-module2-radian" :style="{ marginLeft: tabStyle.marginLeft, zIndex: tabStyle.zIndex }">
       <div class="aminoAcid-module2-radian-inner"></div>
       <div class="aminoAcid-module2-radian-title">
         <p>{{ title }}</p>
@@ -16,36 +13,23 @@
         </div>
         <div class="aminoAcid-module2-content-bottom">
           <div class="aminoAcid-module2-content-bottom-introduction">
-            <div
-              class="aminoAcid-module2-content-bottom-introduction-title"
-              :style="{ flexDirection: isRow ? 'row' : 'column' }"
-            >
-              <span
-                class="aminoAcid-module2-content-bottom-introduction-title-text1"
-              >
+            <div class="aminoAcid-module2-content-bottom-introduction-title"
+              :style="{ flexDirection: isRow ? 'row' : 'column' }">
+              <span class="aminoAcid-module2-content-bottom-introduction-title-text1">
                 {{ introductionTitle1 }}
               </span>
-              <span
-                class="aminoAcid-module2-content-bottom-introduction-title-text2"
-              >
+              <span class="aminoAcid-module2-content-bottom-introduction-title-text2">
                 {{ introductionTitle2 }}
               </span>
             </div>
             <div class="aminoAcid-module2-content-bottom-introduction-apply">
-              <p
-                v-for="(applyText, index) in applyTexts"
-                :key="index"
-                class="aminoAcid-module2-content-bottom-introduction-apply-text"
-              >
+              <p v-for="(applyText, index) in applyTexts" :key="index"
+                class="aminoAcid-module2-content-bottom-introduction-apply-text">
                 {{ applyText }}
               </p>
             </div>
-            <div
-              class="aminoAcid-module2-content-bottom-introduction-advantage"
-            >
-              <ul
-                class="aminoAcid-module2-content-bottom-introduction-advantage-text"
-              >
+            <div class="aminoAcid-module2-content-bottom-introduction-advantage">
+              <ul class="aminoAcid-module2-content-bottom-introduction-advantage-text">
                 <li v-for="(advantage, index) in advantages" :key="index">
                   {{ advantage }}
                 </li>
@@ -53,53 +37,31 @@
             </div>
           </div>
           <div class="aminoAcid-module2-content-bottom-exhibit">
-            <div
-              v-if="imageUrl.length === 1"
-              class="aminoAcid-module2-content-bottom-exhibit-image"
-            >
+            <div v-if="imageUrl.length === 1" class="aminoAcid-module2-content-bottom-exhibit-image">
               <img :src="getImageUrl(imageUrl[0])" alt="" />
             </div>
 
             <div v-else class="swiper-content">
               <div class="navigation">
-                <div
-                  class="arrow"
-                  :class="{ 'arrow-active': curSwipIndex === 0 }"
-                  @click="handlePrev"
-                >
+                <div class="arrow" :class="{ 'arrow-active': curSwipIndex === 0 }" @click="handlePrev">
                   &lt;
                 </div>
-                <div
-                  class="arrow"
-                  :class="{
-                    'arrow-active': curSwipIndex === imageUrl.length - 1,
-                  }"
-                  @click="handleNext"
-                >
+                <div class="arrow" :class="{
+                  'arrow-active': curSwipIndex === imageUrl.length - 1,
+                }" @click="handleNext">
                   &gt;
                 </div>
               </div>
-              <Swiper
-                :slides-per-view="1"
-                :effect="'fade'"
-                :current="curSwipIndex"
-                @slide-change="onSlideChange"
-                @swiper="onSwiper"
-                :modules="[EffectFade]"
-                :speed="1000"
-              >
+              <Swiper :slides-per-view="1" :effect="'fade'" :current="curSwipIndex" @slide-change="onSlideChange"
+                @swiper="onSwiper" :modules="[EffectFade]" :speed="1000">
                 <SwiperSlide v-for="(item, index) in imageUrl" :key="index">
                   <img :src="getImageUrl(item.url)" />
                   <div class="swiper-slide-desc">{{ item.desc }}</div>
                 </SwiperSlide>
               </Swiper>
               <div class="indicator">
-                <div
-                  v-for="(item, index) in imageUrl"
-                  :key="index"
-                  class="dot"
-                  :class="{ active: index === curSwipIndex }"
-                ></div>
+                <div v-for="(item, index) in imageUrl" :key="index" class="dot"
+                  :class="{ active: index === curSwipIndex }"></div>
               </div>
             </div>
 
@@ -171,6 +133,7 @@ const handleNext = throttle(() => {
 .aminoAcid {
   &-module2 {
     width: 100%;
+
     &-radian {
       position: relative;
       top: 1px;
@@ -200,13 +163,11 @@ const handleNext = throttle(() => {
           height: 10px;
           bottom: -8px;
           left: -8px;
-          background: radial-gradient(
-            circle at 0% 0,
-            transparent,
-            transparent 9.5px,
-            #626568 10px,
-            #17191c
-          );
+          background: radial-gradient(circle at 0% 0,
+              transparent,
+              transparent 9.5px,
+              #626568 10px,
+              #17191c);
         }
 
         &::after {
@@ -216,13 +177,11 @@ const handleNext = throttle(() => {
           height: 10px;
           top: 40px;
           right: -8px;
-          background: radial-gradient(
-            circle at 10px 0,
-            transparent,
-            transparent 9.5px,
-            #626568 10px,
-            #17191c
-          );
+          background: radial-gradient(circle at 10px 0,
+              transparent,
+              transparent 9.5px,
+              #626568 10px,
+              #17191c);
         }
       }
 
@@ -247,13 +206,11 @@ const handleNext = throttle(() => {
       border-radius: 20px;
       border: 1px solid transparent;
       background-image: linear-gradient(#181a1d, #12161b),
-        linear-gradient(
-          156.52deg,
+        linear-gradient(156.52deg,
           rgba(255, 255, 255, 0.4) 2.12%,
           rgba(255, 255, 255, 0.0001) 60%,
           rgba(255, 255, 255, 0.0001) 54%,
-          rgba(255, 255, 255, 0.1) 93.02%
-        );
+          rgba(255, 255, 255, 0.1) 93.02%);
       background-origin: border-box;
       background-clip: content-box, border-box;
 
@@ -273,9 +230,11 @@ const handleNext = throttle(() => {
       &-bottom {
         display: flex;
         gap: 70px;
+
         &-introduction {
           margin-top: 70px;
           width: 440px;
+
           &-title {
             display: flex;
             flex-direction: column;
@@ -301,6 +260,7 @@ const handleNext = throttle(() => {
             margin-bottom: 121px;
             display: flex;
             gap: 30px;
+
             &-text {
               padding: 20px;
               font-size: 14px;
@@ -332,7 +292,8 @@ const handleNext = throttle(() => {
               }
 
               &:not(:last-child) {
-                margin-bottom: 16px; /* 每项之间的间隔 */
+                margin-bottom: 16px;
+                /* 每项之间的间隔 */
               }
             }
           }
@@ -340,6 +301,7 @@ const handleNext = throttle(() => {
 
         &-exhibit {
           position: relative;
+
           &-image {
             width: 764px;
             height: 526px;
@@ -348,11 +310,13 @@ const handleNext = throttle(() => {
               width: 100%;
             }
           }
+
           &-match {
             position: absolute;
             bottom: 20px;
             right: 10px;
             z-index: 999;
+
             &-btn {
               width: 124px;
               height: 58px;
@@ -361,10 +325,12 @@ const handleNext = throttle(() => {
               font-size: 16px;
               font-weight: 500;
               color: #f1f3f7;
-              background-color: rgba(40, 40, 40, 0.62);
+              background-color: rgba(40, 40, 40, );
               border-radius: 209px;
+              border: 1px solid white;
             }
           }
+
           .swiper-content {
             position: relative;
             width: 764px;
@@ -390,6 +356,7 @@ const handleNext = throttle(() => {
                   font-size: 16px;
                   border-radius: 100px;
                 }
+
                 img {
                   width: 100%;
                   height: 100%;
@@ -397,6 +364,7 @@ const handleNext = throttle(() => {
                 }
               }
             }
+
             .navigation {
               position: absolute;
               top: 50%;
@@ -407,6 +375,7 @@ const handleNext = throttle(() => {
               padding: 0 20px;
               box-sizing: border-box;
               z-index: 99;
+
               .arrow {
                 width: 36px;
                 height: 36px;
@@ -418,10 +387,12 @@ const handleNext = throttle(() => {
                 color: #d9d9d9;
                 user-select: none;
               }
+
               .arrow-active {
                 opacity: 0.5;
               }
             }
+
             .indicator {
               margin-top: 20px;
               display: flex;

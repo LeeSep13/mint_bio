@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div class="mouse-scroll">
+    <!-- <div class="mouse-scroll">
       <MouseScrollM :modules="module2Data" :originHeight="600">
         <template #item-content="{ module, index }">
           <aa-module-content-mobile :title="module.title" :topItems="module.topItems"
@@ -26,8 +26,8 @@
             :applyTexts="module.applyTexts" :advantages="module.advantages" :imageUrl="module.imageUrl"
             :isRow="module.isRow" :tabStyle="getTabStyleData(index)"></aa-module-content-mobile>
         </template>
-      </MouseScrollM>
-    </div>
+</MouseScrollM>
+</div> -->
 
     <div class="aminoAcid-module3 border-gradient">
       <div class="aminoAcid-module3-title">

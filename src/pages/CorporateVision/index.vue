@@ -1,15 +1,10 @@
 <template>
-  <div class="corporate">
-    <BannerTitleAnimation
-      :titleImage="require('@/assets/images/vision-title.png')"
-      :backgroundImg="require('@/assets/images/corporateVision.png')"
-    />
+  <div class="corporate ">
+    <BannerTitleAnimation :titleImage="require('@/assets/images/vision-title.png')"
+      :backgroundImg="require('@/assets/images/corporateVision.png')" />
     <div class="introduction">
-      <img
-        src="@/assets/images/introduction-title.png"
-        alt=""
-        class="introduction-img animate__animated animate__fadeInUp"
-      />
+      <img src="@/assets/images/introduction-title.png" alt=""
+        class="introduction-img animate__animated animate__fadeInUp" />
       <div class="introduction-section">
         元素驱动（MiNT
         BiO）是一家集技术研发、生产应用推广为一体的合成生物科技公司，由西湖大学张科春教授于2021年8月创办，总部位于浙江杭州。
@@ -23,39 +18,21 @@
     </div>
     <div class="timeline">
       <div class="timeline-list">
-        <div
-          class="timeline-list-item"
-          v-for="(item, index) in timeList"
-          :key="index"
-        >
-          <div
-            class="timeline-list-item-time"
-            :style="{ color: item.color, width: item.width }"
-          >
+        <div class="timeline-list-item" v-for="(item, index) in timeList" :key="index">
+          <div class="timeline-list-item-time" :style="{ color: item.color, width: item.width }">
             {{ item.time }}
           </div>
-          <div
-            class="timeline-list-item-content"
-            :style="{ color: item.color, width: item.width }"
-          >
+          <div class="timeline-list-item-content" :style="{ color: item.color, width: item.width }">
             {{ item.content }}
           </div>
         </div>
       </div>
 
       <div class="buttons">
-        <div
-          class="prev"
-          :class="{ disabled: isPrevDisabled }"
-          @click="scrollTimeline('prev')"
-        >
+        <div class="prev" :class="{ disabled: isPrevDisabled }" @click="scrollTimeline('prev')">
           &lt;
         </div>
-        <div
-          class="next"
-          :class="{ disabled: isNextDisabled }"
-          @click="scrollTimeline('next')"
-        >
+        <div class="next" :class="{ disabled: isNextDisabled }" @click="scrollTimeline('next')">
           &gt;
         </div>
       </div>
@@ -101,7 +78,6 @@
               <p>联合创始人&创始董事</p>
             </div>
             <div>
-              <p>西湖大学教授</p>
               <p>西湖大学校长助理</p>
               <p>西湖大学董事会秘书</p>
               <p>西湖大学未来产业研究中心副主任</p>
@@ -115,7 +91,7 @@
             刘旻昊2011年毕业于英国帝国理工学院，获得生物物理博士学位，2012年回国后在清华大学从事博士后研究工作;2016年起任清华大学助理研究员，同时担任北京市结构生物学高精尖中心副主任、行政办公室主任。
           </p>
           <p>
-            自2014年起，刘旻吴参与西湖大学筹办，先后或同时担任西湖大学筹委会办公室主任、西湖大学董事会秘书、西湖大学校长助理，西湖教育基金会创始秘书长、副理事长等职务。
+            自2014年起，刘旻昊参与西湖大学筹办，先后或同时担任西湖大学筹委会办公室主任、西湖大学董事会秘书、西湖大学校长助理，西湖教育基金会创始秘书长、副理事长等职务。
           </p>
         </div>
       </div>
@@ -125,13 +101,10 @@
       <div class="scientific-title animate__animated animate__fadeInUp">
         <div class="scientific-title-left">
           <div>
-            <span>前端</span><span class="opacity-0">科研</span
-            ><span>攻坚</span>
+            <span>前端</span><span class="opacity-0">科研</span><span>攻坚</span>
           </div>
           <div>
-            <span class="opacity-0">前端</span
-            ><span class="orange-text">科研</span
-            ><span class="opacity-0">攻坚</span>
+            <span class="opacity-0">前端</span><span class="orange-text">科研</span><span class="opacity-0">攻坚</span>
           </div>
         </div>
         <div class="scientific-title-middle">
@@ -143,26 +116,18 @@
         <div class="scientific-title-right">
           <div class="scientific-title-left">
             <div>
-              <span>后端</span><span class="opacity-0">落地</span
-              ><span>量产</span>
+              <span>后端</span><span class="opacity-0">落地</span><span>量产</span>
             </div>
             <div>
-              <span class="opacity-0">后端</span
-              ><span class="orange-text">落地</span
-              ><span class="opacity-0">量产</span>
+              <span class="opacity-0">后端</span><span class="orange-text">落地</span><span class="opacity-0">量产</span>
             </div>
           </div>
         </div>
       </div>
       <div class="scientific-card">
         <div class="scientific-card-left">
-          <div
-            class="scientific-card-left-item"
-            v-for="(card, index) in cardList"
-            :key="index"
-            @mousemove="itemMove(card)"
-            :class="{ active: activeIndex === index }"
-          >
+          <div class="scientific-card-left-item" v-for="(card, index) in cardList" :key="index"
+            @mousemove="itemMove(card)" :class="{ active: activeIndex === index }">
             <div class="top button-top">{{ card.textTop }}</div>
             <div class="middle"><img :src="card.textMiddle" alt="" /></div>
             <div class="bottom">{{ card.textBottom }}</div>
@@ -176,8 +141,8 @@
       </div>
     </div>
 
-    <div class="project border-gradient">
-      <img src="@/assets/images/project.png" />
+    <div class="project border-gradient" ref="projectImage">
+      <img src="@/assets/images/project-3.png" class="project-img" />
     </div>
     <div class="banner-sector animate__animated animate__fadeInUp">
       <img src="@/assets/images/banners.png" class="banner-img" />
@@ -187,10 +152,38 @@
 
 <script>
 import BannerTitleAnimation from "@/components/BannerTitleAnimation";
+import { onMounted, } from "vue";
 export default {
   name: " CorporateVision",
   components: { BannerTitleAnimation },
   setup() {
+
+    const handleIntersection = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          // 停止观察已进入视口的元素
+          // observer.unobserve(entry.target); 
+        } else {
+          entry.target.classList.remove('fade-in');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.3, // 当元素10%进入视口时触发
+    });
+
+    onMounted(() => {
+      const dom = document.querySelector('.project-img')
+      const bannerDom = document.querySelector('.banner-img')
+
+      if (dom && bannerDom) {
+        observer.observe(dom);
+        observer.observe(bannerDom);
+      }
+    });
+
     return { titleStyle: { top: "47%" } };
   },
   data() {
@@ -312,6 +305,19 @@ export default {
 <style lang="less" scoped>
 @import "@/style/variable.less";
 
+.project-img,
+.banner-img {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.project-img.fade-in,
+.banner-img.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
@@ -421,6 +427,13 @@ export default {
           font-weight: 520;
           text-align: left;
           line-height: 27px;
+
+          &:hover {
+            cursor: pointer;
+            color: #ff7200;
+            font-size: 24px;
+            transition: all 0.6s ease-in-out;
+          }
         }
       }
     }
@@ -530,13 +543,11 @@ export default {
         border-radius: 20px;
         background: rgba(40, 40, 40, 0.6226);
         border: 1px solid;
-        border-image: linear-gradient(
-          156.52deg,
-          rgba(255, 255, 255, 0.4) 2.12%,
-          rgba(255, 255, 255, 0.0001) 39%,
-          rgba(255, 255, 255, 0.0001) 54.33%,
-          rgba(255, 255, 255, 0.1) 93.02%
-        );
+        border-image: linear-gradient(156.52deg,
+            rgba(255, 255, 255, 0.4) 2.12%,
+            rgba(255, 255, 255, 0.0001) 39%,
+            rgba(255, 255, 255, 0.0001) 54.33%,
+            rgba(255, 255, 255, 0.1) 93.02%);
 
         img {
           height: 60px;
@@ -554,6 +565,7 @@ export default {
         font-size: 14px;
         opacity: 0.6;
       }
+
       .active {
         opacity: 1;
       }
@@ -563,6 +575,7 @@ export default {
       width: 53.5%;
       position: relative;
       overflow: hidden;
+
       img {
         position: absolute;
         top: 0;
@@ -577,6 +590,7 @@ export default {
 
 .project {
   padding: 100px 160px;
+
   img {
     width: 100%;
   }

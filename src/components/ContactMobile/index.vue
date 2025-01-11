@@ -85,152 +85,153 @@ const popperOptions = ref({
 </script>
 
 <style lang="less">
-.el-popper.el-popover.contact-popover-w {
-  background-color: #12161b !important;
-  border-radius: 20px;
-  border: 1px solid transparent;
-  left: 10px !important;
-  top: 100px !important;
-  height: calc(100vh - 150px);
-}
-
-.contact-popover {
-  white-space: normal;
-
-  &-close {
-    text-align: right;
-
-    img {
-      width: 54px;
-      height: 54px;
-    }
+@media (max-width: 992px) {
+  .el-popper.el-popover.contact-popover-w {
+    background-color: #12161b !important;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    left: 10px !important;
+    height: calc(100vh - 150px);
   }
 
-  &-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  .contact-popover {
+    white-space: normal;
 
+    &-close {
+      text-align: right;
 
-    &-left {
-      width: 370px;
-
-      &-title {
-        margin-bottom: 15px;
-        font-size: 17px;
-        font-weight: 500;
-        color: #f1f3f7;
-      }
-
-      &-tip {
-        font-size: 13px;
-        font-weight: 500;
-        color: #F1F3F780;
-      }
-
-      &-form {
-        margin-top: 25px;
-
-        &-item {
-          &-label {
-            margin-top: 15px;
-            font-size: 15px;
-            color: #f1f3f766;
-          }
-
-          &-input {
-            input {
-              width: 100%;
-              border: none;
-              border-bottom: 0.5px solid #f1f3f733;
-              background-color: transparent;
-              padding-top: 15px;
-              padding-bottom: 10px;
-              outline: none;
-            }
-
-            input::placeholder {
-              color: #F1F3F7CC;
-              opacity: 1;
-            }
-          }
-        }
-
-        &-submit {
-          display: flex;
-          justify-content: center;
-          margin-top: 65px;
-
-          &-btn {
-            width: 96px;
-            height: 67px;
-            line-height: 67px;
-            text-align: center;
-            color: #f1f3f7;
-            border-radius: 999px;
-            border: 1px solid #ffffff1a;
-          }
-        }
+      img {
+        width: 54px;
+        height: 54px;
       }
     }
 
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
 
 
-    &-connection {
-      margin-top: 20px;
-      color: #f1f3f7;
+      &-left {
+        width: 370px;
 
-      &-title {
-        font-size: 17px;
-        font-weight: 500;
-      }
+        &-title {
+          margin-bottom: 15px;
+          font-size: 17px;
+          font-weight: 500;
+          color: #f1f3f7;
+        }
 
-      &-bottom {
-        display: flex;
-        justify-content: flex-start;
-        gap: 5px;
-
-        .bottom-right {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
+        &-tip {
+          font-size: 13px;
+          font-weight: 500;
           color: #F1F3F780;
         }
+
+        &-form {
+          margin-top: 25px;
+
+          &-item {
+            &-label {
+              margin-top: 15px;
+              font-size: 15px;
+              color: #f1f3f766;
+            }
+
+            &-input {
+              input {
+                width: 100%;
+                border: none;
+                border-bottom: 0.5px solid #f1f3f733;
+                background-color: transparent;
+                padding-top: 15px;
+                padding-bottom: 10px;
+                outline: none;
+              }
+
+              input::placeholder {
+                color: #F1F3F7CC;
+                opacity: 1;
+              }
+            }
+          }
+
+          &-submit {
+            display: flex;
+            justify-content: center;
+            margin-top: 65px;
+
+            &-btn {
+              width: 96px;
+              height: 67px;
+              line-height: 67px;
+              text-align: center;
+              color: #f1f3f7;
+              border-radius: 999px;
+              border: 1px solid #ffffff1a;
+            }
+          }
+        }
       }
 
-      &-email {
-        margin-top: 30px;
-        margin-bottom: 30px;
-        font-size: 15px;
-        font-weight: 500;
-      }
 
-      &-qrcode {
-        width: 100px;
-        height: 100px;
-        margin: 0;
-      }
 
-      &-desc {
-        margin-top: 37px;
-        font-size: 12px;
-        font-weight: 500;
+      &-connection {
+        margin-top: 20px;
+        color: #f1f3f7;
+
+        &-title {
+          font-size: 17px;
+          font-weight: 500;
+        }
+
+        &-bottom {
+          display: flex;
+          justify-content: flex-start;
+          gap: 5px;
+
+          .bottom-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: #F1F3F780;
+          }
+        }
+
+        &-email {
+          margin-top: 30px;
+          margin-bottom: 30px;
+          font-size: 15px;
+          font-weight: 500;
+        }
+
+        &-qrcode {
+          width: 100px;
+          height: 100px;
+          margin: 0;
+        }
+
+        &-desc {
+          margin-top: 37px;
+          font-size: 12px;
+          font-weight: 500;
+        }
       }
     }
+
   }
 
-}
-
-.contact-popover-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  /* Semi-transparent background */
-  z-index: 9;
-  /* Ensure it's above the page content but below the popover */
+  .contact-popover-overlay {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent background */
+    z-index: 9;
+    /* Ensure it's above the page content but below the popover */
+  }
 }
 </style>
 <style lang="less" scoped>

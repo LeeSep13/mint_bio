@@ -281,6 +281,7 @@ const popperOptions = ref({
   align-items: center;
   justify-content: space-around;
   padding-top: 16px;
+  backdrop-filter: blur(5px);
 
   &-w {
     height: 70px;

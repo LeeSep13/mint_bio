@@ -93,11 +93,11 @@ const popperOptions = ref({
 });
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .el-popper.el-popover.contact-popover-w {
   // margin-right: 40px;
   padding: 24px 26px 95px 72px;
-  background-color: #2828289f;
+  background-color: #2828289f !important;
   border-radius: 20px;
   border: 1px solid transparent;
   backdrop-filter: blur(10px);

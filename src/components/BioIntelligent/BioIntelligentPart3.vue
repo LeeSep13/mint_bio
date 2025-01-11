@@ -23,40 +23,23 @@
         </transition>
         <div class="desc-bottom">
           <div class="navigation">
-            <div
-              class="arrow"
-              :class="{ 'arrow-active': curSwipIndex !== 0 }"
-              @click="handlePrev"
-            >
+            <div class="arrow" :class="{ 'arrow-active': curSwipIndex !== 0 }" @click="handlePrev">
               &lt;
             </div>
-            <div
-              class="arrow"
-              :class="{
-                'arrow-active': curSwipIndex !== bannerList.length - 1,
-              }"
-              @click="handleNext"
-            >
+            <div class="arrow" :class="{
+              'arrow-active': curSwipIndex !== bannerList.length - 1,
+            }" @click="handleNext">
               &gt;
             </div>
           </div>
           <div class="indicator">
-            <div
-              v-for="(item, index) in bannerList"
-              :key="index"
-              class="dot"
-              :class="{ active: index === curSwipIndex }"
-            ></div>
+            <div v-for="(item, index) in bannerList" :key="index" class="dot"
+              :class="{ active: index === curSwipIndex }"></div>
           </div>
         </div>
       </div>
       <div class="swipper-content">
-        <Swiper
-          :slides-per-view="1"
-          :current="curSwipIndex"
-          @slide-change="onSlideChange"
-          @swiper="onSwiper"
-        >
+        <Swiper :slides-per-view="1" :current="curSwipIndex" @slide-change="onSlideChange" @swiper="onSwiper">
           <SwiperSlide v-for="(item, index) in bannerList" :key="index">
             <img :src="getImageUrl(item.url)" />
           </SwiperSlide>
@@ -65,8 +48,8 @@
     </div>
   </div>
 </template>
-  
-  <script>
+
+<script>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { ref } from "vue";
 import { getImageUrl } from "@/utils";
@@ -88,13 +71,22 @@ export default {
       },
       {
         url: "assets/BioIntelligent/swipper2.png",
-        title: "其他原料1",
-        description: "描述文字1。",
+        title: "AI蛋白质设计",
+        description: "与商汤科技战略合作，AI高效预测和生成分子。",
       },
       {
-        url: "assets/BioIntelligent/swipper3.png",
-        title: "其他原料2",
-        description: "描述文字2。",
+        url: "assets/images/swiper3.png",
+        title: "科技引擎",
+        description: "自研MiNT X Platform 配备全面的菌种、元件库，实现高效、精准、可预测的底层微生物设计和代谢优化。",
+      }, {
+        url: "assets/images/swiper4.png",
+
+        title: "量产无忧",
+        description: "布局2个生物智造基地，年产能超10万吨，成熟产品均已具备量产条件，并配备严格的质量管理流程。",
+      }, {
+        url: "assets/images/swiper5.png",
+        title: "应用无限",
+        description: "生物智造产品在农业、包装、消费品等重要领域均可布局应用，并推动传统工业进行绿色转型升级。",
       },
     ]);
     const curSwipIndex = ref(0);
@@ -111,16 +103,16 @@ export default {
     }
 
     const handlePrev = throttle(() => {
-      if (curSwipIndex.value === 0) return; 
+      if (curSwipIndex.value === 0) return;
       swiperRef.value && swiperRef.value.slidePrev();
       showElement.value = !showElement.value;
       setTimeout(() => {
         showElement.value = !showElement.value;
       }, 100);
-    }, 500); 
+    }, 500);
 
     const handleNext = throttle(() => {
-      if (curSwipIndex.value === bannerList.value.length - 1) return; 
+      if (curSwipIndex.value === bannerList.value.length - 1) return;
       swiperRef.value && swiperRef.value.slideNext();
       showElement.value = !showElement.value;
       setTimeout(() => {
@@ -142,7 +134,7 @@ export default {
   },
 };
 </script>
-  
+
 <style lang="less" scoped>
 @import "@/style/variable.less";
 
@@ -170,6 +162,7 @@ export default {
     text-align: left;
     margin-bottom: 100px;
   }
+
   .label-top {
     margin-bottom: 20px;
     height: 44px;
@@ -181,6 +174,7 @@ export default {
     gap: 16px;
     height: 592px;
     width: 100%;
+
     .desc {
       width: 34%;
       height: 100%;
@@ -188,6 +182,7 @@ export default {
       border-radius: 15px;
       padding: 0 54px;
       box-sizing: border-box;
+
       .desc-content {
         height: 260px;
         color: #f1f3f7;
@@ -197,10 +192,12 @@ export default {
           margin-bottom: 61px;
           font-size: 40px;
         }
+
         .desc-content-bottom {
           font-size: 20px;
         }
       }
+
       .desc-bottom {
         display: flex;
         justify-content: center;
@@ -212,6 +209,7 @@ export default {
         .navigation {
           display: flex;
           gap: 82px;
+
           .arrow {
             width: 42px;
             height: 42px;
@@ -222,13 +220,15 @@ export default {
             background-color: #ffffff2e;
             font-size: 14px;
             color: #82828280;
-			user-select: none;
+            user-select: none;
           }
+
           .arrow:hover {
             color: #ff720080;
             background-color: #797a7c;
             border-color: #ffffff;
           }
+
           .arrow-active {
             color: #ff720080;
           }
@@ -276,18 +276,22 @@ export default {
   }
 }
 
-.fade-leave-from,   // 离开前,进入后透明度是1
+.fade-leave-from,
+// 离开前,进入后透明度是1
 .fade-enter-to {
   opacity: 1;
 }
+
 .fade-leave-active,
 .fade-enter-active {
   transition: all 2s; //过度是2秒
 }
+
 .fade-leave-to,
 .fade-enter-from {
   opacity: 0;
 }
+
 .mr117 {
   margin-right: 117px;
 }
@@ -296,4 +300,3 @@ export default {
   margin-left: 117px;
 }
 </style>
-  
