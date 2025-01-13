@@ -34,8 +34,8 @@
         </ul>
       </div>
     </div>
-    <div class="vision-module3 sector">
-      <div class="vision-module3-title animate__animated animate__fadeInUp">
+    <div v-intersect="() => title1InView = true" class="vision-module3 sector">
+      <div v-if="title1InView" class="vision-module3-title animate__animated animate__fadeInUp">
         <p class="vision-module3-title-text1">生物智造</p>
         <p class="vision-module3-title-text2">势在必行</p>
       </div>
@@ -70,10 +70,10 @@
         </div>
       </div>
     </div>
-    <div class="vision-module4 sector border-gradient">
-      <div class="vision-module4-top">
+    <div v-intersect="() => title2InView = true" class="vision-module4 sector border-gradient">
+      <div v-if="title2InView" class="vision-module4-top animate__animated animate__fadeInUp">
         <div
-          class="vision-module4-top-title animate__animated animate__fadeInUp"
+          class="vision-module4-top-title"
         >
           <p class="vision-module4-top-title-text1">响应</p>
           <p class="vision-module4-top-title-text2">号召</p>
@@ -174,6 +174,8 @@ const declineData = ref([
 ]);
 const highlightedIndex = ref(0);
 const hoverData = ref("15%～88%");
+const title1InView = ref(false);
+const title2InView = ref(false);
 
 function updateHoverData(data, index) {
   this.highlightedIndex = index;

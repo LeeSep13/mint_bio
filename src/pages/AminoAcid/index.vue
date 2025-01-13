@@ -24,9 +24,11 @@
     <MouseScroll :modules="module2Data" />
 
     <div class="aminoAcid-module3">
-      <div class="aminoAcid-module3-title animate__animated animate__fadeInUp">
-        <span class="aminoAcid-module3-title-text1">应用</span>
-        <span class="aminoAcid-module3-title-text2">案例</span>
+      <div v-intersect="() => titleInView = true">
+        <div v-if="titleInView" class="aminoAcid-module3-title animate__animated animate__fadeInUp">
+          <span class="aminoAcid-module3-title-text1">应用</span>
+          <span class="aminoAcid-module3-title-text2">案例</span>
+        </div>
       </div>
       <div class="aminoAcid-module3-content">
         <div class="aminoAcid-module3-content-name">
@@ -131,8 +133,11 @@ export default {
       },
     ]);
 
+    const titleInView = ref(false);
+
     return {
       module2Data,
+      titleInView,
     };
   },
 };

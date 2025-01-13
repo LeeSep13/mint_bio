@@ -3,8 +3,14 @@
     <BannerTitleAnimation :titleImage="require('@/assets/images/vision-title.png')"
       :backgroundImg="require('@/assets/images/corporateVision.png')" />
     <div class="introduction">
-      <img src="@/assets/images/introduction-title.png" alt=""
-        class="introduction-img animate__animated animate__fadeInUp" />
+      <div v-intersect="() => (title1InView = true)">
+        <img
+          v-if="title1InView"
+          src="@/assets/images/introduction-title.png"
+          alt=""
+          class="introduction-img animate__animated animate__fadeInUp"
+        />
+      </div>
       <div class="introduction-section">
         元素驱动（MiNT
         BiO）是一家集技术研发、生产应用推广为一体的合成生物科技公司，由西湖大学张科春教授于2021年8月创办，总部位于浙江杭州。
@@ -98,28 +104,39 @@
     </div>
 
     <div class="scientific sector border-gradient">
-      <div class="scientific-title animate__animated animate__fadeInUp">
-        <div class="scientific-title-left">
-          <div>
-            <span>前端</span><span class="opacity-0">科研</span><span>攻坚</span>
-          </div>
-          <div>
-            <span class="opacity-0">前端</span><span class="orange-text">科研</span><span class="opacity-0">攻坚</span>
-          </div>
-        </div>
-        <div class="scientific-title-middle">
-          <p>从实验室走向生产线</p>
-          <p>是合成生物行业必经之路</p>
-          <p>迈向生物智造时代</p>
-          <p>元素驱动已做好准备</p>
-        </div>
-        <div class="scientific-title-right">
+      <div v-intersect="() => (title2InView = true)">
+        <div
+          v-if="title2InView"
+          class="scientific-title animate__animated animate__fadeInUp"
+        >
           <div class="scientific-title-left">
             <div>
-              <span>后端</span><span class="opacity-0">落地</span><span>量产</span>
+              <span>前端</span><span class="opacity-0">科研</span
+              ><span>攻坚</span>
             </div>
             <div>
-              <span class="opacity-0">后端</span><span class="orange-text">落地</span><span class="opacity-0">量产</span>
+              <span class="opacity-0">前端</span
+              ><span class="orange-text">科研</span
+              ><span class="opacity-0">攻坚</span>
+            </div>
+          </div>
+          <div class="scientific-title-middle">
+            <p>从实验室走向生产线</p>
+            <p>是合成生物行业必经之路</p>
+            <p>迈向生物智造时代</p>
+            <p>元素驱动已做好准备</p>
+          </div>
+          <div class="scientific-title-right">
+            <div class="scientific-title-left">
+              <div>
+                <span>后端</span><span class="opacity-0">落地</span
+                ><span>量产</span>
+              </div>
+              <div>
+                <span class="opacity-0">后端</span
+                ><span class="orange-text">落地</span
+                ><span class="opacity-0">量产</span>
+              </div>
             </div>
           </div>
         </div>
@@ -141,11 +158,24 @@
       </div>
     </div>
 
-    <div class="project border-gradient" ref="projectImage">
-      <img src="@/assets/images/project-3.png" class="project-img" />
+    <div class="project border-gradient">
+      <div
+        v-for="item in corpList"
+        :key="item.key"
+        class="project-image hover-scale-transition"
+        @mousemove="cardHover(item)"
+        @mouseleave="cardLeave(item)"
+        :style="{ transform: item.transform }"
+      >
+        <img :src="getImageUrl(item.imgSrc)" alt="" />
+      </div>
     </div>
-    <div class="banner-sector animate__animated animate__fadeInUp">
-      <img src="@/assets/images/banners.png" class="banner-img" />
+    <div v-intersect="() => (title3InView = true)" class="banner-sector">
+      <img
+        v-if="title3InView"
+        src="@/assets/images/banners.png"
+        class="banner-img animate__animated animate__fadeInUp"
+      />
     </div>
   </div>
 </template>
@@ -153,6 +183,8 @@
 <script>
 import BannerTitleAnimation from "@/components/BannerTitleAnimation";
 import { onMounted, } from "vue";
+import { getImageUrl } from "@/utils";
+
 export default {
   name: " CorporateVision",
   components: { BannerTitleAnimation },
@@ -256,9 +288,54 @@ export default {
           imRight: require("@/assets/images/scientific-2.png"),
         },
       ],
+      corpList: [
+        {
+          imgSrc: "assets/CorporateVision/corp1.png",
+          key: 1,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: "assets/CorporateVision/corp2.png",
+          key: 2,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: "assets/CorporateVision/corp3.png",
+          key: 3,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: "assets/CorporateVision/corp4.png",
+          key: 4,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: "assets/CorporateVision/corp5.png",
+          key: 5,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: "assets/CorporateVision/corp6.png",
+          key: 6,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: "assets/CorporateVision/corp7.png",
+          key: 7,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: "assets/CorporateVision/corp8.png",
+          key: 8,
+          transform: "scale(1)",
+        },
+      ],
       isPrevDisabled: true,
       isNextDisabled: false,
       timelineElement: null,
+      title1InView: false,
+      title2InView: false,
+      title3InView: false,
     };
   },
   mounted() {
@@ -299,6 +376,13 @@ export default {
         this.activeIndex = item.index;
       }
     },
+    cardHover(card) {
+      card.transform = "scale(1.05)";
+    },
+    cardLeave(card) {
+      card.transform = "scale(1)";
+    },
+    getImageUrl,
   },
 };
 </script>
@@ -590,14 +674,21 @@ export default {
 
 .project {
   padding: 100px 160px;
-
-  img {
-    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 56px;
+  column-gap: 101px;
+  &-image {
+    width: 281px;
+    height: 231px;
+    img {
+      width: 100%;
+    }
   }
 }
 
 .banner-sector {
-  padding: 237px 243px 214px;
+  padding: 137px 243px 214px;
 
   img {
     width: 100%;

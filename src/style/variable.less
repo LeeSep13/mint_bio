@@ -50,13 +50,11 @@
   height: 300px;
   /* 光晕的高度 */
   background: radial-gradient(55% 50% at 50% 0%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
-
-
   transform: translateX(-50%);
   filter: blur(100px);
   opacity: 0.1;
-  pointer-events: none;
-  /* 光晕不影响交互 */
+  pointer-events: none; /** 光晕不影响交互 */
+  clip-path: inset(0 0 50% 0); /** 裁剪上部分光晕 */
 }
 
 .border-bottom-gradient {
@@ -64,12 +62,12 @@
   border-image: linear-gradient(to right, rgba(53, 52, 74, 0.5) 0%, rgba(53, 52, 74, 0.5) 10%, rgba(255, 255, 255, 0.4) 30%, rgba(255, 255, 255, 0.4) 70%, rgba(53, 52, 74, 0.5) 90%, rgba(53, 52, 74, 0.5) 100%) 1;
 }
 
-// 速度曲线过渡
+/** 速度曲线过渡 */
 .hover-scale-transition {
   transition: transform .3s cubic-bezier(0, 0, 0.5, 1);
 }
 
-/* 淡入淡出效果 */
+/** 淡入淡出效果 */
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
