@@ -34,13 +34,13 @@
         <p class="vision-module3-title-text3">据世界经合组织 (OECD) 的案例分析表明，</p>
         <p class="vision-module3-title-text3"> 生物技术的应用可以</p>
       </div>
-      <div class="mouse-scroll">
+      <!-- <div class="mouse-scroll">
         <MouseScrollM :modules="declineData" :originHeight="430">
           <template #item-content="{ module }">
             <CrisisCard :module="module" />
           </template>
-        </MouseScrollM>
-      </div>
+</MouseScrollM>
+</div> -->
 
     </div>
 
