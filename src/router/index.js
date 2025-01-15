@@ -28,7 +28,7 @@ export const PcRoutes = [
   {
     path: '/',
     name: '/',
-    component: validPcOrPhone() ? Vision : HomeMobile,
+    component: validPcOrPhone() ? Home : HomeMobile,
   },
   {
     path: '/aminoAcid',
