@@ -21,6 +21,9 @@ module.exports = defineConfig({
         webp: { quality: 75 }
       })
       .end();
-
+    config.plugin('html').tap(args => {
+      args[0].title = '元素驱动'
+      return args
+    })
   }
 })
