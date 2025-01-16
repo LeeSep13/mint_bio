@@ -52,9 +52,9 @@
       </div>
       <div class="copyright">
         <p>
-          © 2024 元素驱动(杭州)生物科技有限公司<br />
-          浙ICP备08004136号 浙公网备案33021102000954
+          © 2024 元素驱动(杭州)生物科技有限公司
         </p>
+        <a class="copyright-record" href="https://beian.miit.gov.cn" target="_blank">浙ICP备2024085355号</a>
       </div>
 
     </el-row>
@@ -276,6 +276,13 @@ const handleJumps = (item) => {
     margin: 30px 0 0;
     font-size: 10px;
     line-height: 17px;
+    &-record{
+      color: #ffffff;
+    }
+    &-record:hover{
+      color: #FF7200;
+      text-decoration: none;
+    }
   }
 
 }
