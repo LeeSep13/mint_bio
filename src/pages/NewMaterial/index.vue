@@ -1,9 +1,6 @@
 <template>
   <div class="material">
-    <BannerTitle
-      :titleImage="require('@/assets/images/material-title.png')"
-      :titleStyle="titleStyle"
-    />
+    <BannerTitle :titleImage="require('@/assets/images/material-title.png')" :titleStyle="titleStyle" />
 
     <div class="material-banner">
       <div class="material-banner-content">
@@ -24,7 +21,7 @@
       <MouseScroll :modules="modules" />
     </div>
     <div v-intersect="() => title1InView = true" class="case sector">
-      <div  v-if="title1InView" class="case-title animate__animated animate__fadeInUp">
+      <div v-if="title1InView" class="case-title animate__animated animate__fadeInUp">
         <div class="case-title-first">
           <span class="orange-text">应用</span><span>案例</span>
         </div>
@@ -38,30 +35,15 @@
           </div>
         </div>
       </div>
-      <div
-        class="case-list"
-        ref="caseList"
-        @mousedown="startDrag($event, 'caseList')"
-        @mousemove="onDrag($event, 'caseList')"
-        @mouseup="endDrag"
-        @mouseleave="endDrag"
-      >
-        <div
-          v-for="(item, index) in caseList"
-          :key="index"
-          class="case-list-item border-gradient hover-scale-transition"
-          @mousemove="cardHover(item)"
-          @mouseleave="cardLeave(item)"
-          :style="{ transform: item.transform }"
-        >
+      <div class="case-list" ref="caseList" @mousedown="startDrag($event, 'caseList')"
+        @mousemove="onDrag($event, 'caseList')" @mouseup="endDrag" @mouseleave="endDrag">
+        <div v-for="(item, index) in caseList" :key="index"
+          class="case-list-item border-gradient hover-scale-transition" @mousemove="cardHover(item)"
+          @mouseleave="cardLeave(item)" :style="{ transform: item.transform }">
           <div class="case-list-item-top">
             <span>China</span><span>MiNT BiO</span><span>Hangzhou</span>
           </div>
-          <img
-            :src="item.imgSrc"
-            alt="case-list-item"
-            class="case-list-item-img"
-          />
+          <img :src="item.imgSrc" alt="case-list-item" class="case-list-item-img" />
           <div class="case-list-item-describe">{{ item.describe }}</div>
           <div class="case-list-item-tips">{{ item.tips }}</div>
         </div>
@@ -78,30 +60,15 @@
           <span class="orange-text">[ 全生物降解地膜 ]</span>
         </div>
       </div>
-      <div
-        class="case-list"
-        ref="caseListSecond"
-        @mousedown="startDrag($event, 'caseListSecond')"
-        @mousemove="onDrag($event, 'caseListSecond')"
-        @mouseup="endDrag"
-        @mouseleave="endDrag"
-      >
-        <div
-          class="case-list-item border-gradient hover-scale-transition"
-          v-for="(item, index) in caseListSecond"
-          :key="index"
-          @mousemove="cardHover(item)"
-          @mouseleave="cardLeave(item)"
-          :style="{ transform: item.transform }"
-        >
+      <div class="case-list" ref="caseListSecond" @mousedown="startDrag($event, 'caseListSecond')"
+        @mousemove="onDrag($event, 'caseListSecond')" @mouseup="endDrag" @mouseleave="endDrag">
+        <div class="case-list-item border-gradient hover-scale-transition" v-for="(item, index) in caseListSecond"
+          :key="index" @mousemove="cardHover(item)" @mouseleave="cardLeave(item)"
+          :style="{ transform: item.transform }">
           <div class="case-list-item-top">
             <span>China</span><span>MiNT BiO</span><span>Hangzhou</span>
           </div>
-          <img
-            :src="item.imgSrc"
-            alt="case-list-item"
-            class="case-list-item-img"
-          />
+          <img :src="item.imgSrc" alt="case-list-item" class="case-list-item-img" />
           <div class="case-list-item-describe">{{ item.describe }}</div>
           <div class="case-list-item-tips">{{ item.tips }}</div>
         </div>
@@ -110,24 +77,15 @@
 
     <div v-intersect="() => title3InView = true" class="question sector border-gradient">
       <div v-if="title3InView" class="title-first animate__animated animate__fadeInUp">
-        <span>常见</span><span class="orange-text question-code">？</span
-        ><span>问</span>
+        <span>常见</span><span class="orange-text question-code">？</span><span>问</span>
       </div>
       <div v-if="title3InView" class="title-second animate__animated animate__fadeInUp">
-        <span :style="{ opacity: 0 }">常见</span
-        ><span class="orange-text question-code" :style="{ opacity: 0 }"
-          >？</span
-        ><span>题</span>
+        <span :style="{ opacity: 0 }">常见</span><span class="orange-text question-code"
+          :style="{ opacity: 0 }">？</span><span>题</span>
       </div>
       <el-collapse class="collapse" @change="handleChange">
-        <el-collapse-item
-          class="collapse-item"
-          v-for="(item, index) in questionList"
-          :key="index"
-          :title="item.title"
-          :name="index"
-          :icon="activeNames.includes(index) ? Minus : Plus"
-        >
+        <el-collapse-item class="collapse-item" v-for="(item, index) in questionList" :key="index" :title="item.title"
+          :name="index" :icon="activeNames.includes(index) ? Minus : Plus">
           <div class="collapse-item-content">{{ item.content }}</div>
         </el-collapse-item>
       </el-collapse>
@@ -382,12 +340,15 @@ export default {
   margin: 0 8px 0 auto;
   color: #409eff;
 }
+
 .pt100 {
   padding-top: 100px;
 }
-.pt70{
+
+.pt70 {
   padding-top: 70px;
 }
+
 .material {
   background-color: #11161b;
 
@@ -399,12 +360,13 @@ export default {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      height: 700px;
+      height: 600px;
       background-image: url("@/assets/images/material-banner.png");
       background-size: cover;
       background-repeat: no-repeat;
       border-radius: 20px;
       border: 1px solid #ffffff33;
+
       &-right {
         width: 340px;
         margin-right: 63px;
@@ -412,8 +374,10 @@ export default {
         backdrop-filter: blur(68px);
         border-radius: 20px;
         border: 1px solid transparent;
+
         &-text {
           padding: 40px;
+
           li {
             position: relative;
             font-size: 24px;
@@ -434,7 +398,8 @@ export default {
             }
 
             &:not(:last-child) {
-              margin-bottom: 16px; /* 每项之间的间隔 */
+              margin-bottom: 16px;
+              /* 每项之间的间隔 */
             }
           }
         }
@@ -465,7 +430,8 @@ export default {
         font: 520 40px MiSans VF;
       }
     }
-    .flex{
+
+    .flex {
       display: flex;
       gap: 377px;
     }
@@ -526,13 +492,11 @@ export default {
         margin-right: 20px;
         border-width: 2px;
         border: 1px solid transparent;
-        border-image: linear-gradient(
-          156.52deg,
-          rgba(255, 255, 255, 0.4) 2.12%,
-          rgba(255, 255, 255, 0.0001) 39%,
-          rgba(255, 255, 255, 0.0001) 54.33%,
-          rgba(255, 255, 255, 0.1) 93.02%
-        );
+        border-image: linear-gradient(156.52deg,
+            rgba(255, 255, 255, 0.4) 2.12%,
+            rgba(255, 255, 255, 0.0001) 39%,
+            rgba(255, 255, 255, 0.0001) 54.33%,
+            rgba(255, 255, 255, 0.1) 93.02%);
         border-radius: 20px;
 
         &-top {

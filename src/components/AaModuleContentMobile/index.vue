@@ -135,11 +135,15 @@ onMounted(async () => {
 
 <style lang="less" scoped>
 .aminoAcid {
-  height: 435px;
+  height: 600px;
 
   &-module2 {
+    position: relative;
     width: 370px;
     left: 10px;
+    height: 600px;
+    // border: 1px solid white;
+    // background: #14181d;
 
     &-radian {
       position: relative;
@@ -153,13 +157,13 @@ onMounted(async () => {
         position: absolute;
         width: 124px;
         height: 40px;
-        background: #17191c;
+        // background: #8bd25c;
         bottom: 0;
         left: 24px;
         border-radius: 20px 20px 0 0;
         z-index: 2;
-        transform: perspective(40px) scaleX(1.2) scaleY(1.5) rotateX(24deg);
-        border: 1px solid #ffffff66;
+        transform: perspective(60px) scaleX(1.2) scaleY(1.5) rotateX(24deg);
+        // border: 1px solid #ffffff66;
         border-bottom: none;
         transform-origin: center bottom;
 
@@ -170,11 +174,11 @@ onMounted(async () => {
           height: 10px;
           bottom: -8px;
           left: -8px;
-          background: radial-gradient(circle at 0% 0,
-              transparent,
-              transparent 9.5px,
-              #626568 10px,
-              #17191c);
+          // background: radial-gradient(circle at 0% 0,
+          //     transparent,
+          //     transparent 9.5px,
+          //     #626568 10px,
+          //     #17191c);
         }
 
         &::after {
@@ -184,11 +188,11 @@ onMounted(async () => {
           height: 10px;
           top: 40px;
           right: -8px;
-          background: radial-gradient(circle at 10px 0,
-              transparent,
-              transparent 9.5px,
-              #626568 10px,
-              #17191c);
+          // background: radial-gradient(circle at 10px 0,
+          //     transparent,
+          //     transparent 9.5px,
+          //     #626568 10px,
+          //     #17191c);
         }
       }
 
@@ -210,11 +214,11 @@ onMounted(async () => {
     }
 
     &-content {
-      padding: 0 12px 30px 12px;
+      height: 560px;
+      padding: 10px 10px 20px;
       border-radius: 20px;
-      border: 1px solid transparent;
       border-radius: 20px;
-      border: 1px solid transparent;
+      border: 1px solid #7a7c7e;
       background-image: linear-gradient(#181a1d, #12161b),
         linear-gradient(156.52deg,
           rgba(255, 255, 255, 0.4) 2.12%,
@@ -235,6 +239,7 @@ onMounted(async () => {
       }
 
       &-bottom {
+        width: 350px;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -348,7 +353,7 @@ onMounted(async () => {
 
           .swiper-content {
             position: relative;
-            width: 390px;
+            width: 350px;
             // height: 526px;
 
             .swiper {

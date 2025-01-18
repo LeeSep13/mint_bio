@@ -148,6 +148,7 @@ export default {
 
 .aminoAcid {
   padding: 0 160px;
+
   &-title {
     width: 988px;
     height: 468px;
@@ -159,11 +160,9 @@ export default {
       display: flex;
       justify-content: center;
       gap: 54px;
-      background: radial-gradient(
-        123.44% 123.44% at 56.63% 100%,
-        #ececee 6.77%,
-        rgba(255, 255, 255, 0.45) 100%
-      );
+      background: radial-gradient(123.44% 123.44% at 56.63% 100%,
+          #ececee 6.77%,
+          rgba(255, 255, 255, 0.45) 100%);
       background-clip: text;
       color: transparent;
       z-index: 1;
@@ -192,7 +191,8 @@ export default {
       transform: translate(-50%, -50%);
       width: 665px;
       height: 470px;
-      z-index: 0; /* 确保网格图在下面 */
+      z-index: 0;
+      /* 确保网格图在下面 */
     }
 
     .mint-image {
@@ -202,7 +202,8 @@ export default {
       transform: translate(-50%, -50%);
       width: 988px;
       height: 173px;
-      z-index: 0; /* 确保Mint图在网格图下面 */
+      z-index: 0;
+      /* 确保Mint图在网格图下面 */
     }
   }
 
@@ -211,7 +212,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 700px;
+    height: 600px;
     background-image: url("@/assets/AminoAcid/banner1.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -223,8 +224,10 @@ export default {
       justify-content: space-between;
       width: 100%;
       padding: 0 80px;
+
       &-left {
         margin-top: 60px;
+
         &-text1 {
           font-size: 60px;
           font-weight: 500;
@@ -255,6 +258,7 @@ export default {
 
         &-text {
           padding: 40px;
+
           li {
             position: relative;
             font-size: 24px;
@@ -275,13 +279,15 @@ export default {
             }
 
             &:not(:last-child) {
-              margin-bottom: 16px; /* 每项之间的间隔 */
+              margin-bottom: 16px;
+              /* 每项之间的间隔 */
             }
           }
         }
       }
     }
   }
+
   &-module3 {
     display: flex;
     flex-direction: column;
@@ -308,6 +314,7 @@ export default {
       margin-bottom: 60px;
       display: flex;
       gap: 217px;
+
       &-name {
         font-size: 40px;
         font-weight: 500;
@@ -324,6 +331,7 @@ export default {
 
         &-list {
           margin-left: 15px;
+
           li {
             position: relative;
             font-size: 20px;
@@ -343,7 +351,8 @@ export default {
             }
 
             &:not(:last-child) {
-              margin-bottom: 16px; /* 每项之间的间隔 */
+              margin-bottom: 16px;
+              /* 每项之间的间隔 */
             }
           }
         }
@@ -371,6 +380,7 @@ export default {
       &-target {
         margin-left: 15%;
         width: 100%;
+
         &-top {
           margin-bottom: 37%;
           font-size: 74px;
@@ -410,6 +420,7 @@ export default {
         flex-direction: column;
         justify-content: flex-end;
         width: 29%;
+
         p {
           display: flex;
           justify-content: center;

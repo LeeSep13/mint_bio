@@ -10,17 +10,17 @@
       </div>
 
     </div>
-    <!-- <div class="mouse-scroll">
-      <MouseScrollM :modules="modules" :originHeight="700">
+    <div class="mouse-scroll">
+      <MouseScrollM :modules="modules" :originHeight="600">
         <template #item-content="{ module, index }">
           <aa-module-content-mobile :title="module.title" :topItems="module.topItems"
             :introductionTitle1="module.introductionTitle1" :introductionTitle2="module.introductionTitle2"
             :applyTexts="module.applyTexts" :advantages="module.advantages" :imageUrl="module.imageUrl"
             :isRow="module.isRow" :tabStyle="getTabStyleData(index)"></aa-module-content-mobile>
         </template>
-</MouseScrollM>
-</div> -->
-    <div class="case border-gradient">
+      </MouseScrollM>
+    </div>
+    <div class="case border-gradient" :style="{marginTop:'100px'}">
       <div class="case-title">
         <div class="case-title-first">
           <span class="orange-text">应用</span><span>案例</span>
@@ -336,7 +336,7 @@ export default {
 
 .mouse-scroll {
   margin-top: 100px;
-  height: 700px;
+  height: 600px;
 }
 
 .icon-ele {
