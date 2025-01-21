@@ -284,7 +284,7 @@ const newList = reactive([
     date: "2024/09/21",
     content: "聚焦发展新质生产力，元素驱动年产3万吨PBX生物降解材料项目开工",
     color: "#FF7200",
-    imgSrc: require("../../assets/News/news05.png"),
+    imgSrc: require("../../assets/News/news05.jpg"),
     transform: "scale(1)",
   },
 ]);

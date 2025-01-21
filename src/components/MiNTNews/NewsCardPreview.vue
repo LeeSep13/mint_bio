@@ -36,10 +36,10 @@ const props = defineProps({
   .pic {
     width: 100%;
     height: 367px;
-
     img {
       width: 100%;
       height: 100%;
+      border-radius: 12px;
     }
   }
 

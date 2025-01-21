@@ -3,7 +3,7 @@
     <div class="top">
       <MiNTNewsTop> </MiNTNewsTop>
     </div>
-	<MiNTDivider :content="'+'"></MiNTDivider>
+    <MiNTDivider :content="'+'"></MiNTDivider>
     <div class="newslist">
       <MiNTNewsList> </MiNTNewsList>
     </div>
@@ -24,6 +24,7 @@ import MiNTDivider from "@/components/Divider";
     width: 100%;
     height: 650px;
   }
+
   .newslist {
     width: 100%;
     /* height: 2835px; */
