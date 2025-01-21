@@ -38,7 +38,7 @@
       <div class="download-qrCode">
         <img src="@/assets/images/down.png" class="down">
         <img src="@/assets/images/wechat.png" class="weChat" @click="toggleQRCode">
-        <img src="@/assets/images/QRcode.png" class="QRcode" v-if="showQRCode" />
+        <img src="@/assets/images/wxCode.png" class="QRcode" v-if="showQRCode" />
 
       </div>
       <div class="overlay" v-if="showQRCode" @click="toggleQRCode"></div>

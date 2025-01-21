@@ -45,7 +45,8 @@
         </div>
         <div class="footer-right-info">
           <div class="footer-right-info-qrCode">
-            <img src="@/assets/images/code.png" alt="" />
+            <p class="footer-right-info-qrCode-text footer-common">联系顾问</p>
+            <img src="@/assets/images/wxCode.png" alt="" />
           </div>
           <div class="footer-right-info-address footer-common">
             <p class="mb26">总部地址</p>
@@ -224,6 +225,9 @@ const handleJumps = (item) => {
       align-items: end;
 
       &-qrCode {
+        &-text{
+          margin-bottom: 5px;
+        }
         img {
           width: 129px;
           height: 129px;

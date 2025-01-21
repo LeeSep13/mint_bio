@@ -1,6 +1,6 @@
 <template>
   <div class="contact">
-    <el-popover placement="left-end" width="1285" trigger="manual" :visible="visible" :show-arrow="false"
+    <el-popover placement="left-start" width="1185" trigger="manual" :visible="visible" :show-arrow="false"
       popper-class="contact-popover-w" :popper-options="popperOptions">
       <div class="contact-popover">
         <div class="contact-popover-close" @click="visible = !visible">
@@ -54,11 +54,19 @@
             <p class="contact-popover-content-connection-title">
               您也可以通过以下渠道找到我们
             </p>
-            <p class="contact-popover-content-connection-email">
+            <p class="contact-popover-content-connection-item mt30">
+              顾问电话：18796012649
+            </p>
+            <p class="contact-popover-content-connection-item counselor">
+              或扫码添加顾问
+            </p>
+            <img class="contact-popover-content-connection-qrcode" src="@/assets/images/wxCode.png" />
+            <p class="contact-popover-content-connection-item email">
               邮箱：mkt@mint-bio.com
             </p>
             <img class="contact-popover-content-connection-qrcode" src="./images/QRcode.png" alt="QRcode" />
-            <p class="contact-popover-content-connection-desc">
+            <p class="contact-popover-content-connection-desc">关注公众号了解</p>
+            <p class="contact-popover-content-connection-desc mt30">
               公司动向、产品信息、行业新闻、前沿进展
             </p>
           </div>
@@ -96,7 +104,8 @@ const popperOptions = ref({
 <style lang="less">
 .el-popper.el-popover.contact-popover-w {
   // margin-right: 40px;
-  padding: 24px 26px 95px 72px;
+  height: 800px;
+  padding: 16px 18px 67px 50px;
   background-color: #2828289f !important;
   border-radius: 20px;
   border: 1px solid transparent;
@@ -120,25 +129,27 @@ const popperOptions = ref({
       width: 560px;
 
       &-title {
-        margin-bottom: 30px;
-        font-size: 36px;
+        margin-bottom: 20px;
+        font-size: 30px;
         font-weight: 500;
         color: #f1f3f7;
       }
 
       &-tip {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 500;
         color: #f1f3f7;
+        height: 70px;
       }
 
       &-form {
-        margin-top: 45px;
-
         &-item {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
           &-label {
-            margin-top: 35px;
-            font-size: 16px;
+            // margin-top: 35px;
+            font-size: 14px;
             color: #f1f3f766;
           }
 
@@ -149,7 +160,7 @@ const popperOptions = ref({
               background-color: transparent;
               border: none;
               border-bottom: 0.5px solid #f1f3f733;
-              padding-top: 35px;
+              // padding-top: 35px;
               padding-bottom: 10px;
               outline: none;
             }
@@ -164,7 +175,7 @@ const popperOptions = ref({
         &-submit {
           display: flex;
           justify-content: center;
-          margin-top: 65px;
+          margin-top: 30px;
 
           &-btn {
             width: 96px;
@@ -180,28 +191,37 @@ const popperOptions = ref({
     }
 
     &-divider {
+      width: 16px;
+      height: 530px;
       margin-left: 45px;
       margin-right: 69px;
 
       img {
-        width: 16px;
+        width: 100%;
         height: 100%;
       }
     }
 
     &-connection {
+      height: 100%;
       color: #f1f3f7;
 
       &-title {
-        font-size: 36px;
+        font-size: 30px;
         font-weight: 500;
       }
 
-      &-email {
-        margin-top: 162px;
-        margin-bottom: 66px;
-        font-size: 24px;
+      &-item {
+        font-size: 20px;
         font-weight: 500;
+      }
+
+      .counselor{
+        margin: 10px 0px;
+      }
+
+      .email{
+        margin: 30px 0px
       }
 
       &-qrcode {
@@ -210,8 +230,7 @@ const popperOptions = ref({
       }
 
       &-desc {
-        margin-top: 37px;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 500;
       }
     }
@@ -234,7 +253,7 @@ const popperOptions = ref({
 .contact {
   position: fixed;
   right: 0.5%;
-  top: 60%;
+  top: 55%;
   z-index: 1000;
 
   &-btn {
@@ -289,5 +308,8 @@ const popperOptions = ref({
       clip-path: inset(0 0 0 65%);
     }
   }
+}
+.mt30{
+  margin-top: 30px;
 }
 </style>

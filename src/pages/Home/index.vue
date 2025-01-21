@@ -93,11 +93,11 @@
     </div>
     <div
       v-intersect="() => bannerSectionInView = true"
-      class="banner-section sector border-gradient"
+      class="banner-section-w sector border-gradient"
     >
       <div
         v-if="bannerSectionInView"
-        class="animate__animated animate__fadeInUp"
+        class="animate__animated animate__fadeInUp banner-section"
       >
         <div class="title">
           <span>您的选择和 </span><span class="orange-text"> 他们 </span
@@ -210,10 +210,10 @@ const productList = reactive([
   },
   {
     isShow: false,
-    product: "[ 快递袋 ]",
-    imgSrc: require("../../assets/images/product-2.jpeg"),
-    advantage: ["非粮原料", "韧性好", "可降解", "可回收"],
-    friends: "[ 顺丰 ]",
+    product: "[ 乳品包装 ]",
+    imgSrc: require("../../assets/images/product-2.jpg"),
+    advantage: ["纸塑复合", "可降解", "可回收", "成本低"],
+    friends: "[ 国家乳业创新中心 ]",
   },
   {
     isShow: false,
@@ -232,16 +232,16 @@ const productList = reactive([
   {
     isShow: false,
     product: "[ 一次性吸管 ]",
-    imgSrc: require("../../assets/images/product-5.jpeg"),
+    imgSrc: require("../../assets/images/product-5.jpg"),
     advantage: ["耐热耐冷", "硬度大", "韧性强", "成本低"],
-    friends: "[ 蜜雪冰城 ]",
+    friends: "",
   },
   {
     isShow: false,
     product: "[ 功能性纤维 ]",
-    imgSrc: require("../../assets/images/product-6.jpeg"),
+    imgSrc: require("../../assets/images/product-6.jpg"),
     advantage: ["吸湿性强", "弹力大", "可降解", "可回收"],
-    friends: "[ 安踏 ]",
+    friends: "",
     objectFit: "fill",
   },
 ]);
@@ -523,7 +523,6 @@ const cardLeave = (card) => {
   }
 
   .banner-section {
-    // padding: 100px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
