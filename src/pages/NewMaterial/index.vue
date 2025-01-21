@@ -259,6 +259,10 @@ export default {
             },
             {
               url: "assets/NewMaterial/P004-2.png",
+              desc: "地膜",
+            },
+            {
+              url: "assets/NewMaterial/P004-4.jpg",
               desc: "棚膜",
             },
             {
@@ -277,11 +281,11 @@ export default {
           advantages: ["透气性好", "弹性佳", "舒适亲肤"],
           imageUrl: [
             {
-              url: "assets/NewMaterial/P005-1.jpeg",
+              url: "assets/NewMaterial/P005-1.jpg",
               desc: "运动服",
             },
             {
-              url: "assets/NewMaterial/P005-2.png",
+              url: "assets/images/product-6.jpg",
               desc: "运动鞋",
             },
           ],
