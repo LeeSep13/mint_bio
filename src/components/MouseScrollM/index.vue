@@ -1,7 +1,7 @@
 <template>
-  <!-- @touchstart="startDrag($event, index)" @touchmove="onDrag" @touchend="stopDrag"
-  @touchcancel="stopDrag" -->
-  <div class="module-container" @wheel="handleWheel" @mouseleave="stopDrag" ref="draggable">
+
+  <div class="module-container" @wheel="handleWheel" @mouseleave="stopDrag" ref="draggable"
+    @touchstart="startDrag($event, index)" @touchmove="onDrag" @touchend="stopDrag" @touchcancel="stopDrag">
     <div v-for="(module, index) in modules" :key="index" :class="['module', `module-${index}`]"
       :style="getModuleStyle(index)">
       <div class="module-container">
@@ -55,9 +55,8 @@ export default {
       event.preventDefault();
       if (!isDragging.value || draggingModuleIndex.value === null) return;
       const touch = event.touches[0];
-      console.log('touch.clientY', touch.clientY);
 
-      const dy = touch.clientY - dragStartY.value;
+      const dy = dragStartY.value - touch.clientY;
 
       // 更新 scrollDistance
       scrollDistance.value = Math.max(
@@ -162,7 +161,7 @@ export default {
 <style scoped lang="less">
 .module-container {
   position: relative;
-  width: 100%;
+  width: 390px;
   height: 100%;
   overflow: hidden;
 }
