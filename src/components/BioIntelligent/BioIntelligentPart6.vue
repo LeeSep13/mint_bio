@@ -129,7 +129,7 @@ const handleMouseOut = () => {
 .biointelligentpart6v2 {
   // margin-bottom: 170px;
   // width: 1728px;
-  height: 1300px;
+  height: 1100px;
   background-color: #11161b;
   .title {
     width: 100%;
@@ -200,7 +200,7 @@ const handleMouseOut = () => {
       justify-content: center;
       gap: 82px;
       .box-data {
-		white-space: nowrap;
+		  white-space: nowrap;
         color: #ffffff;
         .box-data-top {
           font-size: 20px;
@@ -221,7 +221,7 @@ const handleMouseOut = () => {
         gap: 4px;
       }
       .box3-data {
-		white-space: nowrap;
+		    white-space: nowrap;
         color: #ffffff;
         .box3-data-top {
           font-size: 20px;
@@ -242,12 +242,12 @@ const handleMouseOut = () => {
 
       // z-index: 2;
       &:hover {
-        width: 66.5%;
+        width: 65.6%;
         z-index: 2;
       }
     }
     .box2 {
-      left: 34%;
+      left: 33%;
       background-image: url("@/assets/BioIntelligent/hangzhou.jfif");
       background-size: cover;
       background-position: center;
@@ -261,14 +261,14 @@ const handleMouseOut = () => {
     }
 
     .box3 {
-      left: 68%;
+      left: 66%;
       background-image: url("@/assets/BioIntelligent/jiande.jfif");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       border-radius: 15px;
       &:hover {
-        left: 34%;
+        left: 33%;
         width: 66.6%;
         z-index: 2;
       }

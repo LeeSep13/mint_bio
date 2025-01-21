@@ -20,7 +20,7 @@
         class="card first-card"
         :style="{ width: card1Size + '%', height: '100%' }"
       >
-        <div class="card-title">Laboratory</div>
+        <div class="card-title">LABORATORY</div>
         <div
           class="card-item first-card-item"
           :style="{ opacity: card1Opacity }"
@@ -144,6 +144,7 @@ function hoverCard2() {
       font-size: 48px;
       color: #ffffff;
       text-align: center;
+      font-family: Montserrat;
     }
     .card-item {
       width: 466px;
