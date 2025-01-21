@@ -4,12 +4,8 @@
       :backgroundImg="require('@/assets/images/corporateVision.png')" />
     <div class="introduction">
       <div v-intersect="() => (title1InView = true)">
-        <img
-          v-if="title1InView"
-          src="@/assets/images/introduction-title.png"
-          alt=""
-          class="introduction-img animate__animated animate__fadeInUp"
-        />
+        <img v-if="title1InView" src="@/assets/images/introduction-title.png" alt=""
+          class="introduction-img animate__animated animate__fadeInUp" />
       </div>
       <div class="introduction-section">
         元素驱动（MiNT
@@ -28,6 +24,7 @@
           <div class="timeline-list-item-time" :style="{ color: item.color, width: item.width }">
             {{ item.time }}
           </div>
+          <div class="timeline-list-item-divider"></div>
           <div class="timeline-list-item-content" :style="{ color: item.color, width: item.width }">
             {{ item.content }}
           </div>
@@ -101,45 +98,34 @@
       </div>
     </div>
 
-    <div class="scientific sector border-gradient">
-      <div v-intersect="() => (title2InView = true)">
-        <div
-          v-if="title2InView"
-          class="scientific-title animate__animated animate__fadeInUp"
-        >
+    <div v-intersect="() => (title2InView = true)" class="scientific sector border-gradient">
+      <div v-if="title2InView" class="scientific-title animate__animated animate__fadeInUp animate__slow">
+        <div class="scientific-title-left">
+          <div>
+            <span>前端</span><span class="opacity-0">科研</span><span>攻坚</span>
+          </div>
+          <div>
+            <span class="opacity-0">前端</span><span class="orange-text">科研</span><span class="opacity-0">攻坚</span>
+          </div>
+        </div>
+        <div class="scientific-title-middle">
+          <p>从实验室走向生产线</p>
+          <p>是合成生物行业必经之路</p>
+          <p>迈向生物智造时代</p>
+          <p>元素驱动已做好准备</p>
+        </div>
+        <div class="scientific-title-right">
           <div class="scientific-title-left">
             <div>
-              <span>前端</span><span class="opacity-0">科研</span
-              ><span>攻坚</span>
+              <span>后端</span><span class="opacity-0">落地</span><span>量产</span>
             </div>
             <div>
-              <span class="opacity-0">前端</span
-              ><span class="orange-text">科研</span
-              ><span class="opacity-0">攻坚</span>
-            </div>
-          </div>
-          <div class="scientific-title-middle">
-            <p>从实验室走向生产线</p>
-            <p>是合成生物行业必经之路</p>
-            <p>迈向生物智造时代</p>
-            <p>元素驱动已做好准备</p>
-          </div>
-          <div class="scientific-title-right">
-            <div class="scientific-title-left">
-              <div>
-                <span>后端</span><span class="opacity-0">落地</span
-                ><span>量产</span>
-              </div>
-              <div>
-                <span class="opacity-0">后端</span
-                ><span class="orange-text">落地</span
-                ><span class="opacity-0">量产</span>
-              </div>
+              <span class="opacity-0">后端</span><span class="orange-text">落地</span><span class="opacity-0">量产</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="scientific-card">
+      <div v-if="title2InView" class="scientific-card animate__animated animate__fadeInUp animate__slow">
         <div class="scientific-card-left">
           <div class="scientific-card-left-item" v-for="(card, index) in cardList" :key="index"
             @mousemove="itemMove(card)" :class="{ active: activeIndex === index }">
@@ -156,24 +142,17 @@
       </div>
     </div>
 
-    <div class="project border-gradient">
-      <div
-        v-for="item in corpList"
-        :key="item.key"
-        class="project-image hover-scale-transition"
-        @mousemove="cardHover(item)"
-        @mouseleave="cardLeave(item)"
-        :style="{ transform: item.transform }"
-      >
-        <img :src="getImageUrl(item.imgSrc)" alt="" />
+    <div v-intersect="() => (title3InView = true)" class="project-w border-gradient">
+      <div v-if="title3InView" class="project animate__animated animate__fadeInUp">
+        <div v-for="item in corpList" :key="item.key" class="project-image hover-scale-transition"
+          @mousemove="cardHover(item)" @mouseleave="cardLeave(item)" :style="{ transform: item.transform }">
+          <img :src="getImageUrl(item.imgSrc)" alt="" />
+        </div>
       </div>
     </div>
-    <div v-intersect="() => (title3InView = true)" class="banner-sector">
-      <img
-        v-if="title3InView"
-        src="@/assets/images/banners.png"
-        class="banner-img animate__animated animate__fadeInUp"
-      />
+    <div v-intersect="() => (title4InView = true)" class="banner-sector">
+      <img v-if="title4InView" src="@/assets/images/banners.png"
+        class="banner-img animate__animated animate__fadeInUp" />
     </div>
   </div>
 </template>
@@ -334,6 +313,7 @@ export default {
       title1InView: false,
       title2InView: false,
       title3InView: false,
+      title4InView: false,
     };
   },
   mounted() {
@@ -494,12 +474,25 @@ export default {
           font-size: 60px;
           font-weight: 450;
           text-align: left;
-          border-bottom: 1px solid rgba(241, 243, 247, 0.4);
+          // border-bottom: 1px solid rgba(241, 243, 247, 0.4);
           width: 100%;
+
+          &:hover {
+            cursor: pointer;
+            color: #ff7200;
+            transform: scale(1.1);
+            transition: all 0.6s ease-in-out;
+          }
         }
 
         &-time:first-child {
           padding-left: 0;
+        }
+
+        &-divider {
+          width: 100%;
+          height: 1px;
+          background: rgba(241, 243, 247, 0.4);
         }
 
         &-content {
@@ -513,7 +506,6 @@ export default {
           &:hover {
             cursor: pointer;
             color: #ff7200;
-            font-size: 24px;
             transition: all 0.6s ease-in-out;
           }
         }
@@ -573,9 +565,12 @@ export default {
 }
 
 .scientific {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: #fff;
   font-family: MiSans VF;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 520;
 
   &-title {
@@ -590,7 +585,7 @@ export default {
 
     &-middle {
       font-family: MiSans VF;
-      font-size: 17px;
+      font-size: 14px;
       font-weight: 450;
       text-align: center;
       color: rgba(241, 243, 247, 0.5);
@@ -599,8 +594,8 @@ export default {
   }
 
   &-card {
-    height: 680px;
-    width: 100%;
+    height: 578px;
+    width: 85%;
     display: flex;
     justify-content: space-between;
     gap: 16px;
@@ -612,7 +607,7 @@ export default {
       flex-direction: column;
       align-items: stretch;
       gap: 16px;
-      height: 680px;
+      height: 578px;
 
       &-item {
         transition: opacity 0.3s ease;
@@ -662,7 +657,7 @@ export default {
         position: absolute;
         top: 0;
         left: 0;
-        height: 680px;
+        height: 578px;
         width: 100%;
         border-radius: 20px;
       }
@@ -671,21 +666,26 @@ export default {
 }
 
 .project {
-  padding: 100px 160px;
   display: flex;
   flex-wrap: wrap;
   row-gap: 56px;
-  // column-gap: 101px;
+
+  &-w {
+    padding: 100px 160px;
+  }
+
   &-image {
     width: 281px;
     height: 231px;
     margin-right: calc((100% - 4 * 281px) / 3);
+
     img {
       width: 100%;
     }
   }
+
   &-image:nth-child(4n) {
-    margin-right: 0; 
+    margin-right: 0;
   }
 }
 
