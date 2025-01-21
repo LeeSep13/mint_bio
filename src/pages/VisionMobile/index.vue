@@ -10,21 +10,14 @@
       <img src="./images/banner1.png" alt="vision_banner1" />
     </div>
     <div class="vision-module2 ">
-      <div class="vision-module2-left">
-        <p class="vision-module2-left-title">白色污染</p>
-        <img class="vision-module2-left-img" src="./images/banner2_left.jpg" alt="vision_module2_left" />
-        <ul class="vision-module2-left-text">
-          <li>海洋飘浮着 5 亿+块不可降解的塑料垃圾</li>
-          <li>每人每年吞入 5万+个微塑料颗粒=50+张信用卡</li>
-        </ul>
-      </div>
-      <div class="vision-module2-right">
-        <p class="vision-module2-right-title">资源枯竭</p>
-        <img class="vision-module2-right-img" src="./images/banner2_right.jpg" alt="vision_module2_right" />
-        <ul class="vision-module2-right-text">
-          <li>地球土壤、土地和水资源状况持续恶化，均已“濒临极限”</li>
-          <li>到2050年，难以满足将近100亿全球人口的粮食需求</li>
-        </ul>
+      <div class="vision-module2-item" v-for="(item, index) in impactData" :key="index">
+        <p class="vision-module2-item-title" >{{ item.title }}</p>
+        <div class="hover-scale-transition">
+          <img class="vision-module2-item-img" :src="item.imgSrc"  />
+          <ul class="vision-module2-item-text">
+            <li v-for="(text, idx) in item.texts" :key="idx">{{ text }}</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="vision-module3 ">
@@ -145,6 +138,41 @@ const declineData = ref(
   ]
 )
 
+const impactData = ref([
+  {
+    title: '白色污染',
+    imgSrc: require('./images/banner2_1.jpg'),
+    texts: [
+      '海洋飘浮着 5 亿+块不可降解的塑料垃圾',
+      '每人每年吞入 5万+个微塑料颗粒=50+张信用卡'
+    ]
+  },
+  {
+    title: '资源枯竭',
+    imgSrc: require('./images/banner2_2.jpg'),
+    texts: [
+      '地球土壤、土地和水资源状况持续恶化，均已“濒临极限”',
+      '到2050年，难以满足将近100亿全球人口的粮食需求'
+    ]
+  },
+  {
+    title: '气候危机',
+    imgSrc: require('./images/banner2_3.jpg'),
+    texts: [
+      '84%的碳排放来自工业和能源生产，导致全球变暖',
+      '近2/3人口超过500万的世界城市面临海平面上升的威胁'
+    ]
+  },
+  {
+    title: '生态破坏',
+    imgSrc: require('./images/banner2_4.jpg'),
+    texts: [
+      '传统化工生产方式的有毒化学助剂等，对生态系统造成了严重破坏。',
+      '全球约34%的农地受到人为土壤退化的影响，每年有12万+平方公里的土地进一步退化，严重威胁生物多样性和生态平衡。'
+    ]
+  },
+])
+
 </script>
 
 <style lang="less" scoped>
@@ -186,8 +214,7 @@ const declineData = ref(
       display: none;
     }
 
-    &-left-title,
-    &-right-title {
+    &-item-title{
       padding: 10px;
       width: 72px;
       color: #fff;
@@ -198,8 +225,7 @@ const declineData = ref(
       margin-bottom: 14px;
     }
 
-    &-left-text,
-    &-right-text {
+    &-item-text {
       margin-top: 14px;
       margin-left: 6px;
 
@@ -228,18 +254,9 @@ const declineData = ref(
       }
     }
 
-    &-left {
+    &-item {
       margin-right: 16px;
 
-      &-img {
-        width: 300px;
-        height: 210px;
-        object-fit: cover;
-        border-radius: 12px;
-      }
-    }
-
-    &-right {
       &-img {
         width: 300px;
         height: 210px;

@@ -2,7 +2,7 @@
   <div class="vision-module5 sector border-gradient">
     <div v-intersect="() => titleInView = true">
       <div v-if="titleInView" class="vision-module5-title animate__animated animate__fadeInUp">
-        <p class="vision-module5-title-text1">60%</p>
+        <p class="vision-module5-title-text1 animate__animated animate__flipInX animate__slow">60%</p>
         <p class="vision-module5-title-text2">
           未来60%的物质<br />可以通过生物制造生产
         </p>
