@@ -12,7 +12,7 @@
         <div class="hover-scale-transition">
           <img
             class="vision-module2-left-img"
-            src="./images/banner2_left.png"
+            src="./images/banner2_left.jpg"
             alt="vision_module2_left"
           />
           <ul class="vision-module2-left-text">
@@ -25,7 +25,7 @@
         <p class="vision-module2-right-title">资源枯竭</p>
         <img
           class="vision-module2-right-img"
-          src="./images/banner2_right.png"
+          src="./images/banner2_right.jpg"
           alt="vision_module2_right"
         />
         <ul class="vision-module2-right-text">
@@ -248,12 +248,14 @@ function cardLeave(card) {
       &-img {
         width: 824px;
         height: 450px;
+        border-radius: 20px;
       }
     }
     &-right {
       &-img {
         width: 780px;
         height: 450px;
+        border-radius: 20px;
       }
     }
   }

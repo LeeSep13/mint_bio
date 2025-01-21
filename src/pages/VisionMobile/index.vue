@@ -12,7 +12,7 @@
     <div class="vision-module2 ">
       <div class="vision-module2-left">
         <p class="vision-module2-left-title">白色污染</p>
-        <img class="vision-module2-left-img" src="./images/banner2_left.png" alt="vision_module2_left" />
+        <img class="vision-module2-left-img" src="./images/banner2_left.jpg" alt="vision_module2_left" />
         <ul class="vision-module2-left-text">
           <li>海洋飘浮着 5 亿+块不可降解的塑料垃圾</li>
           <li>每人每年吞入 5万+个微塑料颗粒=50+张信用卡</li>
@@ -20,7 +20,7 @@
       </div>
       <div class="vision-module2-right">
         <p class="vision-module2-right-title">资源枯竭</p>
-        <img class="vision-module2-right-img" src="./images/banner2_right.png" alt="vision_module2_right" />
+        <img class="vision-module2-right-img" src="./images/banner2_right.jpg" alt="vision_module2_right" />
         <ul class="vision-module2-right-text">
           <li>地球土壤、土地和水资源状况持续恶化，均已“濒临极限”</li>
           <li>到2050年，难以满足将近100亿全球人口的粮食需求</li>
