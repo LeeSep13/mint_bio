@@ -1,6 +1,6 @@
 <template>
   <header class="header-w">
-    <div class="header">
+    <div class="header" :class="{ 'blur-background': shouldBlur }">
       <div class="header-left">
         <div class="header-left-logo" :style="{ cursor: 'pointer' }">
           <img src="@/assets/images/logo.png" alt="Logo" @click="handleJumps('home')" />
@@ -98,10 +98,12 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { ref, inject, onMounted, onUnmounted, computed } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import { debounce } from "lodash";
 
 const router = useRouter();
+const route = useRoute();
 
 const navData = ref([
   {
@@ -146,8 +148,38 @@ const navData = ref([
     disabled: true,
   },
 ]);
-
 const visible = ref(false);
+
+const bannerHeight = inject('bannerHeight');
+
+const isOverHeight = ref(false);
+
+const handleScroll = debounce(() => {
+  // 如果当前路由不是首页，直接退出
+  if (route.name !== 'home') {
+    return;
+  }
+
+  if (bannerHeight && bannerHeight.value !== undefined) {
+    // 获取当前滚动位置
+    const scrollY = window.scrollY;
+
+    // 检查滚动位置是否超过 bannerHeight
+    isOverHeight.value = scrollY > bannerHeight.value;
+  }
+}, 500);
+
+const shouldBlur = computed(() => {
+  return route.name !== 'home' || isOverHeight.value;
+});
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 
 const setMouseOver = (item) => {
   navData.value.forEach((navItem) => (navItem.state = false));
@@ -188,6 +220,8 @@ const popperOptions = ref({
     },
   ],
 });
+
+
 </script>
 
 <style lang="less" scoped>
@@ -281,7 +315,6 @@ const popperOptions = ref({
   align-items: center;
   justify-content: space-around;
   padding-top: 16px;
-  backdrop-filter: blur(5px);
 
   &-w {
     height: 70px;
@@ -463,5 +496,9 @@ const popperOptions = ref({
   opacity: 0.1;
   pointer-events: none;
   /* 光晕不影响交互 */
+}
+
+.blur-background {
+  backdrop-filter: blur(5px);
 }
 </style>

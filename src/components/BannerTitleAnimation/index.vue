@@ -1,6 +1,6 @@
 <template>
-  <div class="banner">
-    <div class="banner-title" ref="bannerTitle">
+  <div ref="banner" class="banner">
+    <div class="banner-title">
       <Header />
       <img
         class="background-img"
@@ -31,10 +31,11 @@
   </div>
 </template>
 <script>
+import { ref, provide, onMounted } from 'vue';
 import Header from "@/components/Header";
 
 export default {
-  name: "BannerTitleAnimation",
+  name: "BannerAnimation",
 
   components: { Header },
   props: {
@@ -64,6 +65,22 @@ export default {
     startAnimation() {
       this.isAnimating = true;
     },
+  },
+  setup() {
+    const banner = ref(null);
+    const bannerHeight = ref(0);
+
+    onMounted(() => {
+      if (banner.value) {
+        bannerHeight.value = banner.value.offsetHeight;
+      }
+    });
+
+    provide('bannerHeight', bannerHeight);
+
+    return {
+      banner,
+    };
   },
 };
 </script>
