@@ -1,6 +1,6 @@
 <template>
   <div class="aminoAcid">
-    <BannerTitle :titleImage="require('@/assets/AminoAcid/banner_title.png')" />
+    <BannerTitle :titleImage="require('@/assets/AminoAcid/banner_title.png')" :titleStyle="titleStyle" />
 
     <div class="aminoAcid-module1">
       <div class="aminoAcid-module1-content">
@@ -134,10 +134,11 @@ export default {
     ]);
 
     const titleInView = ref(false);
-
+    const titleStyle =  { top: "55%" }
     return {
       module2Data,
       titleInView,
+      titleStyle,
     };
   },
 };

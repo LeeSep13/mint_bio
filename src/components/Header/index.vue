@@ -1,100 +1,98 @@
 <template>
-  <header class="header-w">
-    <div class="header" :class="{ 'blur-background': shouldBlur }">
-      <div class="header-left">
-        <div class="header-left-logo" :style="{ cursor: 'pointer' }">
-          <img src="@/assets/images/logo.png" alt="Logo" @click="handleJumps('home')" />
-        </div>
-      </div>
-
-      <div class="header-middle">
-        <ul class="nav">
-          <li class="nav-item" v-for="item in navData" :key="item.key" :class="{
-            'nav-item_current': item.state,
-            'has-submenu': item.submenu && item.submenu.length > 0,
-          }" @mouseover="setMouseOver(item)" @mouseleave="setMouseLeave(item)" @click.prevent="handleClick(item)">
-            <router-link class="nav-item-link" :to="item.submenu.length
-              ? 'javascript:void(0)'
-              : { name: item.router }
-              " v-if="!item.submenu.length">
-              {{ item.name }}
-            </router-link>
-            <span class="nav-item-link" v-else>
-              {{ item.name }}
-              <img :src="item.state ? item.iconUp : item.iconDown" alt="Toggle Icon" class="submenu-icon" />
-            </span>
-
-            <ul v-if="item.submenu && item.submenu.length" class="submenu">
-              <li class="submenu-item" v-for="subItem in item.submenu" :key="subItem.key"
-                @mouseover="setMouseOver(subItem)" @mouseleave="setMouseLeave(subItem)">
-                <router-link :to="{ name: subItem.router }" class="submenu-item-link">
-                  {{ subItem.name }}
-                </router-link>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
-      <div class="header-right">
-        <el-popover placement="bottom" width="891" trigger="manual" :visible="visible" :show-arrow="false"
-          popper-class="header-popover" :popper-options="popperOptions">
-          <div class="popover-content">
-            <div class="popover-content-close" @click="visible = !visible">
-              <img src="./images/close.png" alt="close" />
-            </div>
-            <div class="popover-content-menu">
-              <div class="popover-content-menu-item">
-                <p class="pointer" @click="handleJumps('bioIntelligent')">
-                  生物智造
-                </p>
-              </div>
-              <div class="popover-content-menu-item">
-                <p>产品</p>
-                <p class="pointer" @click="handleJumps('material')">
-                  生物降解新材料
-                </p>
-                <p class="pointer" @click="handleJumps('aminoAcid')">
-                  生物合成氨基酸
-                </p>
-                <p class="pointer" @click="handleJumps('knotWeed')">
-                  节豆粮解决方案
-                </p>
-              </div>
-              <div class="popover-content-menu-item">
-                <p>关于我们</p>
-                <p class="pointer" @click="handleJumps('corporate')">企业介绍</p>
-                <p class="pointer" @click="handleJumps('vision')">愿景与责任</p>
-              </div>
-              <div class="popover-content-menu-item">
-                <p class="pointer" @click="handleJumps('mintNews')">发展动态</p>
-              </div>
-              <div class="popover-content-menu-item">
-                <p>加入我们</p>
-              </div>
-              <div class="popover-content-menu-item">
-                <p>下载中心</p>
-              </div>
-            </div>
-            <div class="popover-content-language">
-              <p class="popover-content-language-cn">简体中文</p>
-              <p class="popover-content-language-en">ENGLISH</p>
-              <div class="popover-content-download">
-                <p>下载品牌手册</p>
-                <img src="./images/download.png" alt="download" />
-              </div>
-            </div>
-          </div>
-          <template #reference>
-            <div class="menu" @click="visible = !visible">
-              <img src="./images/menu.png" alt="Menu" />
-            </div>
-          </template>
-        </el-popover>
-        <div v-if="visible" class="popover-overlay" @click="visible = false"></div>
+  <div class="header" :class="{ 'blur-background': shouldBlur }">
+    <div class="header-left">
+      <div class="header-left-logo" :style="{ cursor: 'pointer' }">
+        <img src="@/assets/images/logo.png" alt="Logo" @click="handleJumps('home')" />
       </div>
     </div>
-  </header>
+
+    <div class="header-middle">
+      <ul class="nav">
+        <li class="nav-item" v-for="item in navData" :key="item.key" :class="{
+          'nav-item_current': item.state,
+          'has-submenu': item.submenu && item.submenu.length > 0,
+        }" @mouseover="setMouseOver(item)" @mouseleave="setMouseLeave(item)" @click.prevent="handleClick(item)">
+          <router-link class="nav-item-link" :to="item.submenu.length
+            ? 'javascript:void(0)'
+            : { name: item.router }
+            " v-if="!item.submenu.length">
+            {{ item.name }}
+          </router-link>
+          <span class="nav-item-link" v-else>
+            {{ item.name }}
+            <img :src="item.state ? item.iconUp : item.iconDown" alt="Toggle Icon" class="submenu-icon" />
+          </span>
+
+          <ul v-if="item.submenu && item.submenu.length" class="submenu">
+            <li class="submenu-item" v-for="subItem in item.submenu" :key="subItem.key"
+              @mouseover="setMouseOver(subItem)" @mouseleave="setMouseLeave(subItem)">
+              <router-link :to="{ name: subItem.router }" class="submenu-item-link">
+                {{ subItem.name }}
+              </router-link>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="header-right">
+      <el-popover placement="bottom" width="891" trigger="manual" :visible="visible" :show-arrow="false"
+        popper-class="header-popover" :popper-options="popperOptions">
+        <div class="popover-content">
+          <div class="popover-content-close" @click="visible = !visible">
+            <img src="./images/close.png" alt="close" />
+          </div>
+          <div class="popover-content-menu">
+            <div class="popover-content-menu-item">
+              <p class="pointer" @click="handleJumps('bioIntelligent')">
+                生物智造
+              </p>
+            </div>
+            <div class="popover-content-menu-item">
+              <p>产品</p>
+              <p class="pointer" @click="handleJumps('material')">
+                生物降解新材料
+              </p>
+              <p class="pointer" @click="handleJumps('aminoAcid')">
+                生物合成氨基酸
+              </p>
+              <p class="pointer" @click="handleJumps('knotWeed')">
+                节豆粮解决方案
+              </p>
+            </div>
+            <div class="popover-content-menu-item">
+              <p>关于我们</p>
+              <p class="pointer" @click="handleJumps('corporate')">企业介绍</p>
+              <p class="pointer" @click="handleJumps('vision')">愿景与责任</p>
+            </div>
+            <div class="popover-content-menu-item">
+              <p class="pointer" @click="handleJumps('mintNews')">发展动态</p>
+            </div>
+            <div class="popover-content-menu-item">
+              <p>加入我们</p>
+            </div>
+            <div class="popover-content-menu-item">
+              <p>下载中心</p>
+            </div>
+          </div>
+          <div class="popover-content-language">
+            <p class="popover-content-language-cn">简体中文</p>
+            <p class="popover-content-language-en">ENGLISH</p>
+            <div class="popover-content-download">
+              <p>下载品牌手册</p>
+              <img src="./images/download.png" alt="download" />
+            </div>
+          </div>
+        </div>
+        <template #reference>
+          <div class="menu" @click="visible = !visible">
+            <img src="./images/menu.png" alt="Menu" />
+          </div>
+        </template>
+      </el-popover>
+      <div v-if="visible" class="popover-overlay" @click="visible = false"></div>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -154,9 +152,12 @@ const bannerHeight = inject('bannerHeight');
 
 const isOverHeight = ref(false);
 
+const toggleBlurRoutes = ['/', 'home', 'bioIntelligent', 'corporate'];
+
+
 const handleScroll = debounce(() => {
   // 如果当前路由不是首页，直接退出
-  if (route.name !== 'home') {
+  if (!toggleBlurRoutes.includes(route.name)) {
     return;
   }
 
@@ -170,7 +171,7 @@ const handleScroll = debounce(() => {
 }, 500);
 
 const shouldBlur = computed(() => {
-  return route.name !== 'home' || isOverHeight.value;
+  return !toggleBlurRoutes.includes(route.name) || isOverHeight.value;
 });
 
 onMounted(() => {
@@ -315,11 +316,6 @@ const popperOptions = ref({
   align-items: center;
   justify-content: space-around;
   padding-top: 16px;
-
-  &-w {
-    height: 70px;
-    background-color: #11161b;
-  }
 
   &-left {
     &-logo {

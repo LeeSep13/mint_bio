@@ -187,8 +187,8 @@ const title1InView = ref(false);
 const title2InView = ref(false);
 
 function updateHoverData(data, index) {
-  this.highlightedIndex = index;
-  this.hoverData = data;
+  highlightedIndex.value = index;
+  hoverData.value = data;
 }
 
 function cardHover(card) {

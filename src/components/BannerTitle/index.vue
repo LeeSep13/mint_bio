@@ -34,6 +34,7 @@ export default {
 
 <style lang="less" scoped>
 .banner {
+  padding-top: 70px;
   &-title {
     margin: auto;
     width: 998px;
