@@ -17,23 +17,28 @@
               <div class="contact-popover-content-left-form-item">
 
                 <div class="contact-popover-content-left-form-item-input">
-                  <input type="text" placeholder="您的姓名..." />
+                  <input type="text" placeholder="您的姓名..." v-model="formData.name" />
                 </div>
 
                 <div class="contact-popover-content-left-form-item-input">
-                  <input type="text" placeholder="您的邮箱..." />
+                  <input type="text" placeholder="您的邮箱..." v-model="formData.email" />
                 </div>
 
                 <div class="contact-popover-content-left-form-item-input">
-                  <input type="text" placeholder="您的电话..." />
+                  <input type="text" placeholder="您的电话..." v-model="formData.phone" />
                 </div>
 
                 <div class="contact-popover-content-left-form-item-input">
-                  <input type="text" placeholder="您的留言...(请简单描述您的问题)" />
+                  <input type="text" placeholder="您的留言...(请简单描述您的问题)" v-model="formData.message" />
                 </div>
+              </div>
+              <div class="contact-popover-content-left-form-submit" @click="debouncedSubmit"
+                :class="{ 'loading': isLoading }">
+                <p class="contact-popover-content-left-form-submit-btn">提交</p>
               </div>
             </div>
           </div>
+
           <div class="contact-popover-content-connection">
             <p class="contact-popover-content-connection-title">
               您也可以通过以下渠道找到我们
@@ -68,9 +73,19 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
+import axios from "axios";
+import { debounce } from "lodash";
+
 
 const visible = ref(false);
+const isLoading = ref(false);
+const formData = reactive({
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+});
 
 const popperOptions = ref({
   modifiers: [
@@ -82,6 +97,45 @@ const popperOptions = ref({
     },
   ],
 });
+// 提交函数
+const submit = async () => {
+  try {
+    isLoading.value = true;
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+      alert("请填写完整信息");
+      return;
+    }
+    // 校验 email 格式
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert('请输入有效的邮箱地址')
+      return;
+    }
+
+    // 校验 phone 格式
+    const phoneRegex = /^1[3-9]\d{9}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      alert('请输入有效的手机号码');
+      return;
+    }
+    const res = axios.post("/api/contact/submit", JSON.stringify(formData));
+    if (res) {
+      alert("提交成功");
+      formData.name = '';
+      formData.email = '';
+      formData.phone = '';
+      formData.message = '';
+      visible.value = false; // 关闭弹窗
+    }
+  } catch (error) {
+    if (error.response && error.response.status === 400) {
+      alert('请求格式错误，请检查输入信息');
+    }
+  } finally {
+    isLoading.value = false;
+  }
+};
+const debouncedSubmit = debounce(submit, 500); // 500 毫秒的防抖时间
 </script>
 
 <style lang="less">
@@ -91,7 +145,10 @@ const popperOptions = ref({
     border-radius: 20px;
     border: 1px solid transparent;
     left: 10px !important;
-    height: calc(100vh - 150px);
+    height: 80vh !important;
+    overflow-y: auto !important;
+    margin-bottom: 20px !important;
+
   }
 
   .contact-popover {
@@ -158,16 +215,16 @@ const popperOptions = ref({
 
           &-submit {
             display: flex;
-            justify-content: center;
-            margin-top: 65px;
+            justify-content: flex-start !important;
+            margin-top: 20px !important;
 
             &-btn {
               width: 96px;
-              height: 67px;
-              line-height: 67px;
+              height: 37px;
+              line-height: 37px;
               text-align: center;
               color: #f1f3f7;
-              border-radius: 999px;
+              border-radius: 8px;
               border: 1px solid #ffffff1a;
             }
           }

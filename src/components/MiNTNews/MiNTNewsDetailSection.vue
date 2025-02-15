@@ -1,6 +1,6 @@
 <template>
   <div class="section-container">
-    <div class="section-head">
+    <div class="section-head" v-if="props.info.head">
       <span> {{ props.info.head }} </span>
     </div>
 

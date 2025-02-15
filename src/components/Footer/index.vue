@@ -4,11 +4,7 @@
       <el-col :span="8" class="footer-left">
         <div class="footer-left-logo">
           <div class="footer-left-logo-img-w pointer" @click="handleJumps('home')">
-            <img
-              class="footer-left-logo-img"
-              src="@/assets/images/logo.png"
-              alt=""
-            />
+            <img class="footer-left-logo-img" src="@/assets/images/logo.png" alt="" />
           </div>
           <div class="footer-left-logo-text1">生物智造惠及</div>
           <div class="footer-left-logo-text2">每一个生命</div>
@@ -28,7 +24,7 @@
           <div class="footer-right-content-menus footer-common">
             <p class="footer-right-content-menus-item" @click="handleJumps('bioIntelligent')">生物智造</p>
             <p class="footer-right-content-menus-item" @click="handleJumps('mintNews')">发展动态</p>
-            <p class="footer-right-content-menus-item">加入我们</p>
+            <p class="footer-right-content-menus-item" @click="handleJumps('corporate')">加入我们</p>
             <p class="footer-right-content-menus-item">下载中心</p>
           </div>
           <div class="footer-right-content-products footer-common">
@@ -59,7 +55,8 @@
             <p>
               © 2024 元素驱动(杭州)生物科技有限公司
             </p>
-            <a class="footer-right-info-copyright-record" href="https://beian.miit.gov.cn" target="_blank">浙ICP备2024085355号</a>
+            <a class="footer-right-info-copyright-record" href="https://beian.miit.gov.cn"
+              target="_blank">浙ICP备2024085355号</a>
           </div>
         </div>
       </el-col>
@@ -87,16 +84,13 @@ const handleJumps = (item) => {
   border-width: 1px 0 0 0;
   /* 只设置上边框 */
   border-style: solid;
-  border-image: linear-gradient(
-      to right,
+  border-image: linear-gradient(to right,
       rgba(53, 52, 74, 0.5) 0%,
       rgba(53, 52, 74, 0.5) 10%,
       rgba(255, 255, 255, 0.4) 30%,
       rgba(255, 255, 255, 0.4) 70%,
       rgba(53, 52, 74, 0.5) 90%,
-      rgba(53, 52, 74, 0.5) 100%
-    )
-    1;
+      rgba(53, 52, 74, 0.5) 100%) 1;
 
   &-common {
     font-weight: 500;
@@ -151,10 +145,12 @@ const handleJumps = (item) => {
       border-radius: 37px;
       font-size: 12px;
       color: #ffffff;
+
       &-img {
         width: 18px;
         height: 18px;
-        img{
+
+        img {
           width: 100%;
         }
       }
@@ -225,9 +221,10 @@ const handleJumps = (item) => {
       align-items: end;
 
       &-qrCode {
-        &-text{
+        &-text {
           margin-bottom: 5px;
         }
+
         img {
           width: 129px;
           height: 129px;
@@ -241,10 +238,12 @@ const handleJumps = (item) => {
       &-copyright {
         margin-left: 111px;
         color: #ffffff;
-        &-record{
+
+        &-record {
           color: #ffffff;
         }
-        &-record:hover{
+
+        &-record:hover {
           color: #FF7200;
           text-decoration: none;
         }
@@ -256,19 +255,22 @@ const handleJumps = (item) => {
 .footer::after {
   content: "";
   position: absolute;
-  top: 0; /* 位于边框下方 */
-  left: 50%; /* 水平居中 */
-  width: 90%; /* 光晕的宽度 */
-  height: 50px; /* 光晕的高度 */
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0) 80%
-  );
+  top: 0;
+  /* 位于边框下方 */
+  left: 50%;
+  /* 水平居中 */
+  width: 90%;
+  /* 光晕的宽度 */
+  height: 50px;
+  /* 光晕的高度 */
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0) 80%);
   transform: translateX(-50%);
   filter: blur(30px);
   opacity: 0.1;
-  pointer-events: none; /* 光晕不影响交互 */
+  pointer-events: none;
+  /* 光晕不影响交互 */
 }
 
 .mb26 {

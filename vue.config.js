@@ -2,6 +2,14 @@ const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave: false,
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://8.155.35.138:8080',
+        changeOrigin: true,
+      }
+    }
+  },
   chainWebpack: config => {
     config.resolve.alias.set('vue', '@vue/compat')
     config.module

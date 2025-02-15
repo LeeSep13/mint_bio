@@ -4,14 +4,11 @@
     </MiNTNewsDetailCom>
     <MiNTDivider :content="'+'"></MiNTDivider>
     <div class="more-dynamic">更多动态</div>
-    <MiNTNewsListPreview
-      class="news-preview"
-      :filteredNews="newsList"
-    ></MiNTNewsListPreview>
+    <MiNTNewsListPreview class="news-preview" :filteredNews="newsList"></MiNTNewsListPreview>
   </div>
 </template>
-  
-  <script>
+
+<script>
 import { ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
@@ -37,6 +34,7 @@ export default {
     async function loadConfigById(configIdValue) {
       try {
         const url = `/data/news_${configIdValue}.json`;
+        console.log('configIdValue', configIdValue);
         const response = await axios.get(url);
         if (response.status === 200) {
           configData.value = response.data;
@@ -62,7 +60,16 @@ export default {
         console.error("Error fetching news data:", error);
       }
     }
-
+    // 监视 route.params.configId 的变化
+    watch(
+      () => route.params.configId,
+      (newConfigId) => {
+        configId.value = newConfigId;
+        loadConfigById(newConfigId);
+        fetchNewsData();
+        // 在这里可以添加其他逻辑，比如重新获取数据
+      }
+    );
     onMounted(() => {
       if (configId.value) {
         loadConfigById(configId.value);
@@ -82,8 +89,8 @@ export default {
   },
 };
 </script>
-  
-  <style lang="scss" scoped>
+
+<style lang="scss" scoped>
 .news-detail-container {
   width: 100%;
   display: flex;
@@ -91,11 +98,13 @@ export default {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+
   .more-dynamic {
     margin-top: 100px;
     font-size: 21px;
     color: #ffffff;
   }
+
   .news-preview {
     padding-top: 80px;
     padding-bottom: 300px;

@@ -1,3 +1,11 @@
+<!--
+ * @Author: glitter 1321554372@qq.com
+ * @Date: 2025-01-13 08:29:55
+ * @LastEditors: glitter 1321554372@qq.com
+ * @LastEditTime: 2025-02-10 09:52:08
+ * @FilePath: /mint_bio/src/components/MiNTNews/MiNTNewsListPreview.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template>
   <div class="newslist">
     <div v-for="news in props.filteredNews" :key="news.id" class="newsbox hover-scale-transition"

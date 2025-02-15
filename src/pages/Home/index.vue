@@ -1,38 +1,21 @@
 <template>
   <div class="home">
-    <BannerTitleAnimation
-      :titleImage="require('@/assets/images/home-title.png')"
-      :backgroundImg="require('@/assets/images/home-background.png')"
-    />
+    <BannerTitleAnimation :titleImage="require('@/assets/images/home-title.png')"
+      :backgroundImg="require('@/assets/images/home-background.png')" />
     <div class="dna-section sector" @mouseover.once="expandMargin()">
       <div class="top-title">
         <div class="mint-text">MINT BIO</div>
         <div class="line-group">
-          <div
-            v-for="(divide, index) in lineDivides"
-            :key="index"
-            class="line-divide"
-            :style="{ marginLeft: divide.marginLeft + 'px' }"
-          ></div>
+          <div v-for="(divide, index) in lineDivides" :key="index" class="line-divide"
+            :style="{ marginLeft: divide.marginLeft + 'px' }"></div>
         </div>
         <div class="dna-text">DNA</div>
         <!-- <img src="@/assets/images/lines.png" class="line"> -->
       </div>
-      <div
-        class="advantage animate__animated animate__fadeIn"
-        v-if="advantageShow"
-      >
-        <div
-          v-for="(advantage, index) in advantageArr"
-          :key="index"
-          class="advantage-item"
-          @mousemove="advantageMove(advantage)"
-          @mouseleave="advantageLeave(advantage)"
-        >
-          <div
-            class="title"
-            :style="{ color: advantage.color, transition: 'color 1s' }"
-          >
+      <div class="advantage animate__animated animate__fadeIn" v-if="advantageShow">
+        <div v-for="(advantage, index) in advantageArr" :key="index" class="advantage-item"
+          @mousemove="advantageMove(advantage)" @mouseleave="advantageLeave(advantage)">
+          <div class="title" :style="{ color: advantage.color, transition: 'color 1s' }">
             {{ advantage.title }}
           </div>
           <div class="sub-title" v-if="advantage.subTitle">
@@ -46,11 +29,7 @@
     </div>
     <div class="product-section sector border-gradient">
       <div v-intersect="() => titleInView = true">
-        <img
-          v-if="titleInView"
-          src="@/assets/images/infinite.png"
-          class="title animate__animated animate__fadeInUp"
-        />
+        <img v-if="titleInView" src="@/assets/images/infinite.png" class="title animate__animated animate__fadeInUp" />
       </div>
       <div class="product-list">
         <div class="product-list-top">
@@ -59,97 +38,69 @@
           <div class="product-list-top-item friends">合作伙伴</div>
         </div>
         <div class="product-list-content">
-          <div
-            v-for="(item, index) in productList"
-            :key="index"
-            class="product-list-content-item"
-            :style="{ color: item.isShow ? '#fff' : '' }"
-            @mousemove="productMove(item)"
-            @mouseleave="productLeave(item)"
-          >
+          <div v-for="(item, index) in productList" :key="index" class="product-list-content-item"
+            :style="{ color: item.isShow ? '#fff' : '' }" @mousemove="productMove(item)"
+            @mouseleave="productLeave(item)">
             <div class="product">
               <span class="product-text">{{ item.product }}</span>
               <transition name="fade">
-                <img
-                  :src="item.imgSrc"
-                  v-if="item.isShow"
-                  :style="{ top: item.top + 'px', objectFit: item.objectFit }"
-                />
+                <img :src="item.imgSrc" v-if="item.isShow"
+                  :style="{ top: item.top + 'px', objectFit: item.objectFit }" />
               </transition>
             </div>
             <div class="advantage product-text">
-              <span
-                class="dot-before"
-                v-for="i in item.advantage"
-                :key="i"
-                :style="{ width: item.width }"
-                >{{ i }}</span
-              >
+              <span class="dot-before" v-for="i in item.advantage" :key="i" :style="{ width: item.width }">{{ i
+                }}</span>
             </div>
             <div class="friends product-text">{{ item.friends }}</div>
           </div>
         </div>
       </div>
     </div>
-    <div
-      v-intersect="() => bannerSectionInView = true"
-      class="banner-section-w sector border-gradient"
-    >
-      <div
-        v-if="bannerSectionInView"
-        class="animate__animated animate__fadeInUp banner-section"
-      >
+    <div v-intersect="() => bannerSectionInView = true" class="banner-section-w sector border-gradient">
+      <div v-if="bannerSectionInView" class="animate__animated animate__fadeInUp banner-section">
         <div class="title">
-          <span>您的选择和 </span><span class="orange-text"> 他们 </span
-          ><span> 一样</span>
+          <span>您的选择和 </span><span class="orange-text"> 他们 </span><span> 一样</span>
         </div>
         <img src="@/assets/images/banners.png" class="banner-img" />
       </div>
     </div>
     <div class="new-section sector border-gradient">
-      <div
-        v-for="(item, index) in newList"
-        :key="index"
-        class="new-item hover-scale-transition"
-        @mousemove="cardHover(item)"
-        @mouseleave="cardLeave(item)"
-        :style="{ transform: item.transform }"
-      >
+      <div v-for="(item, index) in newsList" :key="index" class="new-item hover-scale-transition"
+        @mousemove="cardHover(item)" @mouseleave="cardLeave(item)" :style="{ transform: item.transform }">
         <div class="img-box">
-          <img :src="item.imgSrc" alt="" class="new-img" />
-
-          <div class="overlay">
-            <div class="overlay-content">
-              <div class="button-more">了解更多</div>
+          <img :src="getImageUrl(item.pic)" alt="" class="new-img" />
+          <router-link :to="`/mintNews/detail/${item.id}`">
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="button-more">了解更多</div>
+              </div>
             </div>
-          </div>
+          </router-link>
         </div>
 
         <div class="text-top">
-          <span
-            class="name"
-            :style="{ color: item.color, marginRight: '16px' }"
-            >{{ item.title }}</span
-          >
-          <span class="date">{{ item.date }}</span>
+          <span class="name" :style="{ color: item.categorycolor, marginRight: '16px' }">{{ item.categorylabel }}</span>
+          <span class="date">{{ item.time }}</span>
         </div>
-        <div class="text-bottom">{{ item.content }}</div>
+        <div class="text-bottom">{{ item.title }}</div>
       </div>
-      <div class="new-item">
-        <div class="button-more-lg border-gradient">更多动态</div>
-        <img
-          class="line-bottom-img"
-          src="@/assets/images/line-bottom.png"
-          alt=""
-        />
+      <div class="new-item new-item-last ">
+        <router-link :to="`/mintNews`">
+          <div class=" button-more-lg border-gradient">更多动态</div>
+        </router-link>
+        <img class="line-bottom-img" src="@/assets/images/line-bottom.png" alt="" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, onUnmounted } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import BannerTitleAnimation from "@/components/BannerTitleAnimation";
+import axios from "axios";
+import { getImageUrl } from "@/utils/index";
+
 
 const lineDivides = reactive([
   { marginLeft: 0 },
@@ -246,49 +197,8 @@ const productList = reactive([
   },
 ]);
 
-const newList = reactive([
-  {
-    title: "#MiNT产品力",
-    date: "2024/09/21",
-    content: "低豆粕日粮助力全面绿色转型",
-    color: "#144BE1",
-    imgSrc: require("../../assets/News/news01.png"),
-    transform: "scale(1)",
-  },
-  {
-    title: "#MiNT进行时",
-    date: "2024/09/21",
-    content: "周扬区长莅临元素驱动调研指导",
-    color: "#FF7200",
-    imgSrc: require("../../assets/News/news02.png"),
-    transform: "scale(1)",
-  },
-  {
-    title: "#MiNT Vision",
-    date: "2024/09/21",
-    content: "中央首次部署！加快经济社会发展全面绿色转型",
-    color: "#007D30",
-    imgSrc: require("../../assets/News/news03.png"),
-    transform: "scale(1)",
-  },
-  {
-    title: "#MiNT进行时",
-    date: "2024/09/21",
-    content: "姚高员市长调研重点产业赛道企业，莅临元素驱动指导",
-    color: "#FF7200",
-    imgSrc: require("../../assets/News/news04.png"),
-    transform: "scale(1)",
-  },
-  {
-    title: "#MiNT进行时",
-    date: "2024/09/21",
-    content: "聚焦发展新质生产力，元素驱动年产3万吨PBX生物降解材料项目开工",
-    color: "#FF7200",
-    imgSrc: require("../../assets/News/news05.jpg"),
-    transform: "scale(1)",
-  },
-]);
 
+const newsList = ref([]);
 const titleInView = ref(false);
 const bannerSectionInView = ref(false);
 
@@ -324,6 +234,20 @@ const cardHover = (card) => {
 const cardLeave = (card) => {
   card.transform = "scale(1)";
 };
+onMounted(async () => {
+  try {
+    const response = await axios.get("/data/news_list.json");
+    // const res = axios.post("/api/contact/submit", { name: 'testN', email: '1464646@qq.com', phone: '18865479008', message: 'test' });
+    if (response.status === 200) {
+      newsList.value = response.data.slice(0, 6);
+      newsList.value.forEach((news) => {
+        news.transform = 'scale(1)';
+      });
+    }
+  } catch (error) {
+    console.error("Error fetching news data:", error);
+  }
+});
 </script>
 
 <style lang="less" scoped>
@@ -338,6 +262,7 @@ const cardLeave = (card) => {
     height: 300px;
 
     .top-title {
+
       div,
       span {
         display: inline-block;
@@ -554,6 +479,11 @@ const cardLeave = (card) => {
       margin-bottom: 40px;
       position: relative;
       cursor: pointer;
+
+      &-last {
+        height: 215px;
+      }
+
       .img-box {
         position: relative;
 
@@ -629,35 +559,27 @@ const cardLeave = (card) => {
         width: 140px;
         font-family: MiSans VF;
         font-size: 20px;
-        background: linear-gradient(
-            0deg,
+        background: linear-gradient(0deg,
             rgba(255, 255, 255, 0.01),
-            rgba(255, 255, 255, 0.01)
-          ),
-          radial-gradient(
-            107.5% 107.5% at 50% 215%,
+            rgba(255, 255, 255, 0.01)),
+          radial-gradient(107.5% 107.5% at 50% 215%,
             rgba(255, 255, 255, 0.08) 0%,
-            rgba(255, 255, 255, 0) 100%
-          );
+            rgba(255, 255, 255, 0) 100%);
       }
 
       .button-more-lg:hover {
-        background: linear-gradient(
-            0deg,
+        background: linear-gradient(0deg,
             rgba(255, 255, 255, 0.01),
-            rgba(255, 255, 255, 0.01)
-          ),
-          radial-gradient(
-            84.92% 150% at 50% 138.75%,
+            rgba(255, 255, 255, 0.01)),
+          radial-gradient(84.92% 150% at 50% 138.75%,
             rgba(255, 255, 255, 0.16) 0%,
-            rgba(255, 255, 255, 0) 100%
-          );
+            rgba(255, 255, 255, 0) 100%);
       }
 
       .line-bottom-img {
         width: 100%;
         position: absolute;
-        top: 367px;
+        top: 150px;
         transform: translateY(-100%);
       }
     }

@@ -4,33 +4,19 @@
       <div class="selecthead">
         <div class="radio-group" @change="handleRadioChange">
           <label class="radio">
-            <input
-              type="radio"
-              value="all"
-              v-model="selectedOption"
-              class="custom-news-radio"
-            />
+            <input type="radio" value="all" v-model="selectedOption" class="custom-news-radio" />
             <span :class="{ selectedradio: isSelected('all') }">全部</span>
           </label>
           <label class="radio" v-for="item in options" :key="item.value">
-            <input
-              type="radio"
-              :value="item.value"
-              v-model="selectedOption"
-              class="custom-news-radio"
-            />
-            <span
-              :class="[
-                'normal-radio',
-                { selectedradio: isSelected(item.value) },
-              ]"
-              :style="{
-                color: isSelected(item.value)
-                  ? getHighlightColor(item.value)
-                  : '',
-              }"
-              >{{ item.label }}</span
-            >
+            <input type="radio" :value="item.value" v-model="selectedOption" class="custom-news-radio" />
+            <span :class="[
+              'normal-radio',
+              { selectedradio: isSelected(item.value) },
+            ]" :style="{
+              color: isSelected(item.value)
+                ? getHighlightColor(item.value)
+                : '',
+            }">{{ item.label }}</span>
           </label>
         </div>
       </div>
@@ -39,10 +25,7 @@
         <MiNTNewsOverview v-if="firstNews" :info="firstNews"></MiNTNewsOverview>
       </div>
 
-      <MiNTNewsListPreview
-        class="news-preview"
-        :filteredNews="filteredNews"
-      ></MiNTNewsListPreview>
+      <MiNTNewsListPreview class="news-preview" :filteredNews="filteredNews"></MiNTNewsListPreview>
     </div>
   </div>
 </template>
@@ -166,6 +149,7 @@ const getHighlightColor = (value) => {
 
 const newsList = ref([]);
 
+
 onMounted(async () => {
   try {
     const response = await axios.get("/data/news_list.json");
@@ -203,9 +187,11 @@ onMounted(async () => {
       width: 100%;
       overflow: hidden;
       font-size: 18px;
+
       span {
         color: #666666;
       }
+
       .normal-radio {
         width: 154px;
         height: 53px;
@@ -233,5 +219,6 @@ onMounted(async () => {
     }
   }
 }
+
 /* } */
 </style>

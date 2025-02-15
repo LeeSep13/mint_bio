@@ -45,24 +45,30 @@
       <img src="@/assets/images/banners.png" class="banner-img" />
     </div>
     <div class="new-section mobile-sector border-gradient">
-      <div class="new-item" v-for="(item, index) in newList" :key="index">
-        <div class="img-box">
-          <img :src="item.imgSrc" alt="" class="new-img" />
+      <div class="new-item" v-for="(item, index) in newsList" :key="index">
+        <router-link :to="`/mintNews/detail/${item.id}`">
+          <div class="img-box">
+            <img :src="getImageUrl(item.pic)" alt="" class="new-img" />
 
-          <div class="overlay">
-            <div class="overlay-content">
-              <div class="button-more">了解更多</div>
+
+            <div class="overlay">
+              <div class="overlay-content">
+                <div class="button-more">了解更多</div>
+              </div>
             </div>
           </div>
-        </div>
+        </router-link>
 
         <div class="text-top">
-          <span class="name" :style="{ color: item.color, marginRight: '16px' }">{{ item.title }}</span>
-          <span class="date">{{ item.date }}</span>
+          <span class="name" :style="{ color: item.categorycolor, marginRight: '16px' }">{{ item.categorylabel
+            }}</span>
+          <span class="date">{{ item.time }}</span>
         </div>
-        <div class="text-bottom">{{ item.content }}</div>
+        <div class="text-bottom">{{ item.title }}</div>
       </div>
-      <div class="button-more-lg border-gradient">更多动态</div>
+      <router-link :to="`/mintNews`">
+        <div class="button-more-lg border-gradient">更多动态</div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -70,6 +76,10 @@
 <script>
 import BannerTitleAnimationMobile from "@/components/BannerTitleAnimationMobile";
 import Swiper from "@/components/Swiper";
+import axios from "axios";
+import { getImageUrl } from "@/utils/index";
+
+
 export default {
   name: "MintHome",
   components: {
@@ -182,44 +192,8 @@ export default {
           objectFit: "contain",
         },
       ],
-      newList: [
-        {
-          title: "#MiNT产品力",
-          date: "2024/09/21",
-          content: "低豆粕日粮助力全面绿色转型",
-          color: "#144BE1",
-          imgSrc: require("../../assets/News/news01.png"),
-        },
-        {
-          title: "#MiNT进行时",
-          date: "2024/09/21",
-          content: "周扬区长莅临元素驱动调研指导",
-          color: "#FF7200",
-          imgSrc: require("../../assets/News/news02.png"),
-        },
-        {
-          title: "#MiNT Vision",
-          date: "2024/09/21",
-          content: "中央首次部署！加快经济社会发展全面绿色转型",
-          color: "#007D30",
-          imgSrc: require("../../assets/News/news03.png"),
-        },
-        {
-          title: "#MiNT进行时",
-          date: "2024/09/21",
-          content: "姚高员市长调研重点产业赛道企业，莅临元素驱动指导",
-          color: "#FF7200",
-          imgSrc: require("../../assets/News/news04.png"),
-        },
-        {
-          title: "#MiNT进行时",
-          date: "2024/09/21",
-          content:
-            "聚焦发展新质生产力，元素驱动年产3万吨PBX生物降解材料项目开工",
-          color: "#FF7200",
-          imgSrc: require("../../assets/News/news05.jpg"),
-        },
-      ],
+      newsList: [],
+      getImageUrl
     };
   },
   methods: {
@@ -243,6 +217,23 @@ export default {
     productLeave(product) {
       product.isShow = false;
     },
+    async getList() {
+      try {
+        const response = await axios.get("/data/news_list.json");
+        if (response.status === 200) {
+          this.newsList = response.data.slice(0, 6);
+          this.newsList.forEach((news) => {
+            news.transform = 'scale(1)';
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching news data:", error);
+      }
+
+    }
+  },
+  mounted() {
+    this.getList();
   },
 };
 </script>

@@ -1,58 +1,140 @@
 [
   {
     "id": 1,
-    "title": "低豆粕日粮助力全面绿色转型",
-    "category": "production",
-    "categorylabel": "#MiNT产品力",
-    "categorycolor": "#144BE1",
-    "time": "2024/09/21",
-    "pic": "assets/News/news01.png",
+    "title": "元素智造项目加速推进",
+    "category": "runtime",
+    "categorylabel": "#Mint 进行时",
+    "categorycolor": "#FF7200",
+    "time": "2025/02/05",
+    "pic": "assets/News/news_01.jpg",
     "overviewtitle": "向“新”而创——元素驱动的生物智造之路",
     "overviewcontent": "“高起点、小而精、研究型”，以这种办学定位成长起来的西湖大学，既聚焦“从0到1”关键核心技术突破，又不忘为师生搭建产业化平台。让“实验室”牵手“生产线”，让更多科研成果转变成产业“成品”，生物合成科技公司元素驱动就是其中的佼佼者。"
   },
   {
     "id": 2,
-    "title": "周扬区长莅临元素驱动调研指导",
+    "title": "元素驱动董事长刘旻昊博士荣获“建德城市人才合伙人”称号",
     "category": "runtime",
-    "categorylabel": "#MiNT进行时",
+    "categorylabel": "#MiNT 进行时",
     "categorycolor": "#FF7200",
-    "time": "2024/09/21",
-    "pic": "assets/News/news02.png"
+    "time": "2025/01/17",
+    "pic": "assets/News/news_02.jpg"
   },
   {
     "id": 3,
-    "title": "中央首次部署！加快经济社会发展全面绿色转型",
-    "category": "vision",
-    "categorylabel": "#MiNT vision",
-    "categorycolor": "#007D30",
-    "time": "2024/09/21",
-    "pic": "assets/News/news03.png"
+    "title": "喜结金顶！元素智造年产3万吨PBX柔性装置项目正式结顶",
+    "categorylabel": "#Mint 进行时",
+    "categorycolor": "#FF7200",
+    "time": "2025/01/01",
+    "pic": "assets/News/news_03.jpg"
   },
   {
     "id": 4,
-    "title": "姚高员市长调研重点产业赛道企业，莅临元素驱动指导",
+    "title": "国家乳业技术创新中心与元素驱动启动可持续包装孵化项目，深化乳业ESG创新实践",
     "category": "runtime",
-    "categorylabel": "#MiNT进行时",
+    "categorylabel": "#MiNT 进行时",
     "categorycolor": "#FF7200",
-    "time": "2024/09/21",
-    "pic": "assets/News/news04.png"
+    "time": "2024/12/05",
+    "pic": "assets/News/news_04.jpg"
+  },
+  {
+    "id": 8,
+    "category": "production",
+    "title": "低豆粕日粮助力全面绿色转型",
+    "categorylabel": "#MiNT产品力",
+    "categorycolor": "#144BE1",
+    "time": "2024/08/30",
+    "pic": "assets/News/news_8_1.png"
+  },
+  {
+    "id": 13,
+    "title": "元素驱动董事长刘旻昊博士荣获“建德城市人才合伙人”称号",
+    "category": "runtime",
+    "categorylabel": "#Mint 进行时",
+    "categorycolor": "#FF7200",
+    "time": "2024/06/19",
+    "pic": "assets/News/news_13.jpg"
   },
   {
     "id": 5,
-    "title": "聚焦发展新质生产力，元素驱动年产3万吨PBX生物降解材料项目开工",
+    "title": "元素驱动获近2亿元A轮融资，生物降解新材料可实现量产",
     "category": "runtime",
-    "categorylabel": "#MiNT进行时",
+    "categorylabel": "#MiNT 进行时",
     "categorycolor": "#FF7200",
     "time": "2024/09/21",
-    "pic": "assets/News/news05.jpg"
+    "pic": "assets/News/news_05.jpg"
   },
   {
     "id": 6,
-    "title": "中央首次部署！加快经济社会发展全面绿色转型",
-    "category": "vision",
-    "categorylabel": "#MiNT vision",
-    "categorycolor": "#007D30",
+    "title": "向“新”而创——元素驱动的生物智造之路",
+    "category": "runtime",
+    "categorylabel": "#MiNT 进行时",
+    "categorycolor": "#FF7200",
+    "time": "2024/10/12",
+    "pic": "assets/News/news_06.jpg"
+  },
+  {
+    "id": 7,
+    "title": "一块好地膜的自我修养",
+    "category": "production",
+    "categorylabel": "#MiNT产品力",
+    "categorycolor": "#144BE1",
     "time": "2024/09/21",
-    "pic": "assets/News/news03.png"
+    "pic": "assets/News/news_07.jpeg"
+  },
+
+  {
+    "id": 9,
+    "title": "周扬区长莅临元素驱动调研指导",
+    "category": "runtime",
+    "categorylabel": "#MiNT 进行时",
+    "categorycolor": "#FF7200",
+    "time": "2025/01/17",
+    "pic": "assets/News/news_09.jpg"
+  },
+  {
+    "id": 10,
+    "title": "姚高员市长调研重点产业赛道企业，莅临元素驱动指导",
+    "category": "runtime",
+    "categorylabel": "#MiNT 进行时",
+    "categorycolor": "#FF7200",
+    "time": "2024/09/21",
+    "pic": "assets/News/news_10.jpg"
+  },
+  {
+    "id": 11,
+    "title": "这届奥运，没它不行！",
+    "category": "vision",
+    "categorylabel": "#MiNT Vision",
+    "categorycolor": "#007D30",
+    "time": "2024/08/02",
+    "pic": "assets/News/news_11.jpg"
+  },
+  {
+    "id": 12,
+    "title": "九部门联合发文，推动非粮生物基材料发展",
+    "category": "vision",
+    "categorylabel": "#MiNT Vision",
+    "categorycolor": "#007D30",
+    "time": "2025/01/17",
+    "pic": "assets/News/news_12.jpg"
+  },
+
+  {
+    "id": 14,
+    "category": "vision",
+    "title": "它在你看不见的地方，影响你的生活、健康和寿命",
+    "categorylabel": "#Mint Vision",
+    "categorycolor": "#007D30",
+    "time": "2024/06/14",
+    "pic": "assets/News/news_14.jpg"
+  },
+  {
+    "id": 15,
+    "category": "runtime",
+    "title": "合成生物赋能新质生产力，张科春教授畅谈生物智造的历史与未来",
+    "categorylabel": "#MiNT 进行时",
+    "categorycolor": "#FF7200",
+    "time": "2024/06/06",
+    "pic": "assets/News/news_15.jpg"
   }
 ]

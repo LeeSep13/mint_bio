@@ -22,7 +22,7 @@
           </span>
         </div>
 
-        <div class="pic">
+        <div class="pic" v-if="getImageUrl(props.info.pic)">
           <img :src="getImageUrl(props.info.pic)" />
         </div>
 

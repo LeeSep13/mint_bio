@@ -91,7 +91,7 @@ export default {
         advantages: [
           "添加于饲料中，减少大豆用量，降低养殖成本",
           "相较同类产品，具有大幅成本优势",
-          "相较行业头部，发酵效率高200%",
+          "相较行业平均水准，发酵速度快、效率高",
         ],
         imageUrl: ["assets/AminoAcid/module2_ele1.png"],
       },
@@ -101,40 +101,40 @@ export default {
         introductionTitle1: "生物合成",
         introductionTitle2: "组氨酸",
         applyTexts: ["食品", "饲料", "生化试剂制造制药"],
-        advantages: ["相较同类产品，具有成本优势", "相较行业头部，发酵效率快35%", "相较化学合成法，产品纯度高"],
+        advantages: ["相较同类产品，具有成本优势", "相较行业平均水准，发酵速度快、效率高", "相较化学合成法，产品纯度高"],
         imageUrl: ["assets/AminoAcid/module2_ele2.png"],
       },
-      {
-        title: "生物合成 色氨酸",
-        topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
-        introductionTitle1: "生物合成",
-        introductionTitle2: "色氨酸",
-        applyTexts: ["医药", "食品强化剂", "饲料添加剂"],
-        advantages: ["人体与动物必需氨基酸，应用场景广泛", "相较传统生产方法，效率更高、成本更低"],
-        imageUrl: ["assets/AminoAcid/module2_ele3.png"],
-      },
-      {
-        title: "生物合成 亮氨酸",
-        topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
-        introductionTitle1: "生物合成",
-        introductionTitle2: "亮氨酸",
-        applyTexts: ["运动营养剂", "食品添加剂", "特殊医药用途食品"],
-        advantages: ["动物必需氨基酸之一", "相较传统水解法，生产过程更环保、更高效", "相较化学合成法，具有成本优势"],
-        imageUrl: ["assets/AminoAcid/module2_ele4.png"],
-      },
-      {
-        title: "生物合成 缬氨酸",
-        topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
-        introductionTitle1: "生物合成",
-        introductionTitle2: "缬氨酸",
-        applyTexts: ["医药", "食品强化剂", "饲料添加剂"],
-        advantages: ["动物必需氨基酸之一", "提供饲料转化率，降低养殖成本", "相较化学合成法，具有成本优势"],
-        imageUrl: ["assets/AminoAcid/module2_ele5.png"],
-      },
+      // {
+      //   title: "生物合成 色氨酸",
+      //   topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
+      //   introductionTitle1: "生物合成",
+      //   introductionTitle2: "色氨酸",
+      //   applyTexts: ["医药", "食品强化剂", "饲料添加剂"],
+      //   advantages: ["人体与动物必需氨基酸，应用场景广泛", "相较传统生产方法，效率更高、成本更低"],
+      //   imageUrl: ["assets/AminoAcid/module2_ele3.png"],
+      // },
+      // {
+      //   title: "生物合成 亮氨酸",
+      //   topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
+      //   introductionTitle1: "生物合成",
+      //   introductionTitle2: "亮氨酸",
+      //   applyTexts: ["运动营养剂", "食品添加剂", "特殊医药用途食品"],
+      //   advantages: ["动物必需氨基酸之一", "相较传统水解法，生产过程更环保、更高效", "相较化学合成法，具有成本优势"],
+      //   imageUrl: ["assets/AminoAcid/module2_ele4.png"],
+      // },
+      // {
+      //   title: "生物合成 缬氨酸",
+      //   topItems: ["Brilliant", "MiNT BiO", "BioAmino"],
+      //   introductionTitle1: "生物合成",
+      //   introductionTitle2: "缬氨酸",
+      //   applyTexts: ["医药", "食品强化剂", "饲料添加剂"],
+      //   advantages: ["动物必需氨基酸之一", "提供饲料转化率，降低养殖成本", "相较化学合成法，具有成本优势"],
+      //   imageUrl: ["assets/AminoAcid/module2_ele5.png"],
+      // },
     ]);
 
     const titleInView = ref(false);
-    const titleStyle =  { top: "55%" }
+    const titleStyle = { top: "55%" }
     return {
       module2Data,
       titleInView,

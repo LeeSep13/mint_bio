@@ -1,6 +1,6 @@
 <template>
   <div class="contact">
-    <el-popover placement="left-start" width="1185" trigger="manual" :visible="visible" :show-arrow="false"
+    <el-popover placement="left-start" trigger="manual" :visible="visible" :show-arrow="false"
       popper-class="contact-popover-w" :popper-options="popperOptions">
       <div class="contact-popover">
         <div class="contact-popover-close" @click="visible = !visible">
@@ -19,29 +19,30 @@
                   姓名
                 </div>
                 <div class="contact-popover-content-left-form-item-input">
-                  <input type="text" placeholder="您的姓名..." />
+                  <input type="text" placeholder="您的姓名..." v-model="formData.name" />
                 </div>
                 <div class="contact-popover-content-left-form-item-label">
                   邮箱
                 </div>
                 <div class="contact-popover-content-left-form-item-input">
-                  <input type="text" placeholder="您的邮箱..." />
+                  <input type="text" placeholder="您的邮箱..." v-model="formData.email" />
                 </div>
                 <div class="contact-popover-content-left-form-item-label">
                   电话
                 </div>
                 <div class="contact-popover-content-left-form-item-input">
-                  <input type="text" placeholder="您的电话..." />
+                  <input type="text" placeholder="您的电话..." v-model="formData.phone" />
                 </div>
                 <div class="contact-popover-content-left-form-item-label">
                   请简单描述您的问题
                 </div>
                 <div class="contact-popover-content-left-form-item-input">
-                  <input type="text" placeholder="您的留言..." />
+                  <input type="text" placeholder="您的留言..." v-model="formData.message" />
                 </div>
               </div>
               <!-- <div class="contact-popover-content-left-form-submit-w"> -->
-              <div class="contact-popover-content-left-form-submit">
+              <div class="contact-popover-content-left-form-submit" @click="debouncedSubmit"
+                :class="{ 'loading': isLoading }">
                 <p class="contact-popover-content-left-form-submit-btn">提交</p>
               </div>
               <!-- </div> -->
@@ -85,9 +86,20 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { reactive, ref, } from "vue";
+import axios from "axios";
+import { debounce } from "lodash";
+
+
 
 const visible = ref(false);
+const isLoading = ref(false);
+const formData = reactive({
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+});
 
 const popperOptions = ref({
   modifiers: [
@@ -99,17 +111,58 @@ const popperOptions = ref({
     },
   ],
 });
+// 提交函数
+const submit = async () => {
+  try {
+    isLoading.value = true;
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+      alert("请填写完整信息");
+      return;
+    }
+    // 校验 email 格式
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert('请输入有效的邮箱地址')
+      return;
+    }
+
+    // 校验 phone 格式
+    const phoneRegex = /^1[3-9]\d{9}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      alert('请输入有效的手机号码');
+      return;
+    }
+    const res = axios.post("/api/contact/submit", JSON.stringify(formData));
+    if (res) {
+      alert("提交成功");
+      formData.name = '';
+      formData.email = '';
+      formData.phone = '';
+      formData.message = '';
+      visible.value = false; // 关闭弹窗
+    }
+  } catch (error) {
+    if (error.response && error.response.status === 400) {
+      alert('请求格式错误，请检查输入信息');
+    }
+  } finally {
+    isLoading.value = false;
+  }
+};
+const debouncedSubmit = debounce(submit, 500); // 500 毫秒的防抖时间
 </script>
 
 <style lang="less">
 .el-popper.el-popover.contact-popover-w {
   // margin-right: 40px;
   height: 800px;
+  overflow-y: auto;
   padding: 16px 18px 67px 50px;
   background-color: #2828289f !important;
   border-radius: 20px;
   border: 1px solid transparent;
   backdrop-filter: blur(10px);
+  width: 90% !important;
 }
 
 .contact-popover {
@@ -147,6 +200,7 @@ const popperOptions = ref({
           display: flex;
           flex-direction: column;
           gap: 15px;
+
           &-label {
             // margin-top: 35px;
             font-size: 14px;
@@ -176,6 +230,30 @@ const popperOptions = ref({
           display: flex;
           justify-content: center;
           margin-top: 30px;
+          cursor: pointer;
+
+          &.loading {
+            pointer-events: none; // 禁用点击事件
+
+            .contact-popover-content-left-form-submit-btn {
+              position: relative;
+              color: #ffffff1a;
+
+              &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 20px;
+                height: 20px;
+                border: 2px solid #ffffff1a;
+                border-top-color: #f1f3f7;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+              }
+            }
+          }
 
           &-btn {
             width: 96px;
@@ -186,6 +264,8 @@ const popperOptions = ref({
             border-radius: 999px;
             border: 1px solid #ffffff1a;
           }
+
+
         }
       }
     }
@@ -216,11 +296,11 @@ const popperOptions = ref({
         font-weight: 500;
       }
 
-      .counselor{
+      .counselor {
         margin: 10px 0px;
       }
 
-      .email{
+      .email {
         margin: 30px 0px
       }
 
@@ -309,7 +389,8 @@ const popperOptions = ref({
     }
   }
 }
-.mt30{
+
+.mt30 {
   margin-top: 30px;
 }
 </style>
