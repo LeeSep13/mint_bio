@@ -132,7 +132,7 @@ const submit = async () => {
       alert('请输入有效的手机号码');
       return;
     }
-    const res = axios.post("/api/contact/submit", JSON.stringify(formData));
+    const res = axios.post("http://8.155.35.138:8080/api/contact/submit", JSON.stringify(formData));
     if (res) {
       alert("提交成功");
       formData.name = '';
