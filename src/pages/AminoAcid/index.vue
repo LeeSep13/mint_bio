@@ -61,7 +61,10 @@
           </div>
         </div>
         <div class="aminoAcid-module3-propagate-more">
-          <p>了解更多</p>
+          <router-link :to="`/knotWeed`">
+
+            <p>了解更多</p>
+          </router-link>
         </div>
       </div>
     </div>

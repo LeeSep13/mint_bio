@@ -9,9 +9,12 @@
   "sections": [
     {
       "id": 2,
+      "footerPic": [
+        "assets/News/new_footer_1.jpg",
+        "assets/News/new_footer_2.jpg"
+      ],
       "contents": [
         {
-          "pic": "assets/News/news_5.png",
           "height": 451,
           "desc": "36氪独家获悉，合成生物企业元素驱动近期完成近2亿元的A轮融资。本轮投资方包括杭州城投产业基金、招商局创投、西湖光子和云九资本。其中，西湖光子和云九资本为再次追加投资。募集资金将主要用于技术研发和市场推广。"
         },

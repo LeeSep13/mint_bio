@@ -18,11 +18,16 @@
       <div class="vision-module5-content-img2">
         <div class="vision-module5-content-img2-item1">
           <p class="vision-module5-content-img2-item1-text">生物降解新材料</p>
-          <p class="learn-more-btn">了解更多</p>
+          <router-link :to="`/material`">
+            <p class="learn-more-btn">了解更多</p>
+          </router-link>
         </div>
         <div class="vision-module5-content-img2-item2">
           <p class="vision-module5-content-img2-item2-text">生物合成氨基酸</p>
-          <p class="learn-more-btn">了解更多</p>
+          <router-link :to="`/knotWeed`">
+
+            <p class="learn-more-btn">了解更多</p>
+          </router-link>
         </div>
       </div>
       <div class="vision-module5-content-img3 last-box">
@@ -32,7 +37,7 @@
         <p class="vision-module5-content-img3-desc">
           元素驱动将针对您的需求，进行菌种定制、优化、产品延展等生物智造全流程服务。
         </p>
-        <p class="vision-module5-content-img3-btn last-box-btn">匹配顾问</p>
+        <p class="vision-module5-content-img3-btn last-box-btn" @click="triggerPopover">匹配顾问</p>
       </div>
 
 
@@ -47,6 +52,14 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import emitter from '@/event/event';
+
+const triggerPopover = () => {
+  emitter.emit('open-popover');
+};
+</script>
 
 
 <style lang="less" scoped>

@@ -5,10 +5,18 @@
   "categorycolor": "#FF7200",
   "time": "2024/12/05",
   "overviewtitle": "国家乳业技术创新中心与元素驱动启动可持续包装孵化项目，深化乳业ESG创新实践",
-  "overviewcontent": "2024年12月5日，国家乳业技术创新中心（以下简称“乳业国创中心”）与元素驱动（杭州）生物科技有限公司（以下简称“元素驱动”）在杭州举行了签约仪式，正式启动可持续包装孵化项目，合作开发生物基可降解乳品包装材料。此次合作旨在通过技术创新，解决乳品包装材料的环保问题，推动产业的绿色转型。",
   "sections": [
     {
       "id": 2,
+      "headPic": [
+        "assets/News/new_head_1.jpg",
+        "assets/News/new_head_2.jpg",
+        "assets/News/new4_head_3.jpg"
+      ],
+      "footerPic": [
+        "assets/News/new_footer_1.jpg",
+        "assets/News/new_footer_2.jpg"
+      ],
       "contents": [
         {
           "pic": "assets/News/news_4_1.png",

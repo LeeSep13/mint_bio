@@ -86,10 +86,10 @@
 </template>
 
 <script setup>
-import { reactive, ref, } from "vue";
+import { reactive, ref, onMounted, onBeforeUnmount } from "vue";
 import axios from "axios";
 import { debounce } from "lodash";
-
+import emitter from '@/event/event';
 
 
 const visible = ref(false);
@@ -149,7 +149,17 @@ const submit = async () => {
     isLoading.value = false;
   }
 };
+const openPopover = () => {
+  visible.value = true;
+};
 const debouncedSubmit = debounce(submit, 500); // 500 毫秒的防抖时间
+onMounted(() => {
+  emitter.on('open-popover', openPopover);
+});
+
+onBeforeUnmount(() => {
+  emitter.off('open-popover', openPopover);
+});
 </script>
 
 <style lang="less">
@@ -163,6 +173,7 @@ const debouncedSubmit = debounce(submit, 500); // 500 毫秒的防抖时间
   border: 1px solid transparent;
   backdrop-filter: blur(10px);
   width: 90% !important;
+  max-width: 1400px !important;
 }
 
 .contact-popover {
