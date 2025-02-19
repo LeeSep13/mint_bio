@@ -48,7 +48,7 @@ export default {
         const deltaY = event.clientY - dragStartY.value;
         scrollDistance.value = initialScrollDistance.value + deltaY;
         // 阻止默认行为以防止页面滚动
-        event.preventDefault();
+        // event.preventDefault();
       }
     };
 
@@ -91,7 +91,7 @@ export default {
     }
 
     const handleWheel = (event) => {
-      event.preventDefault(); // 阻止浏览器滚动
+      // event.preventDefault(); // 阻止浏览器滚动
       const deltaY = event.deltaY;
       getModuleTopDistance(activeIndex.value, deltaY > 0);
     };

@@ -115,8 +115,8 @@ const props = defineProps({
         .overview-header {
           font-size: 40px;
           line-height: 53.04px;
-          white-space: nowrap;
           color: white;
+
         }
       }
 

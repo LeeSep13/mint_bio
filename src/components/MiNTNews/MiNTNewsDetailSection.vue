@@ -1,7 +1,9 @@
 <template>
   <div class="section-container">
-    <div class="section-head" v-if="props.info.head">
-      <span> {{ props.info.head }} </span>
+    <div class="section-head" v-if="props.info.headPic">
+      <div v-for="pic in props.info.headPic" :key="pic">
+        <img :src="getImageUrl(pic)" />
+      </div>
     </div>
 
     <div class="section-content">
@@ -11,8 +13,16 @@
         </div>
 
         <div class="section-desc">
-          <span> {{ content.desc }} </span>
+          <span v-if="content.desc"> {{ content.desc }} </span>
+          <div v-if="content.strongText" v-html="content.strongText" class="new-strongText"></div>
         </div>
+
+      </div>
+    </div>
+
+    <div class="section-footer" v-if="props.info.footerPic">
+      <div v-for="pic in props.info.footerPic" :key="pic">
+        <img :src="getImageUrl(pic)" />
       </div>
     </div>
   </div>
@@ -27,19 +37,53 @@ const props = defineProps({
   },
 });
 </script>
+<style>
+.new-strongText {
+  font-size: 21px;
+  line-height: 33px;
+  font-family: MiSans VF;
 
+}
+
+.orange-text {
+  color: #e75a29;
+  font-weight: 800;
+
+}
+
+.blue-text {
+  color: #2d5bf6;
+  font-weight: 800;
+
+}
+
+.green-text {
+  color: #74d887;
+  font-weight: 800;
+
+}
+
+.blue-green-text {
+  color: #6bbea9;
+  font-weight: 800;
+}
+</style>
 <style lang="scss" scoped>
 .section-container {
   width: 100%;
 
-  .section-head {
-    color: white;
-    font-size: 32px;
-    font-weight: 380;
-    line-height: 33px;
-    font-family: MiSans;
+  .section-head,
+  .section-footer {
     padding-bottom: 50px;
-    padding-top: 100px;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .section-footer {
+    margin-top: 100px;
   }
 
   .section-content {
@@ -58,14 +102,16 @@ const props = defineProps({
     .section-desc {
       margin-top: 50px;
       white-space: pre-wrap;
+      color: white;
 
       span {
-        color: white;
         font-size: 21px;
         font-weight: 330;
         line-height: 33px;
         font-family: MiSans;
       }
+
+
     }
   }
 }

@@ -66,7 +66,7 @@
             </div>
 
             <div class="aminoAcid-module2-content-bottom-exhibit-match">
-              <p class="aminoAcid-module2-content-bottom-exhibit-match-btn">
+              <p class="aminoAcid-module2-content-bottom-exhibit-match-btn" @click="triggerPopover">
                 匹配顾问
               </p>
             </div>
@@ -86,6 +86,11 @@ import { throttle } from "lodash";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
+import emitter from '@/event/event';
+
+const triggerPopover = () => {
+  emitter.emit('open-popover');
+};
 
 const props = defineProps({
   title: String,

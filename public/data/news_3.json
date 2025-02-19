@@ -5,10 +5,18 @@
   "categorycolor": "#FF7200",
   "time": "2025/01/01",
   "overviewtitle": "喜结金顶！元素智造年产3万吨PBX柔性装置项目正式结顶",
-  "overviewcontent": "2024年12月30日，“元素智造年产3万吨PBX柔性装置项目”结顶仪式在浙江省建德市项目现场举行。该项目在一年内实现了从“签约”到“落地”的重大进展，是元素驱动引领生物智造创新迈出的关键步伐。",
   "sections": [
     {
       "id": 2,
+      "headPic": [
+        "assets/News/new_head_1.jpg",
+        "assets/News/new_head_2.jpg",
+        "assets/News/new3_head_3.jpg"
+      ],
+      "footerPic": [
+        "assets/News/new_footer_1.jpg",
+        "assets/News/new_footer_2.jpg"
+      ],
       "contents": [
         {
           "pic": "assets/News/news_3_1.png",

@@ -5,10 +5,18 @@
   "categorycolor": "#FF7200",
   "time": "2024/10/12",
   "overviewtitle": "向“新”而创——元素驱动的生物智造之路",
-  "overviewcontent": "“高起点、小而精、研究型”，以这种办学定位成长来的西湖大学，既聚焦“从0到1”关键核心技术突破，又不忘为师生搭建产业化平台。“实验室”牵手“生产线”，让更多科研成果转变成产业“成品”，生物合成科技公司元素驱\n\n就是其中的佼佼者。*本文转自新华网专题报道，记者凌纪伟",
   "sections": [
     {
       "id": 2,
+      "headPic": [
+        "assets/News/new_head_1.jpg",
+        "assets/News/new_head_2.jpg",
+        "assets/News/new6_head_3.jpg"
+      ],
+      "footerPic": [
+        "assets/News/new_footer_1.jpg",
+        "assets/News/new_footer_2.jpg"
+      ],
       "contents": [
         {
           "pic": "assets/News/news_6_1.png",

@@ -22,11 +22,16 @@
       <div v-intersect="() => img2InView = true" class="vision-module5-content-img2">
         <div v-if="img2InView" class="vision-module5-content-img2-item1 animate__animated animate__fadeInUp">
           <p class="vision-module5-content-img2-item1-text">生物降解新材料</p>
-          <p class="learn-more-btn">了解更多</p>
+          <router-link :to="`/material`">
+
+            <p class="learn-more-btn">了解更多</p>
+          </router-link>
         </div>
         <div v-if="img2InView" class="vision-module5-content-img2-item2 animate__animated animate__fadeInUp">
           <p class="vision-module5-content-img2-item2-text">生物合成氨基酸</p>
-          <p class="learn-more-btn">了解更多</p>
+          <router-link :to="`/aminoAcid`">
+            <p class="learn-more-btn">了解更多</p>
+          </router-link>
         </div>
       </div>
       <div v-intersect="() => img3InView = true" class="vision-module5-content-img3-w">
@@ -37,11 +42,11 @@
           <p class="vision-module5-content-img3-desc">
             元素驱动将针对您的需求，进行菌种定制、优化、产品延展等<br />生物智造全流程服务。
           </p>
-          <p class="vision-module5-content-img3-btn">匹配顾问</p>
+          <p class="vision-module5-content-img3-btn" @click="triggerPopover">匹配顾问</p>
         </div>
       </div>
       <div v-intersect="() => img4InView = true" class="vision-module5-content-img4">
-        <img v-if="img4InView" src="./images/process.png" alt=""  class="animate__animated animate__fadeInUp"/>
+        <img v-if="img4InView" src="./images/process.png" alt="" class="animate__animated animate__fadeInUp" />
       </div>
     </div>
   </div>
@@ -49,6 +54,11 @@
 
 <script setup>
 import { ref } from "vue";
+import emitter from '@/event/event';
+
+const triggerPopover = () => {
+  emitter.emit('open-popover');
+};
 
 const titleInView = ref(false);
 const img1InView = ref(false);
@@ -163,6 +173,7 @@ const img4InView = ref(false);
       }
 
       .learn-more-btn {
+        cursor: pointer;
         width: 96px;
         height: 38px;
         line-height: 38px;
@@ -184,6 +195,7 @@ const img4InView = ref(false);
       background-position: center;
 
       &-btn {
+        cursor: pointer;
         margin-top: 87px;
         width: 124px;
         height: 58px;

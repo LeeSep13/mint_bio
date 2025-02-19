@@ -2,13 +2,21 @@
   "id": 10,
   "title": "姚高员市长调研重点产业赛道企业，莅临元素驱动指导",
   "categorylabel": "#MiNT进行时",
-  "categorycolor": "#144BE1",
+  "categorycolor": "#FF7200",
   "time": "2024/09/21",
   "overviewtitle": "姚高员市长调研重点产业赛道企业，莅临元素驱动指导",
-  "overviewcontent": "昨天，市长姚高员赴滨江区和西湖区专题调研人形机器人、生物医药、合成生物制造相关重点企业。他强调，要深入学习贯彻党的二十届三中全会精神，围绕构建以数实融合创新为特征、五大产业生态圈为支撑、风口潜力赛道为拓展的现代化产业体系，积极抢占战略性新兴产业和未来产业竞争制高点，加快培育和发展新质生产力。",
   "sections": [
     {
       "id": 2,
+      "headPic": [
+        "assets/News/new_head_1.jpg",
+        "assets/News/new_head_2.jpg",
+        "assets/News/new10_head_3.jpg"
+      ],
+      "footerPic": [
+        "assets/News/new_footer_1.jpg",
+        "assets/News/new_footer_2.jpg"
+      ],
       "contents": [
         {
           "pic": "assets/News/news_10_1.png",
