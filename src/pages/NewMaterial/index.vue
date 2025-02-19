@@ -421,17 +421,17 @@ export default {
     &-title {
       &-first {
         text-align: left;
-        font: 520 60px MiSans VF;
+        font: 520 60px MiSans;
       }
 
       &-second {
         text-align: center;
-        font: 520 40px MiSans VF;
+        font: 520 40px MiSans;
       }
 
       &-third {
         text-align: left;
-        font: 520 40px MiSans VF;
+        font: 520 40px MiSans;
       }
     }
 
@@ -541,7 +541,7 @@ export default {
 
   .question {
     color: #fff;
-    font-family: MiSans VF;
+    font-family: MiSans;
     font-size: 60px;
     font-weight: 520;
     line-height: 79.56px;
@@ -560,12 +560,12 @@ export default {
     .collapse {
       margin-left: 432px;
       margin-bottom: 160px;
-      font: 400 24px MiSans VF;
+      font: 400 24px MiSans;
       color: #fff;
 
       &-item {
         &-content {
-          font: 400 24px MiSans VF !important;
+          font: 400 24px MiSans !important;
           color: #fff !important;
         }
       }

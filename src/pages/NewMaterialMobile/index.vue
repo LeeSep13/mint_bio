@@ -389,7 +389,7 @@ export default {
     &-title {
       &-first {
         text-align: left;
-        font: 520 25px MiSans VF;
+        font: 520 25px MiSans;
       }
 
       .text-wrapper {
@@ -400,13 +400,13 @@ export default {
 
         .case-title-second {
           text-align: center;
-          font: 520 16px MiSans VF;
+          font: 520 16px MiSans;
         }
 
         .case-title-third {
           margin-right: 30px;
           text-align: left;
-          font: 520 16px MiSans VF;
+          font: 520 16px MiSans;
         }
 
       }
@@ -509,12 +509,12 @@ export default {
     }
 
     .collapse {
-      font: 400 14px MiSans VF;
+      font: 400 14px MiSans;
       color: #fff;
 
       &-item {
         &-content {
-          font: 400 14px MiSans VF !important;
+          font: 400 14px MiSans !important;
           color: #fff !important;
         }
       }

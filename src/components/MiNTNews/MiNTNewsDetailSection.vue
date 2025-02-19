@@ -37,7 +37,7 @@ const props = defineProps({
     font-size: 32px;
     font-weight: 380;
     line-height: 33px;
-    font-family: MiSans VF;
+    font-family: MiSans;
     padding-bottom: 50px;
     padding-top: 100px;
   }
@@ -64,7 +64,7 @@ const props = defineProps({
         font-size: 21px;
         font-weight: 330;
         line-height: 33px;
-        font-family: MiSans VF;
+        font-family: MiSans;
       }
     }
   }

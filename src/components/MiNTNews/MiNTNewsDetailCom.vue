@@ -126,7 +126,7 @@ const props = defineProps({
         font-size: 21px;
         font-weight: 330;
         line-height: 33px;
-        font-family: MiSans VF;
+        font-family: MiSans;
 
         .overview-abstract {
           white-space: pre-wrap;

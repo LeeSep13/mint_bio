@@ -98,17 +98,17 @@ export default {
     &-title {
       &-first {
         text-align: left;
-        font: 520 60px MiSans VF;
+        font: 520 60px MiSans;
       }
 
       &-second {
         text-align: center;
-        font: 520 40px MiSans VF;
+        font: 520 40px MiSans;
       }
 
       &-third {
         text-align: left;
-        font: 520 40px MiSans VF;
+        font: 520 40px MiSans;
       }
     }
 

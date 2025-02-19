@@ -269,7 +269,7 @@ onMounted(async () => {
       }
 
       .mint-text {
-        font: 600 56px Montser;
+        font: 600 56px Montserrat;
         color: #ffffff;
         margin-right: 32px;
       }
@@ -557,7 +557,7 @@ onMounted(async () => {
         transform: translate(-50%, -50%);
         height: 84px;
         width: 140px;
-        font-family: MiSans VF;
+        font-family: MiSans;
         font-size: 20px;
         background: linear-gradient(0deg,
             rgba(255, 255, 255, 0.01),

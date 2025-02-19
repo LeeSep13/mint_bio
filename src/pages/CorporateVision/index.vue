@@ -411,7 +411,7 @@ export default {
     &-section {
       width: 1184px;
       margin-bottom: 60px;
-      font-family: MiSans VF;
+      font-family: MiSans;
       font-size: 24px;
       line-height: 32px;
       font-weight: 450;
@@ -470,7 +470,7 @@ export default {
       &-item {
         &-time {
           padding: 0 60px;
-          font-family: MiSans VF;
+          font-family: MiSans;
           font-size: 60px;
           font-weight: 450;
           text-align: left;
@@ -497,7 +497,7 @@ export default {
 
         &-content {
           padding: 60px 80px 60px 0;
-          font-family: MiSans VF;
+          font-family: MiSans;
           font-size: 20px;
           font-weight: 520;
           text-align: left;
@@ -516,7 +516,7 @@ export default {
   .story {
     display: flex;
     gap: 60px;
-    font-family: MiSans VF;
+    font-family: MiSans;
     font-size: 20px;
     color: #fff;
     line-height: 32px;
@@ -569,7 +569,7 @@ export default {
   flex-direction: column;
   align-items: center;
   color: #fff;
-  font-family: MiSans VF;
+  font-family: MiSans;
   font-size: 50px;
   font-weight: 520;
 
@@ -584,7 +584,7 @@ export default {
     }
 
     &-middle {
-      font-family: MiSans VF;
+      font-family: MiSans;
       font-size: 14px;
       font-weight: 450;
       text-align: center;

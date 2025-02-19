@@ -316,7 +316,7 @@ export default {
     &-section {
       width: 100%;
       margin-bottom: 20px;
-      font-family: MiSans VF;
+      font-family: MiSans;
       font-size: 14px;
       line-height: 22px;
       font-weight: 450;
@@ -346,7 +346,7 @@ export default {
       &-item {
         &-time {
           padding: 0 20px 20px;
-          font-family: MiSans VF;
+          font-family: MiSans;
           font-size: 24px;
           font-weight: 450;
           text-align: left;
@@ -360,7 +360,7 @@ export default {
 
         &-content {
           padding: 20px 40px 60px 0;
-          font-family: MiSans VF;
+          font-family: MiSans;
           font-size: 12px;
           font-weight: 520;
           text-align: left;

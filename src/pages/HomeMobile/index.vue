@@ -258,7 +258,7 @@ export default {
       .mint-text {
         margin-left: 34px;
         margin-top: 60px;
-        font: 600 24px Montser;
+        font: 600 24px Montserrat;
         color: #ffffff;
         margin-right: 32px;
       }
