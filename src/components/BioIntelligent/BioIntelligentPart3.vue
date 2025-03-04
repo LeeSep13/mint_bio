@@ -74,17 +74,16 @@ export default {
       {
         url: "assets/BioIntelligent/swipper2.png",
         title: "AI蛋白质设计",
-        description: "与商汤科技战略合作，AI高效预测和生成分子。",
+        description: "深入融合AI技术，AI高效预测和设计分子结构。",
       },
       {
         url: "assets/images/swiper3.png",
         title: "科技引擎",
-        description: "自研MiNT X Platform 配备全面的菌种、元件库，实现高效、精准、可预测的底层微生物设计和代谢优化。",
+        description: "自研合成生物智造平台Mint X Platform，形成覆盖\"基因编辑-AI蛋白计算-代谢路径优化-工艺工程放大\"的全链条专利技术体系。",
       }, {
         url: "assets/images/swiper4.png",
-
         title: "量产无忧",
-        description: "布局2个生物智造基地，年产能超10万吨，成熟产品均已具备量产条件，并配备严格的质量管理流程。",
+        description: "布局2个生物智造基地，2025年底产能6万吨，成熟产品均已具备量产条件，并配备严格的质量管理流程。",
       }, {
         url: "assets/images/swiper5.png",
         title: "应用无限",
@@ -222,7 +221,7 @@ export default {
             border: 1px solid #ffffff33;
             border-radius: 4px;
             background-color: #ffffff2e;
-            font-size: 14px;
+            font-size: 26px;
             color: #82828280;
             user-select: none;
           }

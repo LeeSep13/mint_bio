@@ -15,7 +15,7 @@
         @mouseout="handleMouseOut(0)"
       >
         <div class="box-title">
-          <p>牧原安粮工厂<br />河南·南阳</p>
+          <p>牧元安粮工厂<br />河南·南阳</p>
         </div>
         <div class="box-data-w" :class="{ visible: expandedIndex === 0 }">
           <div class="box-data">

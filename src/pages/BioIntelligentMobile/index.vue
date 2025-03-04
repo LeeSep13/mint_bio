@@ -77,8 +77,8 @@ export default {
 
         },
         {
-          title: "产业 1～",
-          describe: "我们在实验室中进行基础研究和概念验证，打造能够高效生产目标产品的菌株及元件库。通过小试分析和工艺优化后，满足要求的工程微生物将被送往生物智造基地，进行量产验证和放大。 ",
+          title: "产业 1～∞",
+          describe: "我们的生物智造基地将生产过程从实验室放大到中试及到产业规模。中试阶段，我们进一步优化生产过程，并进行精密的安全性和稳定性测试。通过中试验证的产品将进行大规模生产，我们将用世界顶级的设备和生产管理流程，对产品质量作出严格把控。",
           imgSrc: require("@/assets/BioIntelligent/Industry.png"),
 
         },
@@ -92,16 +92,16 @@ export default {
         {
           url: require("@/assets/BioIntelligent/swipper2.png"),
           title: "AI蛋白质设计",
-          description: "与商汤科技战略合作，AI高效预测和生成分子。",
+          description: "深入融合AI技术，AI高效预测和设计分子结构。",
         },
         {
           url: require("@/assets/BioIntelligent/swipper3.png"),
           title: "科技引擎",
-          description: "自研MiNT X Platform 配备全面的菌种、元件库，实现高效、精准、可预测的底层微生物设计和代谢优化。",
+          description: "自研合成生物智造平台Mint X Platform，形成覆盖\"基因编辑-AI蛋白计算-代谢路径优化-工艺工程放大\"的全链条专利技术体系。",
         }, {
           url: require("@/assets/BioIntelligent/swipper3.png"),
           title: "量产无忧",
-          description: "布局2个生物智造基地，年产能超10万吨，成熟产品均已具备量产条件，并配备严格的质量管理流程。",
+          description: "布局2个生物智造基地，2025年底产能6万吨，成熟产品均已具备量产条件，并配备严格的质量管理流程。",
         }, {
           url: require("@/assets/BioIntelligent/swipper3.png"),
           title: "应用无限",

@@ -80,7 +80,7 @@ export default {
       top: 14.6%;
       left: 28%;
       width: 30.1%;
-      height: 375px;
+      height: 520px;
       z-index: 2;
       img {
         width: 100%;
