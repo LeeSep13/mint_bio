@@ -22,7 +22,7 @@
             <p class="footer-right-content-products-item-title gray-text">产品</p>
             <p class="footer-right-content-products-item pointer " @click="handleJumps('material')">生物降解新材料</p>
             <p class="footer-right-content-products-item pointer" @click="handleJumps('aminoAcid')">生物合成氨基酸</p>
-            <p class="footer-right-content-products-item pointer" @click="handleJumps('knotWeed')">节豆粮解决方案</p>
+            <p class="footer-right-content-products-item pointer" @click="handleJumps('knotWeed')">节豆日粮解决方案</p>
           </div>
           <div class="footer-right-content-about footer-common">
             <p class="footer-right-content-about-item-title gray-text">关于我们</p>
@@ -197,7 +197,7 @@ const handleJumps = (item) => {
         gap: 20px;
 
         &-item {
-          width: 101px;
+          width: 120px;
           height: 30px;
           line-height: 30px;
 

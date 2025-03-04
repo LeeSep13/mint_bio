@@ -9,12 +9,12 @@
           <div class="footer-left-logo-text1">生物智造惠及</div>
           <div class="footer-left-logo-text2">每一个生命</div>
         </div>
-        <div class="footer-left-download">
+        <!-- <div class="footer-left-download">
           <span>下载品牌手册</span>
           <div class="footer-left-download-img">
             <img src="@/assets/images/download.png" alt="" />
           </div>
-        </div>
+        </div> -->
       </el-col>
       <el-col :span="2" class="footer-middle">
         <img class="footer-middle-divider" src="./images/divider.png" alt="" />
@@ -25,13 +25,13 @@
             <p class="footer-right-content-menus-item" @click="handleJumps('bioIntelligent')">生物智造</p>
             <p class="footer-right-content-menus-item" @click="handleJumps('mintNews')">发展动态</p>
             <p class="footer-right-content-menus-item" @click="handleJumps('corporate')">加入我们</p>
-            <p class="footer-right-content-menus-item">下载中心</p>
+            <!-- <p class="footer-right-content-menus-item">下载中心</p> -->
           </div>
           <div class="footer-right-content-products footer-common">
             <p class="footer-right-content-products-item-title">产品</p>
             <p class="footer-right-content-products-item pointer" @click="handleJumps('material')">生物降解新材料</p>
             <p class="footer-right-content-products-item pointer" @click="handleJumps('aminoAcid')">生物合成氨基酸</p>
-            <p class="footer-right-content-products-item pointer" @click="handleJumps('knotWeed')">节豆粮解决方案</p>
+            <p class="footer-right-content-products-item pointer" @click="handleJumps('knotWeed')">节豆日粮解决方案</p>
           </div>
           <div class="footer-right-content-about footer-common">
             <p class="footer-right-content-about-item-title">关于我们</p>

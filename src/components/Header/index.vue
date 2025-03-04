@@ -36,7 +36,7 @@
     </div>
 
     <div class="header-right">
-      <el-popover placement="bottom" width="891" trigger="manual" :visible="visible" :show-arrow="false"
+      <el-popover placement="bottom" width="891" trigger="manual" :visible="visible" :show-arrow="false" effect="dark"
         popper-class="header-popover" :popper-options="popperOptions">
         <div class="popover-content">
           <div class="popover-content-close" @click="visible = !visible">
@@ -57,7 +57,7 @@
                 生物合成氨基酸
               </p>
               <p class="pointer" @click="handleJumps('knotWeed')">
-                节豆粮解决方案
+                节豆日粮解决方案
               </p>
             </div>
             <div class="popover-content-menu-item">
@@ -68,20 +68,20 @@
             <div class="popover-content-menu-item">
               <p class="pointer" @click="handleJumps('mintNews')">发展动态</p>
             </div>
-            <div class="popover-content-menu-item">
+            <!-- <div class="popover-content-menu-item">
               <p>加入我们</p>
             </div>
             <div class="popover-content-menu-item">
               <p>下载中心</p>
-            </div>
+            </div> -->
           </div>
           <div class="popover-content-language">
             <p class="popover-content-language-cn">简体中文</p>
-            <p class="popover-content-language-en">ENGLISH</p>
+            <!-- <p class="popover-content-language-en">ENGLISH</p>
             <div class="popover-content-download">
               <p>下载品牌手册</p>
               <img src="./images/download.png" alt="download" />
-            </div>
+            </div> -->
           </div>
         </div>
         <template #reference>
@@ -96,7 +96,7 @@
 </template>
 
 <script setup>
-import { ref, inject, onMounted, onUnmounted, computed } from "vue";
+import { ref, inject, onMounted, onUnmounted, computed, effect } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { debounce } from "lodash";
 
@@ -225,14 +225,11 @@ const popperOptions = ref({
 
 </script>
 
-<style lang="less" scoped>
-.el-popper.el-popover.header-popover {
-  // margin-right: 40px;
+<style lang="less">
+.el-popover.el-popper.header-popover {
   padding: 24px 26px 95px 72px;
-  background-color: #2828289f;
   border-radius: 20px;
-  border: 1px solid transparent;
-  backdrop-filter: blur(10px);
+  background-color: #12161b;
 }
 
 .popover-content {

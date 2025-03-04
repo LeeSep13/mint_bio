@@ -4,7 +4,7 @@
       :backgroundImg="require('@/assets/images/home-background.png')" />
     <div class="dna-section mobile-sector">
       <div class="top-title">
-        <div class="mint-text">MINT BIO</div>
+        <div class="mint-text">MiNT BiO</div>
         <div class="line-group">
           <div v-for="(divide, index) in lineDivides" :key="index" class="line-divide"
             :style="{ marginLeft: divide.marginLeft + 'px' }"></div>
@@ -14,7 +14,10 @@
 
       <Swiper :caseList="caseList" :topTip="topTip" :bottomTip="bottomTip">
         <template #item-content="{ item }">
-          <div class="case-list-item-title" :style="{ color: item.moveColor }">{{ item.title }}</div>
+          <router-link :to="item.router" class="case-list-item-router" >
+            <div class="case-list-item-title" :style="{ color: item.moveColor }">{{ item.title }}</div>
+          </router-link>
+
           <div class="case-list-item-describe">{{ item.describe }}</div>
           <div class="case-list-item-describe2">{{ item.describe2 }}</div>
         </template>
@@ -42,7 +45,7 @@
       <div class="title">
         <span>您的选择和 </span><span class="orange-text"> 他们 </span><span> 一样</span>
       </div>
-      <img src="@/assets/images/banners.png" class="banner-img" />
+      <img src="@/assets/images/banners-mobile.png" class="banner-img" />
     </div>
     <div class="new-section mobile-sector border-gradient">
       <div class="new-item" v-for="(item, index) in newsList" :key="index">
@@ -108,6 +111,7 @@ export default {
           describe2: "引领生物智造创新",
           moveColor: "#FF7200",
           isShow: false,
+          router: '/corporate',
         },
         {
           title: "平台强赋能",
@@ -115,6 +119,7 @@ export default {
           describe2: "AI赋能生物智造",
           moveColor: "#254ad9",
           isShow: false,
+          router: '/bioIntelligent',
         },
         {
           title: "卓越产品力",
@@ -122,6 +127,7 @@ export default {
           describe2: "低成本高性能的环保新材料",
           moveColor: "#3170d3",
           isShow: false,
+          router: 'material',
         },
         {
           title: "卓越产品力",
@@ -129,6 +135,7 @@ export default {
           describe2: "高效生物合成20+种氨基酸",
           moveColor: "#3880f3",
           isShow: false,
+          router: 'aminoAcid',
         },
         {
           title: "绿色可持续",
@@ -136,6 +143,7 @@ export default {
           describe2: "责任共筑地球可持续未来",
           moveColor: "#42945f",
           isShow: false,
+          router: 'vision',
         },
       ],
       topTip: ['N 30.2741°', 'MiNT BiO', 'China'],
@@ -159,14 +167,14 @@ export default {
           isShow: false,
           product: "[ 乳品包装 ]",
           imgSrc: require("../../assets/images/product-2.jpg"),
-          advantage: ["纸塑复合", "可降解", "可回收", "成本低"],
+          advantage: ["纸塑复合", "可降解", "可回收", "成本可控"],
           friends: "[ 国家乳业创新中心 ]",
         },
         {
           isShow: false,
           second: "[ 快递袋 ]",
           imgSrc: require("../../assets/images/product-3.jpeg"),
-          advantage: ["强度高", "成本低", "可降解", "可回收"],
+          advantage: ["强度高", "成本可控", "可降解", "可回收"],
           first: "[ 唯品会 ]",
         },
         {
@@ -174,7 +182,7 @@ export default {
           second: "[ 生物降解地膜 ]",
           imgSrc: require("../../assets/images/product-4.jpeg"),
           advantage: ["寿命长", "保温保墒", "降解期可调控", "有助增产"],
-          first: "[ 新疆农科院 ]",
+          first: "[ 中国农科院 ]",
         },
         {
           isShow: false,
@@ -322,7 +330,10 @@ export default {
 
         &-item {
 
-
+          &-router {
+            text-decoration: none;
+          }
+          
           &-title {
             text-align: center;
             margin: 40px auto 20px;

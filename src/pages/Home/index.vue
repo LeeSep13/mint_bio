@@ -4,7 +4,7 @@
       :backgroundImg="require('@/assets/images/home-background.png')" />
     <div class="dna-section sector" @mouseover.once="expandMargin()">
       <div class="top-title">
-        <div class="mint-text">MINT BIO</div>
+        <div class="mint-text">MiNT BiO</div>
         <div class="line-group">
           <div v-for="(divide, index) in lineDivides" :key="index" class="line-divide"
             :style="{ marginLeft: divide.marginLeft + 'px' }"></div>
@@ -15,15 +15,17 @@
       <div class="advantage animate__animated animate__fadeIn" v-if="advantageShow">
         <div v-for="(advantage, index) in advantageArr" :key="index" class="advantage-item"
           @mousemove="advantageMove(advantage)" @mouseleave="advantageLeave(advantage)">
-          <div class="title" :style="{ color: advantage.color, transition: 'color 1s' }">
-            {{ advantage.title }}
-          </div>
-          <div class="sub-title" v-if="advantage.subTitle">
-            {{ advantage.subTitle }}
-          </div>
-          <div :class="advantage.animationClass" class="describe">
-            {{ advantage.describe }}
-          </div>
+          <router-link :to="advantage.router" class="advantage-item-router">
+            <div class="title" :style="{ color: advantage.color, transition: 'color 1s' }">
+              {{ advantage.title }}
+            </div>
+            <div class="sub-title" v-if="advantage.subTitle">
+              {{ advantage.subTitle }}
+            </div>
+            <div :class="advantage.animationClass" class="describe">
+              {{ advantage.describe }}
+            </div>
+          </router-link>
         </div>
       </div>
     </div>
@@ -33,7 +35,7 @@
       </div>
       <div class="product-list">
         <div class="product-list-top">
-          <div class="product-list-top-item product">产品</div>
+          <div class="product-list-top-item product">在研产品</div>
           <div class="product-list-top-item advantage">性能优势</div>
           <div class="product-list-top-item friends">合作伙伴</div>
         </div>
@@ -119,12 +121,14 @@ const advantageArr = reactive([
     describe: "与合作伙伴共担ESG责任共筑地球可持续未来",
     moveColor: "#FF7200",
     animationClass: "",
+    router: '/corporate',
   },
   {
     title: "平台 强赋能",
     describe: "独创 MiNT X Platform AI赋能生物智造",
     moveColor: "#144BE1",
     animationClass: "",
+    router: '/bioIntelligent',
   },
   {
     title: "卓越 产品力",
@@ -132,6 +136,7 @@ const advantageArr = reactive([
     describe: "低成本高性能的环保新材料",
     moveColor: "#0082FB",
     animationClass: "",
+    router: 'material',
   },
   {
     title: "卓越 产品力",
@@ -139,19 +144,21 @@ const advantageArr = reactive([
     describe: "高效生物合成20+种氨基酸",
     moveColor: "#0082FB",
     animationClass: "",
+    router: 'aminoAcid',
   },
   {
     title: "绿色 可持续",
     describe: "与合作伙伴共担ESG责任共筑地球可持续未来",
     moveColor: "#00965A",
     animationClass: "",
+    router: 'vision',
   },
 ]);
 
 const advantageShow = ref(false);
 const productList = reactive([
   {
-    isShow: false,
+    isShow: true,
     product: "[ 无豆粕日粮解决方案 ]",
     imgSrc: require("../../assets/images/product-1.jpeg"),
     advantage: ["高效补充牲畜必需氨基酸", "有效减少养殖过程中温室气体排放"],
@@ -163,14 +170,14 @@ const productList = reactive([
     isShow: false,
     product: "[ 乳品包装 ]",
     imgSrc: require("../../assets/images/product-2.jpg"),
-    advantage: ["纸塑复合", "可降解", "可回收", "成本低"],
+    advantage: ["纸塑复合", "可降解", "可回收", "成本可控"],
     friends: "[ 国家乳业创新中心 ]",
   },
   {
     isShow: false,
     product: "[ 快递袋 ]",
     imgSrc: require("../../assets/images/product-3.jpeg"),
-    advantage: ["强度高", "成本低", "可降解", "可回收"],
+    advantage: ["强度高", "成本可控", "可降解", "可回收"],
     friends: "[ 唯品会 ]",
   },
   {
@@ -178,7 +185,7 @@ const productList = reactive([
     product: "[ 生物降解地膜 ]",
     imgSrc: require("../../assets/images/product-4.jpeg"),
     advantage: ["寿命长", "保温保墒", "降解期可调控", "有助增产"],
-    friends: "[ 新疆农科院 ]",
+    friends: "[ 中国农科院 ]",
   },
   {
     isShow: false,
@@ -304,10 +311,14 @@ onMounted(async () => {
         flex-direction: column;
         align-items: flex-start;
         color: rgba(241, 243, 247, 1);
-
+        
         &:hover {
           cursor: pointer;
           transition: all 0.5s ease;
+        }
+
+        &-router{
+          text-decoration: none;
         }
 
         .title {
@@ -433,12 +444,12 @@ onMounted(async () => {
           cursor: pointer;
 
           img {
-            width: calc(35% - 200px);
-            height: 255px;
+            width: calc(35% - 220px);
+            height: 235px;
             object-fit: cover;
             position: absolute;
             top: -48px;
-            left: 180px;
+            left: 210px;
             z-index: 0;
             transition: all 0.5s ease;
           }

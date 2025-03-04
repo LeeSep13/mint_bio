@@ -7,46 +7,49 @@
         </div>
       </div>
       <div class="header-right">
-        <el-popover placement="bottom" width="891" trigger="manual" :visible="visible" :show-arrow="false"
-          popper-class="header-popover" :popper-options="popperOptions">
+        <el-popover placement="bottom" width="370" trigger="manual" :visible="visible" :show-arrow="false" effect="dark"
+          popper-class="header-mobile-popover" :popper-options="popperOptions">
           <div class="popover-close" @click="visible = !visible">
-            <img src="./images/close.png" alt="close" />
+            <!-- <img src="./images/close.png" alt="close" /> -->
+             x
           </div>
-          <div class="popover-content">
-            <div class="popover-content-menu">
-              <div class="popover-content-menu-item">
+          <div class="popover-mobile-content">
+            <div class="popover-mobile-content-menu">
+              <div class="popover-mobile-content-menu-item">
                 <p class="pointer" @click="handleJumps('bioIntelligent')">
                   生物智造
                 </p>
               </div>
-              <div class="popover-content-menu-item">
-                <div @click="togglePanel('productPanel')">产品 <span class="plus" :style="{ marginLeft:'64px' }"
-                    :class="{ 'rotated': isPanelOpen.productPanel }">+</span></div>
+              <div class="popover-mobile-content-menu-item">
+                <div @click="togglePanel('productPanel')">产品 
+                    <span class="plus">{{isPanelOpen.productPanel ? 'x' : '+'}}</span>
+                  </div>
                 <p class="pointer" v-if="isPanelOpen.productPanel" @click="handleJumps('material')">生物降解新材料</p>
                 <p class="pointer" v-if="isPanelOpen.productPanel" @click="handleJumps('aminoAcid')">生物合成氨基酸</p>
-                <p class="pointer" v-if="isPanelOpen.productPanel" @click="handleJumps('knotWeed')">节豆粮解决方案</p>
+                <p class="pointer" v-if="isPanelOpen.productPanel" @click="handleJumps('knotWeed')">节豆日粮解决方案</p>
               </div>
-              <div class="popover-content-menu-item">
-                <div @click="togglePanel('aboutUsPanel')">关于我们<span class="plus"
-                    :class="{ 'rotated': isPanelOpen.aboutUsPanel }">+</span></div>
+              <div class="popover-mobile-content-menu-item">
+                <div @click="togglePanel('aboutUsPanel')">关于我们
+                  <span class="plus">{{isPanelOpen.aboutUsPanel ? 'x' : '+'}}</span>
+                  </div>
                 <p class="pointer" v-if="isPanelOpen.aboutUsPanel" @click="handleJumps('corporate')">企业介绍</p>
                 <p class="pointer" v-if="isPanelOpen.aboutUsPanel" @click="handleJumps('vision')">愿景与责任</p>
               </div>
-              <div class="popover-content-menu-item">
+              <div class="popover-mobile-content-menu-item noDivider" >
                 <p class="pointer" @click="handleJumps('mintNews')">发展动态</p>
               </div>
-              <div class="popover-content-menu-item">
+              <!-- <div class="popover-mobile-content-menu-item">
                 <p>加入我们</p>
               </div>
-              <div class="popover-content-menu-item">
+              <div class="popover-mobile-content-menu-item">
                 <p>下载中心</p>
-              </div>
+              </div> -->
             </div>
-            <div class="popover-content-language">
-              <p class="popover-content-language-cn" :class="{ 'active-language': currentLanguage === 'CN' }"
+            <div class="popover-mobile-content-language">
+              <p class="popover-mobile-content-language-cn" :class="{ 'active-language': currentLanguage === 'CN' }"
                 @click="toggleToCN">CN</p>
-              <p class="popover-content-language-en" :class="{ 'active-language': currentLanguage === 'EN' }"
-                @click="toggleToEN">EN</p>
+              <!-- <p class="popover-mobile-content-language-en" :class="{ 'active-language': currentLanguage === 'EN' }"
+                @click="toggleToEN">EN</p> -->
             </div>
           </div>
           <template #reference>
@@ -55,7 +58,7 @@
             </div>
           </template>
         </el-popover>
-        <div v-if="visible" class="popover-overlay" @click="visible = false"></div>
+        <div v-if="visible" class="popover-mobile-overlay" @click="visible = false"></div>
       </div>
     </div>
   </div>
@@ -75,6 +78,12 @@ const isPanelOpen = reactive({
 const currentLanguage = ref('CN');
 
 const togglePanel = (panel) => {
+  // 关闭所有面板
+  for(let key in isPanelOpen){
+    if(key !== panel){
+      isPanelOpen[key] = false;
+    }
+  }
   isPanelOpen[panel] = !isPanelOpen[panel];
 };
 
@@ -91,40 +100,24 @@ const toggleToEN = () => {
 </script>
 
 <style lang="scss">
-.header-popover {
-  padding: 24px 26px 95px 72px;
-  background-color: #12161b !important;
-  border-radius: 20px;
-  width: calc(100% - 20px) !important;
-  margin: 40px auto !important;
-  left: 10px;
-
-}
-
-.el-popover.el-popper {
-  border: 1px solid #12161b !important;
-  ;
+.el-popover.el-popper.header-mobile-popover {
+  /* padding: 24px 26px 95px 72px; */
+  padding-left: 40px;
+  background-color: #12161b;
+  border-radius: 12px;
 }
 </style>
 <style lang="less" scoped>
 @import "@/style/variable.less";
 
 .popover-close {
-  margin-bottom: 22px;
   text-align: right;
-
-  img {
-    width: 34px;
-    height: 34px;
-  }
 }
 
-.popover-content {
+.popover-mobile-content {
   width: 100%;
   display: flex;
   align-items: flex-start;
-  padding-bottom: 30px;
-
 
   &-box {
     display: flex;
@@ -143,15 +136,17 @@ const toggleToEN = () => {
     flex-direction: column;
 
     &-item {
-      min-height: 50px;
-      line-height: 50px;
-      width: 200px;
+      min-height: 60px;
+      line-height: 60px;
+      width: 160px;
       border-bottom: 1px solid #3a3e41;
       font-size: 14px;
       color: #f1f3f7;
 
       .plus {
-        margin-left: 40px;
+        width: 10px;
+        height: 10px;
+        margin-left: 16px;
         transition: transform 0.3s ease;
         display: inline-block; // 确保 span 可以旋转
       }
@@ -160,16 +155,20 @@ const toggleToEN = () => {
         transform: rotate(45deg); // 修改为 45deg 以实现 + 变成 x 的效果
       }
     }
+    .noDivider{
+    border-bottom: none;
+    }
   }
 
+
   &-language {
-    margin-left: 80px;
+    margin-left: 57px;
 
     &-cn,
     &-en {
-      width: 80px;
-      height: 50px;
-      line-height: 50px;
+      width: 30px;
+      height: 40px;
+      line-height: 40px;
       font-size: 14px;
       font-weight: 500;
       color: #f1f3f7;
@@ -178,8 +177,8 @@ const toggleToEN = () => {
     .active-language::before {
       content: '';
       display: inline-block;
-      width: 8px;
-      height: 8px;
+      width: 4px;
+      height: 4px;
       background-color: orange;
       border-radius: 50%;
       margin-right: 4px;
@@ -198,7 +197,7 @@ const toggleToEN = () => {
   }
 }
 
-.popover-overlay {
+.popover-mobile-overlay {
   position: fixed;
   top: 0;
   left: 0;
