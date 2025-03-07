@@ -92,8 +92,8 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
-      height: 13%;
+      width: 100px;
+      height: 49px;
       color: #f1f3f7;
       font-size: 12px;
       font-weight: 500;

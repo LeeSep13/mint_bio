@@ -40,7 +40,7 @@
             [ 节豆日粮解决方案 ]
           </p>
           <ul class="aminoAcid-module3-content-solution-list">
-            <li>合成8种氨基酸</li>
+            <li>合成必需氨基酸</li>
             <li>营养供给精准高效</li>
             <li>节约饲养成本</li>
           </ul>
@@ -430,7 +430,7 @@ export default {
           justify-content: center;
           align-items: center;
           width: 100%;
-          height: 13%;
+          height: 103px;
           color: #f1f3f7;
           font-size: 25px;
           font-weight: 500;

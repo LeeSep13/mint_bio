@@ -86,7 +86,7 @@
       <el-collapse class="collapse" @change="handleChange">
         <el-collapse-item class="collapse-item" v-for="(item, index) in questionList" :key="index" :title="item.title"
           :name="index" :icon="activeNames.includes(index) ? Minus : Plus">
-          <div class="collapse-item-content">{{ item.content }}</div>
+          <div class="collapse-item-content" v-html="item.content"></div>
         </el-collapse-item>
       </el-collapse>
     </div>
@@ -118,7 +118,7 @@ export default {
       Plus,
       Minus,
       activeNames: [],
-      bannerList: ['全新化学结构', '高适配性', '可回收', '高性能', '可生物降解', '低成本'],
+      bannerList: ['全新化学结构', '高适配性', '可回收', '高性能', '可生物降解', '成本可控'],
       modules: [
         {
           title: "PiX 001",
@@ -265,7 +265,7 @@ export default {
         },
         {
           imgSrc: require("@/assets/images/case-1.png"),
-          describe: "将于 2025 年 3 月正式在唯品会电商物流中投入使用。",
+          describe: "即将正式在唯品会电商物流中投入使用。",
         },
       ],
       caseListSecond: [
@@ -285,23 +285,23 @@ export default {
       ],
       questionList: [
         {
-          title: "什么是生物降解材料？",
+          title: "PiX新材料的原料是什么？有创新性吗？",
           content:
-            "生物降解材料是指可以和普通塑料一样使用，并能够被自然界的微生物分解成水和CO2，进而回归自然的环保型材料。",
+            "PiX材料在上游合成生物端创新，源自以CO<sub>2</sub>碳源、桔杆、非粮生物质利用生产的生物基原料。生物基含量最高可达100%",
         },
         {
-          title: "PiX材料真的能适配这么多领域吗？",
+          title: "PiX 新材料的生产过程绿色、无毒、环保吗？",
           content:
-            "生物降解材料包括生物降解塑料、生物降解纤维、生物降解薄膜、生物降解复合材料等。",
+            "是的。PiX材料源自生物发酵，从源头节碳减排。在生产过程中，利用了独创的合成工艺，亦无有毒有害气体、副产排出。",
         },
         {
-          title: "产能是否适配我的需求？",
+          title: "PiX新材料的降解条件是什么？可以在哪些环境下降解？",
           content:
-            "生物降解材料具有环保、可降解、可循环利用等优点，可以减少环境污染，提高资源利用率。",
+            "主要采用堆肥降解。现阶段实验证明，PiX新材料在微生物丰度、高温高湿、紫外光老化等条件下，可实现降解，且降解周期可调控。",
         },
         {
-          title: "材料的生产过程环保吗？",
-          content: "生物降解材料广泛应用于包装、农业、医疗、家居等领域。",
+          title: "PiX新材料成本可控，体现在哪些方面？",
+          content: "材料生产采用了独创的合成工艺，单吨产品原料消耗比例更低，过程能耗更少，产品副产及催化剂用量更少，实现真正的降本增效。同时，PiX的普适性强，能够与竹粉、木浆等其他环保原料搭配生产，可根据需求定制性价比更高的解决方案。",
         },
       ],
     };
@@ -537,12 +537,14 @@ export default {
         ::v-deep .el-collapse-item__header {
           border-bottom: none;
           height: 80px;
+          text-align: left;
         }
       }
 
       ::v-deep .el-collapse-item__header {
         border-bottom: 1px solid #66666680;
         height: 80px;
+        text-align: left;
       }
 
       ::v-deep .el-collapse-item__arrow {

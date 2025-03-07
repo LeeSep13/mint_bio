@@ -46,7 +46,7 @@
     <div class="knotWeed-module2">
       <Propagate />
       <div class="knotWeed-module2-advantage">
-        <span>合成8种氨基酸</span>
+        <span>合成必需氨基酸</span>
         <span>营养供给精准高效</span>
         <span>节约饲养成本</span>
       </div>
@@ -58,6 +58,7 @@
         <div class="knotWeed-module3-title">
           <p>节豆日粮助力</p>
           <p>解决粮食安全“卡脖子问题”</p>
+          <p class="knotWeed-module3-counselor" @click="triggerPopover">匹配顾问</p>
         </div>
         <div class="knotWeed-module3-data">
           <div class="knotWeed-module3-data-item" v-for="item in knotData" :key="item.key">
@@ -77,6 +78,7 @@ import { ref } from "vue";
 import MiNTDivider from "@/components/Divider";
 import Propagate from "@/components/Propagate";
 import BannerTitle from "@/components/BannerTitle";
+import emitter from '@/event/event';
 
 export default {
   components: {
@@ -88,8 +90,8 @@ export default {
     const knotData = ref([
       {
         key: 0,
-        important: "8类",
-        content: "合成8类养猪氨基酸",
+        important: "2类",
+        content: "合成2类养猪氨基酸",
       },
       {
         key: 1,
@@ -98,18 +100,23 @@ export default {
       },
       {
         key: 2,
-        important: "3亿",
-        content: "节省3亿亩大豆种植面积",
+        important: "1.5亿",
+        content: "节省1.5亿亩大豆种植面积",
       },
       {
         key: 3,
-        important: "4000万",
-        content: "减少进口4000万吨大豆",
+        important: "2000万",
+        content: "减少进口2000万吨大豆",
       },
     ]);
 
+    const triggerPopover = () => {
+      emitter.emit('open-popover');
+    };
+
     return {
       knotData,
+      triggerPopover,
     };
   },
 };
@@ -219,6 +226,19 @@ export default {
       font-size: 25px;
       font-weight: 500;
       color: #f1f3f7;
+    }
+
+    &-counselor {
+      margin-top: 10px;
+      width: 72px;
+      height: 29px;
+      font-size: 12px;
+      line-height: 29px;
+      text-align: center;
+      font-weight: 500;
+      color: #f1f3f7;
+      background-color: rgba(40, 40, 40, 0.62);
+      border-radius: 13.0625rem;
     }
 
     &-data {

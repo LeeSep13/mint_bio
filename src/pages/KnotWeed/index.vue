@@ -1,16 +1,8 @@
 <template>
   <div class="knotWeed">
     <div class="knotWeed-title">
-      <img
-        class="grid-image"
-        src="@/assets/images/grid1.png"
-        alt="knotWeed_grid"
-      />
-      <img
-        class="mint-image"
-        src="@/assets/images/mint.png"
-        alt="knotWeed_mint"
-      />
+      <img class="grid-image" src="@/assets/images/grid1.png" alt="knotWeed_grid" />
+      <img class="mint-image" src="@/assets/images/mint.png" alt="knotWeed_mint" />
       <div class="knotWeed-title-text">
         <p class="knotWeed-title-text-top">
           每年大豆进口量近
@@ -48,7 +40,7 @@
         <div class="knotWeed-module2-advantage">
           <div class="knotWeed-module2-advantage-content">
             <ul class="knotWeed-module2-advantage-content-text">
-              <li>合成8种氨基酸</li>
+              <li>合成必需氨基酸</li>
               <li>营养供给精准高效</li>
               <li>节约饲养成本</li>
             </ul>
@@ -60,16 +52,15 @@
 
     <div v-intersect="() => module3InView = true" class="knotWeed-module3-w sector">
       <div v-if="module3InView" class="knotWeed-module3 animate__animated animate__fadeInUp">
-        <div class="knotWeed-module3-title">
-          <p>节豆日粮助力</p>
-          <p>解决粮食安全“卡脖子问题”</p>
+        <div class="knotWeed-module3-title-w">
+          <div class="knotWeed-module3-title">
+            <p>节豆日粮助力</p>
+            <p class="">解决粮食安全“卡脖子问题”</p>
+          </div>
+          <p class="knotWeed-module3-counselor" @click="triggerPopover">匹配顾问</p>
         </div>
         <div class="knotWeed-module3-data">
-          <div
-            class="knotWeed-module3-data-item"
-            v-for="item in knotData"
-            :key="item.key"
-          >
+          <div class="knotWeed-module3-data-item" v-for="item in knotData" :key="item.key">
             <p class="knotWeed-module3-data-item-important">
               {{ item.important }}
             </p>
@@ -84,6 +75,7 @@
 <script>
 import { ref } from "vue";
 import MiNTDivider from "@/components/Divider";
+import emitter from '@/event/event';
 
 export default {
   components: {
@@ -93,8 +85,8 @@ export default {
     const knotData = ref([
       {
         key: 0,
-        important: "8类",
-        content: "合成8类养猪氨基酸",
+        important: "2类",
+        content: "合成2类养猪氨基酸",
       },
       {
         key: 1,
@@ -103,24 +95,30 @@ export default {
       },
       {
         key: 2,
-        important: "3亿",
-        content: "节省3亿亩大豆种植面积",
+        important: "1.5亿",
+        content: "节省1.5亿亩大豆种植面积",
       },
       {
         key: 3,
-        important: "4000万",
-        content: "减少进口4000万吨大豆",
+        important: "2000万",
+        content: "减少进口2000万吨大豆",
       },
     ]);
-    
+
     const module1InView = ref(false);
     const module2InView = ref(false);
     const module3InView = ref(false);
+
+    const triggerPopover = () => {
+      emitter.emit('open-popover');
+    };
+
     return {
       knotData,
       module1InView,
       module2InView,
       module3InView,
+      triggerPopover
     };
   },
 };
@@ -136,30 +134,37 @@ export default {
     line-height: 468px;
     text-align: center;
     position: relative;
+
     &-text {
       font-size: 70px;
       font-weight: 500;
+
       &-top {
         height: 130px;
         color: #ffffff73;
+
         span {
           font-size: 128px;
         }
       }
+
       &-bottom {
         color: rgba(236, 236, 238, 0.8);
+
         span {
           font-size: 128px;
         }
       }
     }
+
     .grid-image {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 34.5%;
-      z-index: 0; /* 确保网格图在下面 */
+      z-index: 0;
+      /* 确保网格图在下面 */
     }
 
     .mint-image {
@@ -168,9 +173,11 @@ export default {
       left: 50%;
       transform: translate(-50%, -50%);
       width: 52%;
-      z-index: 0; /* 确保Mint图在网格图下面 */
+      z-index: 0;
+      /* 确保Mint图在网格图下面 */
     }
   }
+
   &-module1 {
     height: 100%;
     background-image: url("@/assets/KnotWeed/banner1.jpeg");
@@ -178,10 +185,12 @@ export default {
     background-repeat: no-repeat;
     border-radius: 1.25rem;
     border: 1px solid #ffffff33;
+
     &-w {
       padding-bottom: 70px;
       height: 843px;
     }
+
     &-title {
       margin-top: 144px;
       margin-left: 60px;
@@ -190,12 +199,14 @@ export default {
       font-size: 90px;
       font-weight: 500;
       color: #fff;
+
       &-replace {
         width: 130px;
         text-align: center;
         color: #ff7200;
       }
     }
+
     &-desc {
       margin-left: 60px;
       margin-top: 20px;
@@ -204,6 +215,7 @@ export default {
       color: #fff;
     }
   }
+
   &-module2 {
     padding: 135px 164px 134px 95px;
     height: 100%;
@@ -213,44 +225,48 @@ export default {
     background-repeat: no-repeat;
     border-radius: 20px;
     box-sizing: border-box;
+
     &-w {
       padding-bottom: 150px;
       height: 843px;
     }
+
     &-propagate {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
       &-title {
         font-size: 96px;
         font-weight: 500;
         color: #fff;
       }
+
       &-target {
         font-size: 74px;
         font-weight: 500;
         color: transparent;
         background-clip: text;
-        background-image: linear-gradient(
-          90deg,
-          #000000 0%,
-          #000 30%,
-          #3e0603 40%,
-          #000 50%,
-          #3e0603 60%,
-          #000 100%
-        );
+        background-image: linear-gradient(90deg,
+            #000000 0%,
+            #000 30%,
+            #3e0603 40%,
+            #000 50%,
+            #3e0603 60%,
+            #000 100%);
 
         p:last-child {
           margin-left: 148px;
         }
       }
     }
+
     &-advantage {
       margin-left: 10.625rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
+
       &-content {
         width: 20.375rem;
         height: 12.125rem;
@@ -259,17 +275,17 @@ export default {
         border-radius: 1.25rem;
         border: 1px solid transparent;
         background-image: linear-gradient(#181a1d, #2828289f),
-          linear-gradient(
-            156.52deg,
+          linear-gradient(156.52deg,
             rgba(255, 255, 255, 0.4) 2.12%,
             rgba(255, 255, 255, 0.0001) 60%,
             rgba(255, 255, 255, 0.0001) 54%,
-            rgba(255, 255, 255, 0.1) 93.02%
-          );
+            rgba(255, 255, 255, 0.1) 93.02%);
         background-origin: border-box;
         background-clip: content-box, border-box;
+
         &-text {
           padding: 2.5rem;
+
           li {
             position: relative;
             font-size: 1.5rem;
@@ -290,27 +306,52 @@ export default {
             }
 
             &:not(:last-child) {
-              margin-bottom: 1rem; /* 每项之间的间隔 */
+              margin-bottom: 1rem;
+              /* 每项之间的间隔 */
             }
           }
         }
       }
     }
   }
+
   &-module3 {
-    &-w{
+    &-w {
       padding-top: 132px;
       padding-bottom: 300px;
     }
+
     &-title {
-      margin-bottom: 200px;
+      // margin-bottom: 200px;
       font-size: 60px;
       font-weight: 500;
       color: #f1f3f7;
+
+      &-w{
+        display: flex;
+        align-items: center;
+        margin-bottom: 200px;
+      }
+
       p:last-child {
         margin-left: 240px;
       }
     }
+
+    &-counselor {
+      cursor: pointer;
+      margin-left: 30px;
+      width: 124px;
+      height: 58px;
+      line-height: 58px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 500;
+      color: #f1f3f7;
+      background-color: rgba(40, 40, 40, 0.62);
+      border-radius: 209px;
+    }
+
     &-data {
       display: flex;
       flex-wrap: wrap;
@@ -318,18 +359,22 @@ export default {
       row-gap: 149px;
       column-gap: 369px;
       width: 100%;
+
       &-item {
         width: 388px;
+
         &:nth-child(1),
         &:nth-child(3) {
           margin-right: 120px;
         }
+
         &-important {
           font-size: 120px;
           font-weight: 500;
           color: #ff7200;
           white-space: nowrap;
         }
+
         &-content {
           font-size: 32px;
           color: #f1f3f7;

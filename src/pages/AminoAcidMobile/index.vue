@@ -45,7 +45,7 @@
           </p>
         </div>
         <ul class="third">
-          <li>合成8种氨基酸</li>
+          <li>合成必需氨基酸</li>
           <li>营养供给精准高效</li>
           <li>节约饲养成本</li>
         </ul>

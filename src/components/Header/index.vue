@@ -120,7 +120,7 @@ const navData = ref([
     submenu: [
       { key: 1, name: "生物降解新材料", router: "material" },
       { key: 2, name: "生物合成氨基酸", router: "aminoAcid" },
-      { key: 3, name: "节豆粮解决方案", router: "knotWeed" },
+      { key: 3, name: "节豆日粮解决方案", router: "knotWeed" },
     ],
     iconUp: require("@/components/Header/images/arrow_up.png"),
     iconDown: require("@/components/Header/images/arrow_down.png"),
