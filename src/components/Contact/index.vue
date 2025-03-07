@@ -298,7 +298,7 @@ onBeforeUnmount(() => {
       color: #f1f3f7;
 
       &-title {
-        font-size: 30px;
+        font-size: 24px;
         font-weight: 500;
       }
 

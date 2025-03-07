@@ -88,12 +88,20 @@
           </div>
         </div>
         <div class="bottom">
-          <p>
-            刘旻昊2011年毕业于英国帝国理工学院，获得生物物理博士学位，2012年回国后在清华大学从事博士后研究工作;2016年起任清华大学助理研究员，同时担任北京市结构生物学高精尖中心副主任、行政办公室主任。
-          </p>
-          <p>
-            自2014年起，刘旻昊参与西湖大学筹办，先后或同时担任西湖大学筹委会办公室主任、西湖大学董事会秘书、西湖大学校长助理，西湖教育基金会创始秘书长、副理事长等职务。
-          </p>
+          <div class="bottom-left">
+            <p>
+              刘旻昊2011年毕业于英国帝国理工学院，获得生物物理博士学位，2012年回国后在清华大学从事博士后研究工作;2016年起任清华大学助理研究员，同时担任北京市结构生物学高精尖中心副主任、行政办公室主任。
+            </p>
+            <p>
+              自2014年起，刘旻昊参与西湖大学筹办，先后或同时担任西湖大学筹委会办公室主任、西湖大学董事会秘书、西湖大学校长助理，西湖教育基金会创始秘书长、副理事长等职务。
+            </p>
+          </div>
+          <ul class="bottom-right">
+            <li>深度参与西湖大学0-1筹建，积累丰富管理经验，建立良好企业关系</li>
+            <li>发起新质生产力平台，孵化未来产业，充当科学家与产业的翻译官，助力科研成果落地</li>
+            <li>推动产学研合作，推动科技创新与产业创新结合，为企业发展提供科研解决方案</li>
+            <li>发起并参与公益项目，为科学家提供良好发展平台，为可持续发展作出贡献</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -225,10 +233,6 @@ export default {
           content: "首次入围杭州市准独角兽榜单。",
         },
         {
-          time: "2023.06",
-          content: "牧原实验室成立，创始人张科春担任主任，科研力度再加强。",
-        },
-        {
           time: "2023.12",
           content: "河南牧元安粮年产3万吨项目开工。",
         },
@@ -242,6 +246,14 @@ export default {
           content: "建德元素智造项目开工，一期年产3万吨, 计划2025年底投产。",
         },
         {
+          time: "2024.10",
+          content: "完成A轮融资",
+        },
+        {
+          time: "2024.12",
+          content: "牧元安粮工厂正式试产、牧元安粮工厂正式试产",
+        },
+        {
           time: "迎接生物智造时代",
           content:
             "60%的物质生产可通过生物制造方式实现, 合成生物带来的经济价值可达万亿元规模。",
@@ -252,7 +264,7 @@ export default {
       cardList: [
         {
           index: 0,
-          textTop: "中心团队",
+          textTop: "研发中心",
           textMiddle: require("@/assets/images/number-1.png"),
           textBottom: "承担前端科研、实验及小试。",
           imRight: require("@/assets/images/scientific.png"),
@@ -266,6 +278,11 @@ export default {
         },
       ],
       corpList: [
+        {
+          imgSrc: "assets/CorporateVision/corp8.png",
+          key: 8,
+          transform: "scale(1)",
+        },
         {
           imgSrc: "assets/CorporateVision/corp1.png",
           key: 1,
@@ -299,11 +316,6 @@ export default {
         {
           imgSrc: "assets/CorporateVision/corp7.png",
           key: 7,
-          transform: "scale(1)",
-        },
-        {
-          imgSrc: "assets/CorporateVision/corp8.png",
-          key: 8,
           transform: "scale(1)",
         },
       ],
@@ -519,7 +531,9 @@ export default {
     font-family: MiSans;
     font-size: 20px;
     color: #fff;
-    line-height: 32px;
+    font-weight: 380;
+    line-height: 33px;
+    letter-spacing: 0;
 
     .margin-bottom {
       margin-bottom: 20px;
@@ -558,6 +572,21 @@ export default {
 
         .space-between {
           justify-content: space-between;
+        }
+      }
+
+      .bottom {
+        text-align: justify;
+        display: flex;
+
+        &-left {
+          flex: 1;
+          padding-right: 48px;
+        }
+
+        &-right {
+          flex: 1;
+          list-style: disc;
         }
       }
     }

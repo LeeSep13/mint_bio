@@ -86,7 +86,7 @@
               <p>刘旻昊</p>
               <p>联合创始人&创始董事</p>
             </div>
-            <div  class="font-12">
+            <div class="font-12">
               <p>西湖大学校长助理</p>
               <p>西湖大学董事会秘书</p>
               <p>西湖大学未来产业研究中心副主任</p>
@@ -96,12 +96,20 @@
           </div>
         </div>
         <div class="bottom">
-          <p>
-            刘旻昊2011年毕业于英国帝国理工学院，获得生物物理博士学位，2012年回国后在清华大学从事博士后研究工作;2016年起任清华大学助理研究员，同时担任北京市结构生物学高精尖中心副主任、行政办公室主任。
-          </p>
-          <p>
-            自2014年起，刘旻吴参与西湖大学筹办，先后或同时担任西湖大学筹委会办公室主任、西湖大学董事会秘书、西湖大学校长助理，西湖教育基金会创始秘书长、副理事长等职务。
-          </p>
+          <div class="bottom-left">
+            <p>
+              刘旻昊2011年毕业于英国帝国理工学院，获得生物物理博士学位，2012年回国后在清华大学从事博士后研究工作;2016年起任清华大学助理研究员，同时担任北京市结构生物学高精尖中心副主任、行政办公室主任。
+            </p>
+            <p>
+              自2014年起，刘旻吴参与西湖大学筹办，先后或同时担任西湖大学筹委会办公室主任、西湖大学董事会秘书、西湖大学校长助理，西湖教育基金会创始秘书长、副理事长等职务。
+            </p>
+          </div>
+          <ul class="bottom-right">
+            <li>深度参与西湖大学0-1筹建，积累丰富管理经验，建立良好企业关系</li>
+            <li>发起新质生产力平台，孵化未来产业，充当科学家与产业的翻译官，助力科研成果落地</li>
+            <li>推动产学研合作，推动科技创新与产业创新结合，为企业发展提供科研解决方案</li>
+            <li>发起并参与公益项目，为科学家提供良好发展平台，为可持续发展作出贡献</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -137,9 +145,14 @@
       </div>
     </div>
 
-    <div class="project">
+    <!-- <div class="project">
       <img src="@/assets/images/corporates.png" alt="">
-    </div>
+    </div> -->
+    <div class="project">
+        <div v-for="item in corpList" :key="item.key" class="project-image">
+          <img :src="item.imgSrc" alt="" />
+        </div>
+      </div>
     <div class="banner-sector">
       <img src="@/assets/images/banners-mobile.png" class="banner-img" />
     </div>
@@ -148,6 +161,7 @@
 
 <script>
 import BannerTitleAnimationMobile from "@/components/BannerTitleAnimationMobile";
+
 export default {
   name: " CorporateVision",
   components: { BannerTitleAnimationMobile },
@@ -187,10 +201,6 @@ export default {
           content: "首次入围杭州市准独角兽榜单。",
         },
         {
-          time: "2023.06",
-          content: "牧原实验室成立，创始人张科春担任主任，科研力度再加强。",
-        },
-        {
           time: "2023.12",
           content: "河南牧元安粮年产3万吨项目开工。",
         },
@@ -202,6 +212,14 @@ export default {
         {
           time: "2024.06",
           content: "建德元素智造项目开工，一期年产3万吨, 计划2025年底投产。",
+        },
+        {
+          time: "2024.10",
+          content: "完成A轮融资",
+        },
+        {
+          time: "2024.12",
+          content: "牧元安粮工厂正式试产、牧元安粮工厂正式试产",
         },
         {
           time: "迎接生物智造时代",
@@ -225,6 +243,48 @@ export default {
           textMiddle: require("@/assets/images/number-2.png"),
           textBottom: "跨科学人才合作，探索前沿技术",
           imSrc: require("@/assets/images/scientific-2.png"),
+        },
+      ],
+      corpList: [
+        {
+          imgSrc: require("@/assets/CorporateVision/corp8.png"),
+          key: 8,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: require("@/assets/CorporateVision/corp1.png"),
+          key: 1,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: require("@/assets/CorporateVision/corp2.png"),
+          key: 2,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: require("@/assets/CorporateVision/corp3.png"),
+          key: 3,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: require("@/assets/CorporateVision/corp4.png"),
+          key: 4,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: require("@/assets/CorporateVision/corp5.png"),
+          key: 5,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: require("@/assets/CorporateVision/corp6.png"),
+          key: 6,
+          transform: "scale(1)",
+        },
+        {
+          imgSrc: require("@/assets/CorporateVision/corp7.png"),
+          key: 7,
+          transform: "scale(1)",
         },
       ],
       isPrevDisabled: true,
@@ -377,7 +437,8 @@ export default {
     line-height: 20px;
     color: #fff;
     position: relative;
-    .font-12{
+
+    .font-12 {
       font-size: 12px;
     }
 
@@ -400,7 +461,7 @@ export default {
           height: 100%;
           border-radius: 8px;
           object-fit: cover;
-            object-position: 50% 10%;
+          object-position: 50% 10%;
 
           margin-bottom: 20px;
         }
@@ -430,7 +491,7 @@ export default {
     }
 
     &-item {
-    top: -50px;
+      top: -50px;
       position: absolute;
       background: #24272a;
       width: 360px;
@@ -491,6 +552,21 @@ export default {
           justify-content: space-between;
         }
       }
+
+      .bottom {
+        text-align: justify;
+        display: flex;
+
+        &-left {
+          flex: 1;
+          padding-right: 28px;
+        }
+
+        &-right {
+          flex: 1;
+          list-style: disc;
+        }
+      }
     }
 
     .story-item-right {
@@ -544,7 +620,7 @@ export default {
     transition: all 0.3s ease-in-out; // 平滑过渡效果
     border: 1px solid #444649;
 
-  
+
 
     &-content {
       padding: 10px;
@@ -610,9 +686,9 @@ export default {
 
         &.active {
           background: linear-gradient(0deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.01)),
-          radial-gradient(63.94% 63.94% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
+            radial-gradient(63.94% 63.94% at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
           border: 1px solid #444649;
-          border-bottom:none ;
+          border-bottom: none;
         }
       }
 
@@ -630,7 +706,11 @@ export default {
 }
 
 .project {
-  padding: 60px 10px;
+  padding: 70px 30px 29px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 29px;
+  column-gap: 30px;
 
   &-item {
     width: 141.18px;
@@ -640,9 +720,19 @@ export default {
     border-radius: 9.07px;
   }
 
-  img {
-    width: 100%;
+  &-image {
+    width: 150px;
+    height: 124px;
+    // margin-right: 30px;
+
+    img {
+      width: 100%;
+    }
   }
+
+  // &-image:nth-child(n) {
+  //   margin-right: 0;
+  // }
 }
 
 .banner-sector {

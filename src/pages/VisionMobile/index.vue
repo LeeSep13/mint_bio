@@ -47,7 +47,7 @@
           <div class="vision-module4-top-description">
             <img src="./images/semicolon_icon.png" alt="semicolon" />
             <p class="vision-module4-top-description-text">
-              生物制造是我国新兴战略行业之一，<br />是创新、质优、高效能的新质生产力代表。
+              生物制造是我国九大未来产业之一，<br />是创新、质优、高效能的新质生产力代表。
             </p>
           </div>
         </div>

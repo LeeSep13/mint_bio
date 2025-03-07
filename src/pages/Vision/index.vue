@@ -8,9 +8,9 @@
     </div>
     <div class="vision-module2 sector">
       <div class="vision-module2-item" v-for="(item, index) in impactData" :key="index">
-        <p class="vision-module2-item-title" >{{ item.title }}</p>
+        <p class="vision-module2-item-title">{{ item.title }}</p>
         <div class="hover-scale-transition">
-          <img class="vision-module2-item-img" :src="item.imgSrc"  />
+          <img class="vision-module2-item-img" :src="item.imgSrc" />
           <ul class="vision-module2-item-text">
             <li v-for="(text, idx) in item.texts" :key="idx">{{ text }}</li>
           </ul>
@@ -28,7 +28,11 @@
             <p class="vision-module3-content-left-text">
               据世界经合组织 (OECD) 的案例分析表明，<br />生物技术的应用可以
             </p>
-            <p class="vision-module3-content-left-more">了解更多</p>
+            <router-link :to="`/bioIntelligent`" class="vision-module3-content-left-more-w">
+              <p class="vision-module3-content-left-more">
+                了解更多
+              </p>
+            </router-link>
             <div class="vision-module3-content-left-list-w">
               <ul class="vision-module3-content-left-list">
                 <li v-for="(item, index) in declineData" :key="item.title" :class="{
@@ -60,7 +64,7 @@
           <div class="vision-module4-top-description">
             <img src="./images/semicolon_icon.png" alt="semicolon" />
             <p class="vision-module4-top-description-text">
-              生物制造是我国新兴战略行业之一，<br />是创新、质优、高效能的新质生产力代表。
+              生物制造是我国九大未来产业之一，<br />是创新、质优、高效能的新质生产力代表。
             </p>
           </div>
         </div>
@@ -220,10 +224,12 @@ function cardLeave(card) {
     display: flex;
     overflow: scroll;
     scroll-behavior: smooth;
+
     &::-webkit-scrollbar {
-        display: none;
-      }
-    &-item-title{
+      display: none;
+    }
+
+    &-item-title {
       margin-bottom: 30px;
       width: 96px;
       height: 50px;
@@ -285,10 +291,12 @@ function cardLeave(card) {
 
   &-module3 {
     width: 80%;
-    &-w{
+
+    &-w {
       display: flex;
       justify-content: center;
     }
+
     &-title {
       display: flex;
       gap: 16px;
@@ -380,6 +388,12 @@ function cardLeave(card) {
               rgba(255, 255, 255, 0.1) 93.02%);
           background-origin: border-box;
           background-clip: content-box, border-box;
+
+          &-w{
+            &:hover{
+              text-decoration: none;
+            }
+          }
         }
       }
 
@@ -393,7 +407,7 @@ function cardLeave(card) {
         border-radius: 20px;
         border: 1px solid transparent;
         background-image: linear-gradient(#181a1d, #12161b),
-        linear-gradient(140deg,
+          linear-gradient(140deg,
             rgba(255, 255, 255, 0.4) 40%,
             rgba(255, 255, 255, 0.0001) 60%,
             rgba(255, 255, 255, 0.0001) 70%,
@@ -447,11 +461,13 @@ function cardLeave(card) {
 
   &-module4 {
     width: 80%;
-    &-w{
+
+    &-w {
       display: flex;
       justify-content: center;
       margin-top: 170px;
     }
+
     &-top {
       margin-bottom: 88px;
       display: flex;
