@@ -41,8 +41,7 @@
         </div>
         <div class="product-list-content">
           <div v-for="(item, index) in productList" :key="index" class="product-list-content-item"
-            :style="{ color: item.isShow ? '#fff' : '' }" @mousemove="productMove(item)"
-            @mouseleave="productLeave(item)">
+            :style="{ color: item.isShow ? '#fff' : '' }" @mousemove="productMove(index)">
             <div class="product">
               <span class="product-text">{{ item.product }}</span>
               <transition name="fade">
@@ -191,7 +190,7 @@ const productList = reactive([
     isShow: false,
     product: "[ 一次性吸管 ]",
     imgSrc: require("../../assets/images/product-5.jpg"),
-    advantage: ["耐热耐冷", "硬度大", "韧性强", "成本低"],
+    advantage: ["耐热耐冷", "硬度大", "韧性强", "成本可控"],
     friends: "",
   },
   {
@@ -226,8 +225,10 @@ const advantageLeave = (advantage) => {
   advantage.animationClass = "animate__animated animate__fadeOut";
 };
 
-const productMove = (product) => {
-  product.isShow = true;
+const productMove = (index) => {
+  productList.forEach((product,i) => {
+    product.isShow = i === index;   
+  });
 };
 
 const productLeave = (product) => {

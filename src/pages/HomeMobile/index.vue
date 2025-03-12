@@ -188,7 +188,7 @@ export default {
           isShow: false,
           product: "[ 一次性吸管 ]",
           imgSrc: require("../../assets/images/product-5.jpg"),
-          advantage: ["耐热耐冷", "硬度大", "韧性强", "成本低"],
+          advantage: ["耐热耐冷", "硬度大", "韧性强", "成本可控"],
           friends: "",
         },
         {

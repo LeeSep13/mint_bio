@@ -101,7 +101,7 @@ export default {
         }, {
           url: require("@/assets/BioIntelligent/swipper3.png"),
           title: "量产无忧",
-          description: "布局2个生物智造基地，2025年底产能6万吨，成熟产品均已具备量产条件，并配备严格的质量管理流程。",
+          description: "布局2个生物智造基地，到2025年底产能6万吨，成熟产品均已具备量产条件，并配备严格的质量管理流程。",
         }, {
           url: require("@/assets/BioIntelligent/swipper3.png"),
           title: "应用无限",

@@ -186,7 +186,7 @@ const handleJumps = (item) => {
 
       &-products {
         &-item {
-          width: 98px;
+          width: 120px;
           height: 48px;
           color: #8a8f98;
 
